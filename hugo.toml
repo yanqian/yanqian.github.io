@@ -8,7 +8,7 @@ defaultContentLanguage = "en"
 pagerSize = 10
 
 [params]
-author = "Yan Qiang"
+author = "Armstrong Yan"
 info = "Backend Engineer · Platform · Systems Thinking"
 description = "Personal blog of Yan Qiang"
 keywords = "blog,backend,system design,platform engineering"

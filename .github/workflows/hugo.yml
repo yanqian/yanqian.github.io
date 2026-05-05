@@ -44,6 +44,11 @@ jobs:
       - name: Build
         run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
 
+      - name: Check public output
+        run: |
+          ls -la public
+          test -f public/index.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
