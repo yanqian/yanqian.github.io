@@ -1,0 +1,26 @@
+baseURL = "https://yanqian.github.io/"
+title = "Armstrong Yan"
+theme = "hugo-coder"
+languageCode = "en-us"
+defaultContentLanguage = "en"
+
+[pagination]
+pagerSize = 10
+
+[params]
+author = "Yan Qiang"
+info = "Backend Engineer · Platform · Systems Thinking"
+description = "Personal blog of Yan Qiang"
+keywords = "blog,backend,system design,platform engineering"
+colorScheme = "auto"
+hideColorSchemeToggle = false
+
+[[menu.main]]
+name = "Blog"
+weight = 1
+url = "posts/"
+
+[[menu.main]]
+name = "About"
+weight = 2
+url = "about/"
