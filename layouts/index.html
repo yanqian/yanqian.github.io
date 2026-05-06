@@ -1,42 +1,37 @@
 {{ define "content" }}
 
-<section class="home-posts" aria-labelledby="posts-title">
-  <h1 id="posts-title">Posts</h1>
+<section class="container page home-page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="{{ .Permalink | safeURL }}">
+          Home
+        </a>
+      </h1>
+    </header>
 
-  {{ $posts := sort (where .Site.RegularPages "Section" "posts") "File.Path" "asc" }}
-  {{ if $posts }}
-    <ol class="post-list">
-      {{ range $posts }}
-        <li class="post-row">
-          <div class="post-row-main">
-            <h3>
-              <a href="{{ .RelPermalink }}">
-                {{ with .File }}content/{{ .Path }}{{ else }}{{ .RelPermalink }}{{ end }}
+    <section class="home-posts" aria-labelledby="posts-title">
+      <h2 id="posts-title">Posts</h2>
+
+      {{ $posts := sort (where .Site.RegularPages "Section" "posts") "File.Path" "asc" }}
+      {{ if $posts }}
+        <ol class="post-list">
+          {{ range $posts }}
+            <li class="post-row">
+              <a class="post-row-title" href="{{ .RelPermalink }}">
+                {{ if .Title }}{{ .Title }}{{ else }}{{ with .File }}content/{{ .Path }}{{ else }}{{ .RelPermalink }}{{ end }}{{ end }}
               </a>
-            </h3>
-            {{ with .Title }}
-              <p class="post-title">{{ . }}</p>
-            {{ end }}
-            {{ with .Description }}
-              <p class="post-description">{{ . }}</p>
-            {{ end }}
-            {{ with .Params.tags }}
-              <ul class="post-tags" aria-label="Tags">
-                {{ range . }}
-                  <li>#{{ . }}</li>
-                {{ end }}
-              </ul>
-            {{ end }}
-          </div>
-          {{ if not .Date.IsZero }}
-            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+              {{ if not .Date.IsZero }}
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+              {{ end }}
+            </li>
           {{ end }}
-        </li>
+        </ol>
+      {{ else }}
+        <p class="empty-state">No public posts yet.</p>
       {{ end }}
-    </ol>
-  {{ else }}
-    <p class="empty-state">No public posts yet.</p>
-  {{ end }}
+    </section>
+  </article>
 </section>
 
 {{ end }}
