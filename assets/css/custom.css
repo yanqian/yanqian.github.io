@@ -1,0 +1,59 @@
+.home-terminal {
+  margin: 3rem auto;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #000;
+}
+
+.terminal-bar {
+  background: #c8c8c8;
+  padding: 0.6rem 0.8rem;
+}
+
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+
+.terminal-body {
+  padding: 2rem;
+  color: #cdd6f4;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.terminal-body p {
+  margin: 0.2rem 0;
+}
+
+.home-posts {
+  margin-top: 3rem;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 2rem;
+}
+
+.post-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 1.4rem 0;
+  font-size: 1.15rem;
+}
+
+.post-row a {
+  font-weight: 600;
+}
+
+.post-row span {
+  white-space: nowrap;
+  color: #666;
+  font-style: italic;
+}

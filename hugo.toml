@@ -14,13 +14,29 @@ description = "Personal blog of Yan Qiang"
 keywords = "blog,backend,system design,platform engineering"
 colorScheme = "auto"
 hideColorSchemeToggle = false
+customCSS = ["css/custom.css"]
 
 [[menu.main]]
-name = "Blog"
+name = "Home"
 weight = 1
-url = "posts/"
+url = "/"
+
+[[menu.main]]
+name = "Projects"
+weight = 2
+url = "/projects/"
 
 [[menu.main]]
 name = "About"
-weight = 2
-url = "about/"
+weight = 3
+url = "/about/"
+
+[[menu.main]]
+name = "Now"
+weight = 4
+url = "/now/"
+
+[[menu.main]]
+name = "Resume"
+weight = 5
+url = "/resume/"

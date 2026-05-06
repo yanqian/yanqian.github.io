@@ -1,0 +1,34 @@
+{{ define "content" }}
+
+<section class="home-terminal">
+  <div class="terminal-bar">
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+  </div>
+
+  <div class="terminal-body">
+    <p>$ whoami</p>
+    <p><strong>yanqian@github</strong></p>
+    <p>--------------------</p>
+    <p>OS: Human</p>
+    <p>Host: Singapore 🇸🇬</p>
+    <p>Kernel: Backend / Platform Engineer</p>
+    <p>Packages: Go, Python, Distributed Systems, Cloud</p>
+    <p>Focus: Reliable systems, engineering workflows, personal knowledge systems</p>
+    <br />
+    <p>This is where I write about tech, projects, and learnings.</p>
+    <p>$ _</p>
+  </div>
+</section>
+
+<section class="home-posts">
+  {{ range first 10 (where .Site.RegularPages "Section" "posts") }}
+    <div class="post-row">
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+    </div>
+  {{ end }}
+</section>
+
+{{ end }}
