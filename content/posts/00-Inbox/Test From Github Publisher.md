@@ -8,4 +8,4 @@ draft: "false"
 
 Hello from Obsidian 🚀
 
-测试是否会放到publish目录里面
+测试是否会放到publish目录里面。
