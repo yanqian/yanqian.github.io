@@ -6,8 +6,6 @@ tags: [public]
 categories: []
 ---
 
-# Test From Github Publisher
-
 Hello from Obsidian 🚀
 
 测试是否会放到publish目录里面。
