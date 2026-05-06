@@ -1,33 +1,41 @@
 {{ define "content" }}
 
-<section class="home-terminal">
-  <div class="terminal-bar">
-    <span class="dot red"></span>
-    <span class="dot yellow"></span>
-    <span class="dot green"></span>
-  </div>
+<section class="home-posts" aria-labelledby="posts-title">
+  <h1 id="posts-title">Posts</h1>
 
-  <div class="terminal-body">
-    <p>$ whoami</p>
-    <p><strong>yanqian@github</strong></p>
-    <p>--------------------</p>
-    <p>OS: Human</p>
-    <p>Host: Singapore 🇸🇬</p>
-    <p>Kernel: Backend / Platform Engineer</p>
-    <p>Packages: Go, Python, Distributed Systems, Cloud</p>
-    <p>Focus: Reliable systems, engineering workflows, personal knowledge systems</p>
-    <br />
-    <p>This is where I write about tech, projects, and learnings.</p>
-    <p>$ _</p>
-  </div>
-</section>
-
-<section class="home-posts">
-  {{ range first 10 (where .Site.RegularPages "Section" "posts") }}
-    <div class="post-row">
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      <span>{{ .Date.Format "Jan 2, 2006" }}</span>
-    </div>
+  {{ $posts := sort (where .Site.RegularPages "Section" "posts") "File.Path" "asc" }}
+  {{ if $posts }}
+    <ol class="post-list">
+      {{ range $posts }}
+        <li class="post-row">
+          <div class="post-row-main">
+            <h3>
+              <a href="{{ .RelPermalink }}">
+                {{ with .File }}content/{{ .Path }}{{ else }}{{ .RelPermalink }}{{ end }}
+              </a>
+            </h3>
+            {{ with .Title }}
+              <p class="post-title">{{ . }}</p>
+            {{ end }}
+            {{ with .Description }}
+              <p class="post-description">{{ . }}</p>
+            {{ end }}
+            {{ with .Params.tags }}
+              <ul class="post-tags" aria-label="Tags">
+                {{ range . }}
+                  <li>#{{ . }}</li>
+                {{ end }}
+              </ul>
+            {{ end }}
+          </div>
+          {{ if not .Date.IsZero }}
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+          {{ end }}
+        </li>
+      {{ end }}
+    </ol>
+  {{ else }}
+    <p class="empty-state">No public posts yet.</p>
   {{ end }}
 </section>
 

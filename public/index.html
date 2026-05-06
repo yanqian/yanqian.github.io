@@ -103,42 +103,77 @@
 
 
   <main class="wrapper">
-    <nav class="navigation">
+    <nav class="navigation" aria-label="Main navigation">
   <section class="container">
     
-    <a class="navigation-title" href="http://localhost:1313/">
-      Armstrong Yan
-    </a>
+      <a class="navigation-title" href="http://localhost:1313/">
+        Armstrong Yan
+      </a>
     
+
     
       <input type="checkbox" id="menu-toggle" />
-      <label class="menu-button float-right" for="menu-toggle">
+      <label class="menu-button float-right" for="menu-toggle" aria-label="Toggle navigation menu">
         <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
       </label>
+
       <ul class="navigation-list">
         
           
+            
+            
+            
+            
+              
+            
             <li class="navigation-item">
-              <a class="navigation-link " href="/">Home</a>
+              <a class="navigation-link  active" href="/" aria-current="page">
+                Home
+              </a>
             </li>
           
+            
+            
+            
+            
             <li class="navigation-item">
-              <a class="navigation-link " href="/projects/">Projects</a>
+              <a class="navigation-link " href="/projects/">
+                Projects
+              </a>
             </li>
           
+            
+            
+            
+            
             <li class="navigation-item">
-              <a class="navigation-link " href="/about/">About</a>
+              <a class="navigation-link " href="/about/">
+                About
+              </a>
             </li>
           
+            
+            
+            
+            
             <li class="navigation-item">
-              <a class="navigation-link " href="/now/">Now</a>
+              <a class="navigation-link " href="/now/">
+                Now
+              </a>
             </li>
           
+            
+            
+            
+            
             <li class="navigation-item">
-              <a class="navigation-link " href="/resume/">Resume</a>
+              <a class="navigation-link " href="/resume/">
+                Resume
+              </a>
             </li>
           
         
+
         
       </ul>
     
@@ -149,34 +184,30 @@
     <div class="content">
       
 
-<section class="home-terminal">
-  <div class="terminal-bar">
-    <span class="dot red"></span>
-    <span class="dot yellow"></span>
-    <span class="dot green"></span>
-  </div>
+<section class="home-posts" aria-labelledby="posts-title">
+  <h1 id="posts-title">Posts</h1>
 
-  <div class="terminal-body">
-    <p>$ whoami</p>
-    <p><strong>yanqian@github</strong></p>
-    <p>--------------------</p>
-    <p>OS: Human</p>
-    <p>Host: Singapore 🇸🇬</p>
-    <p>Kernel: Backend / Platform Engineer</p>
-    <p>Packages: Go, Python, Distributed Systems, Cloud</p>
-    <p>Focus: Reliable systems, engineering workflows, personal knowledge systems</p>
-    <br />
-    <p>This is where I write about tech, projects, and learnings.</p>
-    <p>$ _</p>
-  </div>
-</section>
-
-<section class="home-posts">
   
-    <div class="post-row">
-      <a href="/posts/hello-world/"></a>
-      <span>May 5, 2026</span>
-    </div>
+  
+    <ol class="post-list">
+      
+        <li class="post-row">
+          <div class="post-row-main">
+            <h3>
+              <a href="/posts/hello-world/">
+                content/posts/hello-world.md
+              </a>
+            </h3>
+            
+            
+            
+          </div>
+          
+            <time datetime="2026-05-05">May 5, 2026</time>
+          
+        </li>
+      
+    </ol>
   
 </section>
 
@@ -185,14 +216,9 @@
 
     <footer class="footer">
   <section class="container">
-    ©
-    
-    2026
-     Armstrong Yan 
-    ·
-    
-    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
-    
+    <span>© 2026 Armstrong Yan</span>
+    <span class="footer-separator">·</span>
+    <span>Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>.</span>
   </section>
 </footer>
 

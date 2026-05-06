@@ -1,0 +1,34 @@
+<section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="{{ .Permalink | safeURL }}">
+          {{ .Title }}
+        </a>
+      </h1>
+    </header>
+
+    {{ if .Params.terminal }}
+      <section class="terminal-block" aria-label="Identity terminal">
+        <div class="terminal-bar">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <div class="terminal-body">
+          <p>$ whoami</p>
+          <p><strong>armstrong@yanqian</strong></p>
+          <p>-----------------</p>
+          <p>OS: Human</p>
+          <p>Host: Singapore</p>
+          <p>Kernel: Backend / Platform Engineer</p>
+          <p>Packages: Go, Python, Distributed Systems, Cloud</p>
+          <p>Focus: Reliable systems, engineering workflows, personal knowledge systems</p>
+          <p>$ _</p>
+        </div>
+      </section>
+    {{ end }}
+
+    {{ .Content }}
+  </article>
+</section>

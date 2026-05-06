@@ -1,7 +1,7 @@
 baseURL = "https://yanqian.github.io/"
 title = "Armstrong Yan"
 theme = "hugo-coder"
-languageCode = "en-us"
+locale = "en-us"
 defaultContentLanguage = "en"
 
 [pagination]
