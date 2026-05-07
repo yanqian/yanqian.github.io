@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -30 1410 552" width="1410" height="552">
+<rect x="-20" y="-30" width="1410" height="552" fill="#ffffff"/>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#1e3a5f"/></marker></defs>
+<text x="40" y="60.0" font-family="monospace" font-size="30" fill="#1e40af" text-anchor="start">Private-to-Public Publishing Pipeline</text>
+<text x="42" y="90.0" font-family="monospace" font-size="18" fill="#64748b" text-anchor="start">The private vault stays messy; only the public projection reaches the</text>
+<text x="42" y="112.5" font-family="monospace" font-size="18" fill="#64748b" text-anchor="start">website.</text>
+<rect x="70" y="150" width="165" height="80" rx="10" fill="#fed7aa" stroke="#c2410c" stroke-width="2"/>
+<text x="152.5" y="175.0" font-family="monospace" font-size="17" fill="#374151" text-anchor="middle">Obsidian</text>
+<text x="152.5" y="196.25" font-family="monospace" font-size="17" fill="#374151" text-anchor="middle">private source</text>
+<polyline points="243,190.0 277,190.0" fill="none" stroke="#c2410c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="285" y="150" width="165" height="80" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+<text x="367.5" y="175.0" font-family="monospace" font-size="17" fill="#374151" text-anchor="middle">QuickAdd</text>
+<text x="367.5" y="196.25" font-family="monospace" font-size="17" fill="#374151" text-anchor="middle">publish command</text>
+<polyline points="458,190.0 492,190.0" fill="none" stroke="#b45309" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="500" y="150" width="165" height="80" rx="10" fill="#dbeafe" stroke="#1e3a5f" stroke-width="2"/>
+<text x="582.5" y="175.0" font-family="monospace" font-size="17" fill="#374151" text-anchor="middle">Publish/</text>
+<text x="582.5" y="196.25" font-family="monospace" font-size="17" fill="#374151" text-anchor="middle">clean</text>
+<text x="582.5" y="217.5" font-family="monospace" font-size="17" fill="#374151" text-anchor="middle">projection</text>
+<polyline points="673,190.0 707,190.0" fill="none" stroke="#1e3a5f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="715" y="150" width="165" height="80" rx="10" fill="#bfdbfe" stroke="#1e3a5f" stroke-width="2"/>
+<text x="797.5" y="175.0" font-family="monospace" font-size="17" fill="#374151" text-anchor="middle">GitHub</text>
+<text x="797.5" y="196.25" font-family="monospace" font-size="17" fill="#374151" text-anchor="middle">Publisher</text>
+<polyline points="888,190.0 922,190.0" fill="none" stroke="#1e3a5f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="930" y="150" width="165" height="80" rx="10" fill="#eff6ff" stroke="#1e3a5f" stroke-width="2"/>
+<text x="1012.5" y="175.0" font-family="monospace" font-size="17" fill="#374151" text-anchor="middle">Hugo</text>
+<text x="1012.5" y="196.25" font-family="monospace" font-size="17" fill="#374151" text-anchor="middle">site build</text>
+<polyline points="1103,190.0 1137,190.0" fill="none" stroke="#1e3a5f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="1145" y="150" width="165" height="80" rx="10" fill="#a7f3d0" stroke="#047857" stroke-width="2"/>
+<text x="1227.5" y="175.0" font-family="monospace" font-size="17" fill="#374151" text-anchor="middle">GitHub Pages</text>
+<text x="1227.5" y="196.25" font-family="monospace" font-size="17" fill="#374151" text-anchor="middle">public website</text>
+<polyline points="40,295 1230,295" fill="none" stroke="#64748b" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 6"/>
+<text x="70" y="347.0" font-family="monospace" font-size="22" fill="#3b82f6" text-anchor="start">Private writing structure</text>
+<text x="70" y="378.0" font-family="monospace" font-size="18" fill="#64748b" text-anchor="start">00-Inbox, Notes, Projects,</text>
+<text x="70" y="400.5" font-family="monospace" font-size="18" fill="#64748b" text-anchor="start">drafts, unfinished thinking</text>
+<text x="575" y="347.0" font-family="monospace" font-size="22" fill="#3b82f6" text-anchor="start">Public boundary</text>
+<text x="575" y="378.0" font-family="monospace" font-size="18" fill="#64748b" text-anchor="start">Publish/ is the only</text>
+<text x="575" y="400.5" font-family="monospace" font-size="18" fill="#64748b" text-anchor="start">exported surface</text>
+<text x="935" y="347.0" font-family="monospace" font-size="22" fill="#3b82f6" text-anchor="start">Public rendering</text>
+<text x="935" y="378.0" font-family="monospace" font-size="18" fill="#64748b" text-anchor="start">Hugo turns clean markdown</text>
+<text x="935" y="400.5" font-family="monospace" font-size="18" fill="#64748b" text-anchor="start">into pages</text>
+</svg>

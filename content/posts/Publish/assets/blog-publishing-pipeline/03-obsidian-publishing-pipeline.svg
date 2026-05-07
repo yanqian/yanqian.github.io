@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -30 1360 640" width="1360" height="640">
+<rect x="-20" y="-30" width="1360" height="640" fill="#ffffff"/>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#1e3a5f"/></marker></defs>
+<text x="40" y="60.0" font-family="monospace" font-size="30" fill="#1e40af" text-anchor="start">Obsidian Publishing Pipeline</text>
+<text x="42" y="90.0" font-family="monospace" font-size="18" fill="#64748b" text-anchor="start">A command turns any private note into clean Hugo-ready markdown.</text>
+<rect x="70" y="150" width="230" height="95" rx="10" fill="#fed7aa" stroke="#c2410c" stroke-width="2"/>
+<text x="185.0" y="176.0" font-family="monospace" font-size="18" fill="#374151" text-anchor="middle">Any private note</text>
+<text x="185.0" y="198.5" font-family="monospace" font-size="18" fill="#374151" text-anchor="middle">any folder</text>
+<rect x="390" y="150" width="240" height="95" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+<text x="510.0" y="176.0" font-family="monospace" font-size="18" fill="#374151" text-anchor="middle">QuickAdd script</text>
+<text x="510.0" y="198.5" font-family="monospace" font-size="18" fill="#374151" text-anchor="middle">normalize content</text>
+<rect x="720" y="150" width="250" height="95" rx="10" fill="#dbeafe" stroke="#1e3a5f" stroke-width="2"/>
+<text x="845.0" y="176.0" font-family="monospace" font-size="18" fill="#374151" text-anchor="middle">Publish/</text>
+<text x="845.0" y="198.5" font-family="monospace" font-size="18" fill="#374151" text-anchor="middle">public markdown</text>
+<rect x="1040" y="150" width="220" height="95" rx="10" fill="#bfdbfe" stroke="#1e3a5f" stroke-width="2"/>
+<text x="1150.0" y="176.0" font-family="monospace" font-size="18" fill="#374151" text-anchor="middle">GitHub Publisher</text>
+<text x="1150.0" y="198.5" font-family="monospace" font-size="18" fill="#374151" text-anchor="middle">sync to repo</text>
+<polyline points="310,197 375,197" fill="none" stroke="#1e3a5f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<polyline points="640,197 705,197" fill="none" stroke="#1e3a5f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<polyline points="980,197 1045,197" fill="none" stroke="#1e3a5f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="80" y="321.0" font-family="monospace" font-size="21" fill="#3b82f6" text-anchor="start">Input evidence</text>
+<rect x="80" y="340" width="360" height="150" rx="10" fill="#1e293b" stroke="#1e293b" stroke-width="1"/>
+<text x="100" y="378.0" font-family="monospace" font-size="18" fill="#ffffff" text-anchor="start"># Kafka Design</text>
+<text x="100" y="410.0" font-family="monospace" font-size="18" fill="#22c55e" text-anchor="start">#public</text>
+<text x="100" y="440.0" font-family="monospace" font-size="16" fill="#ffffff" text-anchor="start">Some internal structure can exist</text>
+<text x="100" y="460.0" font-family="monospace" font-size="16" fill="#ffffff" text-anchor="start">here...</text>
+<text x="760" y="321.0" font-family="monospace" font-size="21" fill="#3b82f6" text-anchor="start">Generated output</text>
+<rect x="760" y="340" width="420" height="190" rx="10" fill="#1e293b" stroke="#1e293b" stroke-width="1"/>
+<text x="780" y="376.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">---</text>
+<text x="780" y="398.0" font-family="monospace" font-size="16" fill="#ffffff" text-anchor="start">title: &quot;Kafka Design&quot;</text>
+<text x="780" y="420.0" font-family="monospace" font-size="16" fill="#ffffff" text-anchor="start">date: 2026-05-06</text>
+<text x="780" y="442.0" font-family="monospace" font-size="16" fill="#ffffff" text-anchor="start">draft: false</text>
+<text x="780" y="464.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">tags:</text>
+<text x="780" y="486.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">  - kafka</text>
+<text x="780" y="508.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">---</text>
+<polyline points="455,410 735,410" fill="none" stroke="#b45309" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="602.5" y="384.0" font-family="monospace" font-size="19" fill="#b45309" text-anchor="middle">clean</text>
+<text x="602.5" y="407.75" font-family="monospace" font-size="19" fill="#b45309" text-anchor="middle">transform</text>
+</svg>

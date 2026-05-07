@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -30 1240 695" width="1240" height="695">
+<rect x="-20" y="-30" width="1240" height="695" fill="#ffffff"/>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#1e3a5f"/></marker></defs>
+<text x="40" y="60.0" font-family="monospace" font-size="30" fill="#1e40af" text-anchor="start">Recommended Article Shape</text>
+<text x="42" y="90.0" font-family="monospace" font-size="18" fill="#64748b" text-anchor="start">Keep the article centered on the boundary design, not on every tool click.</text>
+<polyline points="112,165 112,585" fill="none" stroke="#64748b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="112.0" cy="157.0" rx="12.0" ry="12.0" fill="#dbeafe" stroke="#1e3a5f" stroke-width="2"/>
+<text x="112.0" y="159.0" font-family="monospace" font-size="13" fill="#1e3a5f" text-anchor="middle">1</text>
+<text x="148" y="162.0" font-family="monospace" font-size="21" fill="#3b82f6" text-anchor="start">Why I Built This</text>
+<text x="148" y="188.0" font-family="monospace" font-size="17" fill="#64748b" text-anchor="start">Private source of truth, public website as projection</text>
+<ellipse cx="112.0" cy="229.0" rx="12.0" ry="12.0" fill="#dbeafe" stroke="#1e3a5f" stroke-width="2"/>
+<text x="112.0" y="231.0" font-family="monospace" font-size="13" fill="#1e3a5f" text-anchor="middle">2</text>
+<text x="148" y="234.0" font-family="monospace" font-size="21" fill="#3b82f6" text-anchor="start">The Boundary Problem</text>
+<text x="148" y="260.0" font-family="monospace" font-size="17" fill="#64748b" text-anchor="start">The vault structure should not become public URLs</text>
+<ellipse cx="112.0" cy="301.0" rx="12.0" ry="12.0" fill="#dbeafe" stroke="#1e3a5f" stroke-width="2"/>
+<text x="112.0" y="303.0" font-family="monospace" font-size="13" fill="#1e3a5f" text-anchor="middle">3</text>
+<text x="148" y="306.0" font-family="monospace" font-size="21" fill="#3b82f6" text-anchor="start">Final Architecture</text>
+<text x="148" y="332.0" font-family="monospace" font-size="17" fill="#64748b" text-anchor="start">Show the full Obsidian → GitHub Pages flow</text>
+<ellipse cx="112.0" cy="373.0" rx="12.0" ry="12.0" fill="#dbeafe" stroke="#1e3a5f" stroke-width="2"/>
+<text x="112.0" y="375.0" font-family="monospace" font-size="13" fill="#1e3a5f" text-anchor="middle">4</text>
+<text x="148" y="378.0" font-family="monospace" font-size="21" fill="#3b82f6" text-anchor="start">Hugo Setup</text>
+<text x="148" y="404.0" font-family="monospace" font-size="17" fill="#64748b" text-anchor="start">Keep this section light and practical</text>
+<ellipse cx="112.0" cy="445.0" rx="12.0" ry="12.0" fill="#dbeafe" stroke="#1e3a5f" stroke-width="2"/>
+<text x="112.0" y="447.0" font-family="monospace" font-size="13" fill="#1e3a5f" text-anchor="middle">5</text>
+<text x="148" y="450.0" font-family="monospace" font-size="21" fill="#3b82f6" text-anchor="start">Obsidian Pipeline</text>
+<text x="148" y="476.0" font-family="monospace" font-size="17" fill="#64748b" text-anchor="start">Publish/ folder, GitHub Publisher, QuickAdd automation</text>
+<ellipse cx="112.0" cy="517.0" rx="12.0" ry="12.0" fill="#dbeafe" stroke="#1e3a5f" stroke-width="2"/>
+<text x="112.0" y="519.0" font-family="monospace" font-size="13" fill="#1e3a5f" text-anchor="middle">6</text>
+<text x="148" y="522.0" font-family="monospace" font-size="21" fill="#3b82f6" text-anchor="start">Lessons Learned</text>
+<text x="148" y="548.0" font-family="monospace" font-size="17" fill="#64748b" text-anchor="start">Writing structure ≠ publishing structure</text>
+<rect x="820" y="155" width="320" height="210" rx="10" fill="#a7f3d0" stroke="#047857" stroke-width="2"/>
+<text x="980.0" y="209.0" font-family="monospace" font-size="24" fill="#047857" text-anchor="middle">Core argument</text>
+<text x="980.0" y="255.0" font-family="monospace" font-size="20" fill="#374151" text-anchor="middle">Private thinking</text>
+<text x="980.0" y="280.0" font-family="monospace" font-size="20" fill="#374151" text-anchor="middle">↓</text>
+<text x="980.0" y="305.0" font-family="monospace" font-size="20" fill="#374151" text-anchor="middle">Public projection</text>
+<text x="980.0" y="330.0" font-family="monospace" font-size="20" fill="#374151" text-anchor="middle">↓</text>
+<text x="980.0" y="355.0" font-family="monospace" font-size="20" fill="#374151" text-anchor="middle">Website rendering</text>
+</svg>

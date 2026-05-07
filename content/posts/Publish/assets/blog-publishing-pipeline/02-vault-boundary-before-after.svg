@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -32 1190 712" width="1190" height="712">
+<rect x="-20" y="-32" width="1190" height="712" fill="#ffffff"/>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#1e3a5f"/></marker></defs>
+<text x="40" y="58.0" font-family="monospace" font-size="30" fill="#1e40af" text-anchor="start">The Boundary Problem</text>
+<text x="42" y="88.0" font-family="monospace" font-size="18" fill="#64748b" text-anchor="start">Publishing directly exposes how you think. A projection folder exposes only what</text>
+<text x="42" y="110.5" font-family="monospace" font-size="18" fill="#64748b" text-anchor="start">readers need.</text>
+<text x="90" y="153.0" font-family="monospace" font-size="23" fill="#dc2626" text-anchor="start">Wrong: publish the whole</text>
+<text x="90" y="181.75" font-family="monospace" font-size="23" fill="#dc2626" text-anchor="start">vault</text>
+<text x="690" y="153.0" font-family="monospace" font-size="23" fill="#047857" text-anchor="start">Better: publish a clean</text>
+<text x="690" y="181.75" font-family="monospace" font-size="23" fill="#047857" text-anchor="start">projection</text>
+<rect x="80" y="180" width="380" height="360" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+<text x="270.0" y="208.0" font-family="monospace" font-size="20" fill="#374151" text-anchor="middle">Vault/</text>
+<text x="130" y="253.0" font-family="monospace" font-size="18" fill="#374151" text-anchor="start">00-Inbox/</text>
+<polyline points="108,248 126,248" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="130" y="295.0" font-family="monospace" font-size="18" fill="#374151" text-anchor="start">01-Note/</text>
+<polyline points="108,290 126,290" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="130" y="337.0" font-family="monospace" font-size="18" fill="#374151" text-anchor="start">02-Project/</text>
+<polyline points="108,332 126,332" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="130" y="379.0" font-family="monospace" font-size="18" fill="#374151" text-anchor="start">Career/</text>
+<polyline points="108,374 126,374" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="130" y="421.0" font-family="monospace" font-size="18" fill="#374151" text-anchor="start">Random Thoughts/</text>
+<polyline points="108,416 126,416" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="130" y="463.0" font-family="monospace" font-size="18" fill="#374151" text-anchor="start">Published directly ✗</text>
+<polyline points="108,458 126,458" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="470,345 620,345" fill="none" stroke="#64748b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="550.0" y="318.0" font-family="monospace" font-size="18" fill="#dc2626" text-anchor="middle">leaks URLs</text>
+<rect x="670" y="180" width="420" height="360" rx="10" fill="#a7f3d0" stroke="#047857" stroke-width="2"/>
+<text x="880.0" y="208.0" font-family="monospace" font-size="20" fill="#374151" text-anchor="middle">Vault/</text>
+<text x="720" y="253.0" font-family="monospace" font-size="18" fill="#374151" text-anchor="start">00-Inbox/</text>
+<polyline points="698,248 716,248" fill="none" stroke="#047857" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="720" y="295.0" font-family="monospace" font-size="18" fill="#374151" text-anchor="start">01-Note/</text>
+<polyline points="698,290 716,290" fill="none" stroke="#047857" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="720" y="337.0" font-family="monospace" font-size="18" fill="#374151" text-anchor="start">02-Project/</text>
+<polyline points="698,332 716,332" fill="none" stroke="#047857" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="720" y="379.0" font-family="monospace" font-size="18" fill="#374151" text-anchor="start">04-Reference/</text>
+<polyline points="698,374 716,374" fill="none" stroke="#047857" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="720" y="421.0" font-family="monospace" font-size="18" fill="#047857" text-anchor="start">Publish/  ✓</text>
+<polyline points="698,416 716,416" fill="none" stroke="#047857" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="720" y="463.0" font-family="monospace" font-size="18" fill="#374151" text-anchor="start">Scripts/</text>
+<polyline points="698,458 716,458" fill="none" stroke="#047857" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="885.0" y="585.0" font-family="monospace" font-size="20" fill="#047857" text-anchor="middle">Only Publish/ crosses the</text>
+<text x="885.0" y="610.0" font-family="monospace" font-size="20" fill="#047857" text-anchor="middle">public boundary</text>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -30 1290 625" width="1290" height="625">
+<rect x="-20" y="-30" width="1290" height="625" fill="#ffffff"/>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#1e3a5f"/></marker></defs>
+<text x="40" y="60.0" font-family="monospace" font-size="30" fill="#1e40af" text-anchor="start">Before / After: Private Note to Public Post</text>
+<text x="42" y="90.0" font-family="monospace" font-size="18" fill="#64748b" text-anchor="start">The publish script removes private metadata and creates Hugo frontmatter.</text>
+<text x="100" y="164.0" font-family="monospace" font-size="24" fill="#c2410c" text-anchor="start">Private source note</text>
+<rect x="90" y="185" width="430" height="330" rx="10" fill="#1e293b" stroke="#1e293b" stroke-width="1"/>
+<text x="115" y="226.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">---</text>
+<text x="115" y="251.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">status: draft-thinking</text>
+<text x="115" y="276.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">private: true</text>
+<text x="115" y="301.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">tags: [public, kafka]</text>
+<text x="115" y="326.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">---</text>
+<text x="115" y="351.0" font-family="monospace" font-size="16" fill="#ffffff" text-anchor="start"></text>
+<text x="115" y="376.0" font-family="monospace" font-size="16" fill="#ffffff" text-anchor="start"># Kafka Design</text>
+<text x="115" y="401.0" font-family="monospace" font-size="16" fill="#ffffff" text-anchor="start">#public</text>
+<text x="115" y="426.0" font-family="monospace" font-size="16" fill="#ffffff" text-anchor="start"></text>
+<text x="115" y="451.0" font-family="monospace" font-size="16" fill="#ffffff" text-anchor="start">Some internal thoughts...</text>
+<text x="770" y="164.0" font-family="monospace" font-size="24" fill="#047857" text-anchor="start">Public Hugo markdown</text>
+<rect x="720" y="185" width="470" height="330" rx="10" fill="#1e293b" stroke="#1e293b" stroke-width="1"/>
+<text x="745" y="226.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">---</text>
+<text x="745" y="250.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">title: &quot;Kafka Design&quot;</text>
+<text x="745" y="274.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">date: 2026-05-06</text>
+<text x="745" y="298.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">draft: false</text>
+<text x="745" y="322.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">categories:</text>
+<text x="745" y="346.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">  - system-design</text>
+<text x="745" y="370.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">tags:</text>
+<text x="745" y="394.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">  - kafka</text>
+<text x="745" y="418.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">---</text>
+<text x="745" y="442.0" font-family="monospace" font-size="16" fill="#ffffff" text-anchor="start"></text>
+<text x="745" y="466.0" font-family="monospace" font-size="16" fill="#ffffff" text-anchor="start">Some internal thoughts...</text>
+<polyline points="540,340 685,340" fill="none" stroke="#b45309" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="620.0" y="310.0" font-family="monospace" font-size="20" fill="#b45309" text-anchor="middle">publish</text>
+<text x="625.0" y="386.0" font-family="monospace" font-size="16" fill="#64748b" text-anchor="middle">remove</text>
+<text x="625.0" y="406.0" font-family="monospace" font-size="16" fill="#64748b" text-anchor="middle">duplicate H1</text>
+<text x="625.0" y="426.0" font-family="monospace" font-size="16" fill="#64748b" text-anchor="middle">and #public</text>
+<text x="625.0" y="446.0" font-family="monospace" font-size="16" fill="#64748b" text-anchor="middle">marker</text>
+</svg>
