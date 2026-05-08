@@ -19,6 +19,8 @@ This is less a Hugo tutorial and more a note about designing a publishing bounda
 
 This article documents the architecture, tradeoffs, and workflow I ended up with.
 
+The repository names, URLs, and site pages in this article come from my own setup. If you follow the same approach, replace them with your GitHub username, repository name, domain, and navigation structure.
+
 The final stack is a private-to-public publishing pipeline:
 
 ![Private-to-public publishing pipeline](assets/blog-publishing-pipeline/01-publishing-architecture.svg)
@@ -237,41 +239,13 @@ Published posts use Hugo-compatible frontmatter:
 title: "Kafka Design"
 date: 2026-05-06
 draft: false
-categories:
-  - system-design
 tags:
   - kafka
   - distributed-systems
 ---
 ```
 
-I use:
-
-- categories for high-level structure
-- tags for flexible indexing
-
----
-
-## Categories vs Tags
-
-I ended up treating them differently.
-
-### Categories
-
-Used for major site structure:
-
-```yaml
-categories:
-  - backend
-  - platform
-  - system-design
-```
-
-Stable and limited.
-
-### Tags
-
-Used for detailed topics:
+For now, I keep the public metadata simple and only use tags:
 
 ```yaml
 tags:
@@ -282,34 +256,6 @@ tags:
 ```
 
 Flexible and expandable.
-
----
-
-## Step 7 — Avoid Duplicate Titles
-
-One subtle issue appeared.
-
-Originally my notes looked like:
-
-```markdown
-# Kafka Design
-
-```
-
-But Hugo already renders:
-
-- title
-- tags
-
-from frontmatter.
-
-This caused duplicate content.
-
-I fixed this by cleaning the generated markdown:
-
-- remove duplicated H1
-- remove standalone `#public`
-- keep only actual article content
 
 ---
 
