@@ -1,6 +1,6 @@
 ---
 title: "Remote Mac Terminal for Codex"
-date: "2026-05-08T22:34:50+08:00"
+date: "2026-05-08T22:47:41+08:00"
 draft: false
 tags:
   - ai/codex
