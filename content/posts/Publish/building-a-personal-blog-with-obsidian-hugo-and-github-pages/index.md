@@ -245,18 +245,6 @@ tags:
 ---
 ```
 
-For now, I keep the public metadata simple and only use tags:
-
-```yaml
-tags:
-  - kafka
-  - redis
-  - flink
-  - reliability
-```
-
-Flexible and expandable.
-
 ---
 
 ## Lessons Learned

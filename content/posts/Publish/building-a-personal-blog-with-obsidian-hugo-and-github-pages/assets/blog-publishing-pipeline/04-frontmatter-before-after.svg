@@ -21,13 +21,12 @@
 <text x="745" y="250.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">title: &quot;Kafka Design&quot;</text>
 <text x="745" y="274.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">date: 2026-05-06</text>
 <text x="745" y="298.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">draft: false</text>
-<text x="745" y="322.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">categories:</text>
-<text x="745" y="346.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">  - system-design</text>
-<text x="745" y="370.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">tags:</text>
-<text x="745" y="394.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">  - kafka</text>
-<text x="745" y="418.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">---</text>
-<text x="745" y="442.0" font-family="monospace" font-size="16" fill="#ffffff" text-anchor="start"></text>
-<text x="745" y="466.0" font-family="monospace" font-size="16" fill="#ffffff" text-anchor="start">Some internal thoughts...</text>
+<text x="745" y="370.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">  - distributed-systems</text>
+<text x="745" y="322.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">tags:</text>
+<text x="745" y="346.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">  - kafka</text>
+<text x="745" y="394.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">---</text>
+<text x="745" y="418.0" font-family="monospace" font-size="16" fill="#ffffff" text-anchor="start"></text>
+<text x="745" y="442.0" font-family="monospace" font-size="16" fill="#ffffff" text-anchor="start">Some internal thoughts...</text>
 <polyline points="540,340 685,340" fill="none" stroke="#b45309" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
 <text x="620.0" y="310.0" font-family="monospace" font-size="20" fill="#b45309" text-anchor="middle">publish</text>
 <text x="625.0" y="386.0" font-family="monospace" font-size="16" fill="#64748b" text-anchor="middle">remove</text>

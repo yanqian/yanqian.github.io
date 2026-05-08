@@ -34,6 +34,6 @@
 <text x="780" y="486.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">  - kafka</text>
 <text x="780" y="508.0" font-family="monospace" font-size="16" fill="#22c55e" text-anchor="start">---</text>
 <polyline points="455,410 735,410" fill="none" stroke="#b45309" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
-<text x="602.5" y="384.0" font-family="monospace" font-size="19" fill="#b45309" text-anchor="middle">clean</text>
-<text x="602.5" y="407.75" font-family="monospace" font-size="19" fill="#b45309" text-anchor="middle">transform</text>
+<text x="602.5" y="354.0" font-family="monospace" font-size="19" fill="#b45309" text-anchor="middle">clean</text>
+<text x="602.5" y="377.75" font-family="monospace" font-size="19" fill="#b45309" text-anchor="middle">transform</text>
 </svg>
