@@ -1,6 +1,6 @@
 ---
 title: "Remote Mac Terminal for Codex"
-date: "2026-05-08T22:34:50+08:00"
+date: "2026-05-08T22:30:24+08:00"
 draft: false
 tags:
   - ai/codex
@@ -679,6 +679,6 @@ This gives you a lightweight remote execution system controlled from your phone.
 
 After the setup is complete, a successful mobile session should look like this:
 
-![Codex running from a phone SSH session](assets/remote-mac-terminal-for-codex/remote-codex-phone-connected-preview.png)
+{{< figure src="assets/remote-mac-terminal-for-codex/remote-codex-phone-connected.png" alt="Codex running from a phone SSH session" width="390" >}}
 
 In this example, the phone is connected to the Mac through Termius, the shell is inside a tmux session, and Codex is running inside the remote project directory.
