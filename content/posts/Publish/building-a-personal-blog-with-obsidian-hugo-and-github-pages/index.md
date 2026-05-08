@@ -1,6 +1,6 @@
 ---
 title: "Building a Private-to-Public Publishing Pipeline with Obsidian, Hugo, and GitHub Pages"
-date: "2026-05-08T10:42:33+08:00"
+date: "2026-05-08T15:17:22+08:00"
 draft: false
 tags:
   - project
@@ -9,6 +9,7 @@ tags:
   - github-pages
   - publishing
   - public
+
 ---
 
 I recently rebuilt my personal website around a simple idea:
@@ -115,7 +116,7 @@ Update `hugo.toml`:
 ```toml
 baseURL = "https://yanqian.github.io/"
 languageCode = "en-us"
-title = "Yan Qiang"
+title = "Armstrong Yan"
 theme = "hugo-coder"
 ```
 
