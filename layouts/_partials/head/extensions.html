@@ -1,0 +1,7 @@
+{{ if .IsPage }}
+  {{ $toc := default .Site.Params.Entry.toc .Params.toc }}
+  {{ if and (eq .Section "posts") $toc }}
+    {{ $tocScript := resources.Get "js/post-toc.js" | minify | fingerprint }}
+    <script defer src="{{ $tocScript.RelPermalink }}" integrity="{{ $tocScript.Data.Integrity }}" crossorigin="anonymous"></script>
+  {{ end }}
+{{ end }}

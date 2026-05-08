@@ -319,6 +319,35 @@ a:focus,
   margin: 0.75rem 0;
 }
 
+.toc-item-collapsible {
+  display: grid;
+  grid-template-columns: 1.8rem minmax(0, 1fr);
+}
+
+.toc-item-collapsible > ul {
+  grid-column: 2;
+}
+
+.toc-toggle {
+  align-self: start;
+  background: transparent;
+  border: 0;
+  color: var(--site-accent);
+  cursor: pointer;
+  font: inherit;
+  font-size: 1.35rem;
+  line-height: 1.45;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  width: 1.6rem;
+}
+
+.toc-toggle:hover,
+.toc-toggle:focus {
+  color: var(--site-fg);
+}
+
 .toc a {
   color: var(--site-muted);
   display: inline-block;
@@ -334,11 +363,32 @@ a:focus,
 }
 
 .desktop-toc {
+  max-height: calc(100vh - 12rem);
   max-width: 22rem;
+  overflow-y: auto;
+  padding-bottom: 0.4rem;
   position: fixed;
   right: max(2rem, calc((100vw - var(--site-width)) / 4 - 2rem));
   top: 9rem;
   width: min(22rem, calc((100vw - var(--site-width)) / 2 - 6rem));
+}
+
+.desktop-toc .toc {
+  padding-bottom: 0.8rem;
+}
+
+.desktop-toc {
+  scrollbar-color: var(--site-border) transparent;
+  scrollbar-width: thin;
+}
+
+.desktop-toc::-webkit-scrollbar {
+  width: 6px;
+}
+
+.desktop-toc::-webkit-scrollbar-thumb {
+  background: var(--site-border);
+  border-radius: 999px;
 }
 
 .post .post-content h1 {
