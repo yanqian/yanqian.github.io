@@ -264,6 +264,83 @@ a:focus,
   margin-bottom: 2rem;
 }
 
+.post-with-toc {
+  max-width: var(--site-width);
+}
+
+.post-layout {
+  position: relative;
+}
+
+.mobile-toc {
+  display: none;
+}
+
+.toc {
+  border-left: 1px solid var(--site-border);
+  color: var(--site-muted);
+  font-size: 1.45rem;
+  line-height: 1.55;
+  margin: 0;
+  padding-left: 1.6rem;
+}
+
+.toc__title {
+  color: var(--site-fg);
+  cursor: pointer;
+  font-size: 1.45rem;
+  font-weight: 700;
+  list-style: none;
+  margin-bottom: 1rem;
+}
+
+.toc__title::-webkit-details-marker {
+  display: none;
+}
+
+.toc__title::before {
+  color: var(--site-accent);
+  content: "#";
+  margin-right: 0.45rem;
+}
+
+.toc nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc nav ul ul {
+  margin-top: 0.55rem;
+  padding-left: 1.2rem;
+}
+
+.toc nav li {
+  margin: 0.75rem 0;
+}
+
+.toc a {
+  color: var(--site-muted);
+  display: inline-block;
+  line-height: 1.45;
+  text-decoration: none;
+}
+
+.toc a:hover,
+.toc a:focus {
+  color: var(--site-accent);
+  text-decoration: underline;
+  text-decoration-style: dashed;
+}
+
+.desktop-toc {
+  max-width: 22rem;
+  position: fixed;
+  right: max(2rem, calc((100vw - var(--site-width)) / 4 - 2rem));
+  top: 9rem;
+  width: min(22rem, calc((100vw - var(--site-width)) / 2 - 6rem));
+}
+
 .post .post-content h1 {
   font-size: 2.3rem;
   line-height: 1.25;
@@ -400,6 +477,28 @@ hr {
   padding: 0 0.5rem;
 }
 
+@media (max-width: 1220px) {
+  .desktop-toc {
+    display: none;
+  }
+
+  .mobile-toc {
+    display: block;
+    margin-bottom: 2.2rem;
+  }
+
+  .mobile-toc .toc {
+    background: var(--site-surface);
+    border: 1px solid var(--site-border);
+    border-radius: 6px;
+    padding: 1rem 1.2rem;
+  }
+
+  .mobile-toc .toc:not([open]) {
+    padding-bottom: 1rem;
+  }
+}
+
 @media (max-width: 768px) {
   .content {
     padding: 2.2rem 1.6rem 3rem;
@@ -451,6 +550,18 @@ hr {
 
   .post-row time {
     padding-top: 0;
+  }
+
+  .post-with-toc {
+    max-width: var(--site-width);
+  }
+
+  .post-layout {
+    position: static;
+  }
+
+  .desktop-toc {
+    display: none;
   }
 
   .list li {

@@ -1,0 +1,77 @@
+{{ define "title" }}
+  {{ .Title }} · {{ .Site.Title }}
+{{ end }}
+{{ define "content" }}
+  {{ $toc := default .Site.Params.Entry.toc .Params.toc }}
+  {{ $tocOpen := default .Site.Params.Entry.tocOpen .Params.tocOpen }}
+  <section class="container post post-with-toc">
+    <div class="post-layout">
+      <article>
+        <header>
+          <div class="post-title">
+            <h1 class="title">
+              <a class="title-link" href="{{ .Permalink | safeURL }}">
+                {{ .Title }}
+              </a>
+            </h1>
+          </div>
+          <div class="post-meta">
+            <div class="date">
+              <span class="posted-on">
+                <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+                <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                  {{ .Date | time.Format (.Site.Params.dateFormat | default "January 2, 2006" ) }}
+                </time>
+              </span>
+              <span class="reading-time">
+                <i class="fa-solid fa-clock" aria-hidden="true"></i>
+                {{ i18n "reading_time" .ReadingTime }}
+              </span>
+            </div>
+            {{ with .GetTerms "authors" }}{{ partial "taxonomy/authors.html" . }}{{ end }}
+            {{ with .GetTerms "categories" }}{{ partial "taxonomy/categories.html" . }}{{ end }}
+            {{ with .GetTerms "tags" }}{{ partial "taxonomy/tags.html" . }}{{ end }}
+          </div>
+        </header>
+
+        {{ if $toc }}
+        <div class="mobile-toc">
+          <details class="entry__toc toc" {{ if $tocOpen }}open{{ end }}>
+            <summary class="toc__title">Table of Contents</summary>
+            {{ replace .TableOfContents `id="TableOfContents"` `id="TableOfContentsMobile"` | safeHTML }}
+          </details>
+        </div>
+        {{ end }}
+
+        <div class="post-content">
+          {{ if .Params.featuredImage }}
+            <img src="{{ .Params.featuredImage | relURL }}" alt="Featured image"/>
+          {{ end }}
+          {{ .Content }}
+        </div>
+
+        <footer>
+          {{ partial "posts/series.html" . }}
+          {{ partial "posts/disqus.html" . }}
+          {{ partial "posts/commento.html" . }}
+          {{ partial "posts/utterances.html" . }}
+          {{ partial "posts/giscus.html" . }}
+          {{ partial "posts/mastodon.html" . }}
+          {{ partial "posts/telegram.html" . }}
+          {{ partial "posts/cusdis.html" . }}
+        </footer>
+      </article>
+
+      {{ if $toc }}
+      <aside class="desktop-toc" aria-label="Table of contents">
+        <details class="entry__toc toc" {{ if $tocOpen }}open{{ end }}>
+          <summary class="toc__title">Table of Contents</summary>
+          {{ replace .TableOfContents `id="TableOfContents"` `id="TableOfContentsDesktop"` | safeHTML }}
+        </details>
+      </aside>
+      {{ end }}
+    </div>
+
+    {{ partial "posts/math.html" . }}
+  </section>
+{{ end }}

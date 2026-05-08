@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Armstrong Yan">
+  <rect width="64" height="64" rx="14" fill="#202827"/>
+  <path d="M14 42L24 18h5l10 24h-6l-2-5H22l-2 5h-6zm10-10h6l-3-8-3 8z" fill="#5eead4"/>
+  <path d="M38 18h6l5 9 5-9h6L52 32v10h-6V32L38 18z" fill="#e8eeee"/>
+  <rect x="16" y="48" width="32" height="4" rx="2" fill="#34413f"/>
+  <rect x="50" y="48" width="6" height="4" rx="1" fill="#5eead4"/>
+</svg>

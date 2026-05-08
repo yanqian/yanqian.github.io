@@ -16,6 +16,10 @@ colorScheme = "auto"
 hideColorSchemeToggle = false
 customCSS = ["css/custom.css"]
 
+[params.entry]
+toc = true
+tocOpen = true
+
 [[menu.main]]
 name = "Home"
 weight = 1
