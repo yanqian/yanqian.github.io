@@ -21,7 +21,7 @@ This article documents the architecture, tradeoffs, and workflow I ended up with
 
 The final stack is a private-to-public publishing pipeline:
 
-![Private-to-public publishing pipeline](/posts/Publish/assets/blog-publishing-pipeline/01-publishing-architecture.svg)
+![Private-to-public publishing pipeline](assets/blog-publishing-pipeline/01-publishing-architecture.svg)
 
 The result:
 
@@ -74,7 +74,7 @@ So I introduced an intermediate layer: `Publish/`.
 
 This folder acts as a clean projection of public-ready content.
 
-![Vault boundary before and after](/posts/Publish/assets/blog-publishing-pipeline/02-vault-boundary-before-after.svg)
+![Vault boundary before and after](assets/blog-publishing-pipeline/02-vault-boundary-before-after.svg)
 
 ---
 
@@ -196,7 +196,7 @@ The key issue was not Hugo itself. Hugo worked.
 
 The real problem was deciding where the public/private boundary should live.
 
-![GitHub Publisher boundary configuration](/posts/Publish/assets/blog-publishing-pipeline/06-github-publisher-config.svg)
+![GitHub Publisher boundary configuration](assets/blog-publishing-pipeline/06-github-publisher-config.svg)
 
 ---
 
@@ -210,7 +210,7 @@ This solved the boundary issue cleanly.
 
 Now any note can be projected into the public pipeline without exposing where it originally lived inside the vault.
 
-![Obsidian publishing pipeline](/posts/Publish/assets/blog-publishing-pipeline/03-obsidian-publishing-pipeline.svg)
+![Obsidian publishing pipeline](assets/blog-publishing-pipeline/03-obsidian-publishing-pipeline.svg)
 
 ---
 
@@ -224,7 +224,7 @@ The publish script reads the current note, removes internal metadata, generates 
 
 That gives me a simple workflow: write a note, run `Publish Note`, and let the website update automatically.
 
-![Private note to public Hugo markdown](/posts/Publish/assets/blog-publishing-pipeline/04-frontmatter-before-after.svg)
+![Private note to public Hugo markdown](assets/blog-publishing-pipeline/04-frontmatter-before-after.svg)
 
 ---
 
