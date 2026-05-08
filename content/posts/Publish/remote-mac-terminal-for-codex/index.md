@@ -537,16 +537,6 @@ mac-awake-off
 
 This stops `caffeinate`. It does not quit Tailscale, because keeping Tailscale running makes the Mac reachable again the next time it is awake.
 
-## Optional: Run One Command Under caffeinate
-
-For short local tasks, you can also run one command directly under `caffeinate`, but this is not the preferred remote workflow.
-
-The script-based workflow is better for phone-based remote work because it separates:
-
-- Host readiness: `mac-awake-on` and `mac-awake-off`.
-- Agent sessions: `agent-new`.
-- Phone detachment: `phone-disconnect`.
-
 ## Recommended Defaults
 
 Use these defaults unless you have a specific reason not to:
