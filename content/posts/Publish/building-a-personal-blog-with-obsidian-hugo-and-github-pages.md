@@ -1,6 +1,6 @@
 ---
 title: "Building a Private-to-Public Publishing Pipeline with Obsidian, Hugo, and GitHub Pages"
-date: 2026-05-08
+date: "2026-05-08T10:42:33+08:00"
 draft: false
 tags:
   - project
