@@ -1,6 +1,6 @@
 ---
 title: "Building a Private-to-Public Publishing Pipeline with Obsidian, Hugo, and GitHub Pages"
-date: "2026-05-08T15:17:22+08:00"
+date: "2026-05-08T22:48:50+08:00"
 draft: false
 tags:
   - project
@@ -225,7 +225,12 @@ So I added QuickAdd automation.
 
 The publish script reads the current note, removes internal metadata, generates Hugo frontmatter, creates a slug, and writes the result into `Publish/`.
 
-That gives me a simple workflow: write a note, run `Publish Note`, and let the website update automatically.
+I deliberately keep this as a two-step workflow:
+
+1. Run `Publish Note` to generate or update the local public version under `Publish/`.
+2. Run `Sync Published Site` when I am ready to push the `Publish/` directory to GitHub.
+
+This keeps publishing explicit. I can update the public draft locally, inspect the generated Markdown and copied assets, then trigger the GitHub Publisher sync only when the article is ready to go out.
 
 ![Private note to public Hugo markdown](assets/blog-publishing-pipeline/04-frontmatter-before-after.svg)
 
