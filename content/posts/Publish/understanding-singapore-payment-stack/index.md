@@ -1,5 +1,5 @@
 ---
-title: "Understanding Singapore's Payment Stack: FAST, PayNow, NETS, SGQR, and Contactless Cards"
+title: "Understanding Singapore's Payment Stack: Bank Apps, SGQR, PayNow, NETS, Contactless Cards, and FAST"
 date: 2026-05-11
 draft: false
 tags:
@@ -11,7 +11,7 @@ tags:
   - "#note"
 categories:
   - tech
-description: A system design breakdown of how FAST, PayNow, NETS, SGQR, and contactless card payments work together in Singapore's payment ecosystem.
+description: A user-first system design breakdown of how bank apps, SGQR, PayNow, NETS, contactless card payments, and FAST work together in Singapore's payment ecosystem.
 ---
 
 If you live in Singapore, you probably use these payment methods every day:
@@ -29,84 +29,35 @@ They look similar from the user side, but underneath they solve different proble
 
 ![Singapore Payment Stack](assets/singapore-payment-stack.svg)
 
-The diagram is intentionally simplified. It covers the 90% mental model: SGQR helps users discover QR payment options, PayNow maps simple identifiers to accounts, NETS supports local merchant acceptance, and contactless cards go through card networks.
+The diagram is intentionally simplified. It follows the order most users experience payments: first the app, card, or QR code; then familiar payment entry points such as SGQR and PayNow; then the merchant networks, card networks, and money movement rails underneath.
 
 ---
 
-## FAST: The Money Highway
+## User Layer: Bank Apps, Cards, and QR
 
-FAST stands for **Fast And Secure Transfers**.
+Most people do not start by thinking about payment rails.
 
-It is the real-time interbank transfer network in Singapore.
+They start from a user interface:
 
-It answers one core question:
+- A banking app such as DBS, OCBC, or UOB.
+- A wallet-like app such as DBS PayLah!.
+- A QR scanner inside a payment app.
+- A physical card.
+- A phone wallet such as Apple Pay or Google Pay.
 
-> How does money move from one bank account to another almost instantly?
+This top layer is what makes payments feel simple.
 
-Example:
+For example, when you scan a hawker stall's QR code using a bank app or PayLah!, you are not manually choosing between registries, schemes, and settlement systems. The app reads the QR code, identifies supported payment options, asks you to confirm the payment, and then sends the transaction into the right underlying path.
 
-```text
-DBS Account -> OCBC Account
-```
-
-FAST is the underlying rail used by PayNow for domestic Singapore dollar transfers.
-
----
-
-## PayNow: The Identity Layer
-
-PayNow sits on top of FAST.
-
-It solves a usability problem:
-
-> How do I send money without knowing someone's bank account number?
-
-Instead of entering bank details, you can use:
-
-- Mobile number
-- NRIC / FIN
-- UEN for businesses
-- Virtual Payment Address, or VPA, for some non-bank financial institution wallets
+That is the key mental model:
 
 ```text
-Mobile / NRIC / FIN / UEN / VPA
-  -> PayNow Registry
-  -> Bank account or participating e-wallet account
-  -> FAST
+User experience layer
+  -> payment scheme or proxy layer
+  -> money movement or settlement layer
 ```
 
-The important idea is that PayNow is not the money-moving rail itself. It is a proxy addressing system that helps the sender find the correct receiving account or participating wallet.
-
-PayNow is commonly used for person-to-person transfers, but it is not limited to friends and family. Businesses, government agencies, associations, and societies can receive money through PayNow Corporate by linking a UEN.
-
-There is also a security angle. From 6 June 2026, the PayNow nickname feature for retail customers is scheduled to be discontinued in Singapore. Instead of a user-chosen nickname, payers will see selected letters of the payee's registered account name. The goal is to reduce impersonation scams while still preserving some privacy.
-
----
-
-## NETS: The Local Merchant Network
-
-NETS is different from PayNow.
-
-PayNow is mostly about account-to-account payments using a proxy.
-
-NETS is more about local merchant acceptance.
-
-It supports:
-
-- NETS card payments
-- POS terminals
-- NETS QR
-- NETS Contactless
-- Merchant acquiring
-
-NETS is both a domestic payment brand and an acceptance network, with different products for POS, QR, online, stored-value, and motoring payments.
-
-A useful mental model:
-
-```text
-PayNow = account-to-account payment using a proxy
-NETS   = local merchant acceptance and payment network
-```
+The rest of the article explains what those lower layers are.
 
 ---
 
@@ -139,6 +90,58 @@ The subtle but important point is that SGQR does not decide how money settles. I
 
 ---
 
+## PayNow: The Identity Layer
+
+PayNow is one of the most familiar payment experiences in Singapore.
+
+It solves a usability problem:
+
+> How do I send money without knowing someone's bank account number?
+
+Instead of entering bank details, you can use:
+
+- Mobile number
+- NRIC / FIN
+- UEN for businesses
+- Virtual Payment Address, or VPA, for some non-bank financial institution wallets
+
+```text
+Mobile / NRIC / FIN / UEN / VPA
+  -> PayNow Registry
+  -> Bank account or participating e-wallet account
+  -> FAST
+```
+
+The important idea is that PayNow is not the money-moving rail itself. It is a proxy addressing system that helps the sender find the correct receiving account or participating wallet.
+
+PayNow is commonly used for person-to-person transfers, but it is not limited to friends and family. Businesses, government agencies, associations, and societies can receive money through PayNow Corporate by linking a UEN.
+
+There is also a security angle. From 6 June 2026, the PayNow nickname feature for retail customers is scheduled to be discontinued in Singapore. Instead of a user-chosen nickname, payers will see selected letters of the payee's registered account name. The goal is to reduce impersonation scams while still preserving some privacy.
+
+---
+
+## FAST: The Money Highway
+
+FAST stands for **Fast And Secure Transfers**.
+
+It is the real-time interbank transfer network in Singapore.
+
+It answers one core question:
+
+> How does money move from one bank account to another almost instantly?
+
+Example:
+
+```text
+DBS Account -> OCBC Account
+```
+
+FAST is the underlying rail used by PayNow for domestic Singapore dollar transfers.
+
+From a user perspective, FAST is usually invisible. You see PayNow in your app. The system uses FAST underneath to move Singapore dollars between participating institutions.
+
+---
+
 ## Contactless Cards: payWave, PayPass, and Mobile Wallets
 
 payWave is Visa's contactless card payment technology.
@@ -167,30 +170,59 @@ Contactless   = card authorization first, settlement later
 
 ---
 
+## NETS: The Local Merchant Network
+
+NETS is something many people still encounter at supermarkets, local merchants, debit card terminals, NETS QR, and NETS Contactless. But compared with scanning QR codes or tapping cards, it is often less visible as a separate system.
+
+It is different from PayNow.
+
+PayNow is mostly about account-to-account payments using a proxy. NETS is more about local merchant acceptance.
+
+It supports:
+
+- NETS card payments
+- POS terminals
+- NETS QR
+- NETS Contactless
+- Merchant acquiring
+
+NETS is both a domestic payment brand and an acceptance network, with different products for POS, QR, online, stored-value, and motoring payments.
+
+A useful mental model:
+
+```text
+PayNow = account-to-account payment using a proxy
+NETS   = local merchant acceptance and payment network
+```
+
+---
+
 ## Who Does What
 
 | Layer | What it does |
 |---|---|
-| FAST | Real-time interbank Singapore dollar transfer rail |
-| PayNow | Proxy addressing and recipient lookup |
+| Bank apps / wallets / cards | User interface, authentication, confirmation, and transaction initiation |
 | SGQR | QR presentation and payload standard |
-| NETS | Domestic merchant acceptance and payment network |
+| PayNow | Proxy addressing and recipient lookup |
+| FAST | Real-time interbank Singapore dollar transfer rail |
 | Visa / Mastercard / Amex | Global card authorization and settlement networks |
+| NETS | Domestic merchant acceptance and payment network |
 | Banks / NFIs | Customer accounts, apps, risk checks, limits, and user experience |
 
 This separation matters because a payment product often combines multiple layers. For example, a bank app may scan an SGQR code, use PayNow to resolve the merchant, and rely on FAST to move money.
 
 ---
 
-## PayNow vs NETS vs Contactless
+## A Quick Comparison
 
 | Payment Method | Main Use Case | Underlying Model | Settlement |
 |---|---|---|---|
-| PayNow | P2P, hawkers, small merchants, businesses | Account-to-account payment using proxy addressing | Real-time / near real-time |
-| NETS | Local merchant payments | Local debit and merchant acceptance network | Merchant settlement |
-| Contactless cards | Retail, malls, transport-linked cards, mobile wallets | Card network authorization | Later settlement |
+| Bank apps / wallets / cards | User-facing payment entry | App UI, authentication, limits, and confirmation | Depends on selected payment path |
 | SGQR | QR entry point | Standardized QR format | Depends on selected payment scheme |
+| PayNow | P2P, hawkers, small merchants, businesses | Account-to-account payment using proxy addressing | Real-time / near real-time |
 | FAST | Bank-to-bank transfer | Real-time payment rail | Real-time |
+| Contactless cards | Retail, malls, transport-linked cards, mobile wallets | Card network authorization | Later settlement |
+| NETS | Local merchant payments | Local debit and merchant acceptance network | Merchant settlement |
 
 One caveat: user confirmation, merchant notification, settlement, and reconciliation are related but not always the same thing. A consumer may see a payment succeed immediately while the merchant still relies on later reporting, batching, or reconciliation.
 
@@ -201,7 +233,7 @@ One caveat: user confirmation, merchant notification, settlement, and reconcilia
 At a hawker stall:
 
 ```text
-Scan SGQR with a supported payment app
+Scan SGQR with a bank app or PayLah!
   -> app reads the SGQR payload
   -> selected scheme may be PayNow, NETS QR, GrabPay, etc.
   -> payment follows that scheme's rail
@@ -248,11 +280,12 @@ So the domestic mental model still helps, but cross-border payments are not just
 
 Singapore's payment system is interesting because it separates concerns clearly:
 
-- FAST moves money.
-- PayNow resolves identity.
+- Bank apps, wallets, cards, and QR scanners provide the user experience.
 - SGQR standardizes QR entry.
-- NETS handles local merchant acceptance.
+- PayNow resolves identity.
+- FAST moves money between accounts.
 - Contactless card payments use card network authorization and later settlement.
+- NETS handles local merchant acceptance.
 
 That is why paying feels simple in daily life, even though the underlying system is layered and complex.
 
