@@ -1,5 +1,5 @@
 ---
-title: "Understanding Singapore's Payment Stack: Bank Apps, SGQR, PayNow, NETS, Contactless Cards, and FAST"
+title: "Understanding Singapore's Payment Stack: From Bank Apps to SGQR, PayNow, FAST, Contactless, and NETS"
 date: 2026-05-11
 draft: false
 tags:
