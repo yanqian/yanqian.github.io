@@ -1,0 +1,33 @@
+<svg width="760" height="540" viewBox="0 0 760 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Singapore Payment Stack</title>
+  <desc id="desc">A simplified diagram showing users, SGQR, PayNow, NETS, and contactless card payments.</desc>
+  <rect x="1.5" y="1.5" width="757" height="537" rx="8" fill="#fbfaf7" stroke="#6b8794" stroke-width="3"/>
+  <text x="40" y="50" font-family="monospace" font-size="26" font-weight="700" fill="#1d3fb5">Singapore Payment Stack</text>
+  <text x="40" y="82" font-family="monospace" font-size="16" fill="#5a6b85">Daily payment experiences use different rails.</text>
+
+  <rect x="260" y="120" width="240" height="90" rx="10" fill="#d8e8fb" stroke="#1d3557" stroke-width="2"/>
+  <text x="380" y="155" text-anchor="middle" font-family="monospace" font-size="18" fill="#334">User</text>
+  <text x="380" y="179" text-anchor="middle" font-family="monospace" font-size="14" fill="#334">Bank App / Card</text>
+  <text x="380" y="199" text-anchor="middle" font-family="monospace" font-size="14" fill="#334">or QR</text>
+
+  <rect x="430" y="260" width="240" height="90" rx="10" fill="#a7f3d0" stroke="#047857" stroke-width="2"/>
+  <text x="550" y="298" text-anchor="middle" font-family="monospace" font-size="18" fill="#334">SGQR</text>
+  <text x="550" y="323" text-anchor="middle" font-family="monospace" font-size="14" fill="#334">QR discovery layer</text>
+
+  <rect x="90" y="260" width="240" height="90" rx="10" fill="#ddd6fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="210" y="298" text-anchor="middle" font-family="monospace" font-size="18" fill="#334">PayNow</text>
+  <text x="210" y="323" text-anchor="middle" font-family="monospace" font-size="14" fill="#334">Identity mapping</text>
+
+  <rect x="40" y="400" width="210" height="90" rx="10" fill="#e0f2fe" stroke="#0369a1" stroke-width="2"/>
+  <text x="145" y="438" text-anchor="middle" font-family="monospace" font-size="18" fill="#334">FAST</text>
+  <text x="145" y="463" text-anchor="middle" font-family="monospace" font-size="14" fill="#334">Money movement</text>
+  <text x="145" y="483" text-anchor="middle" font-family="monospace" font-size="14" fill="#334">rail</text>
+
+  <rect x="275" y="400" width="210" height="90" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+  <text x="380" y="438" text-anchor="middle" font-family="monospace" font-size="18" fill="#334">Contactless</text>
+  <text x="380" y="463" text-anchor="middle" font-family="monospace" font-size="14" fill="#334">Card network path</text>
+
+  <rect x="510" y="400" width="210" height="90" rx="10" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+  <text x="615" y="438" text-anchor="middle" font-family="monospace" font-size="18" fill="#334">NETS</text>
+  <text x="615" y="463" text-anchor="middle" font-family="monospace" font-size="14" fill="#334">Merchant network</text>
+</svg>
