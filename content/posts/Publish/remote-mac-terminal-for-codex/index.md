@@ -1,6 +1,6 @@
 ---
-title: "Remote Mac Terminal for Codex"
-date: "2026-05-08T22:47:41+08:00"
+title: "Remote Agent Workflow, Part 1: Remote Mac Terminal for Codex"
+date: "2026-05-20T23:38:51+08:00"
 draft: false
 tags:
   - ai/codex
@@ -8,9 +8,12 @@ tags:
   - macos
   - remote-workflow
   - #public
+  - #note
   - public
 
 ---
+
+This is Part 1 of the Remote Agent Workflow series.
 
 This guide explains how to control a Mac terminal from a phone and keep long-running agent tasks alive, such as Codex, automation scripts, or local development agents.
 

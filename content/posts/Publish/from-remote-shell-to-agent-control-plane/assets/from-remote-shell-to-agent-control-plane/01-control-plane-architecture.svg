@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Agent Control Plane Architecture</title>
+  <desc id="desc">A mobile client sends intent to a control plane, which routes bounded tasks into a local workspace runtime. Codex or an orchestrator executes work against repository state and writes logs.</desc>
+  <rect width="1200" height="720" fill="#ffffff"/>
+
+  <text x="60" y="64" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="32" font-weight="700" fill="#1e40af">Agent Control Plane Architecture</text>
+  <text x="62" y="102" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="17" fill="#64748b">The phone sends intent. The Mac executes. The repository keeps durable memory.</text>
+
+  <defs>
+    <marker id="arrow-blue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#1e3a5f"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#6d28d9"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#047857"/>
+    </marker>
+  </defs>
+
+  <!-- Main flow -->
+  <rect x="60" y="160" width="180" height="150" rx="14" fill="#fed7aa" stroke="#c2410c" stroke-width="2.5"/>
+  <text x="150" y="208" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="20" font-weight="700" fill="#374151">Mobile</text>
+  <text x="150" y="240" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="15" fill="#374151">short intent</text>
+  <text x="150" y="264" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="15" fill="#374151">status checks</text>
+
+  <rect x="320" y="160" width="220" height="150" rx="14" fill="#ddd6fe" stroke="#6d28d9" stroke-width="2.5"/>
+  <text x="430" y="202" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="20" font-weight="700" fill="#374151">Control Plane</text>
+  <text x="430" y="234" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="15" fill="#374151">Telegram / mobile UI</text>
+  <text x="430" y="258" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="15" fill="#374151">auth + routing</text>
+  <text x="430" y="282" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="15" fill="#374151">bounded replies</text>
+
+  <rect x="670" y="160" width="220" height="150" rx="14" fill="#dbeafe" stroke="#1e40af" stroke-width="2.5"/>
+  <text x="780" y="202" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="20" font-weight="700" fill="#374151">Workspace</text>
+  <text x="780" y="228" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="20" font-weight="700" fill="#374151">Runtime</text>
+  <text x="780" y="258" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="15" fill="#374151">repo whitelist</text>
+  <text x="780" y="280" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="15" fill="#374151">task executor</text>
+  <text x="780" y="302" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="15" fill="#374151">logs + task IDs</text>
+
+  <rect x="960" y="160" width="180" height="150" rx="14" fill="#ddd6fe" stroke="#6d28d9" stroke-width="2.5"/>
+  <text x="1050" y="208" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="20" font-weight="700" fill="#374151">Codex /</text>
+  <text x="1050" y="236" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="20" font-weight="700" fill="#374151">orchestrator</text>
+  <text x="1050" y="270" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="15" fill="#374151">local worker</text>
+
+  <line x1="242" y1="235" x2="312" y2="235" stroke="#1e3a5f" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <text x="277" y="218" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13" fill="#64748b">intent</text>
+
+  <line x1="542" y1="235" x2="662" y2="235" stroke="#6d28d9" stroke-width="3" marker-end="url(#arrow-purple)"/>
+  <text x="602" y="204" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13" fill="#64748b">validated</text>
+  <text x="602" y="222" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13" fill="#64748b">task</text>
+
+  <line x1="892" y1="235" x2="952" y2="235" stroke="#1e3a5f" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <text x="922" y="218" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13" fill="#64748b">spawn</text>
+
+  <!-- Runtime state sidecar -->
+  <rect x="320" y="415" width="250" height="155" rx="14" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+  <text x="445" y="453" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="19" font-weight="700" fill="#374151">Runtime State</text>
+  <text x="445" y="483" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="14" fill="#374151">selected repo</text>
+  <text x="445" y="505" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="14" fill="#374151">task_id + log path</text>
+  <text x="445" y="527" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="14" fill="#374151">session binding</text>
+  <text x="445" y="549" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="14" fill="#374151">approval request</text>
+
+  <line x1="445" y1="312" x2="445" y2="407" stroke="#b45309" stroke-width="2.5" stroke-dasharray="8 8" marker-end="url(#arrow-blue)"/>
+  <text x="338" y="374" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13" fill="#64748b">operational only</text>
+
+  <!-- Repository memory -->
+  <rect x="670" y="415" width="470" height="190" rx="16" fill="#a7f3d0" stroke="#047857" stroke-width="2.5"/>
+  <text x="905" y="455" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="21" font-weight="700" fill="#374151">Repository Memory</text>
+  <text x="905" y="485" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="15" fill="#374151">AGENTS.md · SPEC.md · feature_list.json</text>
+  <text x="905" y="509" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="15" fill="#374151">progress.md · test_plan.md · init.sh</text>
+  <text x="905" y="533" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="15" fill="#374151">git history · logs · verification evidence</text>
+  <line x1="725" y1="557" x2="1085" y2="557" stroke="#047857" stroke-width="1.5" opacity="0.5"/>
+  <text x="905" y="585" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="15" font-weight="700" fill="#047857">source of truth</text>
+
+  <path d="M1050 312 C1050 370, 1030 398, 965 415" fill="none" stroke="#047857" stroke-width="3" marker-end="url(#arrow-green)"/>
+  <text x="1025" y="382" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13" fill="#64748b">writes changes</text>
+
+  <path d="M730 415 C700 382, 705 345, 760 312" fill="none" stroke="#047857" stroke-width="3" marker-end="url(#arrow-green)"/>
+  <text x="655" y="374" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13" fill="#64748b">reconstructs context</text>
+
+  <!-- Bottom principle -->
+  <rect x="70" y="640" width="1060" height="58" rx="12" fill="#1e293b"/>
+  <text x="600" y="676" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="18" font-weight="700" fill="#ffffff">Phone = control surface · Mac = worker · Repository = durable memory</text>
+</svg>
