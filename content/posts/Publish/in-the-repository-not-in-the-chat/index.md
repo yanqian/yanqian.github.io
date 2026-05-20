@@ -1,6 +1,6 @@
 ---
 title: "Remote Agent Workflow, Part 4: In the Repository, Not in the Chat"
-date: "2026-05-20T23:38:51+08:00"
+date: "2026-05-20T23:46:12+08:00"
 draft: false
 tags:
   - ai/codex
@@ -336,3 +336,10 @@ The more asynchronous the work becomes, the more important this rule becomes:
 - [Harness engineering: leveraging Codex in an agent-first world](https://openai.com/index/harness-engineering/)
 - [Harness design for long-running application development](https://www.anthropic.com/engineering/harness-design-long-running-apps)
 - [Everything is a Ralph loop](https://ghuntley.com/loop/)
+
+## Remote Agent Workflow Series
+
+Series index: [Remote Agent Workflow](/posts/remote-agent-workflow/)
+
+Previous: [Turning Telegram into a Local Codex Control Plane](/posts/turning-telegram-into-a-local-codex-control-plane/)  
+Next: [What Still Matters After Codex Mobile](/posts/what-still-matters-after-codex-mobile/)

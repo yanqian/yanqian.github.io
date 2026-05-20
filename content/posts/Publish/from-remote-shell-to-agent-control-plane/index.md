@@ -1,6 +1,6 @@
 ---
 title: "Remote Agent Workflow, Part 2: From Remote Shell to Agent Control Plane"
-date: "2026-05-20T23:38:51+08:00"
+date: "2026-05-20T23:46:12+08:00"
 draft: false
 tags:
   - ai/codex
@@ -363,3 +363,10 @@ Repository state is memory.
 ```
 
 That is the direction I want this remote AI development setup to move toward.
+
+## Remote Agent Workflow Series
+
+Series index: [Remote Agent Workflow](/posts/remote-agent-workflow/)
+
+Previous: [Remote Mac Terminal for Codex](/posts/remote-mac-terminal-for-codex/)  
+Next: [Turning Telegram into a Local Codex Control Plane](/posts/turning-telegram-into-a-local-codex-control-plane/)

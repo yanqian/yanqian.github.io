@@ -1,6 +1,6 @@
 ---
 title: "Remote Agent Workflow, Part 5: What Still Matters After Codex Mobile"
-date: "2026-05-20T23:38:51+08:00"
+date: "2026-05-20T23:46:12+08:00"
 draft: false
 tags:
   - ai/codex
@@ -398,3 +398,9 @@ That belongs in the repository.
 - [Work with Codex from anywhere](https://openai.com/index/work-with-codex-from-anywhere/)
 - [Introducing the Codex app](https://openai.com/index/introducing-the-codex-app/)
 - [Running Codex safely at OpenAI](https://openai.com/index/running-codex-safely/)
+
+## Remote Agent Workflow Series
+
+Series index: [Remote Agent Workflow](/posts/remote-agent-workflow/)
+
+Previous: [In the Repository, Not in the Chat](/posts/in-the-repository-not-in-the-chat/)

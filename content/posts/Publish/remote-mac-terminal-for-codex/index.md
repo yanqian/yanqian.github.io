@@ -1,6 +1,6 @@
 ---
 title: "Remote Agent Workflow, Part 1: Remote Mac Terminal for Codex"
-date: "2026-05-20T23:38:51+08:00"
+date: "2026-05-20T23:46:12+08:00"
 draft: false
 tags:
   - ai/codex
@@ -685,3 +685,9 @@ After the setup is complete, a successful mobile session should look like this:
 ![Codex running from a phone SSH session](assets/remote-mac-terminal-for-codex/remote-codex-phone-connected-preview.png)
 
 In this example, the phone is connected to the Mac through Termius, the shell is inside a tmux session, and Codex is running inside the remote project directory.
+
+## Remote Agent Workflow Series
+
+Series index: [Remote Agent Workflow](/posts/remote-agent-workflow/)
+
+Next: [From Remote Shell to Agent Control Plane](/posts/from-remote-shell-to-agent-control-plane/)

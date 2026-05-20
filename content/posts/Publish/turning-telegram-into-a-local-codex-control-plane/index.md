@@ -1,6 +1,6 @@
 ---
 title: "Remote Agent Workflow, Part 3: Turning Telegram into a Local Codex Control Plane"
-date: "2026-05-20T23:38:51+08:00"
+date: "2026-05-20T23:46:12+08:00"
 draft: false
 tags:
   - ai/codex
@@ -507,3 +507,10 @@ If the agent can run remotely and asynchronously, where should long-term project
 ```
 
 My answer is: in the repository, not in the chat.
+
+## Remote Agent Workflow Series
+
+Series index: [Remote Agent Workflow](/posts/remote-agent-workflow/)
+
+Previous: [From Remote Shell to Agent Control Plane](/posts/from-remote-shell-to-agent-control-plane/)  
+Next: [In the Repository, Not in the Chat](/posts/in-the-repository-not-in-the-chat/)
