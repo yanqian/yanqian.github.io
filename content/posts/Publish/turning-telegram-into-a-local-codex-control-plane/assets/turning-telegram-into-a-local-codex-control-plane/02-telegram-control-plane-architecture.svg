@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="910" viewBox="0 0 1200 910" role="img" aria-labelledby="title desc">
+  <title id="title">Local Telegram Control Plane Architecture</title>
+  <desc id="desc">Telegram mobile messages flow through Telegram server to a local polling bot on Mac, then into workspace runtime, Codex, task logs, and repository state files.</desc>
+  <rect width="1200" height="720" fill="#ffffff"/>
+
+  <defs>
+    <marker id="arrow-blue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#1e3a5f"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#6d28d9"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#047857"/>
+    </marker>
+  </defs>
+
+  <text x="60" y="62" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="32" font-weight="700" fill="#1e40af">Local Telegram Control Plane</text>
+  <text x="62" y="100" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="17" fill="#64748b">Telegram is the mobile entrance. The Mac still owns execution, logs, and repository state.</text>
+
+  <rect x="40" y="170" width="150" height="120" rx="14" fill="#fed7aa" stroke="#c2410c" stroke-width="2.5"/>
+  <text x="115" y="214" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="18" font-weight="700" fill="#374151">Telegram</text>
+  <text x="115" y="240" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="18" font-weight="700" fill="#374151">Mobile</text>
+  <text x="115" y="266" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="14" fill="#374151">/agent, /status</text>
+
+  <rect x="280" y="170" width="160" height="120" rx="14" fill="#ddd6fe" stroke="#6d28d9" stroke-width="2.5"/>
+  <text x="360" y="214" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="18" font-weight="700" fill="#374151">Telegram</text>
+  <text x="360" y="240" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="18" font-weight="700" fill="#374151">Server</text>
+  <text x="360" y="266" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="14" fill="#374151">Bot API</text>
+
+  <rect x="540" y="145" width="220" height="170" rx="16" fill="#ddd6fe" stroke="#6d28d9" stroke-width="2.5"/>
+  <text x="650" y="190" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="19" font-weight="700" fill="#374151">Local Polling Bot</text>
+  <text x="650" y="222" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="14" fill="#374151">ALLOWED_CHAT_IDS</text>
+  <text x="650" y="246" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="14" fill="#374151">REPO_WHITELIST_JSON</text>
+  <text x="650" y="270" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="14" fill="#374151">runtime_state.json</text>
+  <text x="650" y="294" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="14" fill="#374151">bounded replies</text>
+
+  <rect x="920" y="160" width="225" height="140" rx="14" fill="#dbeafe" stroke="#1e40af" stroke-width="2.5"/>
+  <text x="1032" y="202" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="19" font-weight="700" fill="#374151">Workspace Runtime</text>
+  <text x="1032" y="234" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="14" fill="#374151">selected repo</text>
+  <text x="1032" y="258" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="14" fill="#374151">task executor</text>
+  <text x="1032" y="282" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="14" fill="#374151">shell=false</text>
+
+  <line x1="192" y1="230" x2="272" y2="230" stroke="#1e3a5f" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <text x="232" y="208" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13" fill="#64748b">message</text>
+
+  <line x1="532" y1="230" x2="448" y2="230" stroke="#6d28d9" stroke-width="3" marker-end="url(#arrow-purple)"/>
+  <text x="490" y="208" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13" fill="#64748b">getUpdates</text>
+
+  <line x1="762" y1="230" x2="912" y2="230" stroke="#6d28d9" stroke-width="3" marker-end="url(#arrow-purple)"/>
+  <text x="837" y="208" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13" fill="#64748b">dispatch task</text>
+
+  <rect x="907" y="650" width="250" height="165" rx="16" fill="#fef3c7" stroke="#b45309" stroke-width="2.5"/>
+  <text x="1032" y="696" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="20" font-weight="700" fill="#374151">Task Logs</text>
+  <text x="1032" y="728" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="14" fill="#374151">logs/&lt;task_id&gt;.log</text>
+  <text x="1032" y="752" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="14" fill="#374151">stdout · stderr · argv</text>
+  <text x="1032" y="776" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="14" fill="#374151">exit code · final result</text>
+
+  <rect x="907" y="390" width="250" height="165" rx="16" fill="#ddd6fe" stroke="#6d28d9" stroke-width="2.5"/>
+  <text x="1032" y="432" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="20" font-weight="700" fill="#374151">Codex Task</text>
+  <text x="1032" y="464" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="14" fill="#374151">codex exec --json</text>
+  <text x="1032" y="488" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="14" fill="#374151">session metadata</text>
+  <text x="1032" y="512" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="14" fill="#374151">approval requests</text>
+  <text x="1032" y="536" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="14" fill="#374151">completion push</text>
+
+  <rect x="520" y="390" width="250" height="165" rx="16" fill="#a7f3d0" stroke="#047857" stroke-width="2.5"/>
+  <text x="645" y="432" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="20" font-weight="700" fill="#374151">Repository State</text>
+  <text x="645" y="464" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="14" fill="#374151">AGENTS.md · SPEC.md</text>
+  <text x="645" y="488" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="14" fill="#374151">feature_list.json</text>
+  <text x="645" y="512" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="14" fill="#374151">progress.md · test_plan.md</text>
+  <text x="645" y="536" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="14" fill="#374151">git history</text>
+
+  <line x1="1032" y1="302" x2="1032" y2="382" stroke="#6d28d9" stroke-width="3" marker-end="url(#arrow-purple)"/>
+  <text x="1050" y="350" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13" fill="#64748b">spawn local process</text>
+
+  <line x1="899" y1="472" x2="778" y2="472" stroke="#047857" stroke-width="3" marker-end="url(#arrow-green)"/>
+  <text x="838" y="454" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13" fill="#64748b">read/write</text>
+
+  <line x1="1032" y1="557" x2="1032" y2="642" stroke="#b45309" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <text x="1050" y="605" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="13" fill="#64748b">write logs</text>
+
+  <rect x="70" y="850" width="1060" height="48" rx="12" fill="#1e293b"/>
+  <text x="600" y="881" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="17" font-weight="700" fill="#ffffff">Bot routes work. Codex executes. Repository state remains the source of truth.</text>
+</svg>
