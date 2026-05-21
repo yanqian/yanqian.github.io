@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="910" viewBox="0 0 1200 910" role="img" aria-labelledby="title desc">
   <title id="title">Local Telegram Control Plane Architecture</title>
   <desc id="desc">Telegram mobile messages flow through Telegram server to a local polling bot on Mac, then into workspace runtime, Codex, task logs, and repository state files.</desc>
-  <rect width="1200" height="720" fill="#ffffff"/>
+  <rect width="1200" height="910" fill="#ffffff"/>
 
   <defs>
     <marker id="arrow-blue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
