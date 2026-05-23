@@ -226,6 +226,10 @@ a:focus,
   padding: 0;
 }
 
+.page .post-list {
+  padding-left: 0;
+}
+
 .post-row {
   border-top: 1px solid var(--site-border);
   display: grid;
