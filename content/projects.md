@@ -7,7 +7,7 @@ description = 'Selected products and tools around browser automation, local-firs
 
 Selected products and tools I built to solve real workflow problems, from visa form assistance to personal knowledge rediscovery.
 
-## Featured
+## Selected
 
 ### VisaPilot
 

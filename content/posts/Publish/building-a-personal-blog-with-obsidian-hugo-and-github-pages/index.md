@@ -15,7 +15,7 @@ topics:
   - obsidian
   - hugo
   - github-pages
-featured: true
+selected: true
 ---
 
 I recently rebuilt my personal website around a simple idea:

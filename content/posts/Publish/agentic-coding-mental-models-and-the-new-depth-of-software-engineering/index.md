@@ -17,7 +17,7 @@ topics:
   - ai-native-software-engineering
   - ai-coding
   - software-engineering
-featured: true
+selected: true
 ---
 
 AI can generate code. Harnesses can validate behavior. But who builds understanding?

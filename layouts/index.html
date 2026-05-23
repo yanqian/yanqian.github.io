@@ -3,7 +3,7 @@
 {{ $allPosts := where .Site.RegularPages "Section" "posts" }}
 {{ $posts := where $allPosts "Params.excludeFromHome" "ne" true }}
 {{ $latest := first 5 (sort (where $posts "Params.excludeFromLatest" "ne" true) "Date" "desc") }}
-{{ $featured := first 6 (sort (where $posts "Params.featured" true) "Date" "desc") }}
+{{ $selected := first 6 (sort (where $posts "Params.selected" true) "Date" "desc") }}
 
 {{ $seriesNames := slice }}
 {{ range $posts }}
@@ -48,16 +48,16 @@
       {{ end }}
     </section>
 
-    {{ if $featured }}
-      <section class="home-section" aria-labelledby="featured-title">
+    {{ if $selected }}
+      <section class="home-section" aria-labelledby="selected-title">
         <div class="section-heading">
-          <h2 id="featured-title">Featured</h2>
+          <h2 id="selected-title">Selected</h2>
         </div>
 
-        <div class="feature-grid">
-          {{ range $featured }}
-            <article class="feature-card">
-              <a class="feature-card-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <div class="selected-grid">
+          {{ range $selected }}
+            <article class="selected-card">
+              <a class="selected-card-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
               {{ with .Params.description }}
                 <p>{{ . }}</p>
               {{ else }}

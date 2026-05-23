@@ -15,7 +15,7 @@ topics:
   - remote-agent-workflow
   - codex
   - ai-agent-workflow
-featured: true
+selected: true
 ---
 
 This is Part 5 of the Remote Agent Workflow series.

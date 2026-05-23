@@ -16,7 +16,7 @@ topics:
   - payments
   - system-design
   - singapore-fintech
-featured: true
+selected: true
 ---
 
 If you live in Singapore, you probably use these payment methods every day:

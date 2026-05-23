@@ -19,7 +19,7 @@ topics:
   - ai-native-software-engineering
   - ai-coding
   - software-engineering
-featured: true
+selected: true
 ---
 
 You can automate implementation. You can automate evaluation. But judgment remains stubbornly human.
