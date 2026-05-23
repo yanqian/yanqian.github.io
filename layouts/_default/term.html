@@ -3,11 +3,13 @@
 {{ end }}
 
 {{ define "content" }}
-  {{ $pages := .Pages }}
+  {{ $pages := slice }}
   {{ if eq .Data.Singular "series" }}
-    {{ $pages = sort .Pages "Params.seriesOrder" "asc" }}
+    {{ $pages = sort (where .Site.RegularPages "Params.series" .Title) "Params.seriesOrder" "asc" }}
+  {{ else if eq .Data.Singular "topic" }}
+    {{ $pages = sort (where .Site.RegularPages "Params.topics" "intersect" (slice (.Title | urlize))) "Date" "desc" }}
   {{ else }}
-    {{ $pages = sort .Pages "Date" "desc" }}
+    {{ $pages = sort .Data.Pages "Date" "desc" }}
   {{ end }}
 
   <section class="container page list collection-page">
