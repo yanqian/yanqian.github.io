@@ -9,11 +9,17 @@ tags:
   - judgment
   - ownership
   - vibe-coding
-  - "#public"
-  - "#note"
   - public
+  - note
 categories:
   - tech
+series: "AI-Native Software Engineering"
+seriesOrder: 4
+topics:
+  - ai-native-software-engineering
+  - ai-coding
+  - software-engineering
+featured: true
 ---
 
 You can automate implementation. You can automate evaluation. But judgment remains stubbornly human.

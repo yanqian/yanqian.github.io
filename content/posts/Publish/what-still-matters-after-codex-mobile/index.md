@@ -7,10 +7,15 @@ tags:
   - remote-workflow
   - agent-workflow
   - codex-mobile
-  - #public
-  - #note
   - public
-
+  - note
+series: "Remote Agent Workflow"
+seriesOrder: 5
+topics:
+  - remote-agent-workflow
+  - codex
+  - ai-agent-workflow
+featured: true
 ---
 
 This is Part 5 of the Remote Agent Workflow series.

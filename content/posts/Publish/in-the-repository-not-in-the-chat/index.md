@@ -7,10 +7,14 @@ tags:
   - agent-workflow
   - remote-workflow
   - spec-driven-development
-  - #public
-  - #note
   - public
-
+  - note
+series: "Remote Agent Workflow"
+seriesOrder: 4
+topics:
+  - remote-agent-workflow
+  - codex
+  - ai-agent-workflow
 ---
 
 This is Part 4 of the Remote Agent Workflow series.

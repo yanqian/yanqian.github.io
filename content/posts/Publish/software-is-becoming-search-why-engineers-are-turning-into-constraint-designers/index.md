@@ -8,11 +8,16 @@ tags:
   - software-engineering
   - constraint-design
   - search
-  - "#public"
-  - "#note"
   - public
+  - note
 categories:
   - tech
+series: "AI-Native Software Engineering"
+seriesOrder: 3
+topics:
+  - ai-native-software-engineering
+  - ai-coding
+  - software-engineering
 ---
 
 When implementation becomes abundant, engineering starts to look less like construction and more like navigation.

@@ -7,10 +7,14 @@ tags:
   - remote-workflow
   - agent-workflow
   - telegram
-  - #public
-  - #note
   - public
-
+  - note
+series: "Remote Agent Workflow"
+seriesOrder: 3
+topics:
+  - remote-agent-workflow
+  - codex
+  - ai-agent-workflow
 ---
 
 This is Part 3 of the Remote Agent Workflow series.

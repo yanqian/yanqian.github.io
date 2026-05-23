@@ -6,10 +6,14 @@ tags:
   - ai/codex
   - remote-workflow
   - agent-workflow
-  - #public
-  - #note
   - public
-
+  - note
+series: "Remote Agent Workflow"
+seriesOrder: 2
+topics:
+  - remote-agent-workflow
+  - codex
+  - ai-agent-workflow
 ---
 
 This is Part 2 of the Remote Agent Workflow series.

@@ -10,6 +10,12 @@ tags:
   - publishing
   - public
   - note
+topics:
+  - publishing
+  - obsidian
+  - hugo
+  - github-pages
+featured: true
 ---
 
 I recently rebuilt my personal website around a simple idea:

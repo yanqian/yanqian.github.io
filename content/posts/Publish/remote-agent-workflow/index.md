@@ -6,10 +6,14 @@ tags:
   - ai/codex
   - remote-workflow
   - agent-workflow
-  - #public
-  - #note
   - public
-
+  - note
+topics:
+  - remote-agent-workflow
+  - codex
+  - ai-agent-workflow
+featured: true
+excludeFromLatest: true
 ---
 
 This series is about moving from mobile SSH to a durable, repository-backed AI agent workflow.

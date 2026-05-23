@@ -7,10 +7,14 @@ tags:
   - ssh
   - macos
   - remote-workflow
-  - #public
-  - #note
   - public
-
+  - note
+series: "Remote Agent Workflow"
+seriesOrder: 1
+topics:
+  - remote-agent-workflow
+  - codex
+  - ai-agent-workflow
 ---
 
 This is Part 1 of the Remote Agent Workflow series.

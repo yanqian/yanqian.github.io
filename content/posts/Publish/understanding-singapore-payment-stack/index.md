@@ -8,10 +8,15 @@ tags:
   - system-design
   - singapore
   - public
-  - "#note"
+  - note
 categories:
   - tech
 description: A user-first system design breakdown of how bank apps, SGQR, PayNow, NETS, contactless card payments, and FAST work together in Singapore's payment ecosystem.
+topics:
+  - payments
+  - system-design
+  - singapore-fintech
+featured: true
 ---
 
 If you live in Singapore, you probably use these payment methods every day:

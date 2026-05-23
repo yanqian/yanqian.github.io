@@ -7,11 +7,17 @@ tags:
   - agent-workflow
   - software-engineering
   - mental-models
-  - "#public"
-  - "#note"
   - public
+  - note
 categories:
   - tech
+series: "AI-Native Software Engineering"
+seriesOrder: 1
+topics:
+  - ai-native-software-engineering
+  - ai-coding
+  - software-engineering
+featured: true
 ---
 
 AI can generate code. Harnesses can validate behavior. But who builds understanding?

@@ -8,11 +8,16 @@ tags:
   - harness-engineering
   - software-engineering
   - correctness
-  - "#public"
-  - "#note"
   - public
+  - note
 categories:
   - tech
+series: "AI-Native Software Engineering"
+seriesOrder: 2
+topics:
+  - ai-native-software-engineering
+  - ai-coding
+  - software-engineering
 ---
 
 Why the most important part of AI-native software engineering may not be generation, but constraint.
