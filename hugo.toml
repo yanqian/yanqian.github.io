@@ -7,6 +7,12 @@ defaultContentLanguage = "en"
 [pagination]
 pagerSize = 10
 
+[taxonomies]
+tag = "tags"
+category = "categories"
+series = "series"
+topic = "topics"
+
 [params]
 author = "Armstrong Yan"
 info = "Backend Engineer · Platform · Systems Thinking"

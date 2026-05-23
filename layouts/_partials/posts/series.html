@@ -1,0 +1,48 @@
+{{ with .Params.series }}
+  {{ $series := . }}
+  {{ $seriesPosts := sort (where $.Site.RegularPages "Params.series" $series) "Params.seriesOrder" "asc" }}
+  {{ $current := $ }}
+  {{ $currentIndex := -1 }}
+  {{ range $index, $post := $seriesPosts }}
+    {{ if eq $post.RelPermalink $current.RelPermalink }}
+      {{ $currentIndex = $index }}
+    {{ end }}
+  {{ end }}
+  {{ $previousIndex := sub $currentIndex 1 }}
+  {{ $nextIndex := add $currentIndex 1 }}
+  {{ $previousPost := cond (ge $previousIndex 0) (index $seriesPosts $previousIndex) nil }}
+  {{ $nextPost := cond (lt $nextIndex (len $seriesPosts)) (index $seriesPosts $nextIndex) nil }}
+
+  <nav class="series-nav" aria-label="Series navigation">
+    <div class="series-nav-heading">
+      <span>Series</span>
+      <a href="/series/{{ $series | urlize }}/">{{ $series }}</a>
+      {{ if ge $currentIndex 0 }}
+        <small>Part {{ add $currentIndex 1 }} of {{ len $seriesPosts }}</small>
+      {{ end }}
+    </div>
+
+    <ol class="series-nav-list">
+      {{ range $seriesPosts }}
+        <li class="{{ if eq .RelPermalink $current.RelPermalink }}is-current{{ end }}">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+      {{ end }}
+    </ol>
+
+    <div class="series-prev-next">
+      {{ with $previousPost }}
+        <a class="series-step" href="{{ .RelPermalink }}">
+          <span>Previous</span>
+          {{ .Title }}
+        </a>
+      {{ end }}
+      {{ with $nextPost }}
+        <a class="series-step" href="{{ .RelPermalink }}">
+          <span>Next</span>
+          {{ .Title }}
+        </a>
+      {{ end }}
+    </div>
+  </nav>
+{{ end }}

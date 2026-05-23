@@ -177,15 +177,47 @@ a:focus,
   color: var(--site-accent);
 }
 
-.home-posts {
+.home-header {
+  margin-bottom: 2.4rem;
+}
+
+.home-section {
+  margin-top: 3.2rem;
+}
+
+.home-section:first-of-type {
   margin-top: 0;
 }
 
+.section-heading {
+  align-items: baseline;
+  border-bottom: 1px solid var(--site-border);
+  display: flex;
+  gap: 1.2rem;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.section-heading h2,
 .home-posts h2 {
   color: var(--site-fg);
   font-size: 1.9rem;
   line-height: 1.3;
   margin: 0 0 0.8rem;
+}
+
+.section-heading a {
+  color: var(--site-muted);
+  font-size: 1.25rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.section-heading a:hover,
+.section-heading a:focus {
+  color: var(--site-accent);
+  text-decoration: underline;
+  text-decoration-style: dashed;
 }
 
 .post-list {
@@ -228,6 +260,88 @@ a:focus,
 .post-row time {
   font-size: 1.3rem;
   white-space: nowrap;
+}
+
+.feature-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 1rem;
+}
+
+.feature-card {
+  border-top: 1px solid var(--site-border);
+  padding-top: 1rem;
+}
+
+.feature-card-title,
+.collection-title {
+  color: var(--site-fg);
+  display: inline-block;
+  font-size: 1.55rem;
+  font-weight: 600;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+.feature-card-title:hover,
+.feature-card-title:focus,
+.collection-title:hover,
+.collection-title:focus {
+  color: var(--site-accent);
+  text-decoration: underline;
+  text-decoration-style: dashed;
+}
+
+.feature-card p,
+.collection-row p {
+  color: var(--site-muted);
+  font-size: 1.35rem;
+  line-height: 1.55;
+  margin: 0.55rem 0 0;
+}
+
+.collection-list {
+  margin-top: 0.6rem;
+}
+
+.collection-row {
+  border-top: 1px solid var(--site-border);
+  padding: 1rem 0;
+}
+
+.topic-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.topic-pill {
+  align-items: center;
+  background: var(--site-surface);
+  border: 1px solid var(--site-border);
+  border-radius: 999px;
+  color: var(--site-fg);
+  display: inline-flex;
+  font-size: 1.3rem;
+  gap: 0.55rem;
+  line-height: 1.2;
+  padding: 0.55rem 0.8rem;
+  text-decoration: none;
+}
+
+.topic-pill:hover,
+.topic-pill:focus {
+  background: var(--site-bg);
+  color: var(--site-accent);
+  text-decoration: none;
+}
+
+.topic-pill small {
+  color: var(--site-muted);
+  font-size: 1.15rem;
 }
 
 .page article,
@@ -401,6 +515,93 @@ a:focus,
 .post .post-content li {
   font-size: 1.6rem;
   line-height: 1.75;
+}
+
+.eyebrow {
+  color: var(--site-muted);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.7rem;
+  text-transform: uppercase;
+}
+
+.series-nav {
+  border-top: 1px solid var(--site-border);
+  margin-top: 3rem;
+  padding-top: 1.4rem;
+}
+
+.series-nav-heading {
+  display: grid;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.series-nav-heading span,
+.series-nav-heading small,
+.series-step span {
+  color: var(--site-muted);
+  font-size: 1.25rem;
+}
+
+.series-nav-heading a {
+  color: var(--site-fg);
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.series-nav-list {
+  list-style: decimal;
+  margin: 0;
+  padding-left: 2rem;
+}
+
+.series-nav-list li {
+  color: var(--site-muted);
+  font-size: 1.4rem;
+  line-height: 1.55;
+  margin: 0.4rem 0;
+}
+
+.series-nav-list li::marker {
+  color: var(--site-accent);
+}
+
+.series-nav-list li.is-current a {
+  color: var(--site-fg);
+  font-weight: 700;
+}
+
+.series-prev-next {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 1.4rem;
+}
+
+.series-step {
+  border-top: 1px solid var(--site-border);
+  color: var(--site-fg);
+  display: grid;
+  font-size: 1.35rem;
+  gap: 0.3rem;
+  line-height: 1.45;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  padding-top: 0.9rem;
+  text-decoration: none;
+}
+
+.series-step:hover,
+.series-step:focus,
+.series-nav-heading a:hover,
+.series-nav-heading a:focus {
+  color: var(--site-accent);
+  text-decoration: underline;
+  text-decoration-style: dashed;
 }
 
 .page h2,
@@ -589,6 +790,7 @@ hr {
     display: inline-block;
   }
 
+  .section-heading h2,
   .home-posts h2 {
     font-size: 2.2rem;
   }
@@ -616,6 +818,11 @@ hr {
 
   .list li {
     display: block;
+  }
+
+  .feature-grid,
+  .series-prev-next {
+    grid-template-columns: 1fr;
   }
 
   .list .date {

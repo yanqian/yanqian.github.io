@@ -1,36 +1,116 @@
 {{ define "content" }}
 
+{{ $allPosts := where .Site.RegularPages "Section" "posts" }}
+{{ $posts := where $allPosts "Params.excludeFromHome" "ne" true }}
+{{ $latest := first 5 (sort (where $posts "Params.excludeFromLatest" "ne" true) "Date" "desc") }}
+{{ $featured := first 6 (sort (where $posts "Params.featured" true) "Date" "desc") }}
+
+{{ $seriesNames := slice }}
+{{ range $posts }}
+  {{ with .Params.series }}
+    {{ if not (in $seriesNames .) }}
+      {{ $seriesNames = $seriesNames | append . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $topicNames := slice }}
+{{ range $posts }}
+  {{ range .Params.topics }}
+    {{ if not (in $topicNames .) }}
+      {{ $topicNames = $topicNames | append . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
 <section class="container page home-page">
   <article>
-    <header>
+    <header class="home-header">
       <h1 class="title">
-        <a class="title-link" href="{{ .Permalink | safeURL }}">
-          Home
-        </a>
+        <a class="title-link" href="{{ .Permalink | safeURL }}">Home</a>
       </h1>
     </header>
 
-    <section class="home-posts" aria-labelledby="posts-title">
-      <h2 id="posts-title">Posts</h2>
+    <section class="home-section" aria-labelledby="latest-title">
+      <div class="section-heading">
+        <h2 id="latest-title">Latest</h2>
+        <a href="/posts/">All posts</a>
+      </div>
 
-      {{ $posts := sort (where .Site.RegularPages "Section" "posts") "File.Path" "asc" }}
-      {{ if $posts }}
+      {{ if $latest }}
         <ol class="post-list">
-          {{ range $posts }}
-            <li class="post-row">
-              <a class="post-row-title" href="{{ .RelPermalink }}">
-                {{ if .Title }}{{ .Title }}{{ else }}{{ with .File }}content/{{ .Path }}{{ else }}{{ .RelPermalink }}{{ end }}{{ end }}
-              </a>
-              {{ if not .Date.IsZero }}
-                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-              {{ end }}
-            </li>
+          {{ range $latest }}
+            {{ partial "home/post-row.html" . }}
           {{ end }}
         </ol>
       {{ else }}
         <p class="empty-state">No public posts yet.</p>
       {{ end }}
     </section>
+
+    {{ if $featured }}
+      <section class="home-section" aria-labelledby="featured-title">
+        <div class="section-heading">
+          <h2 id="featured-title">Featured</h2>
+        </div>
+
+        <div class="feature-grid">
+          {{ range $featured }}
+            <article class="feature-card">
+              <a class="feature-card-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+              {{ with .Params.description }}
+                <p>{{ . }}</p>
+              {{ else }}
+                <p>{{ .Summary | plainify | truncate 150 }}</p>
+              {{ end }}
+            </article>
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
+
+    {{ if $seriesNames }}
+      <section class="home-section" aria-labelledby="series-title">
+        <div class="section-heading">
+          <h2 id="series-title">Series</h2>
+          <a href="/series/">All series</a>
+        </div>
+
+        <div class="collection-list">
+          {{ range sort $seriesNames }}
+            {{ $series := . }}
+            {{ $seriesPosts := sort (where $posts "Params.series" $series) "Params.seriesOrder" "asc" }}
+            {{ $firstPost := index $seriesPosts 0 }}
+            <article class="collection-row">
+              <div>
+                <a class="collection-title" href="/series/{{ $series | urlize }}/">{{ $series }}</a>
+                <p>{{ len $seriesPosts }} posts{{ with $firstPost }} · starts with {{ .Title }}{{ end }}</p>
+              </div>
+            </article>
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
+
+    {{ if $topicNames }}
+      <section class="home-section" aria-labelledby="topics-title">
+        <div class="section-heading">
+          <h2 id="topics-title">Topics</h2>
+          <a href="/topics/">All topics</a>
+        </div>
+
+        <div class="topic-grid">
+          {{ range sort $topicNames }}
+            {{ $topic := . }}
+            {{ $topicPosts := where $posts "Params.topics" "intersect" (slice $topic) }}
+            <a class="topic-pill" href="/topics/{{ $topic | urlize }}/">
+              <span>{{ humanize $topic }}</span>
+              <small>{{ len $topicPosts }}</small>
+            </a>
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
   </article>
 </section>
 

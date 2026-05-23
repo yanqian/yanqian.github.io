@@ -1,0 +1,33 @@
+{{ define "title" }}
+  {{ .Title }} · {{ .Site.Title }}
+{{ end }}
+
+{{ define "content" }}
+  {{ $pages := .Pages }}
+  {{ if eq .Data.Singular "series" }}
+    {{ $pages = sort .Pages "Params.seriesOrder" "asc" }}
+  {{ else }}
+    {{ $pages = sort .Pages "Date" "desc" }}
+  {{ end }}
+
+  <section class="container page list collection-page">
+    <article>
+      <header>
+        <p class="eyebrow">{{ humanize .Data.Singular }}</p>
+        <h1 class="title">
+          <a class="title-link" href="{{ .Permalink | safeURL }}">{{ .Title }}</a>
+        </h1>
+      </header>
+
+      {{ if $pages }}
+        <ol class="post-list">
+          {{ range $pages }}
+            {{ partial "home/post-row.html" . }}
+          {{ end }}
+        </ol>
+      {{ else }}
+        <p class="empty-state">No posts yet.</p>
+      {{ end }}
+    </article>
+  </section>
+{{ end }}
