@@ -237,6 +237,7 @@ a:focus,
 
 .post-row-title {
   color: var(--site-fg);
+  display: block;
   font-size: 1.55rem;
   font-weight: 500;
   line-height: 1.45;
