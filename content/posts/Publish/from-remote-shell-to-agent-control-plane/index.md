@@ -1,6 +1,6 @@
 ---
 title: "Remote Agent Workflow, Part 2: From Remote Shell to Agent Control Plane"
-date: "2026-05-23T20:51:36+08:00"
+date: "2026-05-24T14:02:07+08:00"
 draft: false
 tags:
   - ai/codex
@@ -8,12 +8,15 @@ tags:
   - agent-workflow
   - public
   - note
-series: "Remote Agent Workflow"
+
+series: Remote Agent Workflow
 seriesOrder: 2
 topics:
   - remote-agent-workflow
   - codex
   - ai-agent-workflow
+
+
 ---
 
 This is Part 2 of the Remote Agent Workflow series.
