@@ -1,6 +1,6 @@
 ---
 title: "Remote Agent Workflow, Part 4: In the Repository, Not in the Chat"
-date: "2026-05-23T20:51:36+08:00"
+date: "2026-05-24T16:12:12+08:00"
 draft: false
 tags:
   - ai/codex
@@ -9,12 +9,7 @@ tags:
   - spec-driven-development
   - public
   - note
-series: "Remote Agent Workflow"
-seriesOrder: 4
-topics:
-  - remote-agent-workflow
-  - codex
-  - ai-agent-workflow
+
 ---
 
 This is Part 4 of the Remote Agent Workflow series.
@@ -340,13 +335,3 @@ The more asynchronous the work becomes, the more important this rule becomes:
 - [Harness engineering: leveraging Codex in an agent-first world](https://openai.com/index/harness-engineering/)
 - [Harness design for long-running application development](https://www.anthropic.com/engineering/harness-design-long-running-apps)
 - [Everything is a Ralph loop](https://ghuntley.com/loop/)
-
-## Remote Agent Workflow Series
-
-Series index: [Remote Agent Workflow](/posts/publish/remote-agent-workflow/)
-
-1. [Remote Agent Workflow, Part 1: Remote Mac Terminal for Codex](/posts/publish/remote-mac-terminal-for-codex/)
-2. [Remote Agent Workflow, Part 2: From Remote Shell to Agent Control Plane](/posts/publish/from-remote-shell-to-agent-control-plane/)
-3. [Remote Agent Workflow, Part 3: Turning Telegram into a Local Codex Control Plane](/posts/publish/turning-telegram-into-a-local-codex-control-plane/)
-4. [Remote Agent Workflow, Part 4: In the Repository, Not in the Chat](/posts/publish/in-the-repository-not-in-the-chat/)
-5. [Remote Agent Workflow, Part 5: What Still Matters After Codex Mobile](/posts/publish/what-still-matters-after-codex-mobile/)

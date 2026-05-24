@@ -1,6 +1,6 @@
 ---
 title: "Remote Agent Workflow, Part 5: What Still Matters After Codex Mobile"
-date: "2026-05-23T20:51:36+08:00"
+date: "2026-05-24T16:12:12+08:00"
 draft: false
 tags:
   - ai/codex
@@ -9,13 +9,7 @@ tags:
   - codex-mobile
   - public
   - note
-series: "Remote Agent Workflow"
-seriesOrder: 5
-topics:
-  - remote-agent-workflow
-  - codex
-  - ai-agent-workflow
-selected: true
+
 ---
 
 This is Part 5 of the Remote Agent Workflow series.
@@ -403,13 +397,3 @@ That belongs in the repository.
 - [Work with Codex from anywhere](https://openai.com/index/work-with-codex-from-anywhere/)
 - [Introducing the Codex app](https://openai.com/index/introducing-the-codex-app/)
 - [Running Codex safely at OpenAI](https://openai.com/index/running-codex-safely/)
-
-## Remote Agent Workflow Series
-
-Series index: [Remote Agent Workflow](/posts/publish/remote-agent-workflow/)
-
-1. [Remote Agent Workflow, Part 1: Remote Mac Terminal for Codex](/posts/publish/remote-mac-terminal-for-codex/)
-2. [Remote Agent Workflow, Part 2: From Remote Shell to Agent Control Plane](/posts/publish/from-remote-shell-to-agent-control-plane/)
-3. [Remote Agent Workflow, Part 3: Turning Telegram into a Local Codex Control Plane](/posts/publish/turning-telegram-into-a-local-codex-control-plane/)
-4. [Remote Agent Workflow, Part 4: In the Repository, Not in the Chat](/posts/publish/in-the-repository-not-in-the-chat/)
-5. [Remote Agent Workflow, Part 5: What Still Matters After Codex Mobile](/posts/publish/what-still-matters-after-codex-mobile/)

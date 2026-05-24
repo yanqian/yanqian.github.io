@@ -1,6 +1,6 @@
 ---
 title: "Remote Agent Workflow"
-date: "2026-05-23T20:51:36+08:00"
+date: "2026-05-24T16:12:12+08:00"
 draft: false
 tags:
   - ai/codex
@@ -8,12 +8,7 @@ tags:
   - agent-workflow
   - public
   - note
-topics:
-  - remote-agent-workflow
-  - codex
-  - ai-agent-workflow
-selected: true
-excludeFromLatest: true
+
 ---
 
 This series is about moving from mobile SSH to a durable, repository-backed AI agent workflow.
