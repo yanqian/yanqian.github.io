@@ -1,4 +1,6 @@
 ---
+title: "Understanding Singapore's Payment Stack: From Bank Apps to SGQR, PayNow, FAST, Contactless, and NETS"
+slug: understanding-singapore-payment-stack
 tags:
   - payments
   - fintech

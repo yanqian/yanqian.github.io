@@ -17,7 +17,7 @@ topics:
   - remote-agent-workflow
   - codex
   - ai-agent-workflow
-selected: true
+selected: false
 ---
 
 # Remote Agent Workflow, Part 5: What Still Matters After Codex Mobile
