@@ -11,7 +11,10 @@ tags:
   - note
 series: Remote Agent Workflow
 seriesOrder: 5
-
+topics:
+  - remote-agent-workflow
+  - codex
+  - ai-agent-workflow
 ---
 
 This is Part 5 of the Remote Agent Workflow series.

@@ -8,7 +8,12 @@ tags:
   - agent-workflow
   - public
   - note
-
+topics:
+  - remote-agent-workflow
+  - codex
+  - ai-agent-workflow
+selected: true
+excludeFromLatest: true
 ---
 
 This series is about moving from mobile SSH to a durable, repository-backed AI agent workflow.

@@ -11,7 +11,10 @@ tags:
   - note
 series: Remote Agent Workflow
 seriesOrder: 1
-
+topics:
+  - remote-agent-workflow
+  - codex
+  - ai-agent-workflow
 ---
 
 This is Part 1 of the Remote Agent Workflow series.
@@ -110,7 +113,7 @@ Important behavior:
 
 There are two layers in the practical setup:
 
-![Remote Codex architecture](assets/remote-mac-terminal-for-codex/01-remote-architecture.svg)
+![Remote Codex architecture](/posts/publish/remote-mac-terminal-for-codex/assets/remote-mac-terminal-for-codex/01-remote-architecture.svg)
 
 ```text
 Host readiness layer:
@@ -294,7 +297,7 @@ tmux attach -t agent
 
 ## Step 6: Add Remote Workflow Scripts
 
-![Remote workflow command lifecycle](assets/remote-mac-terminal-for-codex/02-command-lifecycle.svg)
+![Remote workflow command lifecycle](/posts/publish/remote-mac-terminal-for-codex/assets/remote-mac-terminal-for-codex/02-command-lifecycle.svg)
 
 All scripts live on the Mac. The difference is when you use them:
 
@@ -683,6 +686,6 @@ This gives you a lightweight remote execution system controlled from your phone.
 
 After the setup is complete, a successful mobile session should look like this:
 
-![Codex running from a phone SSH session](assets/remote-mac-terminal-for-codex/remote-codex-phone-connected-preview.png)
+![Codex running from a phone SSH session](/posts/publish/remote-mac-terminal-for-codex/assets/remote-mac-terminal-for-codex/remote-codex-phone-connected-preview.png)
 
 In this example, the phone is connected to the Mac through Termius, the shell is inside a tmux session, and Codex is running inside the remote project directory.
