@@ -8,6 +8,7 @@ tags:
   - agent-workflow
   - public
   - note
+seriesOrder: 0
 topics:
   - remote-agent-workflow
   - codex
