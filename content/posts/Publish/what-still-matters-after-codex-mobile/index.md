@@ -9,6 +9,8 @@ tags:
   - codex-mobile
   - public
   - note
+series: Remote Agent Workflow
+seriesOrder: 5
 
 ---
 

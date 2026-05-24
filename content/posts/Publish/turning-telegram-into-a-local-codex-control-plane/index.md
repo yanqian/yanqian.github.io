@@ -9,6 +9,8 @@ tags:
   - telegram
   - public
   - note
+series: Remote Agent Workflow
+seriesOrder: 3
 
 ---
 

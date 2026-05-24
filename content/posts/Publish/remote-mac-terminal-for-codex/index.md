@@ -9,6 +9,8 @@ tags:
   - remote-workflow
   - public
   - note
+series: Remote Agent Workflow
+seriesOrder: 1
 
 ---
 

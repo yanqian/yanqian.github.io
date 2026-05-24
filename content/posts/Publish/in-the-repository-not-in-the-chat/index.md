@@ -9,6 +9,8 @@ tags:
   - spec-driven-development
   - public
   - note
+series: Remote Agent Workflow
+seriesOrder: 4
 
 ---
 
