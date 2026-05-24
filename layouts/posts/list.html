@@ -1,0 +1,31 @@
+{{ define "title" }}
+  {{ title (i18n (lower .Title)) | default .Title }} · {{ .Site.Title }}
+{{ end }}
+
+{{ define "content" }}
+  <section class="container page list collection-page">
+    <article>
+      <header>
+        <h1 class="title">
+          <a class="title-link" href="{{ .Permalink | safeURL }}">
+            {{ title (i18n (lower .Title)) | default .Title }}
+          </a>
+        </h1>
+      </header>
+
+      {{ .Content }}
+
+      {{ if .Paginator.Pages }}
+        <ol class="post-list">
+          {{ range .Paginator.Pages }}
+            {{ partial "home/post-row.html" . }}
+          {{ end }}
+        </ol>
+      {{ else }}
+        <p class="empty-state">No public posts yet.</p>
+      {{ end }}
+
+      {{ partial "pagination.html" . }}
+    </article>
+  </section>
+{{ end }}
