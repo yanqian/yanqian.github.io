@@ -342,9 +342,3 @@ Search becomes constraint.
 Engineers become the people who decide where the search is allowed to go.
 ```
 
-## Series
-
-1. [AI-Native Software Engineering, Part 1: Mental Models in Agentic Coding](/posts/publish/agentic-coding-mental-models-and-the-new-depth-of-software-engineering/)
-2. [AI-Native Software Engineering, Part 2: Harness Engineering and Correctness](/posts/publish/harness-engineering-is-about-limiting-ai-not-empowering-it/)
-3. [AI-Native Software Engineering, Part 3: Software as Search](/posts/publish/software-is-becoming-search-why-engineers-are-turning-into-constraint-designers/)
-4. [AI-Native Software Engineering, Part 4: Human Judgment Against Vibe Coding](/posts/publish/against-vibe-coding-why-human-judgment-still-matters/)

@@ -345,9 +345,3 @@ Not less engineering.
 
 A different kind of engineering.
 
-## Series
-
-1. [[Agentic Coding, Mental Models, and the New Depth of Software Engineering|AI-Native Software Engineering, Part 1: Mental Models in Agentic Coding]]
-2. [[Harness Engineering Is About Limiting AI, Not Empowering It|AI-Native Software Engineering, Part 2: Harness Engineering and Correctness]]
-3. [[Software Is Becoming Search - Why Engineers Are Turning Into Constraint Designers|AI-Native Software Engineering, Part 3: Software as Search]]
-4. [[Against Vibe Coding - Why Human Judgment Still Matters|AI-Native Software Engineering, Part 4: Human Judgment Against Vibe Coding]]
