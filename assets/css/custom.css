@@ -307,6 +307,13 @@ a:focus,
   margin: 0.55rem 0 0;
 }
 
+.selected-card p {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
 .collection-list {
   margin-top: 0.6rem;
 }

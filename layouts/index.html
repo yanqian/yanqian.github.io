@@ -61,7 +61,7 @@
               {{ with .Params.description }}
                 <p>{{ . }}</p>
               {{ else }}
-                <p>{{ .Summary | plainify | truncate 150 }}</p>
+                <p>{{ .Summary | plainify }}</p>
               {{ end }}
             </article>
           {{ end }}
