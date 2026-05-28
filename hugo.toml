@@ -21,7 +21,6 @@ keywords = "blog,backend,system design,platform engineering"
 colorScheme = "auto"
 hideColorSchemeToggle = false
 customCSS = ["css/custom.css"]
-customJS = ["js/selected-summary.js"]
 
 [params.entry]
 toc = true

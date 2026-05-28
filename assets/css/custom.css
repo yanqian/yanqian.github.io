@@ -631,29 +631,18 @@ a:focus,
 }
 
 .home-page .selected-card p {
-  --selected-summary-line-height: 1.55;
-  --selected-summary-max-height: 4.2rem;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   color: var(--site-muted);
-  display: block;
+  display: -webkit-box;
   font-size: 1.35rem;
-  line-height: var(--selected-summary-line-height);
+  line-height: 1.55;
   margin: 0.55rem 0 0;
   max-width: 100%;
-  max-height: var(--selected-summary-max-height);
   overflow: hidden;
   overflow-wrap: break-word;
-  position: relative;
   text-align: start;
   word-break: normal;
-}
-
-.home-page .selected-card p.is-clamped::after {
-  background: var(--site-bg);
-  bottom: 0;
-  content: " \2026";
-  inset-inline-end: 0;
-  position: absolute;
-  text-align: start;
 }
 
 .page ul,

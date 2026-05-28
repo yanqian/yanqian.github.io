@@ -6,7 +6,6 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 CSS = (ROOT / "assets/css/custom.css").read_text()
 CONFIG = (ROOT / "hugo.toml").read_text()
-SUMMARY_JS = (ROOT / "assets/js/selected-summary.js").read_text()
 
 
 def declaration_block(selector):
@@ -41,16 +40,14 @@ class SelectedSummaryCSSTest(unittest.TestCase):
         declarations = declaration_block(".home-page .selected-card p")
 
         expected = {
-            "--selected-summary-line-height": "1.55",
-            "--selected-summary-max-height": "4.2rem",
-            "display": "block",
+            "-webkit-box-orient": "vertical",
+            "-webkit-line-clamp": "2",
+            "display": "-webkit-box",
             "overflow": "hidden",
             "text-align": "start",
             "word-break": "normal",
             "overflow-wrap": "break-word",
             "max-width": "100%",
-            "max-height": "var(--selected-summary-max-height)",
-            "position": "relative",
         }
 
         for prop, value in expected.items():
@@ -61,18 +58,11 @@ class SelectedSummaryCSSTest(unittest.TestCase):
             )
 
         self.assertEqual(declarations.get("font-size"), "1.35rem")
-        self.assertEqual(
-            declarations.get("line-height"),
-            "var(--selected-summary-line-height)",
-        )
+        self.assertEqual(declarations.get("line-height"), "1.55")
 
-    def test_selected_summary_ellipsis_has_leading_space(self):
-        declarations = declaration_block(".home-page .selected-card p.is-clamped::after")
-
-        self.assertEqual(declarations.get("content"), '" \\2026"')
-        self.assertEqual(declarations.get("position"), "absolute")
-        self.assertEqual(declarations.get("inset-inline-end"), "0")
-        self.assertEqual(declarations.get("background"), "var(--site-bg)")
+    def test_selected_summary_does_not_use_manual_ellipsis_overlay(self):
+        self.assertNotIn(".home-page .selected-card p.is-clamped::after", CSS)
+        self.assertNotIn('content: " \\2026"', CSS)
 
     def test_mobile_breakpoint_does_not_override_selected_summary_clamp(self):
         mobile_css = CSS.split("@media (max-width: 768px)", 1)[1]
@@ -83,13 +73,9 @@ class SelectedSummaryCSSTest(unittest.TestCase):
             "Mobile should use the same stable Selected summary clamp as desktop.",
         )
 
-    def test_selected_summary_js_is_loaded_and_detects_overflow(self):
-        self.assertIn('customJS = ["js/selected-summary.js"]', CONFIG)
-        self.assertIn(".home-page .selected-card p", SUMMARY_JS)
-        self.assertIn("scrollHeight > summary.clientHeight + 1", SUMMARY_JS)
-        self.assertIn('classList.add("is-clamped")', SUMMARY_JS)
-        self.assertIn('classList.remove("is-clamped")', SUMMARY_JS)
-        self.assertIn('window.addEventListener("resize"', SUMMARY_JS)
+    def test_selected_summary_does_not_load_clamp_detection_js(self):
+        self.assertNotIn("selected-summary.js", CONFIG)
+        self.assertFalse((ROOT / "assets/js/selected-summary.js").exists())
 
 
 if __name__ == "__main__":
