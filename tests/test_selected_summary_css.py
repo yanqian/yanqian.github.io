@@ -43,7 +43,6 @@ class SelectedSummaryCSSTest(unittest.TestCase):
         expected = {
             "--selected-summary-line-height": "1.55",
             "--selected-summary-max-height": "4.2rem",
-            "--selected-summary-ellipsis-width": "1.7em",
             "display": "block",
             "overflow": "hidden",
             "text-align": "start",
@@ -51,7 +50,6 @@ class SelectedSummaryCSSTest(unittest.TestCase):
             "overflow-wrap": "break-word",
             "max-width": "100%",
             "max-height": "var(--selected-summary-max-height)",
-            "padding-inline-end": "var(--selected-summary-ellipsis-width)",
             "position": "relative",
         }
 
@@ -71,10 +69,9 @@ class SelectedSummaryCSSTest(unittest.TestCase):
     def test_selected_summary_ellipsis_has_leading_space(self):
         declarations = declaration_block(".home-page .selected-card p.is-clamped::after")
 
-        self.assertEqual(declarations.get("content"), '" ..."')
+        self.assertEqual(declarations.get("content"), '" \\2026"')
         self.assertEqual(declarations.get("position"), "absolute")
         self.assertEqual(declarations.get("inset-inline-end"), "0")
-        self.assertEqual(declarations.get("width"), "var(--selected-summary-ellipsis-width)")
         self.assertEqual(declarations.get("background"), "var(--site-bg)")
 
     def test_mobile_breakpoint_does_not_override_selected_summary_clamp(self):

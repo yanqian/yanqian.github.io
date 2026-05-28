@@ -633,7 +633,6 @@ a:focus,
 .home-page .selected-card p {
   --selected-summary-line-height: 1.55;
   --selected-summary-max-height: 4.2rem;
-  --selected-summary-ellipsis-width: 1.7em;
   color: var(--site-muted);
   display: block;
   font-size: 1.35rem;
@@ -643,7 +642,6 @@ a:focus,
   max-height: var(--selected-summary-max-height);
   overflow: hidden;
   overflow-wrap: break-word;
-  padding-inline-end: var(--selected-summary-ellipsis-width);
   position: relative;
   text-align: start;
   word-break: normal;
@@ -652,12 +650,10 @@ a:focus,
 .home-page .selected-card p.is-clamped::after {
   background: var(--site-bg);
   bottom: 0;
-  content: " ...";
+  content: " \2026";
   inset-inline-end: 0;
-  padding-inline-start: 0.2em;
   position: absolute;
   text-align: start;
-  width: var(--selected-summary-ellipsis-width);
 }
 
 .page ul,
