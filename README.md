@@ -36,3 +36,4 @@ The generated output is written to `public/`.
 ## Deployment
 
 Pushing to `main` triggers the GitHub Actions workflow in `.github/workflows/hugo.yml`, which builds the Hugo site and deploys it to GitHub Pages.
+
