@@ -630,6 +630,21 @@ a:focus,
   line-height: 1.7;
 }
 
+.home-page .selected-card p {
+  color: var(--site-muted);
+  display: -webkit-box;
+  font-size: 1.35rem;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 1.55;
+  margin: 0.55rem 0 0;
+  max-width: 100%;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  text-align: start;
+  word-break: normal;
+}
+
 .page ul,
 .page ol {
   padding-left: 2.2rem;
