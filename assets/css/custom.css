@@ -631,18 +631,33 @@ a:focus,
 }
 
 .home-page .selected-card p {
+  --selected-summary-line-height: 1.55;
+  --selected-summary-max-height: 4.2rem;
+  --selected-summary-ellipsis-width: 1.7em;
   color: var(--site-muted);
-  display: -webkit-box;
+  display: block;
   font-size: 1.35rem;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  line-height: 1.55;
+  line-height: var(--selected-summary-line-height);
   margin: 0.55rem 0 0;
   max-width: 100%;
+  max-height: var(--selected-summary-max-height);
   overflow: hidden;
   overflow-wrap: break-word;
+  padding-inline-end: var(--selected-summary-ellipsis-width);
+  position: relative;
   text-align: start;
   word-break: normal;
+}
+
+.home-page .selected-card p.is-clamped::after {
+  background: var(--site-bg);
+  bottom: 0;
+  content: " ...";
+  inset-inline-end: 0;
+  padding-inline-start: 0.2em;
+  position: absolute;
+  text-align: start;
+  width: var(--selected-summary-ellipsis-width);
 }
 
 .page ul,
