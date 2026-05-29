@@ -24,6 +24,21 @@ Keep this boundary intact:
 Obsidian source notes -> vault Publish/ projection -> this Hugo repo -> GitHub Pages
 ```
 
+## Development Workflow State
+
+This repository also carries agent-workflow state for disciplined site development.
+
+Durable workflow files:
+
+- `SPEC.md`
+- `feature_list.json`
+- `progress.md`
+- `test_plan.md`
+- `init.sh`
+- `orchestrator.py`
+
+The workflow state files describe how requirements are discussed, scoped, verified, and advanced. They are not article source material.
+
 ## What To Edit Here
 
 Edit this repository for:
@@ -107,6 +122,21 @@ Then open:
 http://localhost:1313/
 ```
 
+For workflow-driven development rounds, use:
+
+```sh
+python3 orchestrator.py --dry-run
+python3 orchestrator.py --max-rounds 1
+python3 orchestrator.py --eval-only all
+```
+
+Every coding or evaluator agent round must reconstruct state from:
+
+1. `progress.md`
+2. `feature_list.json`
+3. `git log --oneline -20`
+4. `./init.sh`
+
 ## Deployment
 
 Pushing to `main` triggers `.github/workflows/hugo.yml` and deploys GitHub Pages.
@@ -118,3 +148,12 @@ After pushing, check the workflow result with GitHub Actions. A successful deplo
 The Obsidian GitHub Publisher plugin combines `selectedPaths` and `publishTags` as OR, not AND. If it is configured with both `selectedPaths: ["Publish"]` and `publishTags: ["#public"]`, it will publish all files under `Publish/` plus every Markdown file in the vault tagged `#public`.
 
 That causes private source-note paths to appear under `content/posts/` and can duplicate articles in Hugo series pages. Keep tag filtering in the Obsidian QuickAdd script, not in GitHub Publisher.
+
+## Workflow Rules
+
+- Planning changes belong in `docs/requirements/` for larger work.
+- `progress.md` records the current workflow status and next feature.
+- `feature_list.json` records runnable feature state and completion metadata.
+- `orchestrator.py` owns bounded unattended rounds and evaluator-only checks.
+- Coding agents may change only the current feature and must not treat chat history as durable state.
+- Evaluator agents must verify against `SPEC.md`, `test_plan.md`, and the current repository state.

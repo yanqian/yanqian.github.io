@@ -1,0 +1,31 @@
+{
+  "features": [
+    {
+      "id": "F001",
+      "description": "Establish the site development workflow contract, including the repository role boundary, workflow state files, and the verification entrypoint.",
+      "passes": true,
+      "status": "done",
+      "attempts": 1,
+      "last_error": "",
+      "priority": "P0"
+    },
+    {
+      "id": "F002",
+      "description": "Add repository contract tests that protect the Obsidian-to-Hugo publishing boundary and the Selected summary CSS regression.",
+      "passes": true,
+      "status": "done",
+      "attempts": 1,
+      "last_error": "",
+      "priority": "P0"
+    },
+    {
+      "id": "F003",
+      "description": "Document the workflow-driven requirement, planning, coding, and evaluation loop for future site changes.",
+      "passes": true,
+      "status": "done",
+      "attempts": 1,
+      "last_error": "",
+      "priority": "P1"
+    }
+  ]
+}

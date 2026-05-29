@@ -37,9 +37,22 @@ Gentle Memories is a local-first Obsidian plugin that gently resurfaces old jour
 
 [GitHub](https://github.com/yanqian/gentle-memories-obsidian)
 
+### Home Guard TG
+
+**Trusted-host Telegram Bot · Home monitoring · Mac · ffmpeg**
+
+`home-guard-tg` is a small trusted-host Telegram Bot for checking on home from a Mac. It keeps the command surface intentionally narrow and runs only for authorized chats on the trusted home machine.
+
+- `/camera_clip` - capture a short camera clip for a quick home check.
+- `/photo` - capture a still image when a shorter update is enough.
+- `/sound_alarm` - play a local audible alert on the trusted Mac.
+
+[GitHub](https://github.com/yanqian/home-guard-tg)
+
 ## Areas
 
 - Browser extensions and workflow automation
 - Local-first knowledge tools
 - AI-assisted form understanding and personal productivity
+- Trusted-host Telegram bots for local device automation
 - Publishing workflows with Obsidian, Hugo, and GitHub Pages

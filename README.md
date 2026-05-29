@@ -16,12 +16,24 @@ Then open:
 http://localhost:1313/
 ```
 
+For the repeatable development workflow, see:
+
+- `SPEC.md`
+- `test_plan.md`
+- `docs/development-workflow.md`
+
+Run the full local verification entry point before pushing site, template, style, or deployment changes:
+
+```sh
+./init.sh
+```
+
 ## Build
 
 Generate the static site:
 
 ```sh
-hugo
+hugo --gc --minify --baseURL "https://yanqian.github.io/"
 ```
 
 The generated output is written to `public/`.
@@ -36,4 +48,3 @@ The generated output is written to `public/`.
 ## Deployment
 
 Pushing to `main` triggers the GitHub Actions workflow in `.github/workflows/hugo.yml`, which builds the Hugo site and deploys it to GitHub Pages.
-
