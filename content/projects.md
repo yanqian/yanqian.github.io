@@ -25,7 +25,7 @@ VisaPilot is a chat-first browser assistant for visa and arrival-card forms, wit
 
 ### Gentle Memories
 
-**Obsidian plugin · Local-first · Personal knowledge · AI optional · Under review**
+**Obsidian plugin · Local-first · Personal knowledge · AI optional**
 
 Gentle Memories is a local-first Obsidian plugin that gently resurfaces old journal notes inside the current vault.
 
@@ -35,7 +35,7 @@ Gentle Memories is a local-first Obsidian plugin that gently resurfaces old jour
 - Keeps AI disabled by default; when enabled, it sends only the displayed excerpt, not the full note, path, vault name, tags, or display history.
 - Supports startup reminders and on-demand recall through the command palette.
 
-[GitHub](https://github.com/yanqian/gentle-memories-obsidian)
+[GitHub](https://github.com/yanqian/gentle-memories-obsidian) · [Obsidian Plugin](https://community.obsidian.md/plugins/gentle-memories)
 
 ### Home Guard TG
 

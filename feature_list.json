@@ -26,6 +26,15 @@
       "attempts": 1,
       "last_error": "",
       "priority": "P1"
+    },
+    {
+      "id": "F004",
+      "description": "Update the Projects page Gentle Memories entry to show community review approval and link to the public Obsidian review page.",
+      "passes": true,
+      "status": "done",
+      "attempts": 1,
+      "last_error": "",
+      "priority": "P1"
     }
   ]
 }

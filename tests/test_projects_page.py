@@ -7,6 +7,11 @@ PROJECTS = (ROOT / "content/projects.md").read_text()
 
 
 class ProjectsPageTest(unittest.TestCase):
+    def test_gentle_memories_review_link_exists(self):
+        self.assertIn("### Gentle Memories", PROJECTS)
+        self.assertIn("Obsidian Plugin", PROJECTS)
+        self.assertIn("https://community.obsidian.md/plugins/gentle-memories", PROJECTS)
+
     def test_home_guard_tg_entry_exists(self):
         self.assertIn("### Home Guard TG", PROJECTS)
         self.assertIn("https://github.com/yanqian/home-guard-tg", PROJECTS)

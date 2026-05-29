@@ -20,12 +20,13 @@ Implemented behavior:
 - Generated article content stays under `content/posts/Publish/`.
 - `selected` remains the homepage curation field.
 - The Projects page now includes `home-guard-tg` with a public GitHub link and README reference.
+- The Projects page now marks `Gentle Memories` as community review approved and links to the public Obsidian review page.
 - `./init.sh` runs unit tests, checks `orchestrator.py`, and performs a production-style Hugo build.
 - `orchestrator.py` can preview or run bounded coding/evaluator rounds for future feature work.
 
 ## Last Completed Feature
 
-`F003` - Document the workflow-driven requirement, planning, coding, and evaluation loop for future site changes.
+`F004` - Update the Projects page Gentle Memories entry to show community review approval and link to the public Obsidian review page.
 
 ## Next Feature
 
