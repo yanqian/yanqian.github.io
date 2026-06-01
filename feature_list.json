@@ -35,6 +35,15 @@
       "attempts": 1,
       "last_error": "",
       "priority": "P1"
+    },
+    {
+      "id": "F005",
+      "description": "Refine article code block rendering with GitHub-style syntax highlighting, readable typography, hidden text labels, and inline-code-matched block backgrounds.",
+      "passes": true,
+      "status": "done",
+      "attempts": 1,
+      "last_error": "",
+      "priority": "P1"
     }
   ]
 }

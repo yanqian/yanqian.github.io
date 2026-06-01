@@ -34,6 +34,7 @@ python3 -m py_compile orchestrator.py
 | Workflow state | Tests assert `feature_list.json` is valid JSON with feature entries and `progress.md` is present. |
 | Publishing boundary | Tests assert Markdown posts under `content/posts/` live only under `content/posts/Publish/`. |
 | Homepage CSS regression | Tests assert Selected summary CSS keeps stable two-line clamping and does not rely on JavaScript clamp detection. |
+| Article code block CSS | Tests assert class-based Chroma highlighting is enabled, syntax CSS loads before custom CSS, code-block backgrounds match inline code, `text` labels stay hidden, and language labels do not create a separate header background. |
 | Projects page content | Tests assert the `home-guard-tg` project entry and GitHub link exist in `content/projects.md`. |
 | Hugo rendering | `init.sh` runs a production-style Hugo build and requires `public/index.html`. |
 | Deployment parity | GitHub Actions runs unittest discovery before the Pages build. |

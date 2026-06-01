@@ -19,6 +19,7 @@ Implemented behavior:
 - Obsidian remains the source of truth for article text.
 - Generated article content stays under `content/posts/Publish/`.
 - `selected` remains the homepage curation field.
+- Article code blocks now use class-based Chroma highlighting with GitHub light/dark colors, a lighter code panel, code typography tuned for readability, no visible `text` language label, and a unified code-block background that matches inline code.
 - The Projects page now includes `home-guard-tg` with a public GitHub link and README reference.
 - The Projects page now marks `Gentle Memories` as community review approved and links to the public Obsidian review page.
 - `./init.sh` runs unit tests, checks `orchestrator.py`, and performs a production-style Hugo build.
@@ -26,7 +27,7 @@ Implemented behavior:
 
 ## Last Completed Feature
 
-`F004` - Update the Projects page Gentle Memories entry to show community review approval and link to the public Obsidian review page.
+`F005` - Refine article code block rendering with GitHub-style syntax highlighting, readable typography, hidden `text` labels, and inline-code-matched block backgrounds.
 
 ## Next Feature
 
