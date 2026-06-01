@@ -758,9 +758,9 @@ code {
 .highlight pre {
   background: var(--site-code-panel-bg);
   border-radius: 0;
-  font-family: Menlo, Monaco, "SFMono-Regular", "Cascadia Mono", Consolas, "Liberation Mono", monospace;
-  font-size: 1.42rem;
-  line-height: 2.45rem;
+  font-family: "SF Mono", "SFMono-Regular", ui-monospace, Menlo, Monaco, "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+  font-size: 1.48rem;
+  line-height: 2.7rem;
   margin: 0;
   padding: 0;
 }
@@ -784,7 +784,7 @@ pre code,
   color: var(--site-code-panel-label);
   content: attr(data-lang);
   display: block;
-  font-family: Menlo, Monaco, "SFMono-Regular", "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+  font-family: "SF Mono", "SFMono-Regular", ui-monospace, Menlo, Monaco, "Cascadia Mono", Consolas, "Liberation Mono", monospace;
   font-size: 1.24rem;
   font-weight: 600;
   left: 0;
