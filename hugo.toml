@@ -4,6 +4,14 @@ theme = "hugo-coder"
 locale = "en-us"
 defaultContentLanguage = "en"
 
+[markup]
+  [markup.highlight]
+    noClasses = false
+    codeFences = true
+    guessSyntax = true
+    lineNos = false
+    style = "github"
+
 [pagination]
 pagerSize = 10
 
@@ -20,7 +28,7 @@ description = "Personal blog of Yan Qiang"
 keywords = "blog,backend,system design,platform engineering"
 colorScheme = "auto"
 hideColorSchemeToggle = false
-customCSS = ["css/custom.css"]
+customCSS = ["css/syntax.css", "css/custom.css"]
 
 [params.entry]
 toc = true

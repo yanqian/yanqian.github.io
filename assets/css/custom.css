@@ -6,6 +6,11 @@
   --site-border: #dce3e0;
   --site-surface: #eef3f1;
   --site-code-bg: #e7eeeb;
+  --site-code-panel-bg: #f6f8fa;
+  --site-code-panel-header: #ffffff;
+  --site-code-panel-border: #d5e3e0;
+  --site-code-panel-label: #5f6d6a;
+  --site-code-panel-shadow: rgba(15, 118, 110, 0.08);
   --site-terminal-bg: #101817;
   --site-terminal-fg: #d6f3ee;
   --site-terminal-muted: #7dd8cb;
@@ -21,6 +26,11 @@ body.colorscheme-auto {
   --site-border: #34413f;
   --site-surface: #263331;
   --site-code-bg: #2b3836;
+  --site-code-panel-bg: #0d1117;
+  --site-code-panel-header: #161b22;
+  --site-code-panel-border: #30363d;
+  --site-code-panel-label: #8b949e;
+  --site-code-panel-shadow: rgba(0, 0, 0, 0.28);
   --site-terminal-bg: #111c1a;
   --site-terminal-fg: #d8f7f2;
   --site-terminal-muted: #7dd8cb;
@@ -35,6 +45,11 @@ body.colorscheme-auto {
     --site-border: #dce3e0;
     --site-surface: #eef3f1;
     --site-code-bg: #e7eeeb;
+    --site-code-panel-bg: #f6f8fa;
+    --site-code-panel-header: #ffffff;
+    --site-code-panel-border: #d5e3e0;
+    --site-code-panel-label: #5f6d6a;
+    --site-code-panel-shadow: rgba(15, 118, 110, 0.08);
     --site-terminal-bg: #101817;
     --site-terminal-fg: #d6f3ee;
     --site-terminal-muted: #4fb7aa;
@@ -729,6 +744,56 @@ a:focus,
 code {
   background: var(--site-code-bg);
   color: var(--site-fg);
+}
+
+.highlight {
+  background: var(--site-code-panel-bg);
+  border: 1px solid var(--site-code-panel-border);
+  border-radius: 8px;
+  box-shadow: 0 2px 0 var(--site-code-panel-shadow);
+  margin: 2rem 0;
+  overflow: hidden;
+}
+
+.highlight pre {
+  background: var(--site-code-panel-bg);
+  border-radius: 0;
+  font-family: Menlo, Monaco, "SFMono-Regular", "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+  font-size: 1.42rem;
+  line-height: 2.45rem;
+  margin: 0;
+  padding: 0;
+}
+
+pre code,
+.highlight code {
+  background: transparent;
+  color: inherit;
+}
+
+.highlight code {
+  display: block;
+  min-width: max-content;
+  padding: 4.8rem 1.6rem 1.5rem;
+  position: relative;
+}
+
+.highlight code::before {
+  background: var(--site-code-panel-header);
+  border-bottom: 1px solid var(--site-code-panel-border);
+  color: var(--site-code-panel-label);
+  content: attr(data-lang);
+  display: block;
+  font-family: Menlo, Monaco, "SFMono-Regular", "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+  font-size: 1.24rem;
+  font-weight: 600;
+  left: 0;
+  line-height: 1.4;
+  padding: 1rem 1.6rem;
+  position: absolute;
+  right: 0;
+  text-transform: lowercase;
+  top: 0;
 }
 
 hr {
