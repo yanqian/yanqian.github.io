@@ -23,7 +23,7 @@ This guide explains how to control a Mac terminal from a phone and keep long-run
 
 The goal is not remote desktop access. The goal is a reliable remote terminal workflow:
 
-```text
+```bash
 Phone -> SSH -> Mac -> tmux -> Codex / agent task
 ```
 
@@ -115,7 +115,7 @@ There are two layers in the practical setup:
 
 ![Remote Codex architecture](/posts/publish/remote-mac-terminal-for-codex/assets/remote-mac-terminal-for-codex/01-remote-architecture.svg)
 
-```text
+```bash
 Host readiness layer:
   Tailscale client running
   caffeinate running
@@ -135,7 +135,7 @@ The important distinction is:
 
 The recommended commands are:
 
-```text
+```bash
 mac-awake-on     -> run on the Mac before remote work; checks Tailscale and starts caffeinate
 agent-new        -> run from the phone SSH session; creates a new tmux agent session
 phone-disconnect -> run from inside tmux; detaches the phone without stopping the agent
@@ -148,7 +148,7 @@ mac-awake-off    -> run when remote work is finished; stops caffeinate and allow
 
 Open:
 
-```text
+```bash
 System Settings -> General -> Sharing -> Remote Login
 ```
 
@@ -168,13 +168,13 @@ sudo systemsetup -getremotelogin
 
 Expected output:
 
-```text
+```bash
 Remote Login: On
 ```
 
 If macOS blocks the command, give your terminal app the required permission in:
 
-```text
+```bash
 System Settings -> Privacy & Security -> Full Disk Access
 ```
 
@@ -209,7 +209,7 @@ tailscale ip
 
 You should see something like:
 
-```text
+```bash
 100.x.x.x
 ```
 
@@ -219,7 +219,7 @@ This is the address your phone will use for SSH.
 
 Create a new host in Termius:
 
-```text
+```bash
 Address: 100.x.x.x
 Username: your macOS username
 Port: 22
@@ -257,7 +257,7 @@ cat ~/.ssh/id_ed25519_termius
 
 Import the private key into:
 
-```text
+```bash
 Termius -> Keychain -> Import Key
 ```
 
@@ -265,7 +265,7 @@ Then edit the Termius host and select this key for authentication.
 
 Test the connection. A successful login should show a shell prompt like:
 
-```text
+```bash
 yourname@MacBook ~ %
 ```
 
@@ -285,7 +285,7 @@ tmux new -s agent
 
 Detach without stopping the task:
 
-```text
+```bash
 Ctrl + B, then D
 ```
 
@@ -509,7 +509,7 @@ phone-disconnect
 
 You can also use the native tmux shortcut:
 
-```text
+```bash
 Ctrl + B, then D
 ```
 
@@ -604,7 +604,7 @@ tailscale ip
 
 Make sure Termius uses:
 
-```text
+```bash
 Host: 100.x.x.x
 Port: 22
 Username: your macOS username
@@ -632,7 +632,7 @@ phone-disconnect
 
 Or use the tmux shortcut:
 
-```text
+```bash
 Ctrl + B, then D
 ```
 
@@ -658,7 +658,7 @@ For reliable agent runs, keep the Mac connected to power and avoid closing the l
 
 Remote Mac access is three separate problems:
 
-```text
+```bash
 Network access: Tailscale
 Remote login: SSH + Termius
 Long-running execution: tmux + caffeinate
