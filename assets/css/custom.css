@@ -6,9 +6,9 @@
   --site-border: #dce3e0;
   --site-surface: #eef3f1;
   --site-code-bg: #e7eeeb;
-  --site-code-panel-bg: #f6f8fa;
-  --site-code-panel-header: #ffffff;
-  --site-code-panel-border: #d5e3e0;
+  --site-code-panel-bg: #eef2f6;
+  --site-code-panel-header: #f8fafc;
+  --site-code-panel-border: #cbd8d5;
   --site-code-panel-label: #5f6d6a;
   --site-code-panel-shadow: rgba(15, 118, 110, 0.08);
   --site-terminal-bg: #101817;
@@ -45,9 +45,9 @@ body.colorscheme-auto {
     --site-border: #dce3e0;
     --site-surface: #eef3f1;
     --site-code-bg: #e7eeeb;
-    --site-code-panel-bg: #f6f8fa;
-    --site-code-panel-header: #ffffff;
-    --site-code-panel-border: #d5e3e0;
+    --site-code-panel-bg: #eef2f6;
+    --site-code-panel-header: #f8fafc;
+    --site-code-panel-border: #cbd8d5;
     --site-code-panel-label: #5f6d6a;
     --site-code-panel-shadow: rgba(15, 118, 110, 0.08);
     --site-terminal-bg: #101817;
@@ -778,6 +778,10 @@ pre code,
   position: relative;
 }
 
+.highlight code[data-lang="text"] {
+  padding-top: 1.5rem;
+}
+
 .highlight code::before {
   background: var(--site-code-panel-header);
   border-bottom: 1px solid var(--site-code-panel-border);
@@ -794,6 +798,11 @@ pre code,
   right: 0;
   text-transform: lowercase;
   top: 0;
+}
+
+.highlight code[data-lang="text"]::before {
+  content: none;
+  display: none;
 }
 
 hr {
