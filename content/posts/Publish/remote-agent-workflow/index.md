@@ -1,6 +1,6 @@
 ---
 title: "Remote Agent Workflow"
-date: "2026-05-24T16:12:12+08:00"
+date: "2026-06-01T16:34:46+08:00"
 draft: false
 tags:
   - ai/codex
@@ -8,12 +8,14 @@ tags:
   - agent-workflow
   - public
   - note
-seriesOrder: 0
+
+
+
 topics:
   - remote-agent-workflow
   - codex
   - ai-agent-workflow
-selected: true
+
 excludeFromLatest: true
 ---
 

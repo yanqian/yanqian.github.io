@@ -1,6 +1,6 @@
 ---
 title: "I Built a Small Harness to Stop AI Coding Projects From Forgetting State"
-date: "2026-06-01T15:22:18+08:00"
+date: "2026-06-01T16:34:20+08:00"
 draft: false
 tags:
   - ai/codex
@@ -20,7 +20,7 @@ topics:
   - agentic-coding
   - context-engineering
   - developer-tools
-
+selected: true
 
 ---
 
