@@ -1,0 +1,121 @@
+/*! Custom giscus theme for yanqian.github.io. */
+main {
+  --color-prettylights-syntax-comment: #9fb0ad;
+  --color-prettylights-syntax-constant: #5eead4;
+  --color-prettylights-syntax-entity: #93c5fd;
+  --color-prettylights-syntax-storage-modifier-import: #e8eeee;
+  --color-prettylights-syntax-entity-tag: #5eead4;
+  --color-prettylights-syntax-keyword: #fca5a5;
+  --color-prettylights-syntax-string: #99f6e4;
+  --color-prettylights-syntax-variable: #facc15;
+  --color-prettylights-syntax-brackethighlighter-unmatched: #f87171;
+  --color-prettylights-syntax-invalid-illegal-text: #e8eeee;
+  --color-prettylights-syntax-invalid-illegal-bg: #7f1d1d;
+  --color-prettylights-syntax-carriage-return-text: #e8eeee;
+  --color-prettylights-syntax-carriage-return-bg: #991b1b;
+  --color-prettylights-syntax-string-regexp: #5eead4;
+  --color-prettylights-syntax-markup-list: #facc15;
+  --color-prettylights-syntax-markup-heading: #5eead4;
+  --color-prettylights-syntax-markup-italic: #e8eeee;
+  --color-prettylights-syntax-markup-bold: #e8eeee;
+  --color-prettylights-syntax-markup-deleted-text: #fecaca;
+  --color-prettylights-syntax-markup-deleted-bg: #581c1c;
+  --color-prettylights-syntax-markup-inserted-text: #99f6e4;
+  --color-prettylights-syntax-markup-inserted-bg: #134e4a;
+  --color-prettylights-syntax-markup-changed-text: #fde68a;
+  --color-prettylights-syntax-markup-changed-bg: #422006;
+  --color-prettylights-syntax-markup-ignored-text: #e8eeee;
+  --color-prettylights-syntax-markup-ignored-bg: #0f766e;
+  --color-prettylights-syntax-meta-diff-range: #93c5fd;
+  --color-prettylights-syntax-brackethighlighter-angle: #9fb0ad;
+  --color-prettylights-syntax-sublimelinter-gutter-mark: #697371;
+  --color-prettylights-syntax-constant-other-reference-link: #99f6e4;
+  --color-btn-text: #e8eeee;
+  --color-btn-bg: #263331;
+  --color-btn-border: #34413f;
+  --color-btn-shadow: 0 0 transparent;
+  --color-btn-inset-shadow: 0 0 transparent;
+  --color-btn-hover-bg: #2b3836;
+  --color-btn-hover-border: #43524f;
+  --color-btn-active-bg: #34413f;
+  --color-btn-active-border: #50615e;
+  --color-btn-selected-bg: #202827;
+  --color-btn-primary-text: #0f1f1d;
+  --color-btn-primary-bg: #5eead4;
+  --color-btn-primary-border: #5eead4;
+  --color-btn-primary-shadow: 0 0 transparent;
+  --color-btn-primary-inset-shadow: 0 0 transparent;
+  --color-btn-primary-hover-bg: #2dd4bf;
+  --color-btn-primary-hover-border: #2dd4bf;
+  --color-btn-primary-selected-bg: #14b8a6;
+  --color-btn-primary-selected-shadow: 0 0 transparent;
+  --color-btn-primary-disabled-text: rgb(15 31 29 / 70%);
+  --color-btn-primary-disabled-bg: rgb(94 234 212 / 50%);
+  --color-btn-primary-disabled-border: rgb(94 234 212 / 38%);
+  --color-action-list-item-default-hover-bg: rgb(159 176 173 / 12%);
+  --color-segmented-control-bg: #263331;
+  --color-segmented-control-button-bg: #202827;
+  --color-segmented-control-button-selected-border: #50615e;
+  --color-fg-default: #e8eeee;
+  --color-fg-muted: #9fb0ad;
+  --color-fg-subtle: #7f918e;
+  --color-canvas-default: #202827;
+  --color-canvas-overlay: #263331;
+  --color-canvas-inset: #1a211f;
+  --color-canvas-subtle: #263331;
+  --color-border-default: #34413f;
+  --color-border-muted: #2b3836;
+  --color-neutral-muted: rgb(159 176 173 / 20%);
+  --color-accent-fg: #5eead4;
+  --color-accent-emphasis: #5eead4;
+  --color-accent-muted: rgb(94 234 212 / 34%);
+  --color-accent-subtle: rgb(94 234 212 / 10%);
+  --color-success-fg: #5eead4;
+  --color-attention-fg: #facc15;
+  --color-attention-muted: rgb(250 204 21 / 34%);
+  --color-attention-subtle: rgb(250 204 21 / 10%);
+  --color-danger-fg: #f87171;
+  --color-danger-muted: rgb(248 113 113 / 34%);
+  --color-danger-subtle: rgb(248 113 113 / 10%);
+  --color-primer-shadow-inset: 0 0 transparent;
+  --color-scale-gray-7: #263331;
+  --color-scale-blue-8: #134e4a;
+  --color-social-reaction-bg-hover: var(--color-scale-gray-7);
+  --color-social-reaction-bg-reacted-hover: var(--color-scale-blue-8);
+}
+
+html,
+body,
+.gsc-main,
+.gsc-homepage-bg {
+  background: #202827;
+}
+
+.gsc-comment-box,
+.gsc-comment-box-tabs,
+.gsc-comment-box-main,
+.gsc-comment,
+.gsc-reply-box {
+  background: #202827;
+}
+
+.gsc-comment-box-bottom,
+.gsc-reply-box {
+  background: #263331;
+}
+
+.gsc-comment,
+.gsc-comment-box,
+.gsc-reply-box {
+  border-color: #34413f;
+}
+
+.gsc-reply-box textarea,
+.gsc-comment-box textarea,
+.gsc-comment-box-write {
+  background: #202827;
+}
+
+main .pagination-loader-container {
+  background-image: none;
+}

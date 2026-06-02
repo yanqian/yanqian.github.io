@@ -62,6 +62,15 @@
       "attempts": 1,
       "last_error": "",
       "priority": "P1"
+    },
+    {
+      "id": "F008",
+      "description": "Add site-hosted custom giscus themes so the comment iframe background matches the site's light and dark palettes.",
+      "passes": true,
+      "status": "done",
+      "attempts": 1,
+      "last_error": "",
+      "priority": "P1"
     }
   ]
 }

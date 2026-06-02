@@ -1,12 +1,14 @@
 {{- if isset .Site.Params "giscus" -}}
   {{- if and (isset .Site.Params.giscus "repo") (not (eq .Site.Params.giscus.repo "")) (eq (.Params.disableComments | default false) false) -}}
+    {{- $lightTheme := absURL (default "/css/giscus-light.css" .Site.Params.giscus.theme) -}}
+    {{- $darkTheme := absURL (default "/css/giscus-dark.css" .Site.Params.giscus.darkTheme) -}}
     <section class="post-comments giscus-comments" aria-labelledby="comments-title">
       <h2 id="comments-title">Comments</h2>
       <script>
         (() => {
           const container = document.currentScript.closest('.giscus-comments');
-          const lightTheme = '{{ default "noborder_light" .Site.Params.giscus.theme }}';
-          const darkTheme = '{{ default "noborder_dark" .Site.Params.giscus.darkTheme }}';
+          const lightTheme = '{{ $lightTheme }}';
+          const darkTheme = '{{ $darkTheme }}';
 
           function getSiteTheme() {
             const rememberedTheme = window.localStorage && window.localStorage.getItem('colorscheme');
