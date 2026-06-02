@@ -21,7 +21,8 @@ class GiscusCommentsTest(unittest.TestCase):
             'strict = "1"',
             'reactionsEnabled = "1"',
             'inputPosition = "bottom"',
-            'theme = "preferred_color_scheme"',
+            'theme = "noborder_light"',
+            'darkTheme = "noborder_dark"',
             'loading = "lazy"',
         ]
 
@@ -40,6 +41,9 @@ class GiscusCommentsTest(unittest.TestCase):
         self.assertIn("document.currentScript.closest('.giscus-comments')", GISCUS_PARTIAL)
         self.assertIn("https://giscus.app/client.js", GISCUS_PARTIAL)
         self.assertIn("data-reactions-enabled", GISCUS_PARTIAL)
+        self.assertIn("noborder_light", GISCUS_PARTIAL)
+        self.assertIn("noborder_dark", GISCUS_PARTIAL)
+        self.assertIn("themeChanged", GISCUS_PARTIAL)
 
     def test_comment_section_has_article_page_spacing(self):
         self.assertIn(".post-comments {", CSS)
