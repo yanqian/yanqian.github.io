@@ -23,8 +23,8 @@ class GiscusCommentsTest(unittest.TestCase):
             'strict = "1"',
             'reactionsEnabled = "1"',
             'inputPosition = "bottom"',
-            'theme = "/css/giscus-light.css"',
-            'darkTheme = "/css/giscus-dark.css"',
+            'theme = "/css/giscus-light.css?v=20260602-1"',
+            'darkTheme = "/css/giscus-dark.css?v=20260602-2"',
             'loading = "lazy"',
         ]
 
