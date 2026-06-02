@@ -59,11 +59,11 @@ class GiscusCommentsTest(unittest.TestCase):
         self.assertIn(".gsc-comment,", GISCUS_LIGHT_CSS)
         self.assertIn("background: #f5f7f6;", GISCUS_LIGHT_CSS)
 
-        self.assertIn("--color-canvas-default: #202020;", GISCUS_DARK_CSS)
-        self.assertIn("--color-canvas-subtle: #262626;", GISCUS_DARK_CSS)
+        self.assertIn("--color-canvas-default: #212121;", GISCUS_DARK_CSS)
+        self.assertIn("--color-canvas-subtle: #252525;", GISCUS_DARK_CSS)
         self.assertIn("--color-accent-fg: #5eead4;", GISCUS_DARK_CSS)
         self.assertIn(".gsc-comment,", GISCUS_DARK_CSS)
-        self.assertIn("background: #202020;", GISCUS_DARK_CSS)
+        self.assertIn("background: #212121 !important;", GISCUS_DARK_CSS)
 
 
 if __name__ == "__main__":

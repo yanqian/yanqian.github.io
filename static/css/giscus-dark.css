@@ -31,15 +31,15 @@ main {
   --color-prettylights-syntax-sublimelinter-gutter-mark: #697371;
   --color-prettylights-syntax-constant-other-reference-link: #99f6e4;
   --color-btn-text: #e8eeee;
-  --color-btn-bg: #262626;
+  --color-btn-bg: #252525;
   --color-btn-border: #3a3a3a;
   --color-btn-shadow: 0 0 transparent;
   --color-btn-inset-shadow: 0 0 transparent;
-  --color-btn-hover-bg: #303030;
+  --color-btn-hover-bg: #2b2b2b;
   --color-btn-hover-border: #4a4a4a;
   --color-btn-active-bg: #343434;
   --color-btn-active-border: #555555;
-  --color-btn-selected-bg: #202020;
+  --color-btn-selected-bg: #212121;
   --color-btn-primary-text: #0f1f1d;
   --color-btn-primary-bg: #5eead4;
   --color-btn-primary-border: #5eead4;
@@ -53,16 +53,16 @@ main {
   --color-btn-primary-disabled-bg: rgb(94 234 212 / 50%);
   --color-btn-primary-disabled-border: rgb(94 234 212 / 38%);
   --color-action-list-item-default-hover-bg: rgb(159 176 173 / 12%);
-  --color-segmented-control-bg: #262626;
-  --color-segmented-control-button-bg: #202020;
+  --color-segmented-control-bg: #252525;
+  --color-segmented-control-button-bg: #212121;
   --color-segmented-control-button-selected-border: #555555;
   --color-fg-default: #e8eeee;
   --color-fg-muted: #9fb0ad;
   --color-fg-subtle: #7f918e;
-  --color-canvas-default: #202020;
-  --color-canvas-overlay: #262626;
-  --color-canvas-inset: #1a1a1a;
-  --color-canvas-subtle: #262626;
+  --color-canvas-default: #212121;
+  --color-canvas-overlay: #212121;
+  --color-canvas-inset: #252525;
+  --color-canvas-subtle: #252525;
   --color-border-default: #3a3a3a;
   --color-border-muted: #303030;
   --color-neutral-muted: rgb(159 176 173 / 20%);
@@ -78,7 +78,7 @@ main {
   --color-danger-muted: rgb(248 113 113 / 34%);
   --color-danger-subtle: rgb(248 113 113 / 10%);
   --color-primer-shadow-inset: 0 0 transparent;
-  --color-scale-gray-7: #262626;
+  --color-scale-gray-7: #252525;
   --color-scale-blue-8: #134e4a;
   --color-social-reaction-bg-hover: var(--color-scale-gray-7);
   --color-social-reaction-bg-reacted-hover: var(--color-scale-blue-8);
@@ -88,20 +88,26 @@ html,
 body,
 .gsc-main,
 .gsc-homepage-bg {
-  background: #202020;
+  background: #212121 !important;
 }
 
 .gsc-comment-box,
 .gsc-comment-box-tabs,
 .gsc-comment-box-main,
+.gsc-comments,
 .gsc-comment,
+.gsc-comment-header,
+.gsc-comment-content,
+.gsc-comment-footer,
+.gsc-timeline,
 .gsc-reply-box {
-  background: #202020;
+  background: #212121 !important;
 }
 
 .gsc-comment-box-bottom,
+.gsc-comment-box-write,
 .gsc-reply-box {
-  background: #262626;
+  background: #252525 !important;
 }
 
 .gsc-comment,
@@ -113,7 +119,7 @@ body,
 .gsc-reply-box textarea,
 .gsc-comment-box textarea,
 .gsc-comment-box-write {
-  background: #202020;
+  background: #252525 !important;
 }
 
 main .pagination-loader-container {
