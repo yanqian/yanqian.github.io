@@ -39,7 +39,11 @@ class PublicProfilePagesTest(unittest.TestCase):
         self.assertIn("Event-driven systems", RESUME)
         self.assertIn("GCP and AWS", RESUME)
         self.assertIn("idempotency", RESUME)
+        self.assertIn("armstrong.yan.sg@gmail.com", RESUME)
         self.assertIn("https://www.linkedin.com/in/armstrong-yan-b29465196/", RESUME)
+
+    def test_about_has_public_professional_contact(self):
+        self.assertIn("armstrong.yan.sg@gmail.com", ABOUT)
 
     def test_terminal_identity_and_focus_are_updated(self):
         self.assertIn("Armstrong Yan", PAGE_PARTIAL)
@@ -66,6 +70,10 @@ class PublicProfilePagesTest(unittest.TestCase):
         for page_name, text in PUBLIC_PAGES.items():
             with self.subTest(page=page_name):
                 text_without_urls = re.sub(r"https?://\S+", "", text)
+                text_without_urls = text_without_urls.replace(
+                    "armstrong.yan.sg@gmail.com",
+                    "",
+                )
                 for pattern in private_patterns:
                     self.assertIsNone(pattern.search(text_without_urls))
 

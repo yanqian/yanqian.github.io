@@ -47,4 +47,4 @@ This site also collects my public notes on backend systems, cloud infrastructure
 
 ## Contact
 
-You can find my professional profile on [LinkedIn](https://www.linkedin.com/in/armstrong-yan-b29465196/). This site is where I keep my public writing and technical notes.
+You can reach me at [armstrong.yan.sg@gmail.com](mailto:armstrong.yan.sg@gmail.com), or find my professional profile on [LinkedIn](https://www.linkedin.com/in/armstrong-yan-b29465196/). This site is where I keep my public writing and technical notes.
