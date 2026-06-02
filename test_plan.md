@@ -37,6 +37,7 @@ python3 -m py_compile orchestrator.py
 | Article code block CSS | Tests assert class-based Chroma highlighting is enabled, syntax CSS loads before custom CSS, code-block backgrounds match inline code, `text` labels stay hidden, and language labels do not create a separate header background. |
 | Public profile pages | Tests assert About and Resume expose the intended public professional summary, keep terminal styling aligned with code blocks, and avoid obvious private contact details. |
 | Projects page content | Tests assert the `home-guard-tg` project entry and GitHub link exist in `content/projects.md`. |
+| Article comments | Tests assert giscus is configured for GitHub Discussions, rendered after post content, scoped to its own container, and styled with article-page spacing. |
 | Hugo rendering | `init.sh` runs a production-style Hugo build and requires `public/index.html`. |
 | Deployment parity | GitHub Actions runs unittest discovery before the Pages build. |
 | Orchestrator contract | `python3 -m py_compile orchestrator.py` must succeed. |

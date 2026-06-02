@@ -53,6 +53,15 @@
       "attempts": 1,
       "last_error": "",
       "priority": "P1"
+    },
+    {
+      "id": "F007",
+      "description": "Add giscus-powered article comments backed by GitHub Discussions, with reactions enabled and post-page rendering covered by tests.",
+      "passes": true,
+      "status": "done",
+      "attempts": 1,
+      "last_error": "",
+      "priority": "P1"
     }
   ]
 }

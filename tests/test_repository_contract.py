@@ -18,6 +18,7 @@ class RepositoryContractTest(unittest.TestCase):
             "orchestrator.py",
             "docs/development-workflow.md",
             "docs/requirements/README.md",
+            "docs/requirements/F007-giscus-comments.md",
         ]
 
         for path in required:

@@ -23,12 +23,13 @@ Implemented behavior:
 - The Projects page now includes `home-guard-tg` with a public GitHub link and README reference.
 - The Projects page now marks `Gentle Memories` as community review approved and links to the public Obsidian review page.
 - The About and Resume pages now present a resume-informed public professional profile without private contact details, and the About terminal block uses the same background palette as code blocks.
+- GitHub Discussions is enabled for `yanqian/yanqian.github.io`, and article pages now render giscus-powered comment sections backed by the repository's `General` discussion category.
 - `./init.sh` runs unit tests, checks `orchestrator.py`, and performs a production-style Hugo build.
 - `orchestrator.py` can preview or run bounded coding/evaluator rounds for future feature work.
 
 ## Last Completed Feature
 
-`F006` - Refresh the public About and Resume pages with resume-informed professional copy, privacy-safe public profile content, and code-block-aligned terminal styling.
+`F007` - Add giscus-powered article comments backed by GitHub Discussions, with reactions enabled and post-page rendering covered by tests.
 
 ## Next Feature
 

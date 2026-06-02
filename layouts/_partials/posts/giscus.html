@@ -1,0 +1,37 @@
+{{- if isset .Site.Params "giscus" -}}
+  {{- if and (isset .Site.Params.giscus "repo") (not (eq .Site.Params.giscus.repo "")) (eq (.Params.disableComments | default false) false) -}}
+    <section class="post-comments giscus-comments" aria-labelledby="comments-title">
+      <h2 id="comments-title">Comments</h2>
+      <script>
+        (() => {
+          const container = document.currentScript.closest('.giscus-comments');
+          let selectedTheme = window.localStorage && window.localStorage.getItem('colorscheme');
+
+          if (selectedTheme == null) {
+            selectedTheme = '{{ default "preferred_color_scheme" .Site.Params.giscus.theme }}';
+          }
+
+          const script = document.createElement('script');
+          script.src = 'https://giscus.app/client.js';
+          script.setAttribute('data-repo', '{{ .Site.Params.giscus.repo }}');
+          script.setAttribute('data-repo-id', '{{ .Site.Params.giscus.repoID }}');
+          script.setAttribute('data-category', '{{ .Site.Params.giscus.category }}');
+          script.setAttribute('data-category-id', '{{ .Site.Params.giscus.categoryID }}');
+          script.setAttribute('data-mapping', '{{ default "pathname" .Site.Params.giscus.mapping }}');
+          script.setAttribute('data-term', '{{ .Site.Params.giscus.term }}');
+          script.setAttribute('data-strict', '{{ default "0" .Site.Params.giscus.strict }}');
+          script.setAttribute('data-reactions-enabled', '{{ default "1" .Site.Params.giscus.reactionsEnabled }}');
+          script.setAttribute('data-emit-metadata', '{{ default "0" .Site.Params.giscus.emitMetadata }}');
+          script.setAttribute('data-input-position', '{{ default "bottom" .Site.Params.giscus.inputPosition }}');
+          script.setAttribute('data-theme', selectedTheme);
+          script.setAttribute('data-lang', '{{ default "en" .Site.Params.giscus.lang }}');
+          script.setAttribute('data-loading', '{{ default "lazy" .Site.Params.giscus.loading }}');
+          script.setAttribute('crossorigin', 'anonymous');
+          script.setAttribute('async', '');
+
+          container.appendChild(script);
+        })();
+      </script>
+    </section>
+  {{- end -}}
+{{- end -}}

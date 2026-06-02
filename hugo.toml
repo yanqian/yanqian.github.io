@@ -34,6 +34,20 @@ customCSS = ["css/syntax.css", "css/custom.css"]
 toc = true
 tocOpen = true
 
+[params.giscus]
+repo = "yanqian/yanqian.github.io"
+repoID = "R_kgDOIJVODA"
+category = "General"
+categoryID = "DIC_kwDOIJVODM4C-VOf"
+mapping = "pathname"
+strict = "1"
+reactionsEnabled = "1"
+emitMetadata = "0"
+inputPosition = "bottom"
+theme = "preferred_color_scheme"
+lang = "en"
+loading = "lazy"
+
 [[menu.main]]
 name = "Home"
 weight = 1
