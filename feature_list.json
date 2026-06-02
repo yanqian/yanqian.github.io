@@ -44,6 +44,15 @@
       "attempts": 1,
       "last_error": "",
       "priority": "P1"
+    },
+    {
+      "id": "F006",
+      "description": "Refresh the public About and Resume pages with resume-informed professional copy, privacy-safe public profile content, and code-block-aligned terminal styling.",
+      "passes": true,
+      "status": "done",
+      "attempts": 1,
+      "last_error": "",
+      "priority": "P1"
     }
   ]
 }

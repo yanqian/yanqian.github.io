@@ -22,12 +22,13 @@ Implemented behavior:
 - Article code blocks now use class-based Chroma highlighting with GitHub light/dark colors, a lighter code panel, code typography tuned for readability, no visible `text` language label, and a unified code-block background that matches inline code.
 - The Projects page now includes `home-guard-tg` with a public GitHub link and README reference.
 - The Projects page now marks `Gentle Memories` as community review approved and links to the public Obsidian review page.
+- The About and Resume pages now present a resume-informed public professional profile without private contact details, and the About terminal block uses the same background palette as code blocks.
 - `./init.sh` runs unit tests, checks `orchestrator.py`, and performs a production-style Hugo build.
 - `orchestrator.py` can preview or run bounded coding/evaluator rounds for future feature work.
 
 ## Last Completed Feature
 
-`F005` - Refine article code block rendering with GitHub-style syntax highlighting, readable typography, hidden `text` labels, and inline-code-matched block backgrounds.
+`F006` - Refresh the public About and Resume pages with resume-informed professional copy, privacy-safe public profile content, and code-block-aligned terminal styling.
 
 ## Next Feature
 
