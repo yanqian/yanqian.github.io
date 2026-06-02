@@ -1,5 +1,6 @@
 (function () {
   var MAX_QUOTE_LENGTH = 1200;
+  var SOURCE_THRESHOLD = 160;
   var button = null;
   var toast = null;
   var hideTimer = null;
@@ -47,11 +48,11 @@
       })
       .join("\n");
 
-    return [
-      quote,
-      "",
-      "Source: " + document.title.replace(/\s+\u00b7\s+.*$/, "") + " - " + window.location.href.split("#")[0],
-    ].join("\n");
+    if (normalized.length < SOURCE_THRESHOLD) {
+      return quote;
+    }
+
+    return quote + "\n\n" + "Source: " + document.title.replace(/\s+\u00b7\s+.*$/, "") + " - " + window.location.href.split("#")[0];
   }
 
   function ensureButton() {
@@ -113,7 +114,7 @@
     node.hidden = false;
 
     var top = window.scrollY + rect.top - node.offsetHeight - 10;
-    var left = window.scrollX + rect.left + rect.width / 2 - node.offsetWidth / 2;
+    var left = window.scrollX + rect.right - node.offsetWidth;
     var maxLeft = window.scrollX + document.documentElement.clientWidth - node.offsetWidth - 12;
 
     node.style.top = Math.max(window.scrollY + 12, top) + "px";
@@ -163,13 +164,15 @@
         throw new Error("Copy command failed");
       }
 
-      showToast("Quote copied. Paste it into the comment box.");
+      scrollToComments();
+      window.setTimeout(function () {
+        showToast("Quote copied. Paste it into the comment box.");
+      }, 450);
     } catch (error) {
       showToast("Copy failed. Select the quote again and copy manually.");
     }
 
     hideButton();
-    scrollToComments();
   }
 
   function updateFromSelection() {

@@ -21,7 +21,9 @@ class SelectionCommentTest(unittest.TestCase):
 
     def test_selected_text_becomes_markdown_quote(self):
         self.assertIn("MAX_QUOTE_LENGTH = 1200", SCRIPT)
+        self.assertIn("SOURCE_THRESHOLD = 160", SCRIPT)
         self.assertIn('return "> " + line.trim();', SCRIPT)
+        self.assertIn("normalized.length < SOURCE_THRESHOLD", SCRIPT)
         self.assertIn('"Source: " + document.title', SCRIPT)
         self.assertIn(r"\u00b7", SCRIPT)
         self.assertIn('window.location.href.split("#")[0]', SCRIPT)
@@ -38,7 +40,12 @@ class SelectionCommentTest(unittest.TestCase):
         self.assertIn('button.textContent = "Comment"', SCRIPT)
         self.assertIn("handleCommentClick", SCRIPT)
         self.assertIn('showToast("Quote copied. Paste it into the comment box.")', SCRIPT)
+        self.assertIn("window.setTimeout(function ()", SCRIPT)
         self.assertIn('comments.scrollIntoView({ behavior: "smooth", block: "start" })', SCRIPT)
+
+    def test_button_positions_on_selection_top_right(self):
+        self.assertIn("rect.right - node.offsetWidth", SCRIPT)
+        self.assertNotIn("rect.width / 2 - node.offsetWidth / 2", SCRIPT)
 
     def test_selection_comment_controls_are_styled(self):
         self.assertIn(".selection-comment-button {", CSS)
