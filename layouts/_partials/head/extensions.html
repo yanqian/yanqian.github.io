@@ -4,4 +4,8 @@
     {{ $tocScript := resources.Get "js/post-toc.js" | minify | fingerprint }}
     <script defer src="{{ $tocScript.RelPermalink }}" integrity="{{ $tocScript.Data.Integrity }}" crossorigin="anonymous"></script>
   {{ end }}
+  {{ if eq .Section "posts" }}
+    {{ $selectionCommentScript := resources.Get "js/selection-comment.js" | minify | fingerprint }}
+    <script defer src="{{ $selectionCommentScript.RelPermalink }}" integrity="{{ $selectionCommentScript.Data.Integrity }}" crossorigin="anonymous"></script>
+  {{ end }}
 {{ end }}

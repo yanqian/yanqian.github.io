@@ -38,6 +38,7 @@ python3 -m py_compile orchestrator.py
 | Public profile pages | Tests assert About and Resume expose the intended public professional summary, keep terminal styling aligned with code blocks, and avoid obvious private contact details. |
 | Projects page content | Tests assert the `home-guard-tg` project entry and GitHub link exist in `content/projects.md`. |
 | Article comments | Tests assert giscus is configured for GitHub Discussions, rendered after post content, scoped to its own container, styled with article-page spacing, and wired to site-hosted custom giscus themes. |
+| Selection quote comments | Tests assert post pages load the selection-comment script and the script scopes selection to article content, formats Markdown quotes, uses clipboard fallback, scrolls to giscus comments, and hides outside article selections. |
 | Hugo rendering | `init.sh` runs a production-style Hugo build and requires `public/index.html`. |
 | Deployment parity | GitHub Actions runs unittest discovery before the Pages build. |
 | Orchestrator contract | `python3 -m py_compile orchestrator.py` must succeed. |

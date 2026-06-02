@@ -71,6 +71,15 @@
       "attempts": 1,
       "last_error": "",
       "priority": "P1"
+    },
+    {
+      "id": "F009",
+      "description": "Add a lightweight selection-to-comment flow that copies selected article text as a Markdown quote and scrolls readers to giscus comments.",
+      "passes": true,
+      "status": "done",
+      "attempts": 1,
+      "last_error": "",
+      "priority": "P1"
     }
   ]
 }

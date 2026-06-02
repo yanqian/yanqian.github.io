@@ -20,6 +20,7 @@ class RepositoryContractTest(unittest.TestCase):
             "docs/requirements/README.md",
             "docs/requirements/F007-giscus-comments.md",
             "docs/requirements/F008-custom-giscus-theme.md",
+            "docs/requirements/F009-selection-quote-comments.md",
         ]
 
         for path in required:

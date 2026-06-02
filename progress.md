@@ -25,12 +25,13 @@ Implemented behavior:
 - The About and Resume pages now present a resume-informed public professional profile without private contact details, and the About terminal block uses the same background palette as code blocks.
 - GitHub Discussions is enabled for `yanqian/yanqian.github.io`, and article pages now render giscus-powered comment sections backed by the repository's `General` discussion category.
 - Article comments use site-hosted custom giscus themes so the iframe background matches the site's light and dark palettes.
+- Article pages include a lightweight selection-to-comment flow that copies selected article text as a Markdown quote and scrolls readers to giscus comments.
 - `./init.sh` runs unit tests, checks `orchestrator.py`, and performs a production-style Hugo build.
 - `orchestrator.py` can preview or run bounded coding/evaluator rounds for future feature work.
 
 ## Last Completed Feature
 
-`F008` - Add site-hosted custom giscus themes so the comment iframe background matches the site's light and dark palettes.
+`F009` - Add a lightweight selection-to-comment flow that copies selected article text as a Markdown quote and scrolls readers to giscus comments.
 
 ## Next Feature
 
