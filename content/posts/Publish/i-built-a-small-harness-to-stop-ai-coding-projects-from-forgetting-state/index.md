@@ -1,6 +1,6 @@
 ---
 title: "I Built a Small Harness to Stop AI Coding Projects From Forgetting State"
-date: "2026-06-01T16:34:20+08:00"
+date: "2026-06-04T10:46:50+08:00"
 draft: false
 tags:
   - ai/codex
@@ -86,6 +86,14 @@ The template keeps durable state in files:
 - `runs/` for evidence and handoff records
 
 This means a future agent, a human maintainer, and CI can all inspect the same source of truth.
+
+The repo now also includes an installable AI Agent Harness skill.
+
+That skill is not a second database.
+
+It is a convenience layer around the same repository-state protocol.
+
+The durable memory still lives in the repository.
 
 ## Why Chat History Is the Wrong Database
 
@@ -210,6 +218,43 @@ That is intentional.
 
 The template should remain vendor-neutral.
 
+## The Skill Is a Convenience Layer
+
+After publishing the first version of the template, I added a distributable skill:
+
+`skills/ai-agent-harness/`
+
+The skill gives an agent a more direct way to use the harness.
+
+It can help with:
+
+- installing or adopting the harness in a project
+- checking whether a project already has a runnable harness
+- repairing missing harness files
+- planning requirements into `SPEC.md` and `feature_list.json`
+- working one feature at a time
+- evaluating completion
+- committing only after the user explicitly approves
+
+This makes the harness easier to use from tools that support skill-like instructions.
+
+For Codex, the skill can be installed as a Codex skill.
+
+For Claude Code, it can live under a personal or project skill directory.
+
+For Cursor, the same workflow can be exposed through project rules.
+
+But the important boundary does not change:
+
+```text
+Skill -> workflow entry point
+Repository files -> durable project state
+```
+
+The skill helps the agent follow the protocol.
+
+It does not replace `AGENTS.md`, `SPEC.md`, `feature_list.json`, `progress.md`, `QUALITY.md`, `runs/`, or git history.
+
 ## A Tiny Example and a Go Server
 
 The repo includes two examples:
@@ -260,6 +305,29 @@ Validate a feature:
 
 ```bash
 make validate FEATURE=F001
+```
+
+If your coding agent supports skills, you can also install the bundled skill and invoke it directly.
+
+For Codex:
+
+```bash
+python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
+  --repo yanqian/ai-agent-harness-template \
+  --path skills/ai-agent-harness
+```
+
+Then restart Codex and ask:
+
+```text
+Use $ai-agent-harness to initialize this project.
+```
+
+If you are using the repository checkout directly, the same initializer can be run manually:
+
+```bash
+python3 skills/ai-agent-harness/scripts/init_harness.py --root /path/to/project --mode adopt
+python3 skills/ai-agent-harness/scripts/init_harness.py --root /path/to/project --mode check
 ```
 
 ## Real Projects Behind This Template
@@ -336,6 +404,7 @@ The repo has gone through features such as:
 - adding CI
 - adding OSS readiness files
 - adding `make clean`
+- adding an installable AI Agent Harness skill
 
 There is also a future backlog item for bounded concurrent agent execution.
 
