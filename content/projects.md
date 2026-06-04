@@ -5,7 +5,7 @@ title = 'Projects'
 description = 'Selected products and tools around browser automation, local-first knowledge workflows, and AI-assisted productivity.'
 +++
 
-Selected products and tools I built to solve real workflow problems, from visa form assistance to personal knowledge rediscovery.
+Selected products and tools I built to solve real workflow problems, from visa form assistance to remote agent control planes and personal knowledge rediscovery.
 
 ## Selected
 
@@ -37,6 +37,20 @@ Gentle Memories is a local-first Obsidian plugin that gently resurfaces old jour
 
 [GitHub](https://github.com/yanqian/gentle-memories-obsidian) · [Obsidian Plugin](https://community.obsidian.md/plugins/gentle-memories)
 
+### Remote Agent TG
+
+**Telegram Bot · Local Codex control plane · Repository workflow · Node.js**
+
+`agent-remote-tg` is a local Telegram Bot control plane for running and supervising long-running coding agent workflows from a phone.
+
+- Restricts access to authorized Telegram chats and configured local repository aliases.
+- Starts or resumes bounded Codex agent tasks in a selected workspace, with runtime task metadata and full logs.
+- Keeps durable project state in repository files and git history instead of Telegram chat history.
+- Supports repository inspection commands, task status, log lookup, stop controls, and approval flows for agent permission prompts.
+- Provides a Bot-local commit and push path that previews changes and requires approval before writing to Git.
+
+[GitHub](https://github.com/yanqian/agent-remote-tg)
+
 ### Home Guard TG
 
 **Trusted-host Telegram Bot · Home monitoring · Mac · ffmpeg**
@@ -54,5 +68,6 @@ Gentle Memories is a local-first Obsidian plugin that gently resurfaces old jour
 - Browser extensions and workflow automation
 - Local-first knowledge tools
 - AI-assisted form understanding and personal productivity
+- Remote agent control planes and repository-backed workflow harnesses
 - Trusted-host Telegram bots for local device automation
 - Publishing workflows with Obsidian, Hugo, and GitHub Pages
