@@ -12,6 +12,8 @@ My work focuses on reliable backend systems, platform engineering, distributed s
 
 This site is where I write public notes on backend architecture, cloud infrastructure, event-driven systems, AI-assisted software engineering, remote agent workflows, and personal knowledge systems. A recurring theme is the boundary between human judgment and automation: how repositories, feedback loops, and operating practices make complex work easier to recover, verify, and improve.
 
+Outside engineering, I am drawn to things with patience, movement, and vitality: table tennis, cycling, cooking, music, and the quiet discipline of continuing anyway.
+
 ## Contact
 
 For professional conversations, you can reach me at [armstrong.yan.sg@gmail.com](mailto:armstrong.yan.sg@gmail.com).

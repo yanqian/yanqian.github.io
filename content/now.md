@@ -26,8 +26,17 @@ I play table tennis two or three times a week. It is one of the few activities w
 
 I also like cycling, cooking, and getting outside on the water. I hold a Singapore kayaking 2-star certification.
 
+## Listening
+
+Two songs I keep coming back to because they carry a kind of vitality I like:
+
+- [浜崎あゆみ - MY ALL](https://www.youtube.com/watch?v=ntpxLWnf7h4&list=RDntpxLWnf7h4&start_radio=1)
+- [中島美嘉 - 僕が死のうと思ったのは](https://www.youtube.com/watch?v=lnLDHIDOT00&list=RDlnLDHIDOT00&start_radio=1)
+
+They do not deny the hard parts of life: failure, aging, illness, loss, and the ordinary weight of reality. But they still move. That feeling matters to me: seeing clearly, not pretending, and still choosing to go forward today.
+
 ## Singapore Life
 
 One small personal milestone: I put a surprising amount of effort into getting my Singapore driving licence. Getting a Chinese driving licence felt much easier by comparison.
 
-Updated: 2026-06-02.
+Updated: 2026-06-09.
