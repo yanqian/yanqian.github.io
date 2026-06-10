@@ -1,6 +1,6 @@
 ---
 title: "A Podcast Summarizer Taught Me That Summaries Are Not Understanding"
-date: "2026-06-10T15:21:16+08:00"
+date: "2026-06-10T15:43:19+08:00"
 draft: false
 tags:
   - ai
@@ -17,7 +17,7 @@ topics:
   - ai-products
   - knowledge-work
   - software-engineering
-selected: true
+
 
 ---
 
