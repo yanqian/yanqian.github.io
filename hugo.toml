@@ -24,8 +24,8 @@ topic = "topics"
 [params]
 author = "Armstrong Yan"
 info = "Backend Engineer · Platform · Systems Thinking"
-description = "Personal blog of Yan Qiang"
-keywords = "blog,backend,system design,platform engineering"
+description = "Armstrong Yan is a senior backend and platform engineer in Singapore writing about AI-assisted software engineering, backend systems, developer tools, and local-first products."
+keywords = "backend engineering,platform engineering,AI-assisted software engineering,developer tools,local-first products,system design,Singapore"
 colorScheme = "auto"
 hideColorSchemeToggle = false
 customCSS = ["css/syntax.css", "css/custom.css"]
