@@ -1,6 +1,6 @@
 ---
 title: "Why Singpass Becomes National Trust Infrastructure"
-date: "2026-06-20T23:04:17+08:00"
+date: "2026-06-20T23:09:59+08:00"
 draft: false
 tags:
   - identity
@@ -10,10 +10,6 @@ tags:
   - digital-identity
   - national-digital-identity
   - trust-infrastructure
-  - authentication
-  - consent
-  - digital-signing
-  - audit
   - governance
   - public
   - note

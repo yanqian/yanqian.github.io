@@ -1,6 +1,6 @@
 ---
 title: "What Happens When You Scan a Singpass QR Code"
-date: "2026-06-20T23:04:51+08:00"
+date: "2026-06-20T23:10:46+08:00"
 draft: false
 tags:
   - identity
@@ -11,10 +11,6 @@ tags:
   - trust-infrastructure
   - qr-login
   - authentication
-  - cross-device-authentication
-  - oidc
-  - security
-  - session-binding
   - public
   - note
 categories:

@@ -1,6 +1,6 @@
 ---
 title: "Why Sharing Myinfo Is More Than Autofill"
-date: "2026-06-20T23:05:23+08:00"
+date: "2026-06-20T23:11:19+08:00"
 draft: false
 tags:
   - identity
@@ -11,10 +11,6 @@ tags:
   - trust-infrastructure
   - myinfo
   - consent
-  - data-sharing
-  - verified-claims
-  - privacy
-  - user-data
   - public
   - note
 categories:
