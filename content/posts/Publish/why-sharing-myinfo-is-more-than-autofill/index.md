@@ -1,6 +1,6 @@
 ---
 title: "Why Sharing Myinfo Is More Than Autofill"
-date: "2026-06-20T21:26:49+08:00"
+date: "2026-06-20T22:57:27+08:00"
 draft: false
 tags:
   - identity

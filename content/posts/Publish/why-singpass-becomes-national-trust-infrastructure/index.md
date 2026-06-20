@@ -1,6 +1,6 @@
 ---
 title: "Why Singpass Becomes National Trust Infrastructure"
-date: "2026-06-20T21:25:38+08:00"
+date: "2026-06-20T22:56:19+08:00"
 draft: false
 tags:
   - identity
@@ -210,23 +210,15 @@ Once a platform becomes the trusted way to prove who someone is, many adjacent p
 
 ## Why Real Singpass Looks The Way It Does
 
-This first-principles path helps explain why real Singpass has grown beyond basic login.
+This first-principles path also explains why real Singpass looks broader than a login product.
 
 Public Singpass materials show a platform that includes national digital identity authentication, QR login, Digital IC, verification of personal details, Myinfo data sharing, document signing, transaction signing, notifications, and ecosystem integrations such as SGFinDex.
 
-That shape makes sense.
+These can look like separate product features, but they are better read as different surfaces of the same trust infrastructure.
 
-If Singpass were only a login provider, it would reduce password duplication. Useful, but limited.
+QR login extends authentication across devices. Myinfo extends identity into consented data sharing. Digital IC and verification extend identity into offline or hybrid contexts. Signing turns strong authentication into explicit approval. Notifications and ecosystem integrations make the platform part of everyday resident workflows.
 
-By adding Myinfo, it reduces repeated form filling and lets residents share government-verified data with consent.
-
-By adding Digital IC and verification, it supports identity proof beyond normal website login.
-
-By adding document and transaction signing, it lets strong authentication become explicit approval.
-
-By adding notifications and ecosystem integrations, it becomes part of daily resident life rather than a background authentication utility.
-
-The product surface may look broad, but the underlying logic is coherent:
+So the breadth is not accidental. Once Singpass becomes the trusted way to prove identity, adjacent trust problems naturally attach to it.
 
 ```text
 A national identity platform starts as login infrastructure
