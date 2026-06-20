@@ -1,6 +1,6 @@
 ---
 title: "What Happens When You Scan a Singpass QR Code"
-date: "2026-06-20T20:41:10+08:00"
+date: "2026-06-20T21:26:06+08:00"
 draft: false
 tags:
   - identity
@@ -43,7 +43,10 @@ A good QR login design should do almost the opposite. The QR code should not con
 In system design terms:
 
 ```text
-QR login is not identity inside a QR code. It is a short-lived challenge, approved by a trusted mobile credential, then consumed by the web login session.
+QR login is not identity inside a QR code.
+It is a short-lived challenge,
+approved by a trusted mobile credential,
+then consumed by the web login session.
 ```
 
 That distinction is the heart of the design.
@@ -139,7 +142,9 @@ The mobile device can sign the challenge context using a key associated with the
 In plain English:
 
 ```text
-The phone is not telling the browser "I am Alice". The phone is proving to Singpass that a valid Singpass app credential approved this login request.
+The phone is not telling the browser "I am Alice".
+The phone is proving to Singpass
+that a valid Singpass app credential approved this login request.
 ```
 
 That is a much stronger mental model.
@@ -195,7 +200,9 @@ Public Singpass developer documentation describes Singpass as Singapore's nation
 That detail sounds technical, but the user-facing consequence is simple:
 
 ```text
-The browser is not logged in because it saw a QR code. It is logged in because the relying party completed a trusted authentication flow with Singpass.
+The browser is not logged in because it saw a QR code.
+It is logged in because the relying party completed
+a trusted authentication flow with Singpass.
 ```
 
 ## What Can Go Wrong
@@ -276,7 +283,8 @@ The user experience is one small gesture: scan and approve.
 The infrastructure underneath is doing a much more serious job:
 
 ```text
-It turns a moment of user intent on one device into a trusted login result on another device.
+It turns a moment of user intent on one device
+into a trusted login result on another device.
 ```
 
 That is why QR login is not merely a smoother login UI.

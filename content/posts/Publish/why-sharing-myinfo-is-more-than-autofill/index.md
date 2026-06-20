@@ -1,6 +1,6 @@
 ---
 title: "Why Sharing Myinfo Is More Than Autofill"
-date: "2026-06-20T20:41:37+08:00"
+date: "2026-06-20T21:26:49+08:00"
 draft: false
 tags:
   - identity
@@ -121,7 +121,9 @@ consent_grant {
 The exact schema can vary, but the platform must be able to answer later:
 
 ```text
-Did this user allow this relying party to access these claims for this purpose at this time?
+Did this user allow this relying party
+to access these claims
+for this purpose at this time?
 ```
 
 That is the difference between convenient autofill and accountable data sharing.
@@ -193,7 +195,9 @@ So the design cannot be "share everything faster". The better design is:
 In one sentence:
 
 ```text
-Myinfo is not autofill with better branding. It is a consented channel for moving verified facts between a resident, the state, and a relying service.
+Myinfo is not autofill with better branding.
+It is a consented channel for moving verified facts
+between a resident, the state, and a relying service.
 ```
 
 That is why it should be understood as trust infrastructure, not just convenience.
