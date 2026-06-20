@@ -1,6 +1,6 @@
 ---
 title: "Why Sharing Myinfo Is More Than Autofill"
-date: "2026-06-20T18:54:39+08:00"
+date: "2026-06-20T20:41:37+08:00"
 draft: false
 tags:
   - identity
@@ -24,13 +24,17 @@ A form asks for your name, address, nationality, contact details, income informa
 
 Then a button appears:
 
-> Retrieve Myinfo
+```text
+Retrieve Myinfo
+```
 
 From the user's point of view, this looks like autofill.
 
 That is true, but incomplete. Autofill saves typing. Myinfo does something more important:
 
-> Myinfo moves verified claims with consent.
+```text
+Myinfo moves verified claims with consent.
+```
 
 That is why it belongs in the same trust infrastructure story as Singpass QR login. QR login answers: "How do I prove I am me?" Myinfo answers: "How do I let this service use specific trusted facts about me?"
 
@@ -84,11 +88,15 @@ This is why scopes matter. Scopes are not just API configuration. They are polic
 
 The better question is not:
 
-> What data could this service use?
+```text
+What data could this service use?
+```
 
 It is:
 
-> What data does this service need for this specific purpose?
+```text
+What data does this service need for this specific purpose?
+```
 
 That distinction prevents Myinfo from becoming an unrestricted data pipe.
 
@@ -112,7 +120,9 @@ consent_grant {
 
 The exact schema can vary, but the platform must be able to answer later:
 
-> Did this user allow this relying party to access these claims for this purpose at this time?
+```text
+Did this user allow this relying party to access these claims for this purpose at this time?
+```
 
 That is the difference between convenient autofill and accountable data sharing.
 
@@ -182,7 +192,9 @@ So the design cannot be "share everything faster". The better design is:
 
 In one sentence:
 
-> Myinfo is not autofill with better branding. It is a consented channel for moving verified facts between a resident, the state, and a relying service.
+```text
+Myinfo is not autofill with better branding. It is a consented channel for moving verified facts between a resident, the state, and a relying service.
+```
 
 That is why it should be understood as trust infrastructure, not just convenience.
 

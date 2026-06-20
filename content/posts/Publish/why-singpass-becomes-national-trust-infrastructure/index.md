@@ -1,6 +1,6 @@
 ---
 title: "Why Singpass Becomes National Trust Infrastructure"
-date: "2026-06-20T18:53:51+08:00"
+date: "2026-06-20T20:40:44+08:00"
 draft: false
 tags:
   - identity
@@ -28,7 +28,9 @@ But if we design such a system from first principles, it quickly becomes clear t
 
 The real problem is larger:
 
-> How does a country let residents prove who they are, let services trust that proof, let data move with consent, and keep the whole process secure and auditable?
+```text
+How does a country let residents prove who they are, let services trust that proof, let data move with consent, and keep the whole process secure and auditable?
+```
 
 Once we ask the question this way, a national digital identity platform stops being an authentication feature. It becomes public trust infrastructure.
 
@@ -130,7 +132,9 @@ That is a major shift. It reduces paperwork, but it also raises privacy stakes. 
 
 Once a platform can strongly authenticate a person, another question appears:
 
-> Can the platform help this person prove identity or approve actions outside a normal web login?
+```text
+Can the platform help this person prove identity or approve actions outside a normal web login?
+```
 
 This leads to digital credentials.
 
@@ -220,7 +224,9 @@ By adding notifications and ecosystem integrations, it becomes part of daily res
 
 The product surface may look broad, but the underlying logic is coherent:
 
-> A national identity platform starts as login infrastructure and evolves into trust infrastructure.
+```text
+A national identity platform starts as login infrastructure and evolves into trust infrastructure.
+```
 
 ## The Design Tradeoff
 
@@ -250,7 +256,9 @@ It is not just a technical system. It is a civic system with software inside it.
 
 If I had to explain the whole thing in one sentence:
 
-> A national digital identity platform lets residents prove who they are, lets services trust that proof, lets data move with consent, and makes sensitive actions accountable.
+```text
+A national digital identity platform lets residents prove who they are, lets services trust that proof, lets data move with consent, and makes sensitive actions accountable.
+```
 
 That is why a login system does not remain a login system.
 
