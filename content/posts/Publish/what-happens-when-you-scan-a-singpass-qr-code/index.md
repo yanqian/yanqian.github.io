@@ -1,6 +1,6 @@
 ---
 title: "What Happens When You Scan a Singpass QR Code"
-date: "2026-06-20T18:54:16+08:00"
+date: "2026-06-20T19:53:09+08:00"
 draft: false
 tags:
   - identity
