@@ -1,11 +1,20 @@
 ---
 title: "Why Sharing Myinfo Is More Than Autofill"
-date: "2026-06-20T22:57:27+08:00"
+date: "2026-06-20T23:05:23+08:00"
 draft: false
 tags:
   - identity
   - system-design
   - singapore
+  - singpass
+  - digital-identity
+  - trust-infrastructure
+  - myinfo
+  - consent
+  - data-sharing
+  - verified-claims
+  - privacy
+  - user-data
   - public
   - note
 categories:
