@@ -728,6 +728,81 @@ a:focus,
   color: var(--site-accent);
 }
 
+.post .post-content table,
+.page table {
+  border-collapse: collapse;
+  border-top: 1px solid var(--site-border);
+  color: var(--site-fg);
+  display: block;
+  font-size: 1.43rem;
+  -webkit-overflow-scrolling: touch;
+  line-height: 1.66;
+  margin: 2rem 0 2.4rem;
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-color: var(--site-border) transparent;
+  scrollbar-width: thin;
+  width: 100%;
+}
+
+.post .post-content table::-webkit-scrollbar,
+.page table::-webkit-scrollbar {
+  height: 8px;
+}
+
+.post .post-content table::-webkit-scrollbar-thumb,
+.page table::-webkit-scrollbar-thumb {
+  background: var(--site-border);
+  border-radius: 999px;
+}
+
+.post .post-content table th,
+.page table th {
+  border: 0;
+  color: var(--site-muted);
+  font-size: 1.1rem;
+  font-weight: 750;
+  letter-spacing: 0.07em;
+  min-width: 12rem;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.post .post-content table td,
+.page table td {
+  border: 0;
+  border-top: 1px solid var(--site-border);
+  min-width: 12rem;
+  padding: 1.05rem 1rem 1.15rem;
+  vertical-align: top;
+}
+
+.post .post-content table th:first-child,
+.post .post-content table td:first-child,
+.page table th:first-child,
+.page table td:first-child {
+  padding-left: 0;
+}
+
+.post .post-content table td:first-child,
+.page table td:first-child {
+  color: var(--site-fg);
+  font-weight: 700;
+}
+
+.post .post-content table th + th,
+.post .post-content table td + td,
+.page table th + th,
+.page table td + td {
+  padding-left: 1.35rem;
+}
+
+.post .post-content table tbody tr:hover td,
+.page table tbody tr:hover td {
+  background: var(--site-surface);
+}
+
 .list ul {
   list-style: none;
   margin: 1rem 0 0;
