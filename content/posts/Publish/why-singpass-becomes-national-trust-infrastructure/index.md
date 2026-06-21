@@ -1,6 +1,6 @@
 ---
 title: "Why Singpass Becomes National Trust Infrastructure"
-date: "2026-06-21T17:23:38+08:00"
+date: "2026-06-21T17:28:28+08:00"
 draft: false
 tags:
   - identity
@@ -42,12 +42,7 @@ and keep the whole process secure and auditable?
 
 Once we ask the question this way, a national digital identity platform stops being an authentication feature. It becomes public trust infrastructure.
 
-<img
-  src="assets/singpass-trust-infrastructure/familiar/singpass-service-shortcuts.jpg"
-  alt="Singpass app service shortcuts"
-  width="280"
-  style="display: block; width: min(72vw, 280px); height: auto; margin: 1.25rem auto;"
-/>
+{{< figure src="assets/singpass-trust-infrastructure/familiar/singpass-service-shortcuts.jpg" alt="Singpass app service shortcuts" width="280" >}}
 
 The familiar app screen is a useful clue. Singpass is not only a place to log in; it is also becoming a trusted entry point into many public services.
 

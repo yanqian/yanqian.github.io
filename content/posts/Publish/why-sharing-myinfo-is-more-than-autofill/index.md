@@ -1,6 +1,6 @@
 ---
 title: "Why Sharing Myinfo Is More Than Autofill"
-date: "2026-06-21T17:24:52+08:00"
+date: "2026-06-21T17:29:34+08:00"
 draft: false
 tags:
   - identity
@@ -47,12 +47,7 @@ QR login answers: "How do I prove I am me?"
 
 Myinfo answers: "How do I let this service use specific trusted facts about me?"
 
-<img
-  src="assets/singpass-trust-infrastructure/familiar/singpass-myinfo-profile.jpg"
-  alt="Singpass Myinfo profile screen"
-  width="280"
-  style="display: block; width: min(72vw, 280px); height: auto; margin: 1.25rem auto;"
-/>
+{{< figure src="assets/singpass-trust-infrastructure/familiar/singpass-myinfo-profile.jpg" alt="Singpass Myinfo profile screen" width="280" >}}
 
 This familiar profile view is the user-facing intuition: personal details are grouped into recognizable categories. Myinfo becomes important when a service is allowed to retrieve specific verified claims from those categories with consent.
 
