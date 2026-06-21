@@ -1,6 +1,6 @@
 ---
 title: "Why Singpass Becomes National Trust Infrastructure"
-date: "2026-06-21T17:28:28+08:00"
+date: "2026-06-21T18:32:34+08:00"
 draft: false
 tags:
   - identity
@@ -285,32 +285,9 @@ And the whole thing becomes trust infrastructure.
 
 ## References
 
-```text
-Singpass for Individuals
-https://www.singpass.gov.sg/main/individuals/
-```
-
-```text
-Singpass Developer Docs
-https://docs.developer.singpass.gov.sg/docs
-```
-
-```text
-Overview of Singpass
-https://docs.developer.singpass.gov.sg/docs/introduction/overview-of-singpass
-```
-
-```text
-Understanding the basics of OIDC
-https://docs.developer.singpass.gov.sg/docs/introduction/understanding-the-basics-of-oidc
-```
-
-```text
-Singpass Myinfo
-https://docs.developer.singpass.gov.sg/docs/products/singpass-myinfo
-```
-
-```text
-Singpass App on the Apple App Store
-https://apps.apple.com/us/app/singpass/id1340660807
-```
+- [Singpass for Individuals](https://www.singpass.gov.sg/main/individuals/)
+- [Singpass Developer Docs](https://docs.developer.singpass.gov.sg/docs)
+- [Overview of Singpass](https://docs.developer.singpass.gov.sg/docs/introduction/overview-of-singpass)
+- [Understanding the basics of OIDC](https://docs.developer.singpass.gov.sg/docs/introduction/understanding-the-basics-of-oidc)
+- [Singpass Myinfo](https://docs.developer.singpass.gov.sg/docs/products/singpass-myinfo)
+- [Singpass App on the Apple App Store](https://apps.apple.com/us/app/singpass/id1340660807)

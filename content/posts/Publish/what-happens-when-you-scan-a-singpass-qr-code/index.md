@@ -1,6 +1,6 @@
 ---
 title: "What Happens When You Scan a Singpass QR Code"
-date: "2026-06-21T17:29:04+08:00"
+date: "2026-06-21T18:33:32+08:00"
 draft: false
 tags:
   - identity
@@ -302,27 +302,8 @@ It is a compact example of national trust infrastructure becoming part of everyd
 
 ## References
 
-```text
-Singpass Login
-https://docs.developer.singpass.gov.sg/docs/products/singpass-login
-```
-
-```text
-Overview of Singpass
-https://docs.developer.singpass.gov.sg/docs/introduction/overview-of-singpass
-```
-
-```text
-Understanding the basics of OIDC
-https://docs.developer.singpass.gov.sg/docs/introduction/understanding-the-basics-of-oidc
-```
-
-```text
-Singpass for Individuals
-https://www.singpass.gov.sg/main/individuals/
-```
-
-```text
-Singpass App on the Apple App Store
-https://apps.apple.com/us/app/singpass/id1340660807
-```
+- [Singpass Login](https://docs.developer.singpass.gov.sg/docs/products/singpass-login)
+- [Overview of Singpass](https://docs.developer.singpass.gov.sg/docs/introduction/overview-of-singpass)
+- [Understanding the basics of OIDC](https://docs.developer.singpass.gov.sg/docs/introduction/understanding-the-basics-of-oidc)
+- [Singpass for Individuals](https://www.singpass.gov.sg/main/individuals/)
+- [Singpass App on the Apple App Store](https://apps.apple.com/us/app/singpass/id1340660807)
