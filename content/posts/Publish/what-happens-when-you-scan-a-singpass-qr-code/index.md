@@ -1,6 +1,6 @@
 ---
 title: "What Happens When You Scan a Singpass QR Code"
-date: "2026-06-20T23:10:46+08:00"
+date: "2026-06-21T17:24:09+08:00"
 draft: false
 tags:
   - identity
@@ -49,12 +49,21 @@ In system design terms:
 
 ```text
 QR login is not identity inside a QR code.
-It is a short-lived challenge,
+It is a short-lived challenge, 
 approved by a trusted mobile credential,
 then consumed by the web login session.
 ```
 
 That distinction is the heart of the design.
+
+<img
+  src="assets/singpass-trust-infrastructure/familiar/singpass-qr-login.jpg"
+  alt="Singpass QR login app screen"
+  width="280"
+  style="display: block; width: min(72vw, 280px); height: auto; margin: 1.25rem auto;"
+/>
+
+This is the familiar surface: scan or tap a QR code to log in. The important part is what the QR code is allowed to represent, how quickly it expires, and which browser session the approval will bind to.
 
 ![Singpass QR login flow](assets/singpass-trust-infrastructure/02-singpass-qr-login-flow.svg)
 
@@ -298,7 +307,27 @@ It is a compact example of national trust infrastructure becoming part of everyd
 
 ## References
 
-- [Singpass Login](https://docs.developer.singpass.gov.sg/docs/products/singpass-login)
-- [Overview of Singpass](https://docs.developer.singpass.gov.sg/docs/introduction/overview-of-singpass)
-- [Understanding the basics of OIDC](https://docs.developer.singpass.gov.sg/docs/introduction/understanding-the-basics-of-oidc)
-- [Singpass for Individuals](https://www.singpass.gov.sg/main/individuals/)
+```text
+Singpass Login
+https://docs.developer.singpass.gov.sg/docs/products/singpass-login
+```
+
+```text
+Overview of Singpass
+https://docs.developer.singpass.gov.sg/docs/introduction/overview-of-singpass
+```
+
+```text
+Understanding the basics of OIDC
+https://docs.developer.singpass.gov.sg/docs/introduction/understanding-the-basics-of-oidc
+```
+
+```text
+Singpass for Individuals
+https://www.singpass.gov.sg/main/individuals/
+```
+
+```text
+Singpass App on the Apple App Store
+https://apps.apple.com/us/app/singpass/id1340660807
+```

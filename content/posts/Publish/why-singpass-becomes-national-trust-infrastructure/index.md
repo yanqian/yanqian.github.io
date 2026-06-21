@@ -1,6 +1,6 @@
 ---
 title: "Why Singpass Becomes National Trust Infrastructure"
-date: "2026-06-20T23:09:59+08:00"
+date: "2026-06-21T17:23:38+08:00"
 draft: false
 tags:
   - identity
@@ -41,6 +41,15 @@ and keep the whole process secure and auditable?
 ```
 
 Once we ask the question this way, a national digital identity platform stops being an authentication feature. It becomes public trust infrastructure.
+
+<img
+  src="assets/singpass-trust-infrastructure/familiar/singpass-service-shortcuts.jpg"
+  alt="Singpass app service shortcuts"
+  width="280"
+  style="display: block; width: min(72vw, 280px); height: auto; margin: 1.25rem auto;"
+/>
+
+The familiar app screen is a useful clue. Singpass is not only a place to log in; it is also becoming a trusted entry point into many public services.
 
 ## Start Without Singpass
 
@@ -281,8 +290,32 @@ And the whole thing becomes trust infrastructure.
 
 ## References
 
-- [Singpass for Individuals](https://www.singpass.gov.sg/main/individuals/)
-- [Singpass Developer Docs](https://docs.developer.singpass.gov.sg/docs)
-- [Overview of Singpass](https://docs.developer.singpass.gov.sg/docs/introduction/overview-of-singpass)
-- [Understanding the basics of OIDC](https://docs.developer.singpass.gov.sg/docs/introduction/understanding-the-basics-of-oidc)
-- [Singpass Myinfo](https://docs.developer.singpass.gov.sg/docs/products/singpass-myinfo)
+```text
+Singpass for Individuals
+https://www.singpass.gov.sg/main/individuals/
+```
+
+```text
+Singpass Developer Docs
+https://docs.developer.singpass.gov.sg/docs
+```
+
+```text
+Overview of Singpass
+https://docs.developer.singpass.gov.sg/docs/introduction/overview-of-singpass
+```
+
+```text
+Understanding the basics of OIDC
+https://docs.developer.singpass.gov.sg/docs/introduction/understanding-the-basics-of-oidc
+```
+
+```text
+Singpass Myinfo
+https://docs.developer.singpass.gov.sg/docs/products/singpass-myinfo
+```
+
+```text
+Singpass App on the Apple App Store
+https://apps.apple.com/us/app/singpass/id1340660807
+```

@@ -1,6 +1,6 @@
 ---
 title: "Why Sharing Myinfo Is More Than Autofill"
-date: "2026-06-21T16:59:17+08:00"
+date: "2026-06-21T17:24:52+08:00"
 draft: false
 tags:
   - identity
@@ -46,6 +46,15 @@ That is why it belongs in the same trust infrastructure story as Singpass QR log
 QR login answers: "How do I prove I am me?" 
 
 Myinfo answers: "How do I let this service use specific trusted facts about me?"
+
+<img
+  src="assets/singpass-trust-infrastructure/familiar/singpass-myinfo-profile.jpg"
+  alt="Singpass Myinfo profile screen"
+  width="280"
+  style="display: block; width: min(72vw, 280px); height: auto; margin: 1.25rem auto;"
+/>
+
+This familiar profile view is the user-facing intuition: personal details are grouped into recognizable categories. Myinfo becomes important when a service is allowed to retrieve specific verified claims from those categories with consent.
 
 ![Myinfo moves verified claims with consent](assets/singpass-trust-infrastructure/03-myinfo-consented-claims.svg)
 
@@ -213,8 +222,32 @@ That is why it should be understood as trust infrastructure, not just convenienc
 
 ## References
 
-- [Singpass Myinfo](https://docs.developer.singpass.gov.sg/docs/products/singpass-myinfo)
-- [Myinfo Key Principles](https://docs.developer.singpass.gov.sg/docs/products/singpass-myinfo/key-principles)
-- [Myinfo Data Catalog](https://docs.developer.singpass.gov.sg/docs/data-catalog-myinfo/catalog)
-- [Understanding the basics of OIDC](https://docs.developer.singpass.gov.sg/docs/introduction/understanding-the-basics-of-oidc)
-- [Singpass for Individuals](https://www.singpass.gov.sg/main/individuals/)
+```text
+Singpass Myinfo
+https://docs.developer.singpass.gov.sg/docs/products/singpass-myinfo
+```
+
+```text
+Myinfo Key Principles
+https://docs.developer.singpass.gov.sg/docs/products/singpass-myinfo/key-principles
+```
+
+```text
+Myinfo Data Catalog
+https://docs.developer.singpass.gov.sg/docs/data-catalog-myinfo/catalog
+```
+
+```text
+Understanding the basics of OIDC
+https://docs.developer.singpass.gov.sg/docs/introduction/understanding-the-basics-of-oidc
+```
+
+```text
+Singpass for Individuals
+https://www.singpass.gov.sg/main/individuals/
+```
+
+```text
+Singpass App on the Apple App Store
+https://apps.apple.com/us/app/singpass/id1340660807
+```
