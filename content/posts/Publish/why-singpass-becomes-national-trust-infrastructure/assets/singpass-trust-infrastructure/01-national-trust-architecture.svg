@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1884.00" height="1065.00" viewBox="-10.00 -35.00 1884.00 1065.00">
+<defs><marker id="arrowhead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1e1e1e"/></marker></defs>
+<rect x="-10.00" y="-35.00" width="1884.00" height="1065.00" fill="#ffffff"/>
+<text x="60.00" y="65.00" fill="#1e40af" font-family="monospace" font-size="30" font-weight="700" text-anchor="start"><tspan x="60.00" dy="0.00">National Digital Identity Platform - High-level Architecture</tspan></text>
+<text x="60.00" y="103.00" fill="#64748b" font-family="monospace" font-size="18" font-weight="400" text-anchor="start"><tspan x="60.00" dy="0.00">Trust comes from separated responsibilities: channels, core services, registries, tokens, consent, and audit.</tspan></text>
+<rect x="60.00" y="150.00" width="270.00" height="440.00" rx="8" fill="#dbeafe" stroke="#1e3a5f" stroke-width="1" opacity="1.00"/>
+<text x="85.00" y="195.00" fill="#3b82f6" font-family="monospace" font-size="20" font-weight="400" text-anchor="start"><tspan x="85.00" dy="0.00">Residents &amp; Channels</tspan></text>
+<rect x="473.00" y="320.00" width="180.00" height="100.00" rx="8" fill="#fef3c7" stroke="#b45309" stroke-width="2" opacity="1.00"/>
+<text x="554.56" y="357.00" fill="#374151" font-family="monospace" font-size="16" font-weight="400" text-anchor="middle"><tspan x="554.56" dy="0.00">API Gateway</tspan><tspan x="554.56" dy="19.20">WAF</tspan><tspan x="554.56" dy="19.20">rate limit</tspan></text>
+<rect x="796.00" y="150.00" width="530.00" height="440.00" rx="8" fill="#dbeafe" stroke="#1e3a5f" stroke-width="1" opacity="1.00"/>
+<text x="826.00" y="195.00" fill="#3b82f6" font-family="monospace" font-size="20" font-weight="400" text-anchor="start"><tspan x="826.00" dy="0.00">Trust Core</tspan></text>
+<rect x="1469.00" y="150.00" width="335.00" height="440.00" rx="8" fill="#dbeafe" stroke="#1e3a5f" stroke-width="1" opacity="1.00"/>
+<text x="1499.00" y="195.00" fill="#3b82f6" font-family="monospace" font-size="20" font-weight="400" text-anchor="start"><tspan x="1499.00" dy="0.00">Trust Ecosystem</tspan></text>
+<rect x="796.00" y="697.00" width="544.00" height="263.00" rx="8" fill="#dbeafe" stroke="#1e3a5f" stroke-width="1" opacity="1.00"/>
+<text x="826.00" y="742.00" fill="#3b82f6" font-family="monospace" font-size="20" font-weight="400" text-anchor="start"><tspan x="826.00" dy="0.00">Events, Transparency, Accountability</tspan></text>
+<ellipse cx="205.00" cy="263.00" rx="110.00" ry="33.00" fill="#fed7aa" stroke="#c2410c" stroke-width="2" opacity="1.00"/>
+<text x="205.00" y="259.80" fill="#374151" font-family="monospace" font-size="16" font-weight="400" text-anchor="middle"><tspan x="205.00" dy="0.00">Resident</tspan><tspan x="205.00" dy="19.20">web / mobile</tspan></text>
+<rect x="95.00" y="350.00" width="220.00" height="70.00" rx="8" fill="#fed7aa" stroke="#c2410c" stroke-width="2" opacity="1.00"/>
+<text x="205.00" y="374.60" fill="#374151" font-family="monospace" font-size="13" font-weight="400" text-anchor="middle"><tspan x="205.00" dy="0.00">Mobile app</tspan><tspan x="205.00" dy="15.60">credential</tspan><tspan x="205.00" dy="15.60">secure key</tspan></text>
+<rect x="95.00" y="470.00" width="220.00" height="82.00" rx="8" fill="#fed7aa" stroke="#c2410c" stroke-width="2" opacity="1.00"/>
+<text x="205.00" y="508.40" fill="#374151" font-family="monospace" font-size="13" font-weight="400" text-anchor="middle"><tspan x="205.00" dy="0.00">Relying parties</tspan><tspan x="205.00" dy="15.60">gov, banks, healthcare</tspan></text>
+<rect x="836.00" y="225.00" width="200.00" height="70.00" rx="8" fill="#fef3c7" stroke="#b45309" stroke-width="2" opacity="1.00"/>
+<text x="936.00" y="248.80" fill="#374151" font-family="monospace" font-size="14" font-weight="400" text-anchor="middle"><tspan x="936.00" dy="0.00">Auth Service</tspan><tspan x="936.00" dy="16.80">identity proof</tspan><tspan x="936.00" dy="16.80">risk decision</tspan></text>
+<rect x="1096.00" y="225.00" width="155.00" height="70.00" rx="8" fill="#fef3c7" stroke="#b45309" stroke-width="2" opacity="1.00"/>
+<text x="1173.50" y="257.00" fill="#374151" font-family="monospace" font-size="15" font-weight="400" text-anchor="middle"><tspan x="1173.50" dy="0.00">Auth FE</tspan><tspan x="1173.50" dy="18.00">login UX</tspan></text>
+<rect x="836.00" y="345.00" width="145.00" height="70.00" rx="8" fill="#dbeafe" stroke="#1e3a5f" stroke-width="2" opacity="1.00"/>
+<text x="908.50" y="377.40" fill="#374151" font-family="monospace" font-size="13" font-weight="400" text-anchor="middle"><tspan x="908.50" dy="0.00">Token Service</tspan><tspan x="908.50" dy="15.60">JWT + JWKS</tspan></text>
+<rect x="991.00" y="345.00" width="155.00" height="70.00" rx="8" fill="#fef3c7" stroke="#b45309" stroke-width="2" opacity="1.00"/>
+<text x="1068.50" y="369.60" fill="#374151" font-family="monospace" font-size="13" font-weight="400" text-anchor="middle"><tspan x="1068.50" dy="0.00">Consent Service</tspan><tspan x="1068.50" dy="15.60">scopes +</tspan><tspan x="1068.50" dy="15.60">grants</tspan></text>
+<rect x="1161.00" y="345.00" width="90.00" height="70.00" rx="8" fill="#dbeafe" stroke="#1e3a5f" stroke-width="2" opacity="1.00"/>
+<text x="1206.00" y="370.40" fill="#374151" font-family="monospace" font-size="12" font-weight="400" text-anchor="middle"><tspan x="1206.00" dy="0.00">State</tspan><tspan x="1206.00" dy="14.40">QR /</tspan><tspan x="1206.00" dy="14.40">session</tspan></text>
+<rect x="836.00" y="465.00" width="415.00" height="70.00" rx="8" fill="#a7f3d0" stroke="#047857" stroke-width="2" opacity="1.00"/>
+<text x="1043.50" y="497.60" fill="#374151" font-family="monospace" font-size="12" font-weight="400" text-anchor="middle"><tspan x="1043.50" dy="0.00">Identity + Credential Store</tspan><tspan x="1043.50" dy="14.40">uid, app credential, passkey, recovery state</tspan></text>
+<rect x="1509.00" y="225.00" width="270.00" height="70.00" rx="8" fill="#bfdbfe" stroke="#1e3a5f" stroke-width="2" opacity="1.00"/>
+<text x="1644.00" y="250.40" fill="#374151" font-family="monospace" font-size="12" font-weight="400" text-anchor="middle"><tspan x="1644.00" dy="0.00">Client Registry + Admin</tspan><tspan x="1644.00" dy="14.40">client_id, redirect_uri</tspan><tspan x="1644.00" dy="14.40">scopes</tspan></text>
+<rect x="1509.00" y="350.00" width="270.00" height="62.00" rx="8" fill="#bfdbfe" stroke="#1e3a5f" stroke-width="2" opacity="1.00"/>
+<text x="1644.00" y="378.20" fill="#374151" font-family="monospace" font-size="14" font-weight="400" text-anchor="middle"><tspan x="1644.00" dy="0.00">KMS / HSM / JWKS</tspan><tspan x="1644.00" dy="16.80">signing + key rotation</tspan></text>
+<rect x="1509.00" y="475.00" width="270.00" height="70.00" rx="8" fill="#bfdbfe" stroke="#1e3a5f" stroke-width="2" opacity="1.00"/>
+<text x="1644.00" y="500.40" fill="#374151" font-family="monospace" font-size="12" font-weight="400" text-anchor="middle"><tspan x="1644.00" dy="0.00">Authoritative Registries</tspan><tspan x="1644.00" dy="14.40">immigration, manpower</tspan><tspan x="1644.00" dy="14.40">tax, healthcare</tspan></text>
+<rect x="936.00" y="765.00" width="270.00" height="54.00" rx="8" fill="#dbeafe" stroke="#1e3a5f" stroke-width="2" opacity="1.00"/>
+<text x="1071.00" y="796.80" fill="#374151" font-family="monospace" font-size="12" font-weight="400" text-anchor="middle"><tspan x="1071.00" dy="0.00">Event Pipeline</tspan></text>
+<rect x="846.00" y="850.00" width="210.00" height="60.00" rx="8" fill="#bfdbfe" stroke="#1e3a5f" stroke-width="2" opacity="1.00"/>
+<text x="951.00" y="870.40" fill="#374151" font-family="monospace" font-size="12" font-weight="400" text-anchor="middle"><tspan x="951.00" dy="0.00">User Activity Store</tspan><tspan x="951.00" dy="14.40">recent history</tspan><tspan x="951.00" dy="14.40">uid + month</tspan></text>
+<rect x="1086.00" y="850.00" width="210.00" height="60.00" rx="8" fill="#bfdbfe" stroke="#1e3a5f" stroke-width="2" opacity="1.00"/>
+<text x="1191.00" y="870.40" fill="#374151" font-family="monospace" font-size="12" font-weight="400" text-anchor="middle"><tspan x="1191.00" dy="0.00">Immutable Audit</tspan><tspan x="1191.00" dy="14.40">security events</tspan><tspan x="1191.00" dy="14.40">consent + token</tspan></text>
+<polyline points="330.00,370.00 473.00,370.00" fill="none" stroke="#1e3a5f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="1.00" marker-end="url(#arrowhead)"/>
+<text x="406.09" y="351.00" fill="#64748b" font-family="monospace" font-size="13" font-weight="400" text-anchor="middle"><tspan x="406.09" dy="0.00">login / QR</tspan></text>
+<polyline points="653.00,370.00 796.00,370.00" fill="none" stroke="#1e3a5f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="1.00" marker-end="url(#arrowhead)"/>
+<text x="724.04" y="351.00" fill="#64748b" font-family="monospace" font-size="13" font-weight="400" text-anchor="middle"><tspan x="724.04" dy="0.00">route</tspan></text>
+<polyline points="1326.00,370.00 1469.00,370.00" fill="none" stroke="#1e3a5f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="1.00" marker-end="url(#arrowhead)"/>
+<text x="1397.50" y="351.00" fill="#64748b" font-family="monospace" font-size="13" font-weight="400" text-anchor="middle"><tspan x="1397.50" dy="0.00">trust APIs</tspan></text>
+<text x="1046.00" y="651.00" fill="#64748b" font-family="monospace" font-size="13" font-weight="400" text-anchor="start"><tspan x="1046.00" dy="0.00">audit events</tspan></text>
+<polyline points="1031.00,590.00 1031.00,697.00" fill="none" stroke="#1e3a5f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="1.00" marker-end="url(#arrowhead)"/>
+</svg>
