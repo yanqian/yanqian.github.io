@@ -1,6 +1,6 @@
 ---
 title: "Why Sharing Myinfo Is More Than Autofill"
-date: "2026-06-20T23:11:19+08:00"
+date: "2026-06-21T16:59:17+08:00"
 draft: false
 tags:
   - identity
@@ -41,9 +41,13 @@ That is true, but incomplete. Autofill saves typing. Myinfo does something more 
 Myinfo moves verified claims with consent.
 ```
 
-That is why it belongs in the same trust infrastructure story as Singpass QR login. QR login answers: "How do I prove I am me?" Myinfo answers: "How do I let this service use specific trusted facts about me?"
+That is why it belongs in the same trust infrastructure story as Singpass QR login. 
 
-![Myinfo consented verified claims flow](assets/singpass-trust-infrastructure/03-myinfo-consented-claims.svg)
+QR login answers: "How do I prove I am me?" 
+
+Myinfo answers: "How do I let this service use specific trusted facts about me?"
+
+![Myinfo moves verified claims with consent](assets/singpass-trust-infrastructure/03-myinfo-consented-claims.svg)
 
 ## Authentication Does Not Move Facts
 
