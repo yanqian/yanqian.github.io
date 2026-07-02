@@ -1,6 +1,6 @@
 ---
 title: "Singapore Retirement Savings: CPF SA, RSTU, and SRS"
-date: "2026-07-02T18:15:51+08:00"
+date: "2026-07-02T18:27:09+08:00"
 draft: false
 tags:
   - singapore
@@ -212,113 +212,23 @@ The real SRS value is:
 
 That is tax deferral and tax planning.
 
-## How SRS Withdrawals Are Taxed
+## SRS Withdrawal Rules
 
-The key rule is that tax is based on the withdrawal amount, not on your investment profit.
+SRS withdrawal tax is based on the **withdrawal amount**, not on investment profit or loss.
 
-Imagine this:
+The simplified rules are:
 
-```text
-SRS contributions over time: S$100,000
-Investment value later:      S$200,000
-Retirement withdrawal:       S$200,000
-```
-
-For a qualifying retirement withdrawal, typically only **50% of the withdrawal amount** is taxable:
+- Qualifying retirement withdrawals: usually **50% of the amount withdrawn** is taxable.
+- Early withdrawals before the prescribed retirement age: usually **100% of the amount withdrawn** is taxable, plus a **5% penalty**.
+- Penalty-free retirement withdrawals can generally be spread over a **10-year withdrawal period** from the first penalty-free withdrawal.
+- Investment losses inside SRS do not create a special tax deduction.
 
 ```text
-Withdrawal amount:       S$200,000
-Taxable portion at 50%:  S$100,000
+Retirement withdrawal:  S$40,000
+Taxable portion:        S$20,000
 ```
 
-The tax system is not asking:
-
-```text
-How much was principal?
-How much was gain?
-```
-
-It is asking:
-
-```text
-How much did you withdraw?
-What percentage of that withdrawal is taxable?
-```
-
-That is the mental model.
-
-## What If Your SRS Investments Lose Money?
-
-Suppose the outcome is worse:
-
-```text
-SRS contributions over time: S$100,000
-Investment value later:      S$60,000
-Retirement withdrawal:       S$60,000
-```
-
-For a qualifying retirement withdrawal:
-
-```text
-Withdrawal amount:       S$60,000
-Taxable portion at 50%:  S$30,000
-```
-
-There is no special tax deduction just because your SRS investments lost money.
-
-That may feel unintuitive at first, but it follows the same logic. Singapore generally does not tax capital gains, so it also does not usually give ordinary investors capital-loss deductions.
-
-SRS taxation is driven by the withdrawal event.
-
-## Early Withdrawal Is Expensive
-
-SRS money can be withdrawn before retirement, but this usually defeats the point.
-
-For early withdrawals before the prescribed retirement age, the usual treatment is:
-
-```text
-100% of the withdrawal is taxable
-plus a 5% penalty
-```
-
-Example:
-
-```text
-Employment income:       S$120,000
-Early SRS withdrawal:    S$50,000
-Taxable income impact:   S$170,000
-Penalty:                 5% of S$50,000
-```
-
-This is why SRS should not be treated as a short-term savings account.
-
-It only makes sense if the money can stay locked for long enough that the upfront tax relief and later withdrawal planning are worth the loss of flexibility.
-
-## Why Retirement Withdrawals Are Often Spread Out
-
-Once you are eligible for penalty-free retirement withdrawals, SRS withdrawals can generally be spread over a 10-year withdrawal period starting from the first penalty-free withdrawal.
-
-This is where the 50% rule becomes useful.
-
-Example:
-
-```text
-Annual SRS withdrawal:     S$40,000
-Taxable portion at 50%:    S$20,000
-Other taxable income:      low or zero
-```
-
-If someone has little other taxable income after retirement, spreading SRS withdrawals can reduce or even eliminate income tax in some years, depending on the resident tax brackets and personal circumstances.
-
-The mechanism is not magic.
-
-It is simply:
-
-```text
-lower income period
-  + only 50% of qualifying withdrawal taxed
-  + progressive tax rates
-```
+That is why SRS is mainly useful when you can leave the money untouched and withdraw during a lower-income period.
 
 ## The Main Misunderstanding About SRS
 
