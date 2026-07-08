@@ -1,6 +1,6 @@
 ---
 title: "What I Learned From Three Trees in Singapore"
-date: "2026-07-08T11:14:28+08:00"
+date: "2026-07-08T17:20:58+08:00"
 draft: false
 tags:
   - singapore
@@ -8,15 +8,18 @@ tags:
   - city-in-nature
   - tree-management
   - risk-management
+  - urban-systems
+  - city-series
   - essay-draft
   - public
   - note
 categories:
   - life
-
-
+series: The Hidden Systems of Singapore
+seriesOrder: 1
 topics:
   - singapore
+  - urban-systems
   - urban-nature
   - city-in-nature
 
