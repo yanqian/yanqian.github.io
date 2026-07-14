@@ -1,6 +1,6 @@
 ---
 title: "What I Learned From Three Trees in Singapore"
-date: "2026-07-14T22:14:51+08:00"
+date: "2026-07-14T22:40:18+08:00"
 draft: false
 tags:
   - singapore
@@ -127,9 +127,9 @@ When a city has many trees near people, roads, and buildings, inspection alone i
 
 ## 3. Why Prune Trees So Aggressively?
 
-> Photo placeholder: arborists pruning a mature urban tree. Replace with an original or properly licensed image before public release.
+![A mature urban tree after heavy pruning near apartment buildings](assets/what-i-learned-from-three-trees-in-singapore/03-tree-pruning.jpg)
 
-*Tree pruning can look destructive from the street, especially when large limbs are removed.*
+*Tree pruning can look severe from the ground. The missing limbs are visible, but the risk reduction is harder to see.*
 
 The third thing that surprised me was pruning.
 
