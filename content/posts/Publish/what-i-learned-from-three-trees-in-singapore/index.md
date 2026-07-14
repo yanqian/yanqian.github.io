@@ -1,6 +1,6 @@
 ---
 title: "What I Learned From Three Trees in Singapore"
-date: "2026-07-08T17:20:58+08:00"
+date: "2026-07-14T22:14:51+08:00"
 draft: false
 tags:
   - singapore
@@ -92,9 +92,9 @@ The accident that did not happen is invisible.
 
 ## 2. Why Is There A Sensor On The Tree?
 
-> Photo placeholder: tree tilt sensor on a mature tree trunk. Replace with an original or properly licensed image before public release.
+![A tree tilt sensor mounted near the base of a mature tree](assets/what-i-learned-from-three-trees-in-singapore/02-tree-tilt-sensor.jpg)
 
-*A small device mounted on a mature tree trunk.*
+*A small sensor mounted near the base of a mature tree. It turns a quiet tree into something the city can monitor over time.*
 
 Later, I noticed another detail.
 
