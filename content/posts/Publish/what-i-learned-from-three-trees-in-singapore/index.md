@@ -1,6 +1,6 @@
 ---
 title: "What I Learned From Three Trees in Singapore"
-date: "2026-07-17T19:28:02+08:00"
+date: "2026-07-17T22:31:47+08:00"
 draft: false
 translationKey: what-i-learned-from-three-trees-in-singapore
 tags:
