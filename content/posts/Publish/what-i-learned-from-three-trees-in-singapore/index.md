@@ -1,7 +1,8 @@
 ---
 title: "What I Learned From Three Trees in Singapore"
-date: "2026-07-14T22:40:18+08:00"
+date: "2026-07-17T17:14:45+08:00"
 draft: false
+translationKey: what-i-learned-from-three-trees-in-singapore
 tags:
   - singapore
   - urban-nature
