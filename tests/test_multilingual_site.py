@@ -9,6 +9,7 @@ CONFIG = (ROOT / "hugo.toml").read_text()
 HEADER = (ROOT / "layouts/_partials/header.html").read_text()
 HOME_TEMPLATE = (ROOT / "layouts/index.html").read_text()
 HEAD_EXTENSIONS = (ROOT / "layouts/_partials/head/extensions.html").read_text()
+DEPLOY_WORKFLOW = (ROOT / ".github/workflows/hugo.yml").read_text()
 EN_I18N = (ROOT / "i18n/en.toml").read_text()
 ZH_I18N = (ROOT / "i18n/zh-cn.toml").read_text()
 
@@ -57,6 +58,9 @@ class MultilingualSiteTest(unittest.TestCase):
         for entry in required:
             self.assertIn(entry, CONFIG)
 
+    def test_deploy_workflow_uses_the_verified_hugo_version(self):
+        self.assertIn("HUGO_VERSION: 0.161.1", DEPLOY_WORKFLOW)
+
     def test_project_i18n_files_cover_local_template_copy(self):
         keys = [
             "home",
@@ -84,6 +88,15 @@ class MultilingualSiteTest(unittest.TestCase):
     def test_templates_use_translation_aware_switches_and_links(self):
         self.assertIn(".Translations", HEADER)
         self.assertIn(".Site.Home.AllTranslations", HEADER)
+        self.assertNotIn(".Language.Locale", HEADER)
+        self.assertNotIn(".Language.Locale", HEAD_EXTENSIONS)
+        self.assertNotIn(".Language.Label", HEADER)
+        self.assertIn('cond (eq .Language.Lang "zh") "zh-CN" "en-US"', HEADER)
+        self.assertIn('cond (eq .Language.Lang "zh") "中文" "English"', HEADER)
+        self.assertIn(
+            'cond (eq .Language.Lang "zh") "zh-CN" "en-US"',
+            HEAD_EXTENSIONS,
+        )
         self.assertIn('class="language-switch"', HEADER)
         self.assertIn('i18n "switch_to_language"', HEADER)
         self.assertIn('"posts/" | relLangURL', HOME_TEMPLATE)

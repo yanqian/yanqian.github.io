@@ -45,8 +45,10 @@
                 {{ $node.Scratch.Set "separator" false }}
               {{ end }}
               <li class="navigation-item">
-                <a class="language-switch" href="{{ .RelPermalink }}" lang="{{ .Language.Locale }}" hreflang="{{ .Language.Locale }}" aria-label="{{ i18n "switch_to_language" (dict "Language" .Language.Label) }}">
-                  {{ .Language.Label }}
+                {{ $locale := cond (eq .Language.Lang "zh") "zh-CN" "en-US" }}
+                {{ $languageLabel := cond (eq .Language.Lang "zh") "中文" "English" }}
+                <a class="language-switch" href="{{ .RelPermalink }}" lang="{{ $locale }}" hreflang="{{ $locale }}" aria-label="{{ i18n "switch_to_language" (dict "Language" $languageLabel) }}">
+                  {{ $languageLabel }}
                 </a>
               </li>
             {{ end }}
