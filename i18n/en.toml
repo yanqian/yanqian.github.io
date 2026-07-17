@@ -1,0 +1,72 @@
+[home]
+other = "Home"
+
+[latest]
+other = "Latest"
+
+[all_posts]
+other = "All posts"
+
+[no_public_posts]
+other = "No public posts yet."
+
+[selected]
+other = "Selected"
+
+[all_series]
+other = "All series"
+
+[post_count]
+one = "1 post"
+other = "{{ .Count }} posts"
+
+[starts_with]
+other = "starts with {{ .Title }}"
+
+[topics]
+other = "Topics"
+
+[topic]
+other = "Topic"
+
+[all_topics]
+other = "All topics"
+
+[no_posts]
+other = "No posts yet."
+
+[entry_toc]
+other = "Table of Contents"
+
+[table_of_contents_aria]
+other = "Table of contents"
+
+[featured_image]
+other = "Featured image"
+
+[comments]
+other = "Comments"
+
+[series_navigation]
+other = "Series navigation"
+
+[series_part]
+other = "Part {{ .Current }} of {{ .Total }}"
+
+[previous]
+other = "Previous"
+
+[next]
+other = "Next"
+
+[built_with]
+other = "Built with"
+
+[main_navigation]
+other = "Main navigation"
+
+[toggle_navigation]
+other = "Toggle navigation menu"
+
+[switch_to_language]
+other = "Switch to {{ .Language }}"

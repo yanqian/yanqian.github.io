@@ -39,6 +39,7 @@ python3 -m py_compile orchestrator.py
 | Projects page content | Tests assert the `home-guard-tg` project entry and GitHub link exist in `content/projects.md`. |
 | Article comments | Tests assert giscus is configured for GitHub Discussions, rendered after post content, scoped to its own container, styled with article-page spacing, and wired to site-hosted custom giscus themes. |
 | Selection quote comments | Tests assert post pages load the selection-comment script and the script scopes selection to article content, formats Markdown quotes, uses clipboard fallback, scrolls to giscus comments, and hides outside article selections. |
+| Multilingual site shell | Tests assert English root URLs remain stable, Chinese output is generated under `/zh/`, interface strings and menus are localized, language switches use paired translations or language-home fallbacks, and alternate-language metadata is rendered. |
 | Hugo rendering | `init.sh` runs a production-style Hugo build and requires `public/index.html`. |
 | Deployment parity | GitHub Actions runs unittest discovery before the Pages build. |
 | Orchestrator contract | `python3 -m py_compile orchestrator.py` must succeed. |
@@ -52,6 +53,7 @@ Manual verification is required for layout or navigation changes:
 3. Check the homepage on desktop and mobile widths.
 4. Check at least one post page, one series page, and one topic/taxonomy page.
 5. Confirm no text overlap, broken navigation, missing CSS, or missing article assets.
+6. Switch between English and Chinese from the homepage, an untranslated article, and any paired fixture page; confirm paired pages are preferred and fallback links go to the other language homepage.
 
 For workflow changes, also run:
 

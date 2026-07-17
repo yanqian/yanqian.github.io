@@ -37,7 +37,7 @@
         {{ if $toc }}
         <div class="mobile-toc">
           <details class="entry__toc toc" {{ if $tocOpen }}open{{ end }}>
-            <summary class="toc__title">Table of Contents</summary>
+            <summary class="toc__title">{{ i18n "entry_toc" }}</summary>
             {{ replace .TableOfContents `id="TableOfContents"` `id="TableOfContentsMobile"` | safeHTML }}
           </details>
         </div>
@@ -45,7 +45,7 @@
 
         <div class="post-content">
           {{ if .Params.featuredImage }}
-            <img src="{{ .Params.featuredImage | relURL }}" alt="Featured image"/>
+            <img src="{{ .Params.featuredImage | relURL }}" alt="{{ i18n "featured_image" }}"/>
           {{ end }}
           {{ .Content }}
         </div>
@@ -63,9 +63,9 @@
       </article>
 
       {{ if $toc }}
-      <aside class="desktop-toc" aria-label="Table of contents">
+      <aside class="desktop-toc" aria-label="{{ i18n "table_of_contents_aria" }}">
         <details class="entry__toc toc" {{ if $tocOpen }}open{{ end }}>
-          <summary class="toc__title">Table of Contents</summary>
+          <summary class="toc__title">{{ i18n "entry_toc" }}</summary>
           {{ replace .TableOfContents `id="TableOfContents"` `id="TableOfContentsDesktop"` | safeHTML }}
         </details>
       </aside>

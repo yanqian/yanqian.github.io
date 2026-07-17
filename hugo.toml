@@ -3,6 +3,7 @@ title = "Armstrong Yan"
 theme = "hugo-coder"
 locale = "en-us"
 defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
 
 [markup]
   [markup.highlight]
@@ -49,27 +50,51 @@ darkTheme = "/css/giscus-dark.css?v=20260602-2"
 lang = "en"
 loading = "lazy"
 
-[[menu.main]]
+[languages.en]
+locale = "en-US"
+label = "English"
+weight = 1
+
+[languages.en.params]
+dateFormat = "January 2, 2006"
+
+[[languages.en.menu.main]]
 name = "Home"
 weight = 1
-url = "/"
+url = ""
 
-[[menu.main]]
+[[languages.en.menu.main]]
 name = "Projects"
 weight = 2
-url = "/projects/"
+url = "projects/"
 
-[[menu.main]]
+[[languages.en.menu.main]]
 name = "About"
 weight = 3
-url = "/about/"
+url = "about/"
 
-[[menu.main]]
+[[languages.en.menu.main]]
 name = "Now"
 weight = 4
-url = "/now/"
+url = "now/"
 
-[[menu.main]]
+[[languages.en.menu.main]]
 name = "Resume"
 weight = 5
-url = "/resume/"
+url = "resume/"
+
+[languages.zh]
+locale = "zh-CN"
+label = "中文"
+weight = 2
+
+[languages.zh.params]
+info = "后端工程 · 平台工程 · 系统思维"
+description = "Armstrong Yan 的个人网站，关注 AI 辅助软件工程、后端系统、开发者工具与本地优先产品。"
+keywords = "后端工程,平台工程,AI 辅助软件工程,开发者工具,本地优先产品,系统设计,新加坡"
+dateFormat = "2006年1月2日"
+
+[[languages.zh.menu.main]]
+name = "首页"
+weight = 1
+url = ""

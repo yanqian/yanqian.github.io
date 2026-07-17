@@ -43,6 +43,8 @@ class GiscusCommentsTest(unittest.TestCase):
         self.assertIn("document.currentScript.closest('.giscus-comments')", GISCUS_PARTIAL)
         self.assertIn("https://giscus.app/client.js", GISCUS_PARTIAL)
         self.assertIn("data-reactions-enabled", GISCUS_PARTIAL)
+        self.assertIn('eq .Site.Language.Lang "zh"', GISCUS_PARTIAL)
+        self.assertIn("zh-CN", GISCUS_PARTIAL)
         self.assertIn('absURL (default "/css/giscus-light.css"', GISCUS_PARTIAL)
         self.assertIn('absURL (default "/css/giscus-dark.css"', GISCUS_PARTIAL)
         self.assertIn("themeChanged", GISCUS_PARTIAL)

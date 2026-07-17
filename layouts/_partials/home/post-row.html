@@ -1,6 +1,6 @@
 <li class="post-row">
   <a class="post-row-title" href="{{ .RelPermalink }}">{{ if .Title }}{{ .Title }}{{ else }}{{ with .File }}content/{{ .Path }}{{ else }}{{ .RelPermalink }}{{ end }}{{ end }}</a>
   {{ if not .Date.IsZero }}
-    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format (.Site.Params.dateFormat | default "January 2, 2006") }}</time>
   {{ end }}
 </li>

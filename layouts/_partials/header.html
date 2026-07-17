@@ -1,4 +1,4 @@
-<nav class="navigation" aria-label="Main navigation">
+<nav class="navigation" aria-label="{{ i18n "main_navigation" }}">
   <section class="container">
     {{ with .Site }}
       <a class="navigation-title" href="{{ absLangURL "" }}">
@@ -8,7 +8,7 @@
 
     {{ if or .Site.Menus.main hugo.IsMultilingual }}
       <input type="checkbox" id="menu-toggle" />
-      <label class="menu-button float-right" for="menu-toggle" aria-label="Toggle navigation menu">
+      <label class="menu-button float-right" for="menu-toggle" aria-label="{{ i18n "toggle_navigation" }}">
         <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
       </label>
 
@@ -31,8 +31,12 @@
 
         {{ if hugo.IsMultilingual }}
           {{ $node := . }}
+          {{ $languageTargets := .Translations }}
+          {{ if not $languageTargets }}
+            {{ $languageTargets = .Site.Home.AllTranslations }}
+          {{ end }}
           {{ .Scratch.Set "separator" true }}
-          {{ range (default .Site.Home.AllTranslations .Translations) }}
+          {{ range $languageTargets }}
             {{ if ne $.Site.Language .Language }}
               {{ if $node.Scratch.Get "separator" }}
                 <li class="navigation-item menu-separator">
@@ -41,7 +45,9 @@
                 {{ $node.Scratch.Set "separator" false }}
               {{ end }}
               <li class="navigation-item">
-                <a href="{{ .RelPermalink }}">{{ .Language.LanguageName | emojify }}</a>
+                <a class="language-switch" href="{{ .RelPermalink }}" lang="{{ .Language.Locale }}" hreflang="{{ .Language.Locale }}" aria-label="{{ i18n "switch_to_language" (dict "Language" .Language.Label) }}">
+                  {{ .Language.Label }}
+                </a>
               </li>
             {{ end }}
           {{ end }}

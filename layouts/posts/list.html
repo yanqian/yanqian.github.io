@@ -22,7 +22,7 @@
           {{ end }}
         </ol>
       {{ else }}
-        <p class="empty-state">No public posts yet.</p>
+        <p class="empty-state">{{ i18n "no_public_posts" }}</p>
       {{ end }}
 
       {{ partial "pagination.html" . }}

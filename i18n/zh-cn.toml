@@ -1,0 +1,115 @@
+[categories]
+one = "分类"
+other = "分类"
+
+[tags]
+one = "标签"
+other = "标签"
+
+[series]
+one = "系列"
+other = "系列"
+
+[authors]
+one = "作者"
+other = "作者"
+
+[posts]
+other = "文章"
+
+[reading_time]
+one = "阅读时间：1 分钟"
+other = "阅读时间：{{ .Count }} 分钟"
+
+[page_not_found]
+other = "找不到页面"
+
+[page_does_not_exist]
+other = "此页面不存在"
+
+[head_back]
+other = "返回 <a href=\"{{ . }}\">首页</a>。"
+
+[licensed_under]
+other = "许可依据"
+
+[powered_by]
+other = "技术支持"
+
+[see_also]
+other = "参见"
+
+[link_to_heading]
+other = "链接到标题"
+
+[home]
+other = "首页"
+
+[latest]
+other = "最新文章"
+
+[all_posts]
+other = "全部文章"
+
+[no_public_posts]
+other = "暂无中文文章。"
+
+[selected]
+other = "精选"
+
+[all_series]
+other = "全部系列"
+
+[post_count]
+other = "{{ .Count }} 篇文章"
+
+[starts_with]
+other = "始于《{{ .Title }}》"
+
+[topics]
+other = "主题"
+
+[topic]
+other = "主题"
+
+[all_topics]
+other = "全部主题"
+
+[no_posts]
+other = "暂无文章。"
+
+[entry_toc]
+other = "目录"
+
+[table_of_contents_aria]
+other = "文章目录"
+
+[featured_image]
+other = "题图"
+
+[comments]
+other = "评论"
+
+[series_navigation]
+other = "系列文章导航"
+
+[series_part]
+other = "第 {{ .Current }} 篇，共 {{ .Total }} 篇"
+
+[previous]
+other = "上一篇"
+
+[next]
+other = "下一篇"
+
+[built_with]
+other = "使用"
+
+[main_navigation]
+other = "主导航"
+
+[toggle_navigation]
+other = "展开或收起导航"
+
+[switch_to_language]
+other = "切换到{{ .Language }}"

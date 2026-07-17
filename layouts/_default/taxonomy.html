@@ -15,7 +15,7 @@
   <section class="container page list collection-page">
     <article>
       <header>
-        <p class="eyebrow">{{ humanize .Data.Singular }}</p>
+        <p class="eyebrow">{{ i18n .Data.Singular | default (humanize .Data.Singular) }}</p>
         <h1 class="title">
           <a class="title-link" href="{{ .Permalink | safeURL }}">{{ .Title }}</a>
         </h1>
@@ -28,7 +28,7 @@
           {{ end }}
         </ol>
       {{ else }}
-        <p class="empty-state">No posts yet.</p>
+        <p class="empty-state">{{ i18n "no_posts" }}</p>
       {{ end }}
     </article>
   </section>

@@ -13,12 +13,12 @@
   {{ $previousPost := cond (ge $previousIndex 0) (index $seriesPosts $previousIndex) nil }}
   {{ $nextPost := cond (lt $nextIndex (len $seriesPosts)) (index $seriesPosts $nextIndex) nil }}
 
-  <nav class="series-nav" aria-label="Series navigation">
+  <nav class="series-nav" aria-label="{{ i18n "series_navigation" }}">
     <div class="series-nav-heading">
-      <span>Series</span>
-      <a href="/series/{{ $series | urlize }}/">{{ $series }}</a>
+      <span>{{ i18n "series" | title }}</span>
+      <a href="{{ printf "series/%s/" ($series | urlize) | relLangURL }}">{{ $series }}</a>
       {{ if ge $currentIndex 0 }}
-        <small>Part {{ add $currentIndex 1 }} of {{ len $seriesPosts }}</small>
+        <small>{{ i18n "series_part" (dict "Current" (add $currentIndex 1) "Total" (len $seriesPosts)) }}</small>
       {{ end }}
     </div>
 
@@ -33,13 +33,13 @@
     <div class="series-prev-next">
       {{ with $previousPost }}
         <a class="series-step" href="{{ .RelPermalink }}">
-          <span>Previous</span>
+          <span>{{ i18n "previous" }}</span>
           {{ .Title }}
         </a>
       {{ end }}
       {{ with $nextPost }}
         <a class="series-step" href="{{ .RelPermalink }}">
-          <span>Next</span>
+          <span>{{ i18n "next" }}</span>
           {{ .Title }}
         </a>
       {{ end }}

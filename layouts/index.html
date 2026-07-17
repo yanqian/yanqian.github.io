@@ -27,14 +27,14 @@
   <article>
     <header class="home-header">
       <h1 class="title">
-        <a class="title-link" href="{{ .Permalink | safeURL }}">Home</a>
+        <a class="title-link" href="{{ .Permalink | safeURL }}">{{ i18n "home" }}</a>
       </h1>
     </header>
 
     <section class="home-section" aria-labelledby="latest-title">
       <div class="section-heading">
-        <h2 id="latest-title">Latest</h2>
-        <a href="/posts/">All posts</a>
+        <h2 id="latest-title">{{ i18n "latest" }}</h2>
+        {{ if $posts }}<a href="{{ "posts/" | relLangURL }}">{{ i18n "all_posts" }}</a>{{ end }}
       </div>
 
       {{ if $latest }}
@@ -44,14 +44,14 @@
           {{ end }}
         </ol>
       {{ else }}
-        <p class="empty-state">No public posts yet.</p>
+        <p class="empty-state">{{ i18n "no_public_posts" }}</p>
       {{ end }}
     </section>
 
     {{ if $selected }}
       <section class="home-section" aria-labelledby="selected-title">
         <div class="section-heading">
-          <h2 id="selected-title">Selected</h2>
+          <h2 id="selected-title">{{ i18n "selected" }}</h2>
         </div>
 
         <div class="selected-grid">
@@ -72,8 +72,8 @@
     {{ if $seriesNames }}
       <section class="home-section" aria-labelledby="series-title">
         <div class="section-heading">
-          <h2 id="series-title">Series</h2>
-          <a href="/series/">All series</a>
+          <h2 id="series-title">{{ i18n "series" | title }}</h2>
+          <a href="{{ "series/" | relLangURL }}">{{ i18n "all_series" }}</a>
         </div>
 
         <div class="collection-list">
@@ -83,8 +83,8 @@
             {{ $firstPost := index $seriesPosts 0 }}
             <article class="collection-row">
               <div>
-                <a class="collection-title" href="/series/{{ $series | urlize }}/">{{ $series }}</a>
-                <p>{{ len $seriesPosts }} posts{{ with $firstPost }} · starts with {{ .Title }}{{ end }}</p>
+                <a class="collection-title" href="{{ printf "series/%s/" ($series | urlize) | relLangURL }}">{{ $series }}</a>
+                <p>{{ i18n "post_count" (len $seriesPosts) }}{{ with $firstPost }} · {{ i18n "starts_with" (dict "Title" .Title) }}{{ end }}</p>
               </div>
             </article>
           {{ end }}
@@ -95,15 +95,15 @@
     {{ if $topicNames }}
       <section class="home-section" aria-labelledby="topics-title">
         <div class="section-heading">
-          <h2 id="topics-title">Topics</h2>
-          <a href="/topics/">All topics</a>
+          <h2 id="topics-title">{{ i18n "topics" }}</h2>
+          <a href="{{ "topics/" | relLangURL }}">{{ i18n "all_topics" }}</a>
         </div>
 
         <div class="topic-grid">
           {{ range sort $topicNames }}
             {{ $topic := . }}
             {{ $topicPosts := where $posts "Params.topics" "intersect" (slice $topic) }}
-            <a class="topic-pill" href="/topics/{{ $topic | urlize }}/">
+            <a class="topic-pill" href="{{ printf "topics/%s/" ($topic | urlize) | relLangURL }}">
               <span>{{ humanize $topic }}</span>
               <small>{{ len $topicPosts }}</small>
             </a>

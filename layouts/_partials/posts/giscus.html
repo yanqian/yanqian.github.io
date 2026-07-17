@@ -3,7 +3,7 @@
     {{- $lightTheme := absURL (default "/css/giscus-light.css" .Site.Params.giscus.theme) -}}
     {{- $darkTheme := absURL (default "/css/giscus-dark.css" .Site.Params.giscus.darkTheme) -}}
     <section class="post-comments giscus-comments" aria-labelledby="comments-title">
-      <h2 id="comments-title">Comments</h2>
+      <h2 id="comments-title">{{ i18n "comments" }}</h2>
       <script>
         (() => {
           const container = document.currentScript.closest('.giscus-comments');
@@ -59,7 +59,7 @@
           script.setAttribute('data-emit-metadata', '{{ default "0" .Site.Params.giscus.emitMetadata }}');
           script.setAttribute('data-input-position', '{{ default "bottom" .Site.Params.giscus.inputPosition }}');
           script.setAttribute('data-theme', getGiscusTheme());
-          script.setAttribute('data-lang', '{{ default "en" .Site.Params.giscus.lang }}');
+          script.setAttribute('data-lang', '{{ if eq .Site.Language.Lang "zh" }}zh-CN{{ else }}{{ default "en" .Site.Params.giscus.lang }}{{ end }}');
           script.setAttribute('data-loading', '{{ default "lazy" .Site.Params.giscus.loading }}');
           script.setAttribute('crossorigin', 'anonymous');
           script.setAttribute('async', '');

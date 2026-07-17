@@ -119,3 +119,75 @@ All automated local verification must run through:
 ```
 
 The script must exit non-zero on failure.
+
+## 8. Multilingual Site Foundation
+
+### Goal
+
+Add a bilingual English and Simplified Chinese site shell so readers can explicitly switch languages and future Obsidian publishing work can project paired translations into Hugo without another template redesign.
+
+### Scope Included
+
+- Keep English as the default language at the existing root URLs.
+- Add Simplified Chinese under the `/zh/` URL prefix.
+- Provide language-specific navigation labels, metadata, and shared interface copy.
+- Show a language switch on every page. When the current page has a translation, link to it; otherwise link to the other language's homepage.
+- Make homepage, post list, post page, taxonomy, series navigation, table of contents, comments, dates, and empty states language-aware.
+- Emit language alternate links for translated pages and language homepages.
+- Add automated coverage and production-build assertions for both languages.
+
+### Scope Excluded
+
+- Translating generated articles under `content/posts/Publish/`.
+- Changing the Obsidian QuickAdd or GitHub Publisher workflow.
+- Automatically detecting or redirecting based on browser language.
+- Automatically generating or synchronizing translations.
+- Moving existing English URLs under an `/en/` prefix.
+
+### Core Flows
+
+1. An English reader continues to use the existing root URLs without redirects or permalink changes.
+2. A reader selects `中文` and reaches the Chinese translation when one exists, or `/zh/` when it does not.
+3. A reader selects `English` from the Chinese site and reaches the paired English page or the English homepage.
+4. A future paired `index.en.md` and `index.zh.md` article is automatically scoped to the correct language and connected by Hugo's translation model.
+
+### Constraints
+
+- Preserve the Obsidian-to-Hugo publishing boundary and do not hand-edit generated posts.
+- Use Hugo's native multilingual model and the existing `hugo-coder` template patterns.
+- Avoid new frontend frameworks, runtime services, or client-side language redirects.
+- Preserve pathname-based giscus discussions for existing English article URLs.
+
+### Ambiguities And Assumptions
+
+- English remains the default because all current content and public URLs are English.
+- Simplified Chinese uses the Hugo language key `zh` and the URL prefix `/zh/`.
+- Language choice is explicit; the site does not persist a separate preference because the selected language is represented by the URL.
+- Article and top-level page translation are separate follow-up work. This feature localizes the site shell and makes untranslated-language homepages valid empty states.
+
+### Required Capabilities
+
+- Installed Hugo extended binary with multilingual support.
+- Existing Python unittest and production-build verification entrypoint.
+- Rendered HTML inspection for root and `/zh/` output.
+
+### Implementation Paths
+
+- `hugo.toml`
+- `i18n/`
+- Localized taxonomy index frontmatter under `content/categories/`, `content/tags/`, `content/series/`, and `content/topics/`
+- `layouts/`
+- `assets/css/custom.css` only if the language control needs styling adjustments
+- `tests/`
+- `test_plan.md`
+
+### Verification Surface
+
+- Contract tests for language configuration, menus, translated interface keys, and translation-aware template links.
+- Production Hugo build proving both `/index.html` and `/zh/index.html` are generated.
+- Rendered HTML assertions for document language, language switch targets, localized labels, and preserved English URLs.
+- Manual desktop and mobile inspection of navigation and representative page types.
+
+### Decomposition
+
+This requirement is intentionally one feature, `F010`. Configuration, localized interface copy, translation-aware templates, and build checks form one coherent site-shell capability with the same Hugo-rendering verification surface. Article translation and Obsidian automation remain independently valuable follow-up features and are excluded.

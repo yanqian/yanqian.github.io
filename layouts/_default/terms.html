@@ -1,5 +1,5 @@
 {{ define "title" }}
-  {{ .Title }} · {{ .Site.Title }}
+  {{ i18n .Data.Plural | default .Title }} · {{ .Site.Title }}
 {{ end }}
 
 {{ define "content" }}
@@ -7,7 +7,7 @@
     <article>
       <header>
         <h1 class="title">
-          <a class="title-link" href="{{ .Permalink | safeURL }}">{{ .Title }}</a>
+          <a class="title-link" href="{{ .Permalink | safeURL }}">{{ i18n .Data.Plural | default .Title }}</a>
         </h1>
       </header>
 
@@ -16,7 +16,7 @@
           <article class="collection-row">
             <div>
               <a class="collection-title" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
-              <p>{{ .Count }} posts</p>
+              <p>{{ i18n "post_count" .Count }}</p>
             </div>
           </article>
         {{ end }}

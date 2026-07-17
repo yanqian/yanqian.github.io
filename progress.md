@@ -26,17 +26,19 @@ Implemented behavior:
 - GitHub Discussions is enabled for `yanqian/yanqian.github.io`, and article pages now render giscus-powered comment sections backed by the repository's `General` discussion category.
 - Article comments use site-hosted custom giscus themes so the iframe background matches the site's light and dark palettes.
 - Article pages include a lightweight selection-to-comment flow that copies selected article text as a Markdown quote and scrolls readers to giscus comments.
+- The site now has a native Hugo English/Chinese shell: English keeps its existing root URLs, Chinese is generated under `/zh/`, interface copy and metadata are localized, and the language switch prefers paired pages with a language-home fallback.
 - `./init.sh` runs unit tests, checks `orchestrator.py`, and performs a production-style Hugo build.
 - `orchestrator.py` can preview or run bounded coding/evaluator rounds for future feature work.
 
 ## Last Completed Feature
 
-`F009` - Add a lightweight selection-to-comment flow that copies selected article text as a Markdown quote and scrolls readers to giscus comments.
+`F010` - Add an English and Simplified Chinese Hugo site shell while preserving existing English URLs and the Obsidian publishing boundary.
 
 ## Next Feature
 
-Awaiting the next site requirement before starting another workflow round.
+Awaiting the next bilingual publishing requirement. Article translation and Obsidian translation automation remain separate follow-up work.
 
 ## Known Issues
 
 - `hugo --gc` can clean tracked files under `resources/_gen/`; restore them before committing if they are not part of the intended change.
+- The installed Codex CLI cannot currently run the configured `gpt-5.6-sol` evaluator model; `orchestrator.py --eval-only` requires a CLI upgrade or compatible durable provider configuration.

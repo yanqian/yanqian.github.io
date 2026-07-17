@@ -24,7 +24,9 @@ class SelectionCommentTest(unittest.TestCase):
         self.assertIn("SOURCE_THRESHOLD = 160", SCRIPT)
         self.assertIn('return "> " + line.trim();', SCRIPT)
         self.assertIn("normalized.length < SOURCE_THRESHOLD", SCRIPT)
-        self.assertIn('"Source: " + document.title', SCRIPT)
+        self.assertIn('source: "Source: "', SCRIPT)
+        self.assertIn('source: "来源："', SCRIPT)
+        self.assertIn("messages.source + document.title", SCRIPT)
         self.assertIn(r"\u00b7", SCRIPT)
         self.assertIn('window.location.href.split("#")[0]', SCRIPT)
 
@@ -37,9 +39,13 @@ class SelectionCommentTest(unittest.TestCase):
         self.assertIn('throw new Error("Copy command failed")', SCRIPT)
 
     def test_click_scrolls_to_comments_and_shows_feedback(self):
-        self.assertIn('button.textContent = "Comment"', SCRIPT)
+        self.assertIn('comment: "Comment"', SCRIPT)
+        self.assertIn('comment: "评论"', SCRIPT)
+        self.assertIn("button.textContent = messages.comment", SCRIPT)
         self.assertIn("handleCommentClick", SCRIPT)
-        self.assertIn('showToast("Quote copied. Paste it into the comment box.")', SCRIPT)
+        self.assertIn('copied: "Quote copied. Paste it into the comment box."', SCRIPT)
+        self.assertIn('copied: "引用已复制，请粘贴到评论框。"', SCRIPT)
+        self.assertIn("showToast(messages.copied)", SCRIPT)
         self.assertIn("window.setTimeout(function ()", SCRIPT)
         self.assertIn('comments.scrollIntoView({ behavior: "smooth", block: "start" })', SCRIPT)
 

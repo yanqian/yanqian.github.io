@@ -1,3 +1,10 @@
+{{ range .AllTranslations }}
+  <link rel="alternate" hreflang="{{ .Language.Locale }}" href="{{ .Permalink }}">
+{{ end }}
+{{ if .IsHome }}
+  <link rel="alternate" hreflang="x-default" href="{{ absURL "" }}">
+{{ end }}
+
 {{ if .IsPage }}
   {{ $toc := default .Site.Params.Entry.toc .Params.toc }}
   {{ if and (eq .Section "posts") $toc }}

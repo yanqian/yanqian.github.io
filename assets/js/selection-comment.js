@@ -5,6 +5,22 @@
   var toast = null;
   var hideTimer = null;
   var lastSelectionText = "";
+  var isChinese = document.documentElement.lang.toLowerCase().indexOf("zh") === 0;
+  var messages = isChinese
+    ? {
+        comment: "评论",
+        commentAria: "评论所选文字",
+        source: "来源：",
+        copied: "引用已复制，请粘贴到评论框。",
+        copyFailed: "复制失败，请重新选择文字并手动复制。",
+      }
+    : {
+        comment: "Comment",
+        commentAria: "Comment on selected text",
+        source: "Source: ",
+        copied: "Quote copied. Paste it into the comment box.",
+        copyFailed: "Copy failed. Select the quote again and copy manually.",
+      };
 
   function getArticleSelection() {
     var selection = window.getSelection();
@@ -52,7 +68,7 @@
       return quote;
     }
 
-    return quote + "\n\n" + "Source: " + document.title.replace(/\s+\u00b7\s+.*$/, "") + " - " + window.location.href.split("#")[0];
+    return quote + "\n\n" + messages.source + document.title.replace(/\s+\u00b7\s+.*$/, "") + " - " + window.location.href.split("#")[0];
   }
 
   function ensureButton() {
@@ -64,8 +80,8 @@
     button.className = "selection-comment-button";
     button.type = "button";
     button.hidden = true;
-    button.setAttribute("aria-label", "Comment on selected text");
-    button.textContent = "Comment";
+    button.setAttribute("aria-label", messages.commentAria);
+    button.textContent = messages.comment;
     button.addEventListener("click", handleCommentClick);
     document.body.appendChild(button);
     return button;
@@ -166,10 +182,10 @@
 
       scrollToComments();
       window.setTimeout(function () {
-        showToast("Quote copied. Paste it into the comment box.");
+        showToast(messages.copied);
       }, 450);
     } catch (error) {
-      showToast("Copy failed. Select the quote again and copy manually.");
+      showToast(messages.copyFailed);
     }
 
     hideButton();

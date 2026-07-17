@@ -80,6 +80,22 @@
       "attempts": 1,
       "last_error": "",
       "priority": "P1"
+    },
+    {
+      "id": "F010",
+      "description": "Add an English and Simplified Chinese Hugo site shell with preserved English URLs, a translation-aware language switch, localized interface copy, and bilingual build coverage.",
+      "passes": true,
+      "status": "done",
+      "attempts": 1,
+      "last_error": "",
+      "priority": "P0",
+      "acceptance_criteria": [
+        "Existing English pages remain at their current root-relative URLs while the Chinese site is generated under /zh/.",
+        "Every rendered page exposes an English/Chinese language switch that targets the paired translation when available and the target-language homepage otherwise.",
+        "Homepage, lists, posts, taxonomies, series navigation, table of contents, comments, dates, counts, and empty states use localized interface strings.",
+        "Translated pages and language homepages emit correct alternate-language metadata without client-side redirects.",
+        "Automated tests and the production Hugo build verify both language outputs without modifying generated article content."
+      ]
     }
   ]
 }
