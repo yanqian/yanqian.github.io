@@ -117,7 +117,10 @@ class MultilingualSiteTest(unittest.TestCase):
         self.assertIn('<h2 id="latest-title">Latest</h2>', english)
         self.assertIn('<h2 id="latest-title">最新文章</h2>', chinese)
         self.assertIn('href="/zh/posts/"', chinese)
-        self.assertIn("我在新加坡的三棵树中学到的东西", chinese)
+        self.assertIn(
+            'href="/zh/posts/publish/what-i-learned-from-three-trees-in-singapore/"',
+            chinese,
+        )
         self.assertNotIn("暂无中文文章。", chinese)
         self.assertNotIn("deprecated", self.build_output.lower())
 
