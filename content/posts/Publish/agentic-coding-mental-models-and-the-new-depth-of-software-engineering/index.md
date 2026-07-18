@@ -1,7 +1,8 @@
 ---
 title: "AI-Native Software Engineering, Part 1: Mental Models in Agentic Coding"
-date: "2026-05-23T20:33:47+08:00"
+date: "2026-07-18T22:57:49+08:00"
 draft: false
+translationKey: agentic-coding-mental-models-and-the-new-depth-of-software-engineering
 tags:
   - ai/codex
   - agent-workflow
@@ -11,13 +12,14 @@ tags:
   - note
 categories:
   - tech
-series: "AI-Native Software Engineering"
+series: AI-Native Software Engineering
 seriesOrder: 1
 topics:
   - ai-native-software-engineering
   - ai-coding
   - software-engineering
 selected: true
+
 ---
 
 AI can generate code. Harnesses can validate behavior. But who builds understanding?
@@ -340,4 +342,3 @@ And increasingly, that construction may become a collaborative process between h
 Not less engineering.
 
 A different kind of engineering.
-
