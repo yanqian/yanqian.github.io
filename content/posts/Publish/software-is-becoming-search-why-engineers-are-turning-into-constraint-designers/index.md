@@ -1,7 +1,8 @@
 ---
 title: "AI-Native Software Engineering, Part 3: Software as Search"
-date: "2026-05-23T20:33:47+08:00"
+date: "2026-07-18T23:37:09+08:00"
 draft: false
+translationKey: software-is-becoming-search-why-engineers-are-turning-into-constraint-designers
 tags:
   - ai/codex
   - agent-workflow
@@ -12,12 +13,14 @@ tags:
   - note
 categories:
   - tech
-series: "AI-Native Software Engineering"
+series: AI-Native Software Engineering
 seriesOrder: 3
 topics:
   - ai-native-software-engineering
   - ai-coding
   - software-engineering
+
+
 ---
 
 When implementation becomes abundant, engineering starts to look less like construction and more like navigation.
@@ -341,4 +344,3 @@ Search becomes constraint.
 
 Engineers become the people who decide where the search is allowed to go.
 ```
-
