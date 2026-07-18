@@ -1,7 +1,8 @@
 ---
 title: "AI-Native Software Engineering, Part 2: Harness Engineering and Correctness"
-date: "2026-05-23T20:33:47+08:00"
+date: "2026-07-18T23:10:36+08:00"
 draft: false
+translationKey: harness-engineering-is-about-limiting-ai-not-empowering-it
 tags:
   - ai/codex
   - agent-workflow
@@ -12,19 +13,21 @@ tags:
   - note
 categories:
   - tech
-series: "AI-Native Software Engineering"
+series: AI-Native Software Engineering
 seriesOrder: 2
 topics:
   - ai-native-software-engineering
   - ai-coding
   - software-engineering
+
+
 ---
 
 Why the most important part of AI-native software engineering may not be generation, but constraint.
 
 This is Part 2 of the AI-Native Software Engineering series.
 
-It continues from [AI-Native Software Engineering, Part 1: Mental Models in Agentic Coding](/posts/publish/agentic-coding-mental-models-and-the-new-depth-of-software-engineering/).
+It continues from [[Agentic Coding, Mental Models, and the New Depth of Software Engineering|AI-Native Software Engineering, Part 1: Mental Models in Agentic Coding]].
 
 The previous question was:
 
@@ -324,4 +327,3 @@ It is designed.
 Harness engineering is not about empowering AI.
 
 It is about making AI safe to trust.
-
