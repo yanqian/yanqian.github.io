@@ -1,7 +1,8 @@
 ---
 title: "AI-Native Software Engineering, Part 4: Human Judgment Against Vibe Coding"
-date: "2026-05-23T20:33:47+08:00"
+date: "2026-07-18T23:53:44+08:00"
 draft: false
+translationKey: against-vibe-coding-why-human-judgment-still-matters
 tags:
   - ai/codex
   - agent-workflow
@@ -13,13 +14,14 @@ tags:
   - note
 categories:
   - tech
-series: "AI-Native Software Engineering"
+series: AI-Native Software Engineering
 seriesOrder: 4
 topics:
   - ai-native-software-engineering
   - ai-coding
   - software-engineering
 selected: true
+
 ---
 
 You can automate implementation. You can automate evaluation. But judgment remains stubbornly human.
@@ -304,4 +306,3 @@ Should this system exist?
 And that question is rarely technical.
 
 Judgment may become the last non-delegatable engineering skill.
-
