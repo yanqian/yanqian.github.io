@@ -1,7 +1,8 @@
 ---
 title: "A Podcast Summarizer Taught Me That Summaries Are Not Understanding"
-date: "2026-06-10T15:43:19+08:00"
+date: "2026-07-18T12:13:29+08:00"
 draft: false
+translationKey: a-podcast-summarizer-taught-me-that-summaries-are-not-understanding
 tags:
   - ai
   - ai-product
