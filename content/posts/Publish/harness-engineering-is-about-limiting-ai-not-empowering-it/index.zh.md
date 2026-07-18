@@ -1,6 +1,6 @@
 ---
 title: "AI 原生软件工程（二）：验证框架工程与正确性"
-date: "2026-07-18T23:10:36+08:00"
+date: "2026-07-18T23:29:59+08:00"
 draft: false
 translationKey: harness-engineering-is-about-limiting-ai-not-empowering-it
 tags:
@@ -27,7 +27,7 @@ topics:
 
 这是「AI 原生软件工程」系列的第二篇。
 
-本文承接上一篇：[[Agentic Coding, Mental Models, and the New Depth of Software Engineering|AI 原生软件工程（一）：智能体编程中的心智模型]]。
+本文承接上一篇：[AI 原生软件工程（一）：智能体编程中的心智模型](/zh/posts/publish/agentic-coding-mental-models-and-the-new-depth-of-software-engineering/)。
 
 上一篇讨论的问题是：
 

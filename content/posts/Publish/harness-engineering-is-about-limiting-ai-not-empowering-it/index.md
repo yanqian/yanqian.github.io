@@ -1,6 +1,6 @@
 ---
 title: "AI-Native Software Engineering, Part 2: Harness Engineering and Correctness"
-date: "2026-07-18T23:10:36+08:00"
+date: "2026-07-18T23:29:59+08:00"
 draft: false
 translationKey: harness-engineering-is-about-limiting-ai-not-empowering-it
 tags:
@@ -27,7 +27,7 @@ Why the most important part of AI-native software engineering may not be generat
 
 This is Part 2 of the AI-Native Software Engineering series.
 
-It continues from [[Agentic Coding, Mental Models, and the New Depth of Software Engineering|AI-Native Software Engineering, Part 1: Mental Models in Agentic Coding]].
+It continues from [AI-Native Software Engineering, Part 1: Mental Models in Agentic Coding](/posts/publish/agentic-coding-mental-models-and-the-new-depth-of-software-engineering/).
 
 The previous question was:
 
