@@ -1,7 +1,8 @@
 ---
 title: "Remote Agent Workflow, Part 1: Remote Mac Terminal for Codex"
-date: "2026-05-24T16:12:12+08:00"
+date: "2026-07-19T22:33:18+08:00"
 draft: false
+translationKey: remote-mac-terminal-for-codex
 tags:
   - ai/codex
   - ssh
@@ -9,12 +10,15 @@ tags:
   - remote-workflow
   - public
   - note
+
 series: Remote Agent Workflow
 seriesOrder: 1
 topics:
   - remote-agent-workflow
   - codex
   - ai-agent-workflow
+
+
 ---
 
 This is Part 1 of the Remote Agent Workflow series.
