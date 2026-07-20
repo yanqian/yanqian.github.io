@@ -25,6 +25,14 @@ test("single-token technical headings pass the Chinese quality gate", () => {
   }));
 });
 
+test("factual review heading corrections survive final protected restoration", () => {
+  const source = "## Model\n\n```bash\n# On the Mac\nrun\n```";
+  const reviewed = { title: "标题", body: "## 控制平面模型\n\nLOCALIZATION_CODE_BLOCK_0001_DO_NOT_EDIT" };
+  const finalDocument = runtime.finalizeReviewedDocument(source, reviewed);
+  assert.match(finalDocument.body, /^## 控制平面模型/m);
+  assert.match(finalDocument.body, /# On the Mac/);
+});
+
 test("long Markdown splits only at level-two section boundaries", () => {
   const fixture = fs.readFileSync(path.join(TOOL_DIR, "fixtures/long-technical-article.md"), "utf8");
   const longMarkdown = Array.from({ length: 30 }, (_, index) => fixture.replace(/^## /gm, `## ${index + 1} `)).join("\n\n");

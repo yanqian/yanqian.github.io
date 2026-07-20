@@ -129,6 +129,20 @@
       "attempts": 1,
       "last_error": "",
       "priority": "P0"
+    },
+    {
+      "id": "F014",
+      "description": "Preserve factual-review title and heading corrections while restoring protected Markdown artifacts.",
+      "passes": true,
+      "status": "done",
+      "attempts": 1,
+      "last_error": "",
+      "priority": "P0",
+      "acceptance_criteria": [
+        "A consistency-review heading correction remains in the final localized document.",
+        "Protected non-text fenced blocks are restored byte-for-byte after review.",
+        "The affected article can resume from the cached edited stage and regenerate only review output."
+      ]
     }
   ]
 }

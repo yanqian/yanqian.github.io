@@ -32,10 +32,11 @@ Implemented behavior:
 - The canonical Obsidian localization publisher now lives under `tools/obsidian-publisher/`, installs reproducibly into the vault, executes QuickAdd by command ID, records structured status and locks, times out AI calls, and resumes completed long-document chunks.
 - Publisher regressions now run through `./init.sh`, covering fenced-code headings, technical names, long-document splitting, protected artifacts, chunk resume, locks, timeouts, launcher behavior, and local install parity.
 - `AGENTS.md` now mandates the supported publisher entrypoint; the localization Runbook and July 2026 incident report provide one durable operating and recovery source, while the vault README points back to it.
+- Factual-review title and heading corrections now survive protected-artifact restoration instead of being overwritten by the edited draft.
 
 ## Last Completed Feature
 
-`F012` - Document the durable publisher runbook, incident, and mandatory agent entrypoint.
+`F014` - Preserve factual-review title and heading corrections in final localized output.
 
 ## Next Feature
 

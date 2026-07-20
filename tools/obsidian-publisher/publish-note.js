@@ -145,10 +145,7 @@ module.exports = async (params) => {
           await report("review", { chunk: index + 1, totalChunks: total });
         },
       });
-      cache.review.corrected = restoreLocalizedTitleAndHeadings(
-        cache.edited,
-        restoreProtectedMarkdown(source.body, cache.review.corrected),
-      );
+      cache.review.corrected = finalizeReviewedDocument(source.body, cache.review.corrected);
       validateReview(cache.review);
       validateMarkdownContract(source.body, cache.review.corrected.body, "reviewed article");
       delete cache.reviewChunks;
@@ -696,6 +693,10 @@ function restoreLocalizedTitleAndHeadings(localizedBase, document) {
   };
 }
 
+function finalizeReviewedDocument(sourceBody, document) {
+  return restoreProtectedMarkdown(sourceBody, document);
+}
+
 function extractHeadingLines(markdown) {
   const withoutCode = markdown.replace(/(^|\n)(```|~~~)[^\n]*\n[\s\S]*?\n\2(?=\n|$)/g, "\n");
   return collectMatches(withoutCode, /^(#{1,6})\s+.+$/gm, (match) => match[0]);
@@ -1192,6 +1193,7 @@ module.exports.__test = {
   convertWikilinksToPublicLinks,
   extractMarkdownContract,
   extractHeadingLines,
+  finalizeReviewedDocument,
   hashString,
   isLiveRunLock,
   isLocalizableTextBlock,
