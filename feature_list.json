@@ -96,6 +96,39 @@
         "Translated pages and language homepages emit correct alternate-language metadata without client-side redirects.",
         "Automated tests and the production Hugo build verify both language outputs without modifying generated article content."
       ]
+    },
+    {
+      "id": "F011",
+      "description": "Add a versioned Obsidian localization publisher runtime with a supported CLI launcher, installer, structured status, single-run locking, explicit timeouts, and resumable long-document chunks.",
+      "passes": true,
+      "status": "done",
+      "attempts": 1,
+      "last_error": "",
+      "priority": "P0",
+      "acceptance_criteria": [
+        "The canonical publisher implementation is versioned under tools/obsidian-publisher and installs deterministically into the configured vault.",
+        "The supported launcher resolves and executes the QuickAdd choice by command ID, verifies that status changes, and never uses an obsidian://quickadd URL.",
+        "A run records a single-run lock plus stage, chunk, total chunks, timestamps, script version, and source hash, and stale runs can be recovered safely.",
+        "AI calls have explicit timeouts and completed edit/review chunks are cached for resume."
+      ]
+    },
+    {
+      "id": "F012",
+      "description": "Document the localization publishing runbook, the July 2026 incident, and mandatory agent entrypoints without duplicating operational truth.",
+      "passes": false,
+      "status": "todo",
+      "attempts": 0,
+      "last_error": "",
+      "priority": "P1"
+    },
+    {
+      "id": "F013",
+      "description": "Add automated publisher regression tests and fixtures for fenced code, technical headings, long-document chunking, locks, idempotency, and installed-artifact parity.",
+      "passes": false,
+      "status": "todo",
+      "attempts": 0,
+      "last_error": "",
+      "priority": "P0"
     }
   ]
 }

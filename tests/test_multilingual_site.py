@@ -121,16 +121,21 @@ class MultilingualSiteTest(unittest.TestCase):
         self.assertNotIn("暂无中文文章。", chinese)
         self.assertNotIn("deprecated", self.build_output.lower())
 
-    def test_language_switch_uses_home_fallback_for_untranslated_posts(self):
+    def test_language_switch_uses_fallback_and_paired_translation(self):
         english_home = self.read_output("index.html")
         chinese_home = self.read_output("zh/index.html")
+        untranslated_page = self.read_output("projects/index.html")
         english_post = self.read_output(
             "posts/publish/remote-mac-terminal-for-codex/index.html"
         )
 
         self.assertIn('class="language-switch" href="/zh/"', english_home)
         self.assertIn('class="language-switch" href="/"', chinese_home)
-        self.assertIn('class="language-switch" href="/zh/"', english_post)
+        self.assertIn('class="language-switch" href="/zh/"', untranslated_page)
+        self.assertIn(
+            'class="language-switch" href="/zh/posts/publish/remote-mac-terminal-for-codex/"',
+            english_post,
+        )
 
     def test_language_homepages_emit_alternate_metadata(self):
         for relative_path in ("index.html", "zh/index.html"):

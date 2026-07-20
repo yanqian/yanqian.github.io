@@ -191,3 +191,35 @@ Add a bilingual English and Simplified Chinese site shell so readers can explici
 ### Decomposition
 
 This requirement is intentionally one feature, `F010`. Configuration, localized interface copy, translation-aware templates, and build checks form one coherent site-shell capability with the same Hugo-rendering verification surface. Article translation and Obsidian automation remain independently valuable follow-up features and are excluded.
+
+## 9. Durable Obsidian Localization Publisher
+
+### Goal
+
+Make the bilingual Obsidian publishing workflow versioned, observable, recoverable, and difficult for future agents to operate incorrectly.
+
+### Included Scope
+
+- Keep the canonical publisher implementation and tests in this Git repository.
+- Install a generated publisher artifact into the Obsidian vault.
+- Provide one supported CLI entrypoint that executes the QuickAdd command by ID, verifies startup, and never relies on an `obsidian://quickadd` URL.
+- Record structured run status, a single-run lock, stage and chunk progress, timestamps, script version, and source hash without recording secrets or complete prompts.
+- Apply explicit request timeouts and resumable per-chunk caching for long articles.
+- Document normal operation, recovery, and the 2026-07-19 incident.
+- Test fenced-code heading exclusion, technical-name headings, long-document chunking, idempotency, lock behavior, and installed-artifact parity.
+
+### Excluded Scope
+
+- Moving article source notes out of Obsidian.
+- Storing API keys, prompts, or full article bodies in operational logs.
+- Automatically synchronizing an article to GitHub without human approval.
+
+### Core Flow
+
+`doctor -> install/verify publisher -> run by command ID -> observe status/lock -> review generated draft -> explicit site sync`.
+
+### Decomposition
+
+- `F011`: canonical runtime, installer, launcher, lock, timeout, and resumable status.
+- `F012`: runbook, incident report, and agent discovery rules.
+- `F013`: regression fixtures, automated tests, and verification-entrypoint integration.

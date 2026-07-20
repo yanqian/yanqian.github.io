@@ -1,0 +1,72 @@
+#!/usr/bin/env sh
+set -eu
+
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+TOOL_DIR=$(CDPATH= cd -- "$SCRIPT_DIR/.." && pwd)
+CONFIG="$TOOL_DIR/config.json"
+VAULT_NAME=${OBSIDIAN_VAULT_NAME:-$(jq -r '.vaultName' "$CONFIG")}
+VAULT_PATH=${OBSIDIAN_VAULT_PATH:-$(jq -r '.vaultPath' "$CONFIG")}
+CHOICE=$(jq -r '.quickAddChoice' "$CONFIG")
+TIMEOUT=$(jq -r '.startupTimeoutSeconds' "$CONFIG")
+STALE_MINUTES=$(jq -r '.staleLockMinutes' "$CONFIG")
+STATUS="$VAULT_PATH/Scripts/localization/status/current.json"
+TARGET="$VAULT_PATH/$(jq -r '.runtimeTarget' "$CONFIG")"
+
+doctor() {
+  command -v obsidian >/dev/null
+  command -v jq >/dev/null
+  test -f "$TARGET"
+  test "$(shasum -a 256 "$TOOL_DIR/publish-note.js" | awk '{print $1}')" = "$(shasum -a 256 "$TARGET" | awk '{print $1}')"
+  printf 'Publisher doctor: OK\n'
+}
+
+status() {
+  if test -f "$STATUS"; then jq '.' "$STATUS"; else printf '{"status":"idle"}\n'; fi
+}
+
+recover() {
+  test -f "$STATUS" || { printf 'No publisher status exists.\n'; exit 0; }
+  SLUG=$(jq -r '.slug // ""' "$STATUS")
+  printf '%s' "$SLUG" | grep -Eq '^[a-z0-9-]+$' || { printf 'Invalid status slug.\n' >&2; exit 1; }
+  LOCK="$VAULT_PATH/Scripts/localization/locks/$SLUG.json"
+  test -f "$LOCK" || { printf 'No lock exists for %s.\n' "$SLUG"; exit 0; }
+  UPDATED=$(jq -r '.updatedAt | fromdateiso8601' "$LOCK")
+  NOW=$(date -u +%s)
+  AGE=$((NOW - UPDATED))
+  MIN_AGE=$((STALE_MINUTES * 60))
+  test "$AGE" -ge "$MIN_AGE" || { printf 'Lock is live (%ss old); refusing recovery.\n' "$AGE" >&2; exit 1; }
+  rm -f "$LOCK"
+  printf 'Removed stale lock for %s (%ss old).\n' "$SLUG" "$AGE"
+}
+
+publish() {
+  doctor
+  ACTIVE=$(obsidian vault="$VAULT_NAME" eval code='app.workspace.getActiveFile()?.path ?? ""' | sed 's/^=> //')
+  test -n "$ACTIVE" || { printf 'No active Obsidian note.\n' >&2; exit 1; }
+  PUBLISHABLE=$(obsidian vault="$VAULT_NAME" eval code='Boolean(app.metadataCache.getFileCache(app.workspace.getActiveFile())?.frontmatter?.publish)' | sed 's/^=> //')
+  test "$PUBLISHABLE" = "true" || { printf 'Active note is not publishable: %s\n' "$ACTIVE" >&2; exit 1; }
+  CHOICE_ID=$(jq -r --arg name "$CHOICE" '.choices[] | select(.name == $name) | .id' "$VAULT_PATH/.obsidian/plugins/quickadd/data.json")
+  test -n "$CHOICE_ID" || { printf 'QuickAdd choice not found: %s\n' "$CHOICE" >&2; exit 1; }
+  BEFORE=$(test -f "$STATUS" && jq -r '.updatedAt // ""' "$STATUS" || true)
+  obsidian vault="$VAULT_NAME" command id="quickadd:choice:$CHOICE_ID" >/dev/null
+  elapsed=0
+  while test "$elapsed" -lt "$TIMEOUT"; do
+    if test -f "$STATUS" && test "$(jq -r '.updatedAt // ""' "$STATUS")" != "$BEFORE"; then
+      status
+      exit 0
+    fi
+    sleep 1
+    elapsed=$((elapsed + 1))
+  done
+  printf 'Publish Note did not update status within %ss; do not retry until checking locks.\n' "$TIMEOUT" >&2
+  exit 1
+}
+
+case "${1:-publish}" in
+  doctor) doctor ;;
+  status) status ;;
+  recover) recover ;;
+  install) "$SCRIPT_DIR/install" ;;
+  publish) publish ;;
+  *) printf 'Usage: %s [doctor|install|publish|recover|status]\n' "$0" >&2; exit 2 ;;
+esac

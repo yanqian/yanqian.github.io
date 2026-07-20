@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+set -eu
+
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+TOOL_DIR=$(CDPATH= cd -- "$SCRIPT_DIR/.." && pwd)
+CONFIG="$TOOL_DIR/config.json"
+VAULT_PATH=${OBSIDIAN_VAULT_PATH:-$(jq -r '.vaultPath' "$CONFIG")}
+TARGET_REL=$(jq -r '.runtimeTarget' "$CONFIG")
+TARGET="$VAULT_PATH/$TARGET_REL"
+MANIFEST="$VAULT_PATH/Scripts/localization/publisher-install.json"
+
+mkdir -p "$(dirname -- "$TARGET")" "$(dirname -- "$MANIFEST")"
+cp "$TOOL_DIR/publish-note.js" "$TARGET"
+HASH=$(shasum -a 256 "$TOOL_DIR/publish-note.js" | awk '{print $1}')
+jq -n --arg hash "$HASH" --arg source "$TOOL_DIR/publish-note.js" \
+  '{runtimeVersion:"publisher-v1",sourceHash:$hash,canonicalSource:$source}' > "$MANIFEST"
+printf 'Installed publisher-v1 (%s)\n' "$HASH"

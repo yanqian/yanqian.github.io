@@ -29,16 +29,18 @@ Implemented behavior:
 - The site now has a native Hugo English/Chinese shell: English keeps its existing root URLs, Chinese is generated under `/zh/`, interface copy and metadata are localized, and the language switch prefers paired pages with a language-home fallback.
 - `./init.sh` runs unit tests, checks `orchestrator.py`, and performs a production-style Hugo build.
 - `orchestrator.py` can preview or run bounded coding/evaluator rounds for future feature work.
+- The canonical Obsidian localization publisher now lives under `tools/obsidian-publisher/`, installs reproducibly into the vault, executes QuickAdd by command ID, records structured status and locks, times out AI calls, and resumes completed long-document chunks.
 
 ## Last Completed Feature
 
-`F010` - Add an English and Simplified Chinese Hugo site shell while preserving existing English URLs and the Obsidian publishing boundary.
+`F011` - Add a versioned and observable Obsidian localization publisher runtime.
 
 ## Next Feature
 
-Awaiting the next bilingual publishing requirement. Article translation and Obsidian translation automation remain separate follow-up work.
+`F013` - Add publisher regression fixtures and automated tests, followed by `F012` documentation and agent discovery rules.
 
 ## Known Issues
 
 - `hugo --gc` can clean tracked files under `resources/_gen/`; restore them before committing if they are not part of the intended change.
 - The installed Codex CLI cannot currently run the configured `gpt-5.6-sol` evaluator model; `orchestrator.py --eval-only` requires a CLI upgrade or compatible durable provider configuration.
+- `F011` used the documented manual fallback because that provider gap prevents a separate orchestrated evaluator; its smoke-test evidence is recorded under `runs/`.

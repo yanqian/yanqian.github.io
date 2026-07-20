@@ -1,0 +1,8 @@
+{
+  "vaultName": "vault-obs-yan",
+  "vaultPath": "/Users/armstrong/Library/Mobile Documents/iCloud~md~obsidian/Documents/vault-obs-yan",
+  "quickAddChoice": "Publish Note",
+  "runtimeTarget": "Scripts/publish-note.js",
+  "startupTimeoutSeconds": 15,
+  "staleLockMinutes": 30
+}
