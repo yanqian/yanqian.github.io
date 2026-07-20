@@ -33,10 +33,11 @@ Implemented behavior:
 - Publisher regressions now run through `./init.sh`, covering fenced-code headings, technical names, long-document splitting, protected artifacts, chunk resume, locks, timeouts, launcher behavior, and local install parity.
 - `AGENTS.md` now mandates the supported publisher entrypoint; the localization Runbook and July 2026 incident report provide one durable operating and recovery source, while the vault README points back to it.
 - Factual-review title and heading corrections now survive protected-artifact restoration instead of being overwritten by the edited draft.
+- GitHub Publisher periodic push is disabled, and publisher doctor rejects nonzero sync intervals that would bypass draft approval.
 
 ## Last Completed Feature
 
-`F014` - Preserve factual-review title and heading corrections in final localized output.
+`F015` - Enforce manual approval by disabling and guarding against periodic GitHub pushes.
 
 ## Next Feature
 

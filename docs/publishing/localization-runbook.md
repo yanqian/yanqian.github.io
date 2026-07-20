@@ -26,6 +26,14 @@ Do not use `open 'obsidian://quickadd?...'`. The URL may only focus Obsidian and
 8. Stop for human approval. `Publish Note` is not authorization to synchronize or push.
 9. After explicit approval, run the existing `Sync Published Site` workflow, inspect the remote commit scope, integrate it, run `./init.sh`, push, and watch GitHub Pages.
 
+GitHub Publisher must have periodic push disabled:
+
+```json
+{"syncInterval": 0}
+```
+
+The plugin defines `0` as “disable periodic push.” `doctor` fails when this value is nonzero, because a timer would bypass the human approval boundary.
+
 ## Status and Recovery
 
 ```text

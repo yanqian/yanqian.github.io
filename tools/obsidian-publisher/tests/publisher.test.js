@@ -74,6 +74,8 @@ test("launcher uses command IDs, startup proof, and never QuickAdd URLs", () => 
   const launcher = fs.readFileSync(path.join(TOOL_DIR, "bin/publish-note"), "utf8");
   assert.match(launcher, /command id="quickadd:choice:/);
   assert.match(launcher, /did not update status within/);
+  assert.match(launcher, /periodic GitHub push must be disabled/);
+  assert.match(launcher, /syncInterval/);
   assert.match(launcher, /sed 's\/\^=> \/\/'/);
   assert(!launcher.includes("obsidian://quickadd"));
 });
@@ -98,6 +100,7 @@ test("runbook and incident map recovery rules to durable controls", () => {
   const installer = fs.readFileSync(path.join(TOOL_DIR, "bin/install"), "utf8");
   assert.match(runbook, /No status transition after launch/);
   assert.match(runbook, /status=running and lock is fresh/);
+  assert.match(runbook, /"syncInterval": 0/);
   assert.match(incident, /Command-ID launcher with a required status transition/);
   assert.match(installer, /vault-README\.md/);
 });

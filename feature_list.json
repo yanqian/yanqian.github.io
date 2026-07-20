@@ -143,6 +143,20 @@
         "Protected non-text fenced blocks are restored byte-for-byte after review.",
         "The affected article can resume from the cached edited stage and regenerate only review output."
       ]
+    },
+    {
+      "id": "F015",
+      "description": "Disable periodic GitHub Publisher pushes and make publisher doctor reject configurations that bypass human draft approval.",
+      "passes": true,
+      "status": "done",
+      "attempts": 1,
+      "last_error": "",
+      "priority": "P0",
+      "acceptance_criteria": [
+        "The vault GitHub Publisher configuration uses syncInterval 0.",
+        "Publisher doctor fails when periodic push is enabled.",
+        "The Runbook and AGENTS rules preserve explicit approval before GitHub synchronization."
+      ]
     }
   ]
 }

@@ -47,7 +47,7 @@ Generating the Chinese draft for `Remote Agent Workflow, Part 1` took approximat
 
 ## Additional Observation
 
-While integrating the publisher changes on 2026-07-20, a new remote Obsidian publishing commit appeared before the local tool commit was pushed. The exact external trigger was not established. Therefore remote Git state must always be fetched and inspected before integrating or pushing; a local draft-generation smoke test must never be treated as proof that GitHub remained unchanged.
+While integrating the publisher changes on 2026-07-20, delayed remote Obsidian publishing commits appeared without human approval. Inspection confirmed that GitHub Publisher had `syncInterval: 20`, which scheduled a full `Publish/` synchronization every 20 minutes. The interval is now `0`, the plugin was reloaded to clear the old timer, and `publish-note doctor` rejects any future nonzero value. Remote Git state must still be fetched and inspected before integrating or pushing; a local draft-generation smoke test must never be treated as proof that GitHub remained unchanged.
 
 ## Verification Evidence
 
