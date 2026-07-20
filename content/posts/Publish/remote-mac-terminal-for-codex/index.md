@@ -1,6 +1,6 @@
 ---
 title: "Remote Agent Workflow, Part 1: Remote Mac Terminal for Codex"
-date: "2026-07-19T22:33:18+08:00"
+date: "2026-07-20T22:15:53+08:00"
 draft: false
 translationKey: remote-mac-terminal-for-codex
 tags:
