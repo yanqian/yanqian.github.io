@@ -1,5 +1,5 @@
 ---
-title: "远程代理工作流（一）：用手机连接 Mac 运行 Codex"
+title: "远程智能体工作流（一）：用手机连接 Mac 运行 Codex"
 date: "2026-07-20T22:15:53+08:00"
 draft: false
 translationKey: remote-mac-terminal-for-codex
