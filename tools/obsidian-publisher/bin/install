@@ -9,11 +9,14 @@ TARGET_REL=$(jq -r '.runtimeTarget' "$CONFIG")
 TARGET="$VAULT_PATH/$TARGET_REL"
 MANIFEST="$VAULT_PATH/Scripts/localization/publisher-install.json"
 README="$VAULT_PATH/Scripts/localization/README.md"
+TERMINOLOGY="$VAULT_PATH/Scripts/localization/terminology.json"
 
 mkdir -p "$(dirname -- "$TARGET")" "$(dirname -- "$MANIFEST")"
 cp "$TOOL_DIR/publish-note.js" "$TARGET"
 cp "$TOOL_DIR/vault-README.md" "$README"
+cp "$TOOL_DIR/terminology.json" "$TERMINOLOGY"
 HASH=$(shasum -a 256 "$TOOL_DIR/publish-note.js" | awk '{print $1}')
-jq -n --arg hash "$HASH" --arg source "$TOOL_DIR/publish-note.js" \
-  '{runtimeVersion:"publisher-v1",sourceHash:$hash,canonicalSource:$source}' > "$MANIFEST"
+TERMINOLOGY_HASH=$(shasum -a 256 "$TOOL_DIR/terminology.json" | awk '{print $1}')
+jq -n --arg hash "$HASH" --arg terminologyHash "$TERMINOLOGY_HASH" --arg source "$TOOL_DIR/publish-note.js" \
+  '{runtimeVersion:"publisher-v1",sourceHash:$hash,terminologyHash:$terminologyHash,canonicalSource:$source}' > "$MANIFEST"
 printf 'Installed publisher-v1 (%s)\n' "$HASH"

@@ -5,6 +5,7 @@ const RUNTIME_VERSION = "publisher-v1";
 const DEFAULT_MODEL = "gpt-5.6-sol";
 const SUPPORTED_LANGUAGES = new Set(["en", "zh"]);
 const PROMPT_DIR = "Scripts/localization/prompts";
+const TERMINOLOGY_PATH = "Scripts/localization/terminology.json";
 const CACHE_DIR = "Scripts/localization/cache";
 const STATUS_DIR = "Scripts/localization/status";
 const LOCK_DIR = "Scripts/localization/locks";
@@ -95,7 +96,9 @@ module.exports = async (params) => {
         source,
         targetLanguage,
         understanding: cache.understanding,
+        terminology: promptFiles.terminology,
       }));
+      validateTerminology(source, cache.rewrite, targetLanguage, promptFiles.terminology);
       validateMarkdownContract(source.body, cache.rewrite.body, "localized rewrite");
       await writeCache(app, cachePath, cache);
     }
@@ -112,6 +115,7 @@ module.exports = async (params) => {
           targetLanguage,
           understanding: cache.understanding,
           draft: cache.rewrite,
+          terminology: promptFiles.terminology,
           completedChunks: cache.editChunks || [],
           onChunk: async (index, total, document) => {
             cache.editChunks = cache.editChunks || [];
@@ -122,6 +126,7 @@ module.exports = async (params) => {
         })),
       );
       validateLocalizationQuality(targetLanguage, cache.edited);
+      validateTerminology(source, cache.edited, targetLanguage, promptFiles.terminology);
       validateMarkdownContract(source.body, cache.edited.body, "edited draft");
       delete cache.editChunks;
       await writeCache(app, cachePath, cache);
@@ -137,6 +142,7 @@ module.exports = async (params) => {
         source,
         targetLanguage,
         candidate: cache.edited,
+        terminology: promptFiles.terminology,
         completedChunks: cache.reviewChunks || [],
         onChunk: async (index, total, result) => {
           cache.reviewChunks = cache.reviewChunks || [];
@@ -147,6 +153,7 @@ module.exports = async (params) => {
       });
       cache.review.corrected = finalizeReviewedDocument(source.body, cache.review.corrected);
       validateReview(cache.review);
+      validateTerminology(source, cache.review.corrected, targetLanguage, promptFiles.terminology);
       validateMarkdownContract(source.body, cache.review.corrected.body, "reviewed article");
       delete cache.reviewChunks;
       await writeCache(app, cachePath, cache);
@@ -255,11 +262,18 @@ function resolveModels(content) {
 }
 
 async function loadPromptFiles(app, targetLanguage) {
+  const terminologyFile = await readRequiredText(app, TERMINOLOGY_PATH);
+  const terminologyByLanguage = JSON.parse(terminologyFile);
+  const terminology = terminologyByLanguage[targetLanguage];
+  if (!Array.isArray(terminology)) {
+    throw new Error(`Missing localization terminology for ${targetLanguage}.`);
+  }
   return {
     understand: await readRequiredText(app, `${PROMPT_DIR}/understand.md`),
     rewrite: await readRequiredText(app, `${PROMPT_DIR}/rewrite.${targetLanguage}.md`),
     edit: await readRequiredText(app, `${PROMPT_DIR}/editor.${targetLanguage}.md`),
     review: await readRequiredText(app, `${PROMPT_DIR}/consistency-review.md`),
+    terminology,
   };
 }
 
@@ -292,7 +306,7 @@ async function understandArticle({ quickAddApi, model, prompt, source }) {
   return result;
 }
 
-async function rewriteForLocale({ quickAddApi, model, prompt, source, targetLanguage, understanding }) {
+async function rewriteForLocale({ quickAddApi, model, prompt, source, targetLanguage, understanding, terminology }) {
   const protectedSource = maskProtectedCodeBlocks(source.body);
   const raw = await callAi({
     quickAddApi,
@@ -300,13 +314,13 @@ async function rewriteForLocale({ quickAddApi, model, prompt, source, targetLang
     temperature: 0.7,
     maxTokens: 16000,
     systemPrompt: prompt,
-    prompt: `Target language: ${languageLabel(targetLanguage)}\n\nArticle understanding:\n${JSON.stringify(understanding, null, 2)}\n\nThe source contains protected tokens such as LOCALIZATION_CODE_BLOCK_0001_DO_NOT_EDIT. Copy every protected token exactly once into the corresponding position in the localized body. Never alter or expand a protected token.\n\nCanonical source title:\n${source.title}\n\nCanonical source Markdown:\n${protectedSource.body}`,
+    prompt: `Target language: ${languageLabel(targetLanguage)}\n\n${formatTerminologyInstructions(terminology)}\n\nArticle understanding:\n${JSON.stringify(understanding, null, 2)}\n\nThe source contains protected tokens such as LOCALIZATION_CODE_BLOCK_0001_DO_NOT_EDIT. Copy every protected token exactly once into the corresponding position in the localized body. Never alter or expand a protected token.\n\nCanonical source title:\n${source.title}\n\nCanonical source Markdown:\n${protectedSource.body}`,
     variableName: "localizedRewrite",
   });
   return parseDocumentResponse(raw, "localized rewrite");
 }
 
-async function editLocalizedDraft({ quickAddApi, model, prompt, targetLanguage, understanding, draft, completedChunks = [], onChunk }) {
+async function editLocalizedDraft({ quickAddApi, model, prompt, targetLanguage, understanding, draft, terminology, completedChunks = [], onChunk }) {
   const protectedDraft = maskProtectedCodeBlocks(draft.body);
   const chunks = splitMarkdownForLocalization(protectedDraft.body);
   const editContext = selectUnderstandingForEditing(understanding);
@@ -318,7 +332,7 @@ async function editLocalizedDraft({ quickAddApi, model, prompt, targetLanguage, 
       temperature: 0.35,
       maxTokens: 6000,
       systemPrompt: prompt,
-      prompt: `Target language: ${languageLabel(targetLanguage)}\n\nArticle understanding:\n${JSON.stringify(editContext, null, 2)}\n\nThis is chunk ${index + 1} of ${chunks.length}. Edit only this chunk and preserve its boundaries. The draft contains protected tokens such as LOCALIZATION_CODE_BLOCK_0001_DO_NOT_EDIT. Copy every protected token exactly once into the corresponding position. Never alter or expand a protected token.\n\nDraft title:\n${draft.title}\n\nDraft Markdown chunk:\n${chunk}`,
+      prompt: `Target language: ${languageLabel(targetLanguage)}\n\n${formatTerminologyInstructions(terminology)}\n\nArticle understanding:\n${JSON.stringify(editContext, null, 2)}\n\nThis is chunk ${index + 1} of ${chunks.length}. Edit only this chunk and preserve its boundaries. The draft contains protected tokens such as LOCALIZATION_CODE_BLOCK_0001_DO_NOT_EDIT. Copy every protected token exactly once into the corresponding position. Never alter or expand a protected token.\n\nDraft title:\n${draft.title}\n\nDraft Markdown chunk:\n${chunk}`,
       variableName: `editedDraftChunk${index + 1}`,
     });
     return parseDocumentResponse(raw, `edited draft chunk ${index + 1}`);
@@ -336,7 +350,7 @@ async function editLocalizedDraft({ quickAddApi, model, prompt, targetLanguage, 
   };
 }
 
-async function reviewConsistency({ quickAddApi, model, prompt, source, targetLanguage, candidate, completedChunks = [], onChunk }) {
+async function reviewConsistency({ quickAddApi, model, prompt, source, targetLanguage, candidate, terminology, completedChunks = [], onChunk }) {
   const protectedSource = maskProtectedCodeBlocks(source.body);
   const protectedCandidate = maskProtectedCodeBlocks(candidate.body);
   const chunkPairs = pairMarkdownForLocalization(protectedSource.body, protectedCandidate.body);
@@ -348,7 +362,7 @@ async function reviewConsistency({ quickAddApi, model, prompt, source, targetLan
       temperature: 0.1,
       maxTokens: 6000,
       systemPrompt: prompt,
-      prompt: `Canonical source language: ${languageLabel(source.language)}\nTarget language: ${languageLabel(targetLanguage)}\n\nThis is chunk ${index + 1} of ${chunkPairs.length}. Review only this aligned chunk. The localized article contains protected tokens such as LOCALIZATION_CODE_BLOCK_0001_DO_NOT_EDIT. Copy every protected token exactly once into corrected.body. Never alter or expand a protected token.\n\nCanonical source title:\n${source.title}\n\nCanonical source Markdown chunk:\n${pair.source}\n\nLocalized title:\n${candidate.title}\n\nLocalized Markdown chunk:\n${pair.candidate}`,
+      prompt: `Canonical source language: ${languageLabel(source.language)}\nTarget language: ${languageLabel(targetLanguage)}\n\n${formatTerminologyInstructions(terminology)}\n\nThis is chunk ${index + 1} of ${chunkPairs.length}. Review only this aligned chunk. The localized article contains protected tokens such as LOCALIZATION_CODE_BLOCK_0001_DO_NOT_EDIT. Copy every protected token exactly once into corrected.body. Never alter or expand a protected token.\n\nCanonical source title:\n${source.title}\n\nCanonical source Markdown chunk:\n${pair.source}\n\nLocalized title:\n${candidate.title}\n\nLocalized Markdown chunk:\n${pair.candidate}`,
       variableName: `consistencyReviewChunk${index + 1}`,
     });
     const result = parseJsonObject(raw, `consistency review chunk ${index + 1}`);
@@ -485,6 +499,38 @@ function parseDocumentResponse(raw, label) {
     body: result.body.trim(),
     qualityAssessment: result.quality_assessment || null,
   };
+}
+
+function formatTerminologyInstructions(terminology) {
+  if (!terminology.length) return "Required terminology: none.";
+  const entries = terminology.map((entry) => {
+    const avoided = entry.avoid?.length ? `; never use: ${entry.avoid.join(", ")}` : "";
+    return `- ${entry.source} => ${entry.target}${avoided}`;
+  });
+  return ["Required terminology (use the target terms exactly and consistently):", ...entries].join("\n");
+}
+
+function validateTerminology(source, candidate, targetLanguage, terminology) {
+  const sourceText = `${source.title}\n${source.body}`.toLocaleLowerCase();
+  const candidateText = `${candidate.title}\n${candidate.body}`;
+  for (const entry of terminology) {
+    if (
+      typeof entry.source !== "string" || !entry.source ||
+      typeof entry.target !== "string" || !entry.target ||
+      (entry.avoid !== undefined && !Array.isArray(entry.avoid))
+    ) {
+      throw new Error(`Invalid localization terminology entry for ${targetLanguage}.`);
+    }
+    if (!sourceText.includes(entry.source.toLocaleLowerCase())) continue;
+    for (const avoided of entry.avoid || []) {
+      if (candidateText.includes(avoided)) {
+        throw new Error(`Terminology gate failed: use ${entry.target}, not ${avoided}.`);
+      }
+    }
+    if (!candidateText.includes(entry.target)) {
+      throw new Error(`Terminology gate failed: ${entry.source} must use ${entry.target}.`);
+    }
+  }
 }
 
 function validateLocalizationQuality(targetLanguage, document) {
@@ -1194,6 +1240,7 @@ module.exports.__test = {
   extractMarkdownContract,
   extractHeadingLines,
   finalizeReviewedDocument,
+  formatTerminologyInstructions,
   hashString,
   isLiveRunLock,
   isLocalizableTextBlock,
@@ -1212,4 +1259,5 @@ module.exports.__test = {
   withTimeout,
   validateLocalizationQuality,
   validateMarkdownContract,
+  validateTerminology,
 };

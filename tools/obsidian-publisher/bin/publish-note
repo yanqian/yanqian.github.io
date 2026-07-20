@@ -12,13 +12,16 @@ STALE_MINUTES=$(jq -r '.staleLockMinutes' "$CONFIG")
 STATUS="$VAULT_PATH/Scripts/localization/status/current.json"
 TARGET="$VAULT_PATH/$(jq -r '.runtimeTarget' "$CONFIG")"
 GITHUB_PUBLISHER_CONFIG="$VAULT_PATH/.obsidian/plugins/github-publisher/data.json"
+TERMINOLOGY="$VAULT_PATH/Scripts/localization/terminology.json"
 
 doctor() {
   command -v obsidian >/dev/null
   command -v jq >/dev/null
   test -f "$TARGET"
+  test -f "$TERMINOLOGY"
   test -f "$GITHUB_PUBLISHER_CONFIG"
   test "$(shasum -a 256 "$TOOL_DIR/publish-note.js" | awk '{print $1}')" = "$(shasum -a 256 "$TARGET" | awk '{print $1}')"
+  test "$(shasum -a 256 "$TOOL_DIR/terminology.json" | awk '{print $1}')" = "$(shasum -a 256 "$TERMINOLOGY" | awk '{print $1}')"
   test "$(jq -r '.syncInterval' "$GITHUB_PUBLISHER_CONFIG")" = "0" || {
     printf 'Publisher doctor: periodic GitHub push must be disabled (syncInterval=0).\n' >&2
     return 1

@@ -223,3 +223,35 @@ Make the bilingual Obsidian publishing workflow versioned, observable, recoverab
 - `F011`: canonical runtime, installer, launcher, lock, timeout, and resumable status.
 - `F012`: runbook, incident report, and agent discovery rules.
 - `F013`: regression fixtures, automated tests, and verification-entrypoint integration.
+
+## 10. Localization Terminology Controls
+
+### Goal
+
+Keep established technical terms consistent across Chinese localization stages and reject known literal translations before a draft reaches human review.
+
+### Included Scope
+
+- Maintain a versioned target-language terminology file with preferred and rejected terms.
+- Supply the same terminology constraints to rewrite, edit, and factual-review stages.
+- Include terminology in cache compatibility so glossary changes invalidate stale generated stages.
+- Fail generation when an applicable preferred term is absent or a rejected variant remains.
+
+### Excluded Scope
+
+- Replacing human editorial review with an exhaustive general-purpose dictionary.
+- Translating protected code, identifiers, paths, URLs, or product names.
+
+### Core Flow
+
+`source term -> shared glossary constraint -> rewrite/edit/review -> deterministic terminology gate -> human review`.
+
+### Verification Surface
+
+- Unit coverage for accepted and rejected `control plane` localization.
+- Installed glossary parity between this repository and the Obsidian vault.
+- Full publisher and Hugo verification through `./init.sh`.
+
+### Decomposition
+
+- `F016`: add the shared terminology contract and correct the current article from `控制平面` to `控制面`.

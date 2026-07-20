@@ -27,10 +27,28 @@ test("single-token technical headings pass the Chinese quality gate", () => {
 
 test("factual review heading corrections survive final protected restoration", () => {
   const source = "## Model\n\n```bash\n# On the Mac\nrun\n```";
-  const reviewed = { title: "标题", body: "## 控制平面模型\n\nLOCALIZATION_CODE_BLOCK_0001_DO_NOT_EDIT" };
+  const reviewed = { title: "标题", body: "## 控制面模型\n\nLOCALIZATION_CODE_BLOCK_0001_DO_NOT_EDIT" };
   const finalDocument = runtime.finalizeReviewedDocument(source, reviewed);
-  assert.match(finalDocument.body, /^## 控制平面模型/m);
+  assert.match(finalDocument.body, /^## 控制面模型/m);
   assert.match(finalDocument.body, /# On the Mac/);
+});
+
+test("required terminology rejects literal control-plane translations", () => {
+  const terminology = JSON.parse(fs.readFileSync(path.join(TOOL_DIR, "terminology.json"), "utf8")).zh;
+  const source = { title: "Agent Control Plane", body: "A control plane handles requests." };
+  assert.doesNotThrow(() => runtime.validateTerminology(
+    source,
+    { title: "智能体控制面", body: "控制面负责处理请求。" },
+    "zh",
+    terminology,
+  ));
+  assert.throws(() => runtime.validateTerminology(
+    source,
+    { title: "智能体控制平面", body: "控制平面负责处理请求。" },
+    "zh",
+    terminology,
+  ), /use 控制面, not 控制平面/);
+  assert.match(runtime.formatTerminologyInstructions(terminology), /control plane => 控制面/);
 });
 
 test("long Markdown splits only at level-two section boundaries", () => {
@@ -85,6 +103,10 @@ test("installed vault artifact matches the canonical runtime when available", { 
   const installed = path.join(config.vaultPath, config.runtimeTarget);
   const digest = (file) => crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
   assert.equal(digest(installed), digest(runtimePath));
+  assert.equal(
+    digest(path.join(config.vaultPath, "Scripts/localization/terminology.json")),
+    digest(path.join(TOOL_DIR, "terminology.json")),
+  );
 });
 
 test("agent entrypoint points to the supported launcher and runbook", () => {

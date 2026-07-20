@@ -1,0 +1,12 @@
+{
+  "en": [],
+  "zh": [
+    {
+      "source": "control plane",
+      "target": "控制面",
+      "avoid": [
+        "控制平面"
+      ]
+    }
+  ]
+}

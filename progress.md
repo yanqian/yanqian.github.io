@@ -34,14 +34,15 @@ Implemented behavior:
 - `AGENTS.md` now mandates the supported publisher entrypoint; the localization Runbook and July 2026 incident report provide one durable operating and recovery source, while the vault README points back to it.
 - Factual-review title and heading corrections now survive protected-artifact restoration instead of being overwritten by the edited draft.
 - GitHub Publisher periodic push is disabled, and publisher doctor rejects nonzero sync intervals that would bypass draft approval.
+- A versioned terminology contract now enforces `control plane` → `控制面` across rewrite, editing, factual review, deterministic validation, installed vault parity, and the corrected Part 2 draft/cache.
 
 ## Last Completed Feature
 
-`F015` - Enforce manual approval by disabling and guarding against periodic GitHub pushes.
+`F016` - Enforce shared localization terminology and correct the Part 2 `control plane` wording.
 
 ## Next Feature
 
-Awaiting the next article-localization or site-development requirement.
+Awaiting explicit approval to synchronize the reviewed Part 2 article.
 
 ## Known Issues
 

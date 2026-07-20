@@ -78,7 +78,17 @@ Install only through:
 tools/obsidian-publisher/bin/publish-note install
 ```
 
-The installer writes a SHA-256 manifest. `doctor` fails when the vault artifact differs from the canonical source. QuickAdd may cache user-script modules; after an install, disable and re-enable QuickAdd before the first smoke test.
+The installer writes a SHA-256 manifest. `doctor` fails when the vault runtime or terminology artifact differs from the canonical source. QuickAdd may cache user-script modules; after an install, disable and re-enable QuickAdd before the first smoke test.
+
+## Terminology
+
+Preferred target-language terms and rejected literal variants live in:
+
+```text
+tools/obsidian-publisher/terminology.json
+```
+
+The installer projects this file to `Scripts/localization/terminology.json` in the vault. Rewrite, editing, and consistency review receive the same constraints, and deterministic validation stops the pipeline if an applicable preferred term is absent or a rejected variant remains. Add established technical usage here instead of relying on a one-off prompt correction. For Simplified Chinese, `control plane` is `控制面`, never `控制平面`.
 
 ## Invariants
 
@@ -98,4 +108,4 @@ node --test tools/obsidian-publisher/tests/*.test.js
 ./init.sh
 ```
 
-For local parity, the final Node test compares the canonical runtime with the installed vault artifact. CI skips only that machine-specific comparison while running the remaining behavior tests.
+For local parity, the final Node test compares the canonical runtime and terminology file with the installed vault artifacts. CI skips only that machine-specific comparison while running the remaining behavior tests.

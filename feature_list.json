@@ -157,6 +157,21 @@
         "Publisher doctor fails when periodic push is enabled.",
         "The Runbook and AGENTS rules preserve explicit approval before GitHub synchronization."
       ]
+    },
+    {
+      "id": "F016",
+      "description": "Add a shared localization terminology contract and use 控制面 consistently for control plane.",
+      "passes": true,
+      "status": "done",
+      "attempts": 1,
+      "last_error": "",
+      "priority": "P0",
+      "acceptance_criteria": [
+        "Rewrite, edit, and consistency-review stages receive the same versioned terminology constraints.",
+        "The pipeline rejects 控制平面 when the source uses control plane and requires 控制面.",
+        "The repository and installed Obsidian terminology artifacts have matching hashes.",
+        "The reviewed Part 2 Chinese draft and its resumable cache use 控制面 consistently without changing Markdown structure."
+      ]
     }
   ]
 }
