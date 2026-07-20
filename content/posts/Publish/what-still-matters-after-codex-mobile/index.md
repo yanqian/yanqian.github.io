@@ -1,7 +1,8 @@
 ---
 title: "Remote Agent Workflow, Part 5: What Still Matters After Codex Mobile"
-date: "2026-05-24T16:12:12+08:00"
+date: "2026-07-20T23:52:52+08:00"
 draft: false
+translationKey: what-still-matters-after-codex-mobile
 tags:
   - ai/codex
   - remote-workflow
@@ -9,12 +10,15 @@ tags:
   - codex-mobile
   - public
   - note
+
 series: Remote Agent Workflow
 seriesOrder: 5
 topics:
   - remote-agent-workflow
   - codex
   - ai-agent-workflow
+
+
 ---
 
 This is Part 5 of the Remote Agent Workflow series.
