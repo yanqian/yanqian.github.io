@@ -13,6 +13,7 @@ STATUS="$VAULT_PATH/Scripts/localization/status/current.json"
 TARGET="$VAULT_PATH/$(jq -r '.runtimeTarget' "$CONFIG")"
 GITHUB_PUBLISHER_CONFIG="$VAULT_PATH/.obsidian/plugins/github-publisher/data.json"
 TERMINOLOGY="$VAULT_PATH/Scripts/localization/terminology.json"
+PROMPT_DIR="$VAULT_PATH/Scripts/localization/prompts"
 
 doctor() {
   command -v obsidian >/dev/null
@@ -22,6 +23,18 @@ doctor() {
   test -f "$GITHUB_PUBLISHER_CONFIG"
   test "$(shasum -a 256 "$TOOL_DIR/publish-note.js" | awk '{print $1}')" = "$(shasum -a 256 "$TARGET" | awk '{print $1}')"
   test "$(shasum -a 256 "$TOOL_DIR/terminology.json" | awk '{print $1}')" = "$(shasum -a 256 "$TERMINOLOGY" | awk '{print $1}')"
+  for SOURCE in "$TOOL_DIR"/prompts/*.md; do
+    NAME=${SOURCE##*/}
+    INSTALLED="$PROMPT_DIR/$NAME"
+    test -f "$INSTALLED" || {
+      printf 'Publisher doctor: installed prompt is missing: %s.\n' "$NAME" >&2
+      return 1
+    }
+    test "$(shasum -a 256 "$SOURCE" | awk '{print $1}')" = "$(shasum -a 256 "$INSTALLED" | awk '{print $1}')" || {
+      printf 'Publisher doctor: installed prompt differs from canonical source: %s.\n' "$NAME" >&2
+      return 1
+    }
+  done
   test "$(jq -r '.syncInterval' "$GITHUB_PUBLISHER_CONFIG")" = "0" || {
     printf 'Publisher doctor: periodic GitHub push must be disabled (syncInterval=0).\n' >&2
     return 1

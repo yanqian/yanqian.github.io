@@ -107,6 +107,26 @@ test("installed vault artifact matches the canonical runtime when available", { 
     digest(path.join(config.vaultPath, "Scripts/localization/terminology.json")),
     digest(path.join(TOOL_DIR, "terminology.json")),
   );
+  const promptNames = fs.readdirSync(path.join(TOOL_DIR, "prompts")).filter((name) => name.endsWith(".md")).sort();
+  assert.deepEqual(promptNames, [
+    "consistency-review.md",
+    "editor.en.md",
+    "editor.zh.md",
+    "rewrite.en.md",
+    "rewrite.zh.md",
+    "understand.md",
+  ]);
+  for (const promptName of promptNames) {
+    assert.equal(
+      digest(path.join(config.vaultPath, "Scripts/localization/prompts", promptName)),
+      digest(path.join(TOOL_DIR, "prompts", promptName)),
+    );
+  }
+  const manifest = JSON.parse(fs.readFileSync(path.join(config.vaultPath, "Scripts/localization/publisher-install.json"), "utf8"));
+  assert.deepEqual(
+    manifest.promptHashes,
+    Object.fromEntries(promptNames.map((promptName) => [promptName, digest(path.join(TOOL_DIR, "prompts", promptName))])),
+  );
 });
 
 test("agent entrypoint points to the supported launcher and runbook", () => {
@@ -125,4 +145,6 @@ test("runbook and incident map recovery rules to durable controls", () => {
   assert.match(runbook, /"syncInterval": 0/);
   assert.match(incident, /Command-ID launcher with a required status transition/);
   assert.match(installer, /vault-README\.md/);
+  assert.match(installer, /promptHashes/);
+  assert.match(installer, /prompts\/\*\.md/);
 });

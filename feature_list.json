@@ -172,6 +172,22 @@
         "The repository and installed Obsidian terminology artifacts have matching hashes.",
         "The reviewed Part 2 Chinese draft and its resumable cache use 控制面 consistently without changing Markdown structure."
       ]
+    },
+    {
+      "id": "F017",
+      "description": "Version all localization prompts, install them into Obsidian with parity checks, and repair stale workflow progress.",
+      "passes": true,
+      "status": "done",
+      "attempts": 1,
+      "last_error": "",
+      "priority": "P0",
+      "acceptance_criteria": [
+        "All six active localization prompts are canonical files under tools/obsidian-publisher/prompts.",
+        "The installer copies every canonical prompt into the vault and records prompt hashes in its manifest.",
+        "Publisher doctor and automated tests fail when an installed prompt differs from its canonical source.",
+        "The Runbook and vault README describe repository prompts as canonical.",
+        "progress.md records that Remote Agent Workflow Part 2 is published and no longer awaits approval."
+      ]
     }
   ]
 }

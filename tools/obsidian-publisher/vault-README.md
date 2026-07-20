@@ -14,7 +14,7 @@ Operational runbook:
 /Users/armstrong/Project/yanqian.github.io/docs/publishing/localization-runbook.md
 ```
 
-Do not hand-edit `Scripts/publish-note.js`. Install changes from the repository with:
+Do not hand-edit the installed runtime, prompt files, or terminology file. Change their canonical repository copies, then install them together with:
 
 ```sh
 tools/obsidian-publisher/bin/publish-note install

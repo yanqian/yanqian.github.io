@@ -10,13 +10,22 @@ TARGET="$VAULT_PATH/$TARGET_REL"
 MANIFEST="$VAULT_PATH/Scripts/localization/publisher-install.json"
 README="$VAULT_PATH/Scripts/localization/README.md"
 TERMINOLOGY="$VAULT_PATH/Scripts/localization/terminology.json"
+PROMPT_DIR="$VAULT_PATH/Scripts/localization/prompts"
 
-mkdir -p "$(dirname -- "$TARGET")" "$(dirname -- "$MANIFEST")"
+mkdir -p "$(dirname -- "$TARGET")" "$(dirname -- "$MANIFEST")" "$PROMPT_DIR"
 cp "$TOOL_DIR/publish-note.js" "$TARGET"
 cp "$TOOL_DIR/vault-README.md" "$README"
 cp "$TOOL_DIR/terminology.json" "$TERMINOLOGY"
+cp "$TOOL_DIR"/prompts/*.md "$PROMPT_DIR/"
 HASH=$(shasum -a 256 "$TOOL_DIR/publish-note.js" | awk '{print $1}')
 TERMINOLOGY_HASH=$(shasum -a 256 "$TOOL_DIR/terminology.json" | awk '{print $1}')
-jq -n --arg hash "$HASH" --arg terminologyHash "$TERMINOLOGY_HASH" --arg source "$TOOL_DIR/publish-note.js" \
-  '{runtimeVersion:"publisher-v1",sourceHash:$hash,terminologyHash:$terminologyHash,canonicalSource:$source}' > "$MANIFEST"
+PROMPT_HASHES=$(
+  for SOURCE in "$TOOL_DIR"/prompts/*.md; do
+    NAME=${SOURCE##*/}
+    PROMPT_HASH=$(shasum -a 256 "$SOURCE" | awk '{print $1}')
+    printf '%s\t%s\n' "$NAME" "$PROMPT_HASH"
+  done | jq -Rn '[inputs | split("\t") | {(.[0]): .[1]}] | add'
+)
+jq -n --arg hash "$HASH" --arg terminologyHash "$TERMINOLOGY_HASH" --argjson promptHashes "$PROMPT_HASHES" --arg source "$TOOL_DIR/publish-note.js" \
+  '{runtimeVersion:"publisher-v1",sourceHash:$hash,terminologyHash:$terminologyHash,promptHashes:$promptHashes,canonicalSource:$source}' > "$MANIFEST"
 printf 'Installed publisher-v1 (%s)\n' "$HASH"

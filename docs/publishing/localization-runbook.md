@@ -58,18 +58,22 @@ lock older than staleLockMinutes
 
 Every AI request has a five-minute logical timeout. A timeout is recorded as failure. Do not assume that reloading QuickAdd cancels an underlying HTTP request; confirm network or status state before recovery.
 
-## Runtime Installation
+## Publisher Installation
 
-Canonical file:
+Canonical artifacts:
 
 ```text
 tools/obsidian-publisher/publish-note.js
+tools/obsidian-publisher/prompts/*.md
+tools/obsidian-publisher/terminology.json
 ```
 
-Installed artifact:
+Installed artifacts:
 
 ```text
 <vault>/Scripts/publish-note.js
+<vault>/Scripts/localization/prompts/*.md
+<vault>/Scripts/localization/terminology.json
 ```
 
 Install only through:
@@ -78,7 +82,7 @@ Install only through:
 tools/obsidian-publisher/bin/publish-note install
 ```
 
-The installer writes a SHA-256 manifest. `doctor` fails when the vault runtime or terminology artifact differs from the canonical source. QuickAdd may cache user-script modules; after an install, disable and re-enable QuickAdd before the first smoke test.
+The installer copies all artifacts and writes their SHA-256 values into one manifest. `doctor` fails when the vault runtime, any prompt, or the terminology artifact differs from its canonical source. Do not edit installed prompts in the vault; edit the repository copies and reinstall. QuickAdd may cache user-script modules, so reload QuickAdd after installation and before the first smoke test.
 
 ## Terminology
 
@@ -108,4 +112,4 @@ node --test tools/obsidian-publisher/tests/*.test.js
 ./init.sh
 ```
 
-For local parity, the final Node test compares the canonical runtime and terminology file with the installed vault artifacts. CI skips only that machine-specific comparison while running the remaining behavior tests.
+For local parity, the final Node test compares the canonical runtime, all six prompts, terminology file, and install manifest with the installed vault artifacts. CI skips only that machine-specific comparison while running the remaining behavior tests.

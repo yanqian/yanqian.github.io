@@ -233,6 +233,7 @@ Keep established technical terms consistent across Chinese localization stages a
 ### Included Scope
 
 - Maintain a versioned target-language terminology file with preferred and rejected terms.
+- Keep every localization stage prompt in the repository and install it deterministically into Obsidian.
 - Supply the same terminology constraints to rewrite, edit, and factual-review stages.
 - Include terminology in cache compatibility so glossary changes invalidate stale generated stages.
 - Fail generation when an applicable preferred term is absent or a rejected variant remains.
@@ -249,9 +250,10 @@ Keep established technical terms consistent across Chinese localization stages a
 ### Verification Surface
 
 - Unit coverage for accepted and rejected `control plane` localization.
-- Installed glossary parity between this repository and the Obsidian vault.
+- Installed runtime, prompt, and glossary parity between this repository and the Obsidian vault.
 - Full publisher and Hugo verification through `./init.sh`.
 
 ### Decomposition
 
 - `F016`: add the shared terminology contract and correct the current article from `控制平面` to `控制面`.
+- `F017`: version and install all localization prompts, enforce prompt parity, and repair stale workflow progress.

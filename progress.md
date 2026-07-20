@@ -35,14 +35,16 @@ Implemented behavior:
 - Factual-review title and heading corrections now survive protected-artifact restoration instead of being overwritten by the edited draft.
 - GitHub Publisher periodic push is disabled, and publisher doctor rejects nonzero sync intervals that would bypass draft approval.
 - A versioned terminology contract now enforces `control plane` → `控制面` across rewrite, editing, factual review, deterministic validation, installed vault parity, and the corrected Part 2 draft/cache.
+- All six localization prompts are now canonical repository files, installed into Obsidian with per-file manifest hashes and doctor/test parity checks.
+- Remote Agent Workflow Part 2 is published in English and Chinese at commit `d8317df`; the prior “awaiting approval” status was stale and has been cleared.
 
 ## Last Completed Feature
 
-`F016` - Enforce shared localization terminology and correct the Part 2 `control plane` wording.
+`F017` - Version localization prompts, enforce installed parity, and repair stale publication status.
 
 ## Next Feature
 
-Awaiting explicit approval to synchronize the reviewed Part 2 article.
+Awaiting the next article-localization or site-development requirement.
 
 ## Known Issues
 

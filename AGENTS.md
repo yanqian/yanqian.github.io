@@ -75,7 +75,7 @@ Mandatory rules:
 - Always run `tools/obsidian-publisher/bin/publish-note publish`; it resolves the QuickAdd command ID and proves startup through structured status.
 - Never retrigger while a live lock exists. Inspect `publish-note status`; use `recover` only for a lock older than the configured stale threshold.
 - Run `publish-note doctor` before diagnosing model behavior. A missing status transition means the command did not start; it does not mean the API is still running.
-- Install runtime changes with `publish-note install`, fully reload QuickAdd, and require hash parity before a smoke test.
+- Treat the repository runtime, prompts, and terminology as canonical. Install all changes with `publish-note install`, fully reload QuickAdd, and require hash parity before a smoke test.
 - `Publish Note` generates the vault projection only. Do not synchronize to GitHub until the user explicitly approves the draft.
 - GitHub Publisher must keep `syncInterval: 0`; `publish-note doctor` must fail if periodic push is enabled.
 
