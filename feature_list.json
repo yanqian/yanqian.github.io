@@ -115,9 +115,9 @@
     {
       "id": "F012",
       "description": "Document the localization publishing runbook, the July 2026 incident, and mandatory agent entrypoints without duplicating operational truth.",
-      "passes": false,
-      "status": "todo",
-      "attempts": 0,
+      "passes": true,
+      "status": "done",
+      "attempts": 1,
       "last_error": "",
       "priority": "P1"
     },

@@ -31,14 +31,15 @@ Implemented behavior:
 - `orchestrator.py` can preview or run bounded coding/evaluator rounds for future feature work.
 - The canonical Obsidian localization publisher now lives under `tools/obsidian-publisher/`, installs reproducibly into the vault, executes QuickAdd by command ID, records structured status and locks, times out AI calls, and resumes completed long-document chunks.
 - Publisher regressions now run through `./init.sh`, covering fenced-code headings, technical names, long-document splitting, protected artifacts, chunk resume, locks, timeouts, launcher behavior, and local install parity.
+- `AGENTS.md` now mandates the supported publisher entrypoint; the localization Runbook and July 2026 incident report provide one durable operating and recovery source, while the vault README points back to it.
 
 ## Last Completed Feature
 
-`F013` - Add automated regression coverage for the durable localization publisher.
+`F012` - Document the durable publisher runbook, incident, and mandatory agent entrypoint.
 
 ## Next Feature
 
-`F012` - Document the publisher runbook, incident, and mandatory agent entrypoint.
+Awaiting the next article-localization or site-development requirement.
 
 ## Known Issues
 

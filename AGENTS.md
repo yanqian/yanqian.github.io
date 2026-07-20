@@ -65,6 +65,19 @@ content/posts/Publish/
 
 Those files are generated from Obsidian by the QuickAdd publishing workflow. If article text, title, tags, series, topics, selected state, or slug needs to change, update the source note in the Obsidian vault, run `Publish Note`, then run `Sync Published Site`.
 
+## Obsidian Localization Publisher
+
+The canonical implementation is versioned under `tools/obsidian-publisher/`. The operational source of truth is `docs/publishing/localization-runbook.md`.
+
+Mandatory rules:
+
+- Never trigger `Publish Note` through an `obsidian://quickadd` URL.
+- Always run `tools/obsidian-publisher/bin/publish-note publish`; it resolves the QuickAdd command ID and proves startup through structured status.
+- Never retrigger while a live lock exists. Inspect `publish-note status`; use `recover` only for a lock older than the configured stale threshold.
+- Run `publish-note doctor` before diagnosing model behavior. A missing status transition means the command did not start; it does not mean the API is still running.
+- Install runtime changes with `publish-note install`, fully reload QuickAdd, and require hash parity before a smoke test.
+- `Publish Note` generates the vault projection only. Do not synchronize to GitHub until the user explicitly approves the draft.
+
 Do not reintroduce non-`Publish` vault paths under `content/posts/`, such as:
 
 ```text

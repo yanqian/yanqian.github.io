@@ -5,6 +5,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const TOOL_DIR = path.resolve(__dirname, "..");
+const REPO_DIR = path.resolve(TOOL_DIR, "../..");
 const runtimePath = path.join(TOOL_DIR, "publish-note.js");
 const runtime = require(runtimePath).__test;
 
@@ -74,4 +75,21 @@ test("installed vault artifact matches the canonical runtime when available", { 
   const installed = path.join(config.vaultPath, config.runtimeTarget);
   const digest = (file) => crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
   assert.equal(digest(installed), digest(runtimePath));
+});
+
+test("agent entrypoint points to the supported launcher and runbook", () => {
+  const agents = fs.readFileSync(path.join(REPO_DIR, "AGENTS.md"), "utf8");
+  assert.match(agents, /tools\/obsidian-publisher\/bin\/publish-note publish/);
+  assert.match(agents, /docs\/publishing\/localization-runbook\.md/);
+  assert.match(agents, /Never retrigger while a live lock exists/);
+});
+
+test("runbook and incident map recovery rules to durable controls", () => {
+  const runbook = fs.readFileSync(path.join(REPO_DIR, "docs/publishing/localization-runbook.md"), "utf8");
+  const incident = fs.readFileSync(path.join(REPO_DIR, "docs/publishing/incidents/2026-07-19-long-article-localization.md"), "utf8");
+  const installer = fs.readFileSync(path.join(TOOL_DIR, "bin/install"), "utf8");
+  assert.match(runbook, /No status transition after launch/);
+  assert.match(runbook, /status=running and lock is fresh/);
+  assert.match(incident, /Command-ID launcher with a required status transition/);
+  assert.match(installer, /vault-README\.md/);
 });

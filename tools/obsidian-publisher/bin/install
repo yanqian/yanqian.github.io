@@ -8,9 +8,11 @@ VAULT_PATH=${OBSIDIAN_VAULT_PATH:-$(jq -r '.vaultPath' "$CONFIG")}
 TARGET_REL=$(jq -r '.runtimeTarget' "$CONFIG")
 TARGET="$VAULT_PATH/$TARGET_REL"
 MANIFEST="$VAULT_PATH/Scripts/localization/publisher-install.json"
+README="$VAULT_PATH/Scripts/localization/README.md"
 
 mkdir -p "$(dirname -- "$TARGET")" "$(dirname -- "$MANIFEST")"
 cp "$TOOL_DIR/publish-note.js" "$TARGET"
+cp "$TOOL_DIR/vault-README.md" "$README"
 HASH=$(shasum -a 256 "$TOOL_DIR/publish-note.js" | awk '{print $1}')
 jq -n --arg hash "$HASH" --arg source "$TOOL_DIR/publish-note.js" \
   '{runtimeVersion:"publisher-v1",sourceHash:$hash,canonicalSource:$source}' > "$MANIFEST"
