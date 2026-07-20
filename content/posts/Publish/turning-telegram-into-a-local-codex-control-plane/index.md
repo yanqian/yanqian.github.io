@@ -1,7 +1,8 @@
 ---
 title: "Remote Agent Workflow, Part 3: Turning Telegram into a Local Codex Control Plane"
-date: "2026-05-24T16:12:12+08:00"
+date: "2026-07-20T23:20:13+08:00"
 draft: false
+translationKey: turning-telegram-into-a-local-codex-control-plane
 tags:
   - ai/codex
   - remote-workflow
@@ -9,12 +10,15 @@ tags:
   - telegram
   - public
   - note
+
 series: Remote Agent Workflow
 seriesOrder: 3
 topics:
   - remote-agent-workflow
   - codex
   - ai-agent-workflow
+
+
 ---
 
 This is Part 3 of the Remote Agent Workflow series.
