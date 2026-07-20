@@ -15,12 +15,13 @@ Run all automated checks through:
 The verification entry point runs:
 
 1. Python unittest discovery under `tests/`.
-2. A production-style Hugo build:
+2. Node publisher regression tests under `tools/obsidian-publisher/tests/`.
+3. A production-style Hugo build:
 
 ```sh
 hugo --gc --minify --baseURL "https://yanqian.github.io/"
 ```
-3. A Python syntax check for the workflow orchestrator:
+4. A Python syntax check for the workflow orchestrator:
 
 ```sh
 python3 -m py_compile orchestrator.py
@@ -40,6 +41,7 @@ python3 -m py_compile orchestrator.py
 | Article comments | Tests assert giscus is configured for GitHub Discussions, rendered after post content, scoped to its own container, styled with article-page spacing, and wired to site-hosted custom giscus themes. |
 | Selection quote comments | Tests assert post pages load the selection-comment script and the script scopes selection to article content, formats Markdown quotes, uses clipboard fallback, scrolls to giscus comments, and hides outside article selections. |
 | Multilingual site shell | Tests assert English root URLs remain stable, Chinese output is generated under `/zh/`, interface strings and menus are localized, language switches use paired translations or language-home fallbacks, and alternate-language metadata is rendered. |
+| Obsidian localization publisher | Node tests assert fenced code is excluded from heading parsing, technical headings remain valid, long Markdown splits at section boundaries, protected code remains intact, completed chunks resume idempotently, live locks reject duplicate runs, AI calls time out, the launcher uses command IDs with startup proof, and local vault artifacts match the canonical runtime when available. |
 | Hugo rendering | `init.sh` runs a production-style Hugo build and requires `public/index.html`. |
 | Deployment parity | GitHub Actions runs unittest discovery before the Pages build. |
 | Orchestrator contract | `python3 -m py_compile orchestrator.py` must succeed. |

@@ -124,9 +124,9 @@
     {
       "id": "F013",
       "description": "Add automated publisher regression tests and fixtures for fenced code, technical headings, long-document chunking, locks, idempotency, and installed-artifact parity.",
-      "passes": false,
-      "status": "todo",
-      "attempts": 0,
+      "passes": true,
+      "status": "done",
+      "attempts": 1,
       "last_error": "",
       "priority": "P0"
     }

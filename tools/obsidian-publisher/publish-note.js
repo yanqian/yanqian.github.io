@@ -312,13 +312,8 @@ async function rewriteForLocale({ quickAddApi, model, prompt, source, targetLang
 async function editLocalizedDraft({ quickAddApi, model, prompt, targetLanguage, understanding, draft, completedChunks = [], onChunk }) {
   const protectedDraft = maskProtectedCodeBlocks(draft.body);
   const chunks = splitMarkdownForLocalization(protectedDraft.body);
-  const documents = [];
   const editContext = selectUnderstandingForEditing(understanding);
-  for (let index = 0; index < chunks.length; index++) {
-    if (completedChunks[index]) {
-      documents.push(completedChunks[index]);
-      continue;
-    }
+  const documents = await processChunks(chunks, completedChunks, async (chunk, index) => {
     const raw = await callAi({
       quickAddApi,
       model,
@@ -326,13 +321,11 @@ async function editLocalizedDraft({ quickAddApi, model, prompt, targetLanguage, 
       temperature: 0.35,
       maxTokens: 6000,
       systemPrompt: prompt,
-      prompt: `Target language: ${languageLabel(targetLanguage)}\n\nArticle understanding:\n${JSON.stringify(editContext, null, 2)}\n\nThis is chunk ${index + 1} of ${chunks.length}. Edit only this chunk and preserve its boundaries. The draft contains protected tokens such as LOCALIZATION_CODE_BLOCK_0001_DO_NOT_EDIT. Copy every protected token exactly once into the corresponding position. Never alter or expand a protected token.\n\nDraft title:\n${draft.title}\n\nDraft Markdown chunk:\n${chunks[index]}`,
+      prompt: `Target language: ${languageLabel(targetLanguage)}\n\nArticle understanding:\n${JSON.stringify(editContext, null, 2)}\n\nThis is chunk ${index + 1} of ${chunks.length}. Edit only this chunk and preserve its boundaries. The draft contains protected tokens such as LOCALIZATION_CODE_BLOCK_0001_DO_NOT_EDIT. Copy every protected token exactly once into the corresponding position. Never alter or expand a protected token.\n\nDraft title:\n${draft.title}\n\nDraft Markdown chunk:\n${chunk}`,
       variableName: `editedDraftChunk${index + 1}`,
     });
-    const document = parseDocumentResponse(raw, `edited draft chunk ${index + 1}`);
-    documents.push(document);
-    if (onChunk) await onChunk(index, chunks.length, document);
-  }
+    return parseDocumentResponse(raw, `edited draft chunk ${index + 1}`);
+  }, onChunk);
   const smellExamples = documents.flatMap((document) =>
     document.qualityAssessment?.translation_smell_examples || [],
   );
@@ -350,13 +343,7 @@ async function reviewConsistency({ quickAddApi, model, prompt, source, targetLan
   const protectedSource = maskProtectedCodeBlocks(source.body);
   const protectedCandidate = maskProtectedCodeBlocks(candidate.body);
   const chunkPairs = pairMarkdownForLocalization(protectedSource.body, protectedCandidate.body);
-  const results = [];
-  for (let index = 0; index < chunkPairs.length; index++) {
-    if (completedChunks[index]) {
-      results.push(completedChunks[index]);
-      continue;
-    }
-    const pair = chunkPairs[index];
+  const results = await processChunks(chunkPairs, completedChunks, async (pair, index) => {
     const raw = await callAi({
       quickAddApi,
       model,
@@ -369,9 +356,8 @@ async function reviewConsistency({ quickAddApi, model, prompt, source, targetLan
     });
     const result = parseJsonObject(raw, `consistency review chunk ${index + 1}`);
     result.corrected = result.corrected || { title: result.title, body: result.body };
-    results.push(result);
-    if (onChunk) await onChunk(index, chunkPairs.length, result);
-  }
+    return result;
+  }, onChunk);
   const issues = results.flatMap((result) => result.issues || []);
   return {
     status: results.some((result) => result.status === "fail")
@@ -385,6 +371,20 @@ async function reviewConsistency({ quickAddApi, model, prompt, source, targetLan
       body: results.map((result) => result.corrected.body).join("\n\n"),
     },
   };
+}
+
+async function processChunks(chunks, completedChunks, worker, onChunk) {
+  const results = [];
+  for (let index = 0; index < chunks.length; index++) {
+    if (completedChunks[index]) {
+      results.push(completedChunks[index]);
+      continue;
+    }
+    const result = await worker(chunks[index], index, chunks.length);
+    results.push(result);
+    if (onChunk) await onChunk(index, chunks.length, result);
+  }
+  return results;
 }
 
 function selectUnderstandingForEditing(understanding) {
@@ -1191,6 +1191,7 @@ module.exports.__test = {
   buildPublishContent,
   convertWikilinksToPublicLinks,
   extractMarkdownContract,
+  extractHeadingLines,
   hashString,
   isLiveRunLock,
   isLocalizableTextBlock,
@@ -1205,6 +1206,7 @@ module.exports.__test = {
   restoreLocalizedTitleAndHeadings,
   splitMarkdownForLocalization,
   pairMarkdownForLocalization,
+  processChunks,
   withTimeout,
   validateLocalizationQuality,
   validateMarkdownContract,

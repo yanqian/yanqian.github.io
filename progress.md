@@ -30,14 +30,15 @@ Implemented behavior:
 - `./init.sh` runs unit tests, checks `orchestrator.py`, and performs a production-style Hugo build.
 - `orchestrator.py` can preview or run bounded coding/evaluator rounds for future feature work.
 - The canonical Obsidian localization publisher now lives under `tools/obsidian-publisher/`, installs reproducibly into the vault, executes QuickAdd by command ID, records structured status and locks, times out AI calls, and resumes completed long-document chunks.
+- Publisher regressions now run through `./init.sh`, covering fenced-code headings, technical names, long-document splitting, protected artifacts, chunk resume, locks, timeouts, launcher behavior, and local install parity.
 
 ## Last Completed Feature
 
-`F011` - Add a versioned and observable Obsidian localization publisher runtime.
+`F013` - Add automated regression coverage for the durable localization publisher.
 
 ## Next Feature
 
-`F013` - Add publisher regression fixtures and automated tests, followed by `F012` documentation and agent discovery rules.
+`F012` - Document the publisher runbook, incident, and mandatory agent entrypoint.
 
 ## Known Issues
 
