@@ -1,7 +1,8 @@
 ---
 title: "Remote Agent Workflow, Part 4: In the Repository, Not in the Chat"
-date: "2026-05-24T16:12:12+08:00"
+date: "2026-07-20T23:33:28+08:00"
 draft: false
+translationKey: in-the-repository-not-in-the-chat
 tags:
   - ai/codex
   - agent-workflow
@@ -9,12 +10,15 @@ tags:
   - spec-driven-development
   - public
   - note
+
 series: Remote Agent Workflow
 seriesOrder: 4
 topics:
   - remote-agent-workflow
   - codex
   - ai-agent-workflow
+
+
 ---
 
 This is Part 4 of the Remote Agent Workflow series.
