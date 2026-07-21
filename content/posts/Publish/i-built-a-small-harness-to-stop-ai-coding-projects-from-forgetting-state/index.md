@@ -1,7 +1,8 @@
 ---
 title: "I Built a Small Harness to Stop AI Coding Projects From Forgetting State"
-date: "2026-06-04T10:46:50+08:00"
+date: "2026-07-21T09:21:48+08:00"
 draft: false
+translationKey: i-built-a-small-harness-to-stop-ai-coding-projects-from-forgetting-state
 tags:
   - ai/codex
   - agent-workflow
