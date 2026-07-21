@@ -1,7 +1,8 @@
 ---
 title: "What Happens When You Scan a Singpass QR Code"
-date: "2026-06-21T18:33:32+08:00"
+date: "2026-07-21T08:29:11+08:00"
 draft: false
+translationKey: what-happens-when-you-scan-a-singpass-qr-code
 tags:
   - identity
   - system-design
