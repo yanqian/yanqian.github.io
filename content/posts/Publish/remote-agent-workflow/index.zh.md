@@ -1,6 +1,6 @@
 ---
 title: "远程智能体工作流"
-date: "2026-07-21T08:56:56+08:00"
+date: "2026-07-21T09:03:39+08:00"
 draft: false
 translationKey: remote-agent-workflow
 tags:
@@ -20,7 +20,6 @@ topics:
 excludeFromLatest: true
 ---
 
-![[file-20260601171151749.png]]
 这个系列探讨如何从移动端 SSH 走向一套以代码仓库为依托、可以长期运行的 AI 智能体工作流。
 
 起因很简单：离开 Mac 后，我仍然想继续推进本地的 Codex 工作。
@@ -62,3 +61,4 @@ excludeFromLatest: true
 目的并不是证明哪一种界面更好。
 
 真正重要的是，把 AI 编程智能体纳入项目工作流：任务随时可以继续，结果能够验证，整套流程还能随着时间不断改进。
+
