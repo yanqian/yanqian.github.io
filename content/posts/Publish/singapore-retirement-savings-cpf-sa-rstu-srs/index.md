@@ -1,7 +1,8 @@
 ---
 title: "Singapore Retirement Savings: CPF SA, RSTU, and SRS"
-date: "2026-07-02T18:27:09+08:00"
+date: "2026-07-21T10:04:38+08:00"
 draft: false
+translationKey: singapore-retirement-savings-cpf-sa-rstu-srs
 tags:
   - singapore
   - retirement
