@@ -3,6 +3,7 @@ date = '2026-05-06T10:12:47+08:00'
 draft = false
 title = 'Now'
 description = 'What Armstrong Yan is focused on now: engineering, writing, tools, movement, and life in Singapore.'
+translationKey = 'now'
 +++
 
 This page is a snapshot of what I am focused on now, both in work and outside it.

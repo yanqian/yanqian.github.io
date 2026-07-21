@@ -208,11 +208,18 @@
     {
       "id": "F019",
       "description": "Localize the Now page into natural Simplified Chinese while preserving its current-state framing, time information, paired routing, and source facts.",
-      "passes": false,
-      "status": "pending",
-      "attempts": 0,
+      "passes": true,
+      "status": "done",
+      "attempts": 1,
       "last_error": "",
-      "priority": "P1"
+      "priority": "P1",
+      "acceptance_criteria": [
+        "The English Now page keeps /now/ and the Chinese translation renders at /zh/now/.",
+        "Both Now files share an explicit translationKey and language switching targets the paired page in both directions.",
+        "Chinese prose preserves the page's present-tense framing, work focus, tools, activities, music links, driving-licence milestone, and 2026-06-09 update date without turning temporary state into a promise.",
+        "The Chinese navigation exposes the Now translation without creating multiple active menu items.",
+        "Automated tests, a production build, and manual local-preview checks pass before user review."
+      ]
     },
     {
       "id": "F020",

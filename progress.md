@@ -38,16 +38,17 @@ Implemented behavior:
 - All six localization prompts are now canonical repository files, installed into Obsidian with per-file manifest hashes and doctor/test parity checks.
 - Remote Agent Workflow Part 2 is published in English and Chinese at commit `d8317df`; the prior “awaiting approval” status was stale and has been cleared.
 - The About page now has a user-approved Simplified Chinese translation at `/zh/about/`, paired directly with `/about/`; its terminal copy and navigation entry use the existing Hugo i18n system.
+- The Now page now has a user-approved Simplified Chinese translation at `/zh/now/`, paired directly with `/now/`; it preserves the page's current-state framing, links, certification, driving-licence milestone, and update date.
 
 ## Last Completed Feature
 
-`F018` - Localize and verify the About page.
+`F019` - Localize and verify the Now page.
 
 ## Next Feature
 
-`F019` - Localize and verify the Now page after the published About change is handed off.
+`F020` - Localize and verify the Projects page after the published Now change is handed off.
 
-Planned follow-up features remain pending in approval order: `F020` Projects and `F021` Resume.
+`F021` Resume remains pending after Projects.
 
 ## Known Issues
 

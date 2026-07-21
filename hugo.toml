@@ -103,3 +103,8 @@ url = ""
 name = "关于我"
 weight = 3
 url = "about/"
+
+[[languages.zh.menu.main]]
+name = "近况"
+weight = 4
+url = "now/"

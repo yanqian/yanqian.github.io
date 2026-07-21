@@ -14,6 +14,8 @@ EN_I18N = (ROOT / "i18n/en.toml").read_text()
 ZH_I18N = (ROOT / "i18n/zh-cn.toml").read_text()
 EN_ABOUT = (ROOT / "content/about.md").read_text()
 ZH_ABOUT = (ROOT / "content/about.zh.md").read_text()
+EN_NOW = (ROOT / "content/now.md").read_text()
+ZH_NOW = (ROOT / "content/now.zh.md").read_text()
 
 
 class MultilingualSiteTest(unittest.TestCase):
@@ -189,6 +191,35 @@ class MultilingualSiteTest(unittest.TestCase):
             )
 
         self.assertIn("range .AllTranslations", HEAD_EXTENSIONS)
+
+    def test_now_translation_preserves_current_state_and_pairing(self):
+        english = self.read_output("now/index.html")
+        chinese = self.read_output("zh/now/index.html")
+
+        self.assertIn("translationKey = 'now'", EN_NOW)
+        self.assertIn("translationKey = 'now'", ZH_NOW)
+        self.assertIn("更新于：2026-06-09。", ZH_NOW)
+        self.assertIn("每周打两三次乒乓球", ZH_NOW)
+        self.assertIn("新加坡皮划艇二星认证", ZH_NOW)
+        self.assertIn(
+            "https://www.youtube.com/watch?v=ntpxLWnf7h4&list=RDntpxLWnf7h4&start_radio=1",
+            ZH_NOW,
+        )
+        self.assertIn(
+            "https://www.youtube.com/watch?v=lnLDHIDOT00&list=RDlnLDHIDOT00&start_radio=1",
+            ZH_NOW,
+        )
+        self.assertIn('class="language-switch" href="/zh/now/"', english)
+        self.assertIn('class="language-switch" href="/now/"', chinese)
+        self.assertIn('<html lang="zh">', chinese)
+        self.assertIn("近况", chinese)
+        self.assertIn("写作与工具", chinese)
+        self.assertIn("在新加坡生活", chinese)
+        self.assertEqual(chinese.count('aria-current="page"'), 1)
+        self.assertIn(
+            'hreflang="zh-CN" href="https://yanqian.github.io/zh/now/"',
+            english,
+        )
 
     def test_chinese_taxonomy_indexes_localize_titles_and_metadata(self):
         expected_titles = {
