@@ -1,7 +1,8 @@
 ---
 title: "Remote Agent Workflow"
-date: "2026-06-01T16:34:46+08:00"
+date: "2026-07-21T08:56:56+08:00"
 draft: false
+translationKey: remote-agent-workflow
 tags:
   - ai/codex
   - remote-workflow
@@ -19,6 +20,7 @@ topics:
 excludeFromLatest: true
 ---
 
+![[file-20260601171151749.png]]
 This series is about moving from mobile SSH to a durable, repository-backed AI agent workflow.
 
 The starting point was simple: I wanted to keep local Codex work moving when I was away from my Mac.
