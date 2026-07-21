@@ -22,6 +22,7 @@
 - Desktop and 390×844 viewport checks passed; the mobile menu exposes `首页`, `关于我`, and `English`, and the page has no horizontal overflow.
 - Final `./init.sh` passed: 47 Python tests, 13 publisher tests, and the production-style bilingual Hugo build.
 - The user reviewed the Chinese copy, requested one wording change from `我在意的是` to `我关注的是`, approved the revised page, and explicitly authorized publication.
+- Live deployment verification found and corrected the language-home menu being marked active on a localized child page; rendered coverage now requires exactly one current navigation item on `/zh/about/`.
 
 ## Evaluator Result
 

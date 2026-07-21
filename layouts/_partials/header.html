@@ -14,11 +14,12 @@
 
       <ul class="navigation-list">
         {{ with .Site.Menus.main }}
+          {{ $homeURL := relLangURL "" }}
           {{ range sort . }}
             {{ $url := index (apply (slice .URL) (.Params.urlFunc | default "relLangURL") ".") 0 }}
             {{ $current := $.RelPermalink }}
-            {{ $active := or (eq $current $url) (and (ne $url "/") (strings.HasPrefix $current $url)) }}
-            {{ if and (eq $url "/") $.IsHome }}
+            {{ $active := or (eq $current $url) (and (ne $url $homeURL) (strings.HasPrefix $current $url)) }}
+            {{ if and (eq $url $homeURL) $.IsHome }}
               {{ $active = true }}
             {{ end }}
             <li class="navigation-item">

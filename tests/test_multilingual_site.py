@@ -165,6 +165,11 @@ class MultilingualSiteTest(unittest.TestCase):
         self.assertIn("关注：可靠系统、平台工程、AI 辅助工作流、知识系统", chinese)
         self.assertNotIn("Host: Singapore", chinese)
         self.assertNotIn("Kernel: Backend / Platform Engineer", chinese)
+        self.assertEqual(chinese.count('aria-current="page"'), 1)
+        self.assertNotIn(
+            'class="navigation-link active" href="/zh/" aria-current="page"',
+            chinese,
+        )
         self.assertIn(
             'hreflang="zh-CN" href="https://yanqian.github.io/zh/about/"',
             english,
