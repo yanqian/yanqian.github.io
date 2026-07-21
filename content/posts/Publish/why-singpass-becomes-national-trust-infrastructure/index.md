@@ -1,7 +1,8 @@
 ---
 title: "Why Singpass Becomes National Trust Infrastructure"
-date: "2026-06-21T18:32:34+08:00"
+date: "2026-07-21T08:09:37+08:00"
 draft: false
+translationKey: why-singpass-becomes-national-trust-infrastructure
 tags:
   - identity
   - system-design
