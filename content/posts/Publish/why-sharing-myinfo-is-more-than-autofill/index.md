@@ -1,7 +1,8 @@
 ---
 title: "Why Sharing Myinfo Is More Than Autofill"
-date: "2026-06-21T18:34:32+08:00"
+date: "2026-07-21T08:44:07+08:00"
 draft: false
+translationKey: why-sharing-myinfo-is-more-than-autofill
 tags:
   - identity
   - system-design
