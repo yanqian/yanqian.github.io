@@ -40,16 +40,16 @@ Implemented behavior:
 - The About page now has a user-approved Simplified Chinese translation at `/zh/about/`, paired directly with `/about/`; its terminal copy and navigation entry use the existing Hugo i18n system.
 - The Now page now has a user-approved Simplified Chinese translation at `/zh/now/`, paired directly with `/now/`; it preserves the page's current-state framing, links, certification, driving-licence milestone, and update date.
 - The Projects page now has a user-approved Simplified Chinese translation at `/zh/projects/`, paired directly with `/projects/`; it preserves all four project entries, seven external links, three Bot commands, project statuses, and safety boundaries.
+- The Resume page now has a user-approved Simplified Chinese translation at `/zh/resume/`, paired directly with `/resume/`; it preserves the 10+ years statement, professional themes, technology names, public contacts, and the source's privacy boundary.
+- All four repository-owned top-level pages—About, Now, Projects, and Resume—now have reviewed Chinese translations and direct bilingual switching.
 
 ## Last Completed Feature
 
-`F020` - Localize and verify the Projects page.
+`F021` - Localize and verify the Resume page.
 
 ## Next Feature
 
-`F021` - Localize and verify the Resume page after the published Projects change is handed off.
-
-No additional top-level localization feature is planned after Resume.
+Awaiting the next article-localization or site-development requirement.
 
 ## Known Issues
 

@@ -15,6 +15,7 @@ def body_text(path):
 
 ABOUT = body_text(ROOT / "content/about.md")
 RESUME = body_text(ROOT / "content/resume.md")
+ZH_RESUME = body_text(ROOT / "content/resume.zh.md")
 PAGE_PARTIAL = (ROOT / "layouts/_partials/page.html").read_text()
 EN_I18N = (ROOT / "i18n/en.toml").read_text()
 CSS = (ROOT / "assets/css/custom.css").read_text()
@@ -23,6 +24,7 @@ CSS = (ROOT / "assets/css/custom.css").read_text()
 PUBLIC_PAGES = {
     "about": ABOUT,
     "resume": RESUME,
+    "resume_zh": ZH_RESUME,
 }
 
 
@@ -42,6 +44,15 @@ class PublicProfilePagesTest(unittest.TestCase):
         self.assertIn("idempotency", RESUME)
         self.assertIn("armstrong.yan.sg@gmail.com", RESUME)
         self.assertIn("https://www.linkedin.com/in/armstrong-yan-b29465196/", RESUME)
+
+    def test_chinese_resume_preserves_public_experience_themes(self):
+        self.assertIn("10 年以上经验", ZH_RESUME)
+        self.assertIn("生产环境可靠性与故障排查", ZH_RESUME)
+        self.assertIn("事件驱动系统", ZH_RESUME)
+        self.assertIn("GCP 和 AWS", ZH_RESUME)
+        self.assertIn("幂等性", ZH_RESUME)
+        self.assertIn("armstrong.yan.sg@gmail.com", ZH_RESUME)
+        self.assertIn("https://www.linkedin.com/in/armstrong-yan-b29465196/", ZH_RESUME)
 
     def test_about_has_public_professional_contact(self):
         self.assertIn("armstrong.yan.sg@gmail.com", ABOUT)

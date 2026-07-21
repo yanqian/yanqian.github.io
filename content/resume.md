@@ -3,6 +3,7 @@ date = '2026-05-06T10:12:47+08:00'
 draft = false
 title = 'Resume'
 description = 'A public resume summary for Armstrong Yan: backend, platform, reliability, distributed systems, and automation.'
+translationKey = 'resume'
 +++
 
 ## Profile

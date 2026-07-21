@@ -18,6 +18,8 @@ EN_NOW = (ROOT / "content/now.md").read_text()
 ZH_NOW = (ROOT / "content/now.zh.md").read_text()
 EN_PROJECTS = (ROOT / "content/projects.md").read_text()
 ZH_PROJECTS = (ROOT / "content/projects.zh.md").read_text()
+EN_RESUME = (ROOT / "content/resume.md").read_text()
+ZH_RESUME = (ROOT / "content/resume.zh.md").read_text()
 
 
 class MultilingualSiteTest(unittest.TestCase):
@@ -135,14 +137,12 @@ class MultilingualSiteTest(unittest.TestCase):
     def test_language_switch_uses_fallback_and_paired_translation(self):
         english_home = self.read_output("index.html")
         chinese_home = self.read_output("zh/index.html")
-        untranslated_page = self.read_output("resume/index.html")
         english_post = self.read_output(
             "posts/publish/remote-mac-terminal-for-codex/index.html"
         )
 
         self.assertIn('class="language-switch" href="/zh/"', english_home)
         self.assertIn('class="language-switch" href="/"', chinese_home)
-        self.assertIn('class="language-switch" href="/zh/"', untranslated_page)
         self.assertIn(
             'class="language-switch" href="/zh/posts/publish/remote-mac-terminal-for-codex/"',
             english_post,
@@ -264,6 +264,42 @@ class MultilingualSiteTest(unittest.TestCase):
             english,
         )
 
+    def test_resume_translation_preserves_public_profile_and_pairing(self):
+        english = self.read_output("resume/index.html")
+        chinese = self.read_output("zh/resume/index.html")
+        required_terms = [
+            "10 年以上经验",
+            "生产环境可靠性与故障排查",
+            "事件驱动系统",
+            "GCP 和 AWS",
+            "幂等性",
+            "CI/CD",
+        ]
+
+        self.assertIn("translationKey = 'resume'", EN_RESUME)
+        self.assertIn("translationKey = 'resume'", ZH_RESUME)
+        for term in required_terms:
+            self.assertIn(term, ZH_RESUME)
+        self.assertIn(
+            "[armstrong.yan.sg@gmail.com](mailto:armstrong.yan.sg@gmail.com)",
+            ZH_RESUME,
+        )
+        self.assertIn(
+            "[LinkedIn](https://www.linkedin.com/in/armstrong-yan-b29465196/)",
+            ZH_RESUME,
+        )
+        self.assertIn('class="language-switch" href="/zh/resume/"', english)
+        self.assertIn('class="language-switch" href="/resume/"', chinese)
+        self.assertIn('<html lang="zh">', chinese)
+        self.assertIn("个人简介", chinese)
+        self.assertIn("经验概览", chinese)
+        self.assertIn("联系方式", chinese)
+        self.assertEqual(chinese.count('aria-current="page"'), 1)
+        self.assertIn(
+            'hreflang="zh-CN" href="https://yanqian.github.io/zh/resume/"',
+            english,
+        )
+
     def test_chinese_taxonomy_indexes_localize_titles_and_metadata(self):
         expected_titles = {
             "categories/index.html": "分类",
@@ -287,6 +323,9 @@ class MultilingualSiteTest(unittest.TestCase):
             (content_path / "paired.zh.md").write_text(
                 "---\ntitle: 配对页面\n---\n中文正文。\n"
             )
+            (content_path / "untranslated.en.md").write_text(
+                "---\ntitle: Untranslated page\n---\nEnglish only.\n"
+            )
 
             result = subprocess.run(
                 [
@@ -306,6 +345,7 @@ class MultilingualSiteTest(unittest.TestCase):
 
             english = (Path(output_dir) / "paired/index.html").read_text()
             chinese = (Path(output_dir) / "zh/paired/index.html").read_text()
+            untranslated = (Path(output_dir) / "untranslated/index.html").read_text()
             self.assertIn(
                 'class="language-switch" href="/zh/paired/"', english
             )
@@ -319,6 +359,7 @@ class MultilingualSiteTest(unittest.TestCase):
                     'hreflang="zh-CN" href="https://yanqian.github.io/zh/paired/"',
                     output,
                 )
+            self.assertIn('class="language-switch" href="/zh/"', untranslated)
 
 
 if __name__ == "__main__":

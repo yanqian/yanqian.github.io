@@ -113,3 +113,8 @@ url = "about/"
 name = "近况"
 weight = 4
 url = "now/"
+
+[[languages.zh.menu.main]]
+name = "简历"
+weight = 5
+url = "resume/"

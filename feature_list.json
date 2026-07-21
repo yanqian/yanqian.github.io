@@ -240,11 +240,18 @@
     {
       "id": "F021",
       "description": "Localize the Resume page into professional Simplified Chinese while preserving employment facts, dates, names, technologies, privacy boundaries, and paired routing.",
-      "passes": false,
-      "status": "pending",
-      "attempts": 0,
+      "passes": true,
+      "status": "done",
+      "attempts": 1,
       "last_error": "",
-      "priority": "P1"
+      "priority": "P1",
+      "acceptance_criteria": [
+        "The English Resume page keeps /resume/ and the Chinese translation renders at /zh/resume/.",
+        "Both Resume files share an explicit translationKey and language switching targets the paired page in both directions.",
+        "Chinese copy preserves the 10+ years statement, professional themes, technical names, experience bullets, public email, LinkedIn URL, and privacy boundary without inventing employers, titles, dates, achievements, or private details.",
+        "The Chinese navigation exposes the Resume translation with exactly one current menu item.",
+        "Automated tests, a production build, and manual local-preview checks pass before user review."
+      ]
     }
   ]
 }
