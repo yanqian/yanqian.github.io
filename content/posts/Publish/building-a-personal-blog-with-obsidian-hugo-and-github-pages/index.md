@@ -1,7 +1,8 @@
 ---
-title: Building a Private-to-Public Publishing Pipeline with Obsidian, Hugo, and GitHub Pages
-date: 2026-05-08T22:48:50+08:00
+title: "Building a Private-to-Public Publishing Pipeline with Obsidian, Hugo, and GitHub Pages"
+date: "2026-07-21T09:11:29+08:00"
 draft: false
+translationKey: building-a-personal-blog-with-obsidian-hugo-and-github-pages
 tags:
   - project
   - obsidian
@@ -10,12 +11,16 @@ tags:
   - publishing
   - public
   - note
+
+
+
 topics:
   - publishing
   - obsidian
   - hugo
   - github-pages
 selected: true
+
 ---
 
 I recently rebuilt my personal website around a simple idea:
