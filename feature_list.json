@@ -224,11 +224,18 @@
     {
       "id": "F020",
       "description": "Localize the Projects page into natural Simplified Chinese while preserving project names, links, statuses, facts, order, grouping, and paired routing.",
-      "passes": false,
-      "status": "pending",
-      "attempts": 0,
+      "passes": true,
+      "status": "done",
+      "attempts": 1,
       "last_error": "",
-      "priority": "P1"
+      "priority": "P1",
+      "acceptance_criteria": [
+        "The English Projects page keeps /projects/ and the Chinese translation renders at /zh/projects/.",
+        "Both Projects files share an explicit translationKey and language switching targets the paired page in both directions.",
+        "Chinese copy preserves all four project names, order, groupings, links, statuses, commands, technologies, capabilities, and safety boundaries without overstating maturity or impact.",
+        "The Chinese navigation exposes the Projects translation with exactly one current menu item.",
+        "Automated tests, a production build, and manual local-preview checks pass before user review."
+      ]
     },
     {
       "id": "F021",

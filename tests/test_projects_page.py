@@ -4,6 +4,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 PROJECTS = (ROOT / "content/projects.md").read_text()
+ZH_PROJECTS = (ROOT / "content/projects.zh.md").read_text()
 
 
 class ProjectsPageTest(unittest.TestCase):
@@ -27,6 +28,14 @@ class ProjectsPageTest(unittest.TestCase):
         self.assertNotIn("/camera_test", PROJECTS)
         self.assertNotIn("/logs", PROJECTS)
         self.assertNotIn("/status", PROJECTS)
+
+    def test_chinese_projects_preserve_status_and_safety_boundaries(self):
+        self.assertIn("Obsidian 插件", ZH_PROJECTS)
+        self.assertIn("https://community.obsidian.md/plugins/gentle-memories", ZH_PROJECTS)
+        self.assertIn("AI 默认关闭", ZH_PROJECTS)
+        self.assertIn("不会自动提交官方表单", ZH_PROJECTS)
+        self.assertIn("写入 Git 之前会预览变更并要求批准", ZH_PROJECTS)
+        self.assertIn("只接受已授权聊天发来的命令", ZH_PROJECTS)
 
 
 if __name__ == "__main__":

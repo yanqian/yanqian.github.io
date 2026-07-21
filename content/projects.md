@@ -3,6 +3,7 @@ date = '2026-05-06T10:12:47+08:00'
 draft = false
 title = 'Projects'
 description = 'Selected products and tools around browser automation, local-first knowledge workflows, and AI-assisted productivity.'
+translationKey = 'projects'
 +++
 
 Selected products and tools I built to solve real workflow problems, from visa form assistance to remote agent control planes and personal knowledge rediscovery.

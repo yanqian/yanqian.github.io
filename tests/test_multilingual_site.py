@@ -16,6 +16,8 @@ EN_ABOUT = (ROOT / "content/about.md").read_text()
 ZH_ABOUT = (ROOT / "content/about.zh.md").read_text()
 EN_NOW = (ROOT / "content/now.md").read_text()
 ZH_NOW = (ROOT / "content/now.zh.md").read_text()
+EN_PROJECTS = (ROOT / "content/projects.md").read_text()
+ZH_PROJECTS = (ROOT / "content/projects.zh.md").read_text()
 
 
 class MultilingualSiteTest(unittest.TestCase):
@@ -133,7 +135,7 @@ class MultilingualSiteTest(unittest.TestCase):
     def test_language_switch_uses_fallback_and_paired_translation(self):
         english_home = self.read_output("index.html")
         chinese_home = self.read_output("zh/index.html")
-        untranslated_page = self.read_output("projects/index.html")
+        untranslated_page = self.read_output("resume/index.html")
         english_post = self.read_output(
             "posts/publish/remote-mac-terminal-for-codex/index.html"
         )
@@ -218,6 +220,47 @@ class MultilingualSiteTest(unittest.TestCase):
         self.assertEqual(chinese.count('aria-current="page"'), 1)
         self.assertIn(
             'hreflang="zh-CN" href="https://yanqian.github.io/zh/now/"',
+            english,
+        )
+
+    def test_projects_translation_preserves_entries_links_and_pairing(self):
+        english = self.read_output("projects/index.html")
+        chinese = self.read_output("zh/projects/index.html")
+        project_names = [
+            "VisaPilot",
+            "Gentle Memories",
+            "Remote Agent TG",
+            "Home Guard TG",
+        ]
+        project_urls = [
+            "https://visa-pilot.github.io/",
+            "https://chromewebstore.google.com/detail/visapilot/bckkbhikcbpnmackbcakigkgjmlofhjd?authuser=0&hl=zh-CN",
+            "https://microsoftedge.microsoft.com/addons/detail/visapilot/jihoainpnmdeficfplnebeebpmjjcpag",
+            "https://github.com/yanqian/gentle-memories-obsidian",
+            "https://community.obsidian.md/plugins/gentle-memories",
+            "https://github.com/yanqian/agent-remote-tg",
+            "https://github.com/yanqian/home-guard-tg",
+        ]
+
+        self.assertIn("translationKey = 'projects'", EN_PROJECTS)
+        self.assertIn("translationKey = 'projects'", ZH_PROJECTS)
+        positions = [ZH_PROJECTS.index(name) for name in project_names]
+        self.assertEqual(positions, sorted(positions))
+        for name in project_names:
+            self.assertIn(f"### {name}", ZH_PROJECTS)
+        for url in project_urls:
+            self.assertIn(url, EN_PROJECTS)
+            self.assertIn(url, ZH_PROJECTS)
+        for command in ("/camera_clip", "/photo", "/sound_alarm"):
+            self.assertIn(f"`{command}`", ZH_PROJECTS)
+        self.assertIn('class="language-switch" href="/zh/projects/"', english)
+        self.assertIn('class="language-switch" href="/projects/"', chinese)
+        self.assertIn('<html lang="zh">', chinese)
+        self.assertIn("精选项目", chinese)
+        self.assertIn("关注方向", chinese)
+        self.assertEqual(chinese.count('aria-current="page"'), 1)
+        self.assertIn(
+            'hreflang="zh-CN" href="https://yanqian.github.io/zh/projects/"',
             english,
         )
 
