@@ -1,7 +1,8 @@
 ---
 title: "Understanding Singapore's Payment Stack: From Bank Apps to SGQR, PayNow, FAST, Contactless, and NETS"
-date: 2026-05-11
+date: "2026-07-21T10:50:05+08:00"
 draft: false
+translationKey: understanding-singapore-payment-stack
 tags:
   - payments
   - fintech
@@ -121,7 +122,7 @@ The important idea is that PayNow is not the money-moving rail itself. It is a p
 
 PayNow is commonly used for person-to-person transfers, but it is not limited to friends and family. Businesses, government agencies, associations, and societies can receive money through PayNow Corporate by linking a UEN.
 
-There is also a security angle. From 6 June 2026, the PayNow nickname feature for retail customers is scheduled to be discontinued in Singapore. Instead of a user-chosen nickname, payers will see selected letters of the payee's registered account name. The goal is to reduce impersonation scams while still preserving some privacy.
+There is also a security angle. Since 6 June 2026, retail customers in Singapore have no longer been able to use the PayNow nickname feature. Payers now see selected letters of the payee's registered account name instead of a user-chosen nickname. The goal is to reduce impersonation scams while still preserving some privacy.
 
 ---
 
