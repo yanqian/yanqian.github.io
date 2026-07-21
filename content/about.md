@@ -3,6 +3,7 @@ date = '2026-05-06T10:12:47+08:00'
 draft = false
 title = 'About'
 description = 'About Armstrong Yan: backend and platform engineering, reliable systems, AI-assisted workflows, and knowledge systems.'
+translationKey = 'about'
 terminal = true
 +++
 

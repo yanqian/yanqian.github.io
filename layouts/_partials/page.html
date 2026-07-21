@@ -9,7 +9,7 @@
     </header>
 
     {{ if .Params.terminal }}
-      <section class="terminal-block" aria-label="Identity terminal">
+      <section class="terminal-block" aria-label="{{ i18n "identity_terminal" }}">
         <div class="terminal-bar">
           <span class="dot red"></span>
           <span class="dot yellow"></span>
@@ -19,10 +19,10 @@
           <p>$ whoami</p>
           <p><strong>Armstrong Yan</strong></p>
           <p>-----------------</p>
-          <p>Host: Singapore</p>
-          <p>Kernel: Backend / Platform Engineer</p>
-          <p>Packages: Go, Python, Distributed Systems, Cloud</p>
-          <p>Focus: Reliable systems, platform engineering, AI-assisted workflows, knowledge systems</p>
+          <p>{{ i18n "terminal_host" }}</p>
+          <p>{{ i18n "terminal_kernel" }}</p>
+          <p>{{ i18n "terminal_packages" }}</p>
+          <p>{{ i18n "terminal_focus" }}</p>
           <p>$ _</p>
         </div>
       </section>

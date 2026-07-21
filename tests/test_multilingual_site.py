@@ -12,6 +12,8 @@ HEAD_EXTENSIONS = (ROOT / "layouts/_partials/head/extensions.html").read_text()
 DEPLOY_WORKFLOW = (ROOT / ".github/workflows/hugo.yml").read_text()
 EN_I18N = (ROOT / "i18n/en.toml").read_text()
 ZH_I18N = (ROOT / "i18n/zh-cn.toml").read_text()
+EN_ABOUT = (ROOT / "content/about.md").read_text()
+ZH_ABOUT = (ROOT / "content/about.zh.md").read_text()
 
 
 class MultilingualSiteTest(unittest.TestCase):
@@ -79,6 +81,11 @@ class MultilingualSiteTest(unittest.TestCase):
             "next",
             "built_with",
             "switch_to_language",
+            "identity_terminal",
+            "terminal_host",
+            "terminal_kernel",
+            "terminal_packages",
+            "terminal_focus",
         ]
         for key in keys:
             marker = f"[{key}]"
@@ -135,6 +142,32 @@ class MultilingualSiteTest(unittest.TestCase):
         self.assertIn(
             'class="language-switch" href="/zh/posts/publish/remote-mac-terminal-for-codex/"',
             english_post,
+        )
+
+    def test_about_translation_is_paired_and_fully_localized(self):
+        english = self.read_output("about/index.html")
+        chinese = self.read_output("zh/about/index.html")
+
+        self.assertIn("translationKey = 'about'", EN_ABOUT)
+        self.assertIn("translationKey = 'about'", ZH_ABOUT)
+        self.assertIn(
+            "[armstrong.yan.sg@gmail.com](mailto:armstrong.yan.sg@gmail.com)",
+            ZH_ABOUT,
+        )
+        self.assertIn('class="language-switch" href="/zh/about/"', english)
+        self.assertIn('class="language-switch" href="/about/"', chinese)
+        self.assertIn('<html lang="zh">', chinese)
+        self.assertIn('<h1 class="title">', chinese)
+        self.assertIn("关于我", chinese)
+        self.assertIn("现居新加坡，从事后端与平台工程", chinese)
+        self.assertIn("主机：新加坡", chinese)
+        self.assertIn("内核：后端 / 平台工程师", chinese)
+        self.assertIn("关注：可靠系统、平台工程、AI 辅助工作流、知识系统", chinese)
+        self.assertNotIn("Host: Singapore", chinese)
+        self.assertNotIn("Kernel: Backend / Platform Engineer", chinese)
+        self.assertIn(
+            'hreflang="zh-CN" href="https://yanqian.github.io/zh/about/"',
+            english,
         )
 
     def test_language_homepages_emit_alternate_metadata(self):

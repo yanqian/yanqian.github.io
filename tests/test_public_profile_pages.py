@@ -16,6 +16,7 @@ def body_text(path):
 ABOUT = body_text(ROOT / "content/about.md")
 RESUME = body_text(ROOT / "content/resume.md")
 PAGE_PARTIAL = (ROOT / "layouts/_partials/page.html").read_text()
+EN_I18N = (ROOT / "i18n/en.toml").read_text()
 CSS = (ROOT / "assets/css/custom.css").read_text()
 
 
@@ -47,10 +48,12 @@ class PublicProfilePagesTest(unittest.TestCase):
 
     def test_terminal_identity_and_focus_are_updated(self):
         self.assertIn("Armstrong Yan", PAGE_PARTIAL)
-        self.assertIn("Kernel: Backend / Platform Engineer", PAGE_PARTIAL)
+        self.assertIn('i18n "terminal_kernel"', PAGE_PARTIAL)
+        self.assertIn('i18n "terminal_focus"', PAGE_PARTIAL)
+        self.assertIn("Kernel: Backend / Platform Engineer", EN_I18N)
         self.assertIn(
             "Focus: Reliable systems, platform engineering, AI-assisted workflows, knowledge systems",
-            PAGE_PARTIAL,
+            EN_I18N,
         )
         self.assertNotIn("OS: Human", PAGE_PARTIAL)
 

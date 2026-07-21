@@ -70,3 +70,18 @@ other = "Toggle navigation menu"
 
 [switch_to_language]
 other = "Switch to {{ .Language }}"
+
+[identity_terminal]
+other = "Identity terminal"
+
+[terminal_host]
+other = "Host: Singapore"
+
+[terminal_kernel]
+other = "Kernel: Backend / Platform Engineer"
+
+[terminal_packages]
+other = "Packages: Go, Python, Distributed Systems, Cloud"
+
+[terminal_focus]
+other = "Focus: Reliable systems, platform engineering, AI-assisted workflows, knowledge systems"

@@ -113,3 +113,18 @@ other = "展开或收起导航"
 
 [switch_to_language]
 other = "切换到{{ .Language }}"
+
+[identity_terminal]
+other = "身份终端"
+
+[terminal_host]
+other = "主机：新加坡"
+
+[terminal_kernel]
+other = "内核：后端 / 平台工程师"
+
+[terminal_packages]
+other = "组件：Go、Python、分布式系统、云计算"
+
+[terminal_focus]
+other = "关注：可靠系统、平台工程、AI 辅助工作流、知识系统"

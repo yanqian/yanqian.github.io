@@ -188,6 +188,49 @@
         "The Runbook and vault README describe repository prompts as canonical.",
         "progress.md records that Remote Agent Workflow Part 2 is published and no longer awaits approval."
       ]
+    },
+    {
+      "id": "F018",
+      "description": "Localize the About page into natural Simplified Chinese with paired routing, localized terminal copy, source-fact fidelity, and rendered bilingual verification.",
+      "passes": true,
+      "status": "done",
+      "attempts": 1,
+      "last_error": "",
+      "priority": "P1",
+      "acceptance_criteria": [
+        "The English About page keeps /about/ and the Chinese translation renders at /zh/about/.",
+        "Both About files share an explicit translationKey and language switching targets the paired page in both directions.",
+        "Chinese prose naturally preserves the English professional background, writing interests, personal interests, and public contact information without adding facts.",
+        "The terminal block uses localized Chinese copy without changing its English rendering.",
+        "Automated tests, a production build, and manual local-preview checks pass before user review."
+      ]
+    },
+    {
+      "id": "F019",
+      "description": "Localize the Now page into natural Simplified Chinese while preserving its current-state framing, time information, paired routing, and source facts.",
+      "passes": false,
+      "status": "pending",
+      "attempts": 0,
+      "last_error": "",
+      "priority": "P1"
+    },
+    {
+      "id": "F020",
+      "description": "Localize the Projects page into natural Simplified Chinese while preserving project names, links, statuses, facts, order, grouping, and paired routing.",
+      "passes": false,
+      "status": "pending",
+      "attempts": 0,
+      "last_error": "",
+      "priority": "P1"
+    },
+    {
+      "id": "F021",
+      "description": "Localize the Resume page into professional Simplified Chinese while preserving employment facts, dates, names, technologies, privacy boundaries, and paired routing.",
+      "passes": false,
+      "status": "pending",
+      "attempts": 0,
+      "last_error": "",
+      "priority": "P1"
     }
   ]
 }

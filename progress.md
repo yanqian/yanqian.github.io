@@ -37,14 +37,17 @@ Implemented behavior:
 - A versioned terminology contract now enforces `control plane` → `控制面` across rewrite, editing, factual review, deterministic validation, installed vault parity, and the corrected Part 2 draft/cache.
 - All six localization prompts are now canonical repository files, installed into Obsidian with per-file manifest hashes and doctor/test parity checks.
 - Remote Agent Workflow Part 2 is published in English and Chinese at commit `d8317df`; the prior “awaiting approval” status was stale and has been cleared.
+- The About page now has a user-approved Simplified Chinese translation at `/zh/about/`, paired directly with `/about/`; its terminal copy and navigation entry use the existing Hugo i18n system.
 
 ## Last Completed Feature
 
-`F017` - Version localization prompts, enforce installed parity, and repair stale publication status.
+`F018` - Localize and verify the About page.
 
 ## Next Feature
 
-Awaiting the next article-localization or site-development requirement.
+`F019` - Localize and verify the Now page after the published About change is handed off.
+
+Planned follow-up features remain pending in approval order: `F020` Projects and `F021` Resume.
 
 ## Known Issues
 

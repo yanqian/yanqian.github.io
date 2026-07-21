@@ -192,7 +192,49 @@ Add a bilingual English and Simplified Chinese site shell so readers can explici
 
 This requirement is intentionally one feature, `F010`. Configuration, localized interface copy, translation-aware templates, and build checks form one coherent site-shell capability with the same Hugo-rendering verification surface. Article translation and Obsidian automation remain independently valuable follow-up features and are excluded.
 
-## 9. Durable Obsidian Localization Publisher
+## 9. Localized Top-Level Pages
+
+### Goal
+
+Provide natural Simplified Chinese versions of About, Now, Projects, and Resume while preserving the English pages as the factual source and keeping Hugo's existing multilingual routing and pairing behavior.
+
+### Scope Included
+
+- Localize the four repository-owned top-level pages in the approval-gated order About, Now, Projects, and Resume.
+- Preserve English root URLs and publish the paired Chinese pages under `/zh/`.
+- Give every pair an explicit shared `translationKey` and make the language switch target the corresponding page.
+- Localize page-specific shared template copy through the existing Hugo i18n mechanism.
+- Preserve facts, dates, names, links, Markdown structure, and privacy boundaries from each English source page.
+
+### Scope Excluded
+
+- Editing generated article content under `content/posts/Publish/`.
+- Using the Obsidian Publish Note workflow.
+- Correcting or expanding facts in the English pages without user approval.
+- Committing, pushing, or deploying before explicit approval.
+
+### Core Flow
+
+For each page: inspect the complete English source and relevant templates, state the Chinese editorial direction, implement one paired translation, verify source fidelity and rendered behavior, and wait for approval before starting the next page.
+
+### Constraints
+
+- Chinese copy should read as original Chinese rather than sentence-aligned translation.
+- Product names, company names, project names, technical terms, dates, numbers, and URLs remain accurate.
+- The Chinese navigation exposes a top-level page only after its Chinese page exists.
+- Each page is an independently reviewable feature and later pages remain untouched until the previous page is approved.
+
+### Verification Surface
+
+- Source-level checks for shared `translationKey` values and preserved URLs.
+- Rendered HTML checks for `/zh/` routes, paired language-switch targets, alternate-language metadata, localized template copy, and absence of accidental English interface labels.
+- `./init.sh` after each page.
+
+### Decomposition
+
+This requirement is split into four approval-gated features: `F018` About, `F019` Now, `F020` Projects, and `F021` Resume.
+
+## 10. Durable Obsidian Localization Publisher
 
 ### Goal
 
@@ -224,7 +266,7 @@ Make the bilingual Obsidian publishing workflow versioned, observable, recoverab
 - `F012`: runbook, incident report, and agent discovery rules.
 - `F013`: regression fixtures, automated tests, and verification-entrypoint integration.
 
-## 10. Localization Terminology Controls
+## 11. Localization Terminology Controls
 
 ### Goal
 
