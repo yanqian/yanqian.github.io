@@ -12,8 +12,8 @@ tags:
   - public
   - note
 
-
-
+series: Obsidian Publishing Pipeline
+seriesOrder: 1
 topics:
   - publishing
   - obsidian

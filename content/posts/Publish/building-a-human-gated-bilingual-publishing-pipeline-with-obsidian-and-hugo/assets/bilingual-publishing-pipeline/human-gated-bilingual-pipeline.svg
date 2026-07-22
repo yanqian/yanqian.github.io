@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="925" height="390" viewBox="0 0 1850 780" role="img" aria-labelledby="title desc">
+  <title id="title">Human-Gated Bilingual Publishing Pipeline</title>
+  <desc id="desc">An English or Chinese Obsidian source passes through understanding, rewriting, native editing, factual review, and Markdown validation. It becomes a bilingual draft, crosses a human approval gate, and is then synchronized, built by Hugo, and deployed to GitHub Pages.</desc>
+  <defs>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#c2410c"/></marker>
+    <marker id="arrow-purple" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#6d28d9"/></marker>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#1e3a5f"/></marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#047857"/></marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#dc2626"/></marker>
+    <style>
+      text { font-family: Menlo, Monaco, monospace; }
+      .title { fill:#1e40af; font-size:34px; font-weight:700; }
+      .subtitle { fill:#64748b; font-size:20px; }
+      .section { font-size:20px; font-weight:700; letter-spacing:1px; }
+      .body { fill:#374151; font-size:18px; }
+      .detail { fill:#64748b; font-size:15px; }
+      .code { fill:#22c55e; font-size:15px; }
+    </style>
+  </defs>
+  <rect width="1850" height="780" fill="#ffffff"/>
+  <text x="50" y="57" class="title">Human-Gated Bilingual Publishing Pipeline</text>
+  <text x="52" y="94" class="subtitle">Automation prepares the release. A person authorizes it.</text>
+
+  <text x="60" y="168" class="section" fill="#3b82f6">AUTHORING</text>
+  <ellipse cx="177" cy="288" rx="117" ry="62" fill="#fed7aa" stroke="#c2410c" stroke-width="2"/>
+  <text x="177" y="280" class="body" text-anchor="middle"><tspan x="177">English or Chinese</tspan><tspan x="177" dy="26">source note</tspan></text>
+  <rect x="85" y="375" width="185" height="52" rx="10" fill="#1e293b"/>
+  <text x="177" y="407" class="code" text-anchor="middle">publish: true</text>
+  <rect x="45" y="545" width="265" height="80" rx="10" fill="#1e293b"/>
+  <text x="177" y="575" fill="#22c55e" font-size="14" text-anchor="middle"><tspan x="177">doctor → publish</tspan><tspan x="177" dy="28">status = monitor</tspan></text>
+  <path d="M295 288 H365" fill="none" stroke="#c2410c" stroke-width="2" marker-end="url(#arrow-orange)"/>
+
+  <rect x="370" y="145" width="590" height="590" rx="16" fill="#ddd6fe" stroke="#6d28d9" stroke-width="2"/>
+  <text x="405" y="187" class="section" fill="#6d28d9">LOCALIZATION ENGINE</text>
+  <path d="M425 250 V600" stroke="#6d28d9" stroke-width="3"/>
+  <circle cx="425" cy="250" r="10" fill="#6d28d9"/>
+  <circle cx="425" cy="355" r="10" fill="#6d28d9"/>
+  <circle cx="425" cy="460" r="10" fill="#6d28d9"/>
+  <circle cx="425" cy="565" r="10" fill="#6d28d9"/>
+  <text x="465" y="247" class="body" font-size="22">0  Understand</text>
+  <text x="468" y="275" class="detail">thesis · facts · voice</text>
+  <text x="465" y="352" class="body" font-size="22">1  Rewrite</text>
+  <text x="468" y="380" class="detail">for the target-language reader</text>
+  <text x="465" y="457" class="body" font-size="22">2  Native edit</text>
+  <text x="468" y="485" class="detail">rhythm · clarity · native voice</text>
+  <text x="465" y="562" class="body" font-size="22">3  Fact review</text>
+  <text x="468" y="590" class="detail">facts · omissions · changed meaning</text>
+  <rect x="790" y="255" width="145" height="270" rx="12" fill="#1e293b"/>
+  <text x="862.5" y="295" fill="#ffffff" font-size="13" text-anchor="middle">Markdown contract</text>
+  <text x="862.5" y="350" fill="#22c55e" font-size="12" text-anchor="middle"><tspan x="862.5">code · links</tspan><tspan x="862.5" dy="30">images · headings</tspan><tspan x="862.5" dy="30">tables · embeds</tspan><tspan x="862.5" dy="30">shortcodes</tspan></text>
+  <path d="M960 425 H1035" fill="none" stroke="#6d28d9" stroke-width="2" marker-end="url(#arrow-purple)"/>
+
+  <text x="1035" y="168" class="section" fill="#3b82f6">BILINGUAL PROJECTION</text>
+  <rect x="1035" y="295" width="200" height="260" rx="14" fill="#93c5fd" stroke="#1e3a5f" stroke-width="2"/>
+  <text x="1047" y="355" class="body"><tspan x="1047">Publish/&lt;slug&gt;/</tspan><tspan x="1047" dy="44">index.md</tspan><tspan x="1047" dy="36">index.zh.md</tspan><tspan x="1047" dy="36">assets/</tspan></text>
+  <path d="M1235 425 H1310" fill="none" stroke="#1e3a5f" stroke-width="2" marker-end="url(#arrow-blue)"/>
+
+  <text x="1370" y="318" class="section" fill="#b45309" text-anchor="middle">HUMAN REVIEW</text>
+  <polygon points="1370,365 1430,425 1370,485 1310,425" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+  <text x="1370" y="431" class="body" text-anchor="middle">Approve?</text>
+  <text x="1480" y="408" fill="#047857" font-size="14" text-anchor="middle">Approved</text>
+  <path d="M1370 485 V610 H1135 V560" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="8 7" marker-end="url(#arrow-red)"/>
+  <text x="1245" y="593" fill="#dc2626" font-size="15" text-anchor="middle">Revise</text>
+
+  <text x="1645" y="168" class="section" fill="#047857" text-anchor="middle">RELEASE</text>
+  <rect x="1530" y="390" width="230" height="70" rx="12" fill="#a7f3d0" stroke="#047857" stroke-width="2"/>
+  <text x="1645" y="431" class="body" font-size="15" text-anchor="middle">Sync Published Site</text>
+  <rect x="1530" y="520" width="230" height="70" rx="12" fill="#a7f3d0" stroke="#047857" stroke-width="2"/>
+  <text x="1645" y="561" class="body" text-anchor="middle">Hugo build</text>
+  <ellipse cx="1645" cy="695" rx="115" ry="40" fill="#a7f3d0" stroke="#047857" stroke-width="2"/>
+  <text x="1645" y="701" class="body" text-anchor="middle">GitHub Pages</text>
+  <path d="M1430 425 H1530" fill="none" stroke="#047857" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <path d="M1645 460 V520" fill="none" stroke="#047857" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <path d="M1645 590 V655" fill="none" stroke="#047857" stroke-width="2" marker-end="url(#arrow-green)"/>
+</svg>
