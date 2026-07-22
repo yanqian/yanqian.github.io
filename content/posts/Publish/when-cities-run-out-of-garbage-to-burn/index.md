@@ -1,6 +1,6 @@
 ---
 title: "When Cities Run Out of Garbage to Burn"
-date: "2026-07-22T11:41:53+08:00"
+date: "2026-07-22T12:23:14+08:00"
 draft: false
 translationKey: when-cities-run-out-of-garbage-to-burn
 tags:
@@ -71,8 +71,7 @@ The value of incineration is not that it makes waste vanish.
 It compresses the problem.
 
 ```text
-A large amount of daily waste
-  -> a much smaller amount of ash and residue
+A large amount of daily waste -> a much smaller amount of ash and residue
 ```
 
 But compression is not disappearance.
@@ -116,8 +115,7 @@ The ordinary rubbish bin is just the front door of a national logistics system.
 One tempting way to describe the contrast is:
 
 ```text
-Some cities transport garbage.
-Singapore transports ash.
+Some cities transport garbage. Singapore transports ash.
 ```
 
 That sentence is memorable, but it needs to be understood carefully.
@@ -141,8 +139,7 @@ Where do we put all this garbage?
 It is asking:
 
 ```text
-After we reduce waste by burning it,
-what do we do with what remains?
+After we reduce waste by burning it, what do we do with what remains?
 ```
 
 This is the next stage of waste management.
@@ -186,8 +183,7 @@ One example is NEWSand, Singapore's effort to explore whether treated incinerati
 The idea is simple but important:
 
 ```text
-If ash can safely become material,
-less ash needs to become landfill.
+If ash can safely become material, less ash needs to become landfill.
 ```
 
 That does not mean every residue can be reused casually. Safety standards matter. Heavy metals, leaching risks, and long-term environmental effects must be controlled.
@@ -328,8 +324,7 @@ The ash leads to Semakau.
 And Semakau leads to a bigger question:
 
 ```text
-Can a city keep making less final waste,
-even while people keep living, eating, buying, and throwing things away?
+Can a city keep making less final waste, even while people keep living, eating, buying, and throwing things away?
 ```
 
 That is why waste management is a good topic for a city series.
