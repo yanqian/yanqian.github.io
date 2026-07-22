@@ -324,7 +324,8 @@ The ash leads to Semakau.
 And Semakau leads to a bigger question:
 
 ```text
-Can a city keep making less final waste, even while people keep living, eating, buying, and throwing things away?
+Can a city keep making less final waste,
+even while people keep living, eating, buying, and throwing things away?
 ```
 
 That is why waste management is a good topic for a city series.
