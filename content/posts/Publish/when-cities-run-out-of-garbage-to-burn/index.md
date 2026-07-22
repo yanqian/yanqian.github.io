@@ -48,10 +48,6 @@ It is not just a story about garbage.
 
 It is a signal that a city has moved from one stage of waste management to another.
 
-![A blue recycling bin beside a roadside in Singapore](assets/when-cities-run-out-of-garbage-to-burn/02-recycling-bin-street.jpg)
-
-*A blue recycling bin beside the road. It looks ordinary, but it is the public-facing edge of a much larger waste system.*
-
 ## Incineration Is Not Mainly About Electricity
 
 When people hear "waste-to-energy," it is easy to think the main point is electricity.
@@ -249,10 +245,6 @@ The real question is what goes into it.
 *The instruction label is doing a lot of work: recyclables only, no food, no liquids, and rinse before recycling.*
 
 If recyclables are contaminated with food, liquid, or non-recyclable items, the material becomes harder or impossible to recover. A recycling bin can look like progress from the outside while still producing low-quality material inside.
-
-![A larger public recycling container with a faded sorting label](assets/when-cities-run-out-of-garbage-to-burn/03-large-recycling-container.jpg)
-
-*Even when the categories are printed on the bin, the real system depends on whether people follow them correctly.*
 
 This is why the future of waste management is not only about big facilities in Tuas.
 

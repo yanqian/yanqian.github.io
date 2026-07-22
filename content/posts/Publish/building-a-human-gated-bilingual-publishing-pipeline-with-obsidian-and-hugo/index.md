@@ -1,6 +1,6 @@
 ---
 title: "Building a Human-Gated Bilingual Publishing Pipeline with Obsidian and Hugo"
-date: "2026-07-22T00:13:30+08:00"
+date: "2026-07-22T00:18:29+08:00"
 draft: false
 translationKey: building-a-human-gated-bilingual-publishing-pipeline-with-obsidian-and-hugo
 tags:
@@ -154,7 +154,7 @@ The treatment of code blocks is intentionally language-aware:
 
 This last distinction came from a real failure. A long article once appeared to be stuck during localization. The actual problem was a validator reading comments inside a Shell code block as article headings. Other checks then rejected headings such as `SSH`, `Tailscale`, and `tmux` because they looked like untranslated English.
 
-In addition, all model stages also receive the same terminology conventions. For example:
+In addition, all model stages are also given the same terminology agreement. For example:
 
 ```json
 {
