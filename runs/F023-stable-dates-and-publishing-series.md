@@ -13,6 +13,8 @@ Manual fallback was used because the configured evaluator model remains unavaila
 - An isolated Hugo build rendered English and Chinese series pages in 1→2 order, with `Part 1 of 2`, `Part 2 of 2`, `第 1 篇，共 2 篇`, `第 2 篇，共 2 篇`, and correct previous/next links.
 - The reviewed Chinese wording `此外，所有模型阶段还会收到同一份术语约定` is present in the final projection and rendered preview.
 - `./init.sh` passes 52 Python tests, 15 publisher tests, and the production Hugo build.
-- No `Sync Published Site` action was run; the series remains behind the explicit human approval gate.
+- After explicit user approval, `Sync Published Site` produced commit `70dc630` with exactly four modified files: the English and Chinese projections for Parts 1 and 2.
+- The sync diff added only `series` and `seriesOrder`; it changed no article body, date, asset, or unrelated article.
+- GitHub Pages deployed `e50ad88` successfully in Actions run `29907899762`, and all four public series/post URLs returned HTTP 200 with correct bilingual order and navigation.
 
 EVAL_PASS: F023

@@ -44,6 +44,7 @@ Implemented behavior:
 - All four repository-owned top-level pages—About, Now, Projects, and Resume—now have reviewed Chinese translations and direct bilingual switching.
 - Terminology validation now ignores protected non-`text` code fences while still enforcing preferred terms in prose and localizable `text` fences; the bilingual-pipeline article completes draft generation with its JSON terminology example unchanged.
 - Regenerating an existing Obsidian publication now preserves its original date, with English-first and Chinese-fallback lookup; the two publishing articles form the ordered bilingual `Obsidian Publishing Pipeline` series in the reviewed vault projection.
+- The approved `Obsidian Publishing Pipeline` series is published in English and Chinese at sync commit `70dc630` and deployed from `e50ad88`; both public series pages and Part 1/2 navigation are verified.
 
 ## Last Completed Feature
 
@@ -51,7 +52,7 @@ Implemented behavior:
 
 ## Next Feature
 
-Awaiting human approval to synchronize the reviewed `Obsidian Publishing Pipeline` series projection.
+Awaiting the next article-localization or site-development requirement.
 
 ## Known Issues
 
