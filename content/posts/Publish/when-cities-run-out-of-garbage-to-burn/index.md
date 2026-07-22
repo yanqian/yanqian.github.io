@@ -1,6 +1,6 @@
 ---
 title: "When Cities Run Out of Garbage to Burn"
-date: "2026-07-22T00:13:09+08:00"
+date: "2026-07-22T11:41:53+08:00"
 draft: false
 translationKey: when-cities-run-out-of-garbage-to-burn
 tags:
