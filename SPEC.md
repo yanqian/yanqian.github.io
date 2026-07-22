@@ -299,3 +299,45 @@ Keep established technical terms consistent across Chinese localization stages a
 
 - `F016`: add the shared terminology contract and correct the current article from `控制平面` to `控制面`.
 - `F017`: version and install all localization prompts, enforce prompt parity, and repair stale workflow progress.
+- `F022`: exclude protected non-`text` code fences from deterministic terminology scanning while continuing to validate natural-language prose and `text` fences.
+
+## 12. Stable Publication Dates During Regeneration
+
+### Goal
+
+Allow source-metadata changes such as series assignment to regenerate an existing Obsidian publication without making an older article appear newly published.
+
+### Included Scope
+
+- Reuse the existing English projection date when regenerating an article.
+- Fall back to the paired Chinese projection date when only that file exists.
+- Use the current time only for a genuinely new projection.
+- Add `Obsidian Publishing Pipeline` series metadata to the two approved source articles and regenerate both bilingual projections.
+
+### Excluded Scope
+
+- Changing Hugo's chronological sorting rules.
+- Automatically synchronizing the regenerated projections to GitHub.
+- Replacing the explicit human approval gate.
+
+### Core Flow
+
+`source metadata change -> Publish Note -> preserve existing date -> regenerate bilingual projection -> verify series order -> human approval`.
+
+### Constraints
+
+- Article metadata remains owned by the Obsidian source notes.
+- Existing published dates must remain byte-for-byte stable.
+- The two language variants must share the same date, series name, and series order.
+- The previously approved Chinese wording “此外，所有模型阶段还会收到同一份术语约定” must survive regeneration.
+
+### Verification Surface
+
+- Unit coverage for existing English date, Chinese fallback date, and new-article fallback.
+- Installed publisher parity and doctor checks.
+- Both regenerated projections contain the intended series metadata and original dates.
+- Hugo production build and rendered series-order inspection.
+
+### Decomposition
+
+This requirement is one feature, `F023`, because date preservation and the two-article series migration share one publishing-regeneration acceptance boundary.

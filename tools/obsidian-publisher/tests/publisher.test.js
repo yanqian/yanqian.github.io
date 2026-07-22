@@ -51,6 +51,57 @@ test("required terminology rejects literal control-plane translations", () => {
   assert.match(runtime.formatTerminologyInstructions(terminology), /control plane => 控制面/);
 });
 
+test("terminology validation ignores protected code but checks text fences", () => {
+  const terminology = JSON.parse(fs.readFileSync(path.join(TOOL_DIR, "terminology.json"), "utf8")).zh;
+  const source = {
+    title: "Control Plane Terminology",
+    body: "A control plane handles requests.\n\n```json\n{\"avoid\": [\"控制平面\"]}\n```",
+  };
+
+  assert.doesNotThrow(() => runtime.validateTerminology(
+    source,
+    {
+      title: "控制面术语",
+      body: "控制面负责处理请求。\n\n```json\n{\"avoid\": [\"控制平面\"]}\n```",
+    },
+    "zh",
+    terminology,
+  ));
+  assert.throws(() => runtime.validateTerminology(
+    source,
+    {
+      title: "控制面术语",
+      body: "控制面负责处理请求。\n\n```text\n不要写成控制平面。\n```",
+    },
+    "zh",
+    terminology,
+  ), /use 控制面, not 控制平面/);
+});
+
+test("regeneration preserves an existing publication date with bilingual fallback", async () => {
+  const englishDate = "2026-07-21T09:11:29+08:00";
+  const chineseDate = "2026-07-20T14:33:24+08:00";
+  const fallback = "2026-07-22T10:00:00+08:00";
+  const targetDir = "Publish/example";
+  const appFor = (files) => ({
+    vault: {
+      getAbstractFileByPath: (filePath) => (
+        Object.hasOwn(files, filePath) ? { path: filePath, extension: "md" } : null
+      ),
+      read: async (file) => files[file.path],
+    },
+  });
+
+  assert.equal(await runtime.resolvePublishDate(appFor({
+    [`${targetDir}/index.md`]: `---\ndate: "${englishDate}"\n---\n`,
+    [`${targetDir}/index.zh.md`]: `---\ndate: "${chineseDate}"\n---\n`,
+  }), targetDir, fallback), englishDate);
+  assert.equal(await runtime.resolvePublishDate(appFor({
+    [`${targetDir}/index.zh.md`]: `---\ndate: "${chineseDate}"\n---\n`,
+  }), targetDir, fallback), chineseDate);
+  assert.equal(await runtime.resolvePublishDate(appFor({}), targetDir, fallback), fallback);
+});
+
 test("long Markdown splits only at level-two section boundaries", () => {
   const fixture = fs.readFileSync(path.join(TOOL_DIR, "fixtures/long-technical-article.md"), "utf8");
   const longMarkdown = Array.from({ length: 30 }, (_, index) => fixture.replace(/^## /gm, `## ${index + 1} `)).join("\n\n");

@@ -252,6 +252,38 @@
         "The Chinese navigation exposes the Resume translation with exactly one current menu item.",
         "Automated tests, a production build, and manual local-preview checks pass before user review."
       ]
+    },
+    {
+      "id": "F022",
+      "description": "Prevent protected non-text code examples from causing false terminology failures while preserving terminology enforcement for prose and localizable text fences.",
+      "passes": true,
+      "status": "done",
+      "attempts": 1,
+      "last_error": "",
+      "priority": "P1",
+      "acceptance_criteria": [
+        "Terminology validation ignores source and candidate content inside protected non-text fenced code blocks.",
+        "Terminology validation continues to reject avoided terms in prose and localizable text fences.",
+        "The canonical runtime and installed Obsidian artifact have matching hashes after installation.",
+        "The previously blocked bilingual article completes Publish Note and preserves its protected JSON terminology example byte for byte.",
+        "Automated tests and a production Hugo build pass."
+      ]
+    },
+    {
+      "id": "F023",
+      "description": "Preserve an article's first publication date during regeneration and safely group the two Obsidian publishing articles into an ordered bilingual series.",
+      "passes": true,
+      "status": "done",
+      "attempts": 1,
+      "last_error": "",
+      "priority": "P0",
+      "acceptance_criteria": [
+        "Regenerating an existing projection preserves its original publication date instead of using the current time.",
+        "A missing English projection can reuse the paired Chinese date, while a new article uses the current-time fallback.",
+        "Both source notes use series Obsidian Publishing Pipeline with seriesOrder 1 and 2 respectively.",
+        "Both regenerated language pairs share the correct series metadata, preserve their dates, and retain reviewed article wording and protected Markdown.",
+        "Publisher tests, installed runtime parity, doctor, and the Hugo production build pass before site synchronization."
+      ]
     }
   ]
 }

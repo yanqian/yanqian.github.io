@@ -170,7 +170,12 @@ module.exports = async (params) => {
     return;
   }
 
-  const publishDate = window.moment().format("YYYY-MM-DDTHH:mm:ssZ");
+  const targetDir = `Publish/${source.slug}`;
+  const publishDate = await resolvePublishDate(
+    app,
+    targetDir,
+    window.moment().format("YYYY-MM-DDTHH:mm:ssZ"),
+  );
   const sharedMetadata = {
     publishDate,
     slug: source.slug,
@@ -186,8 +191,6 @@ module.exports = async (params) => {
     [source.language]: { title: source.title, body: source.body },
     [targetLanguage]: localized,
   };
-  const targetDir = `Publish/${source.slug}`;
-
   try {
     await ensureFolder(app, targetDir);
     await copyReferencedAssets(app, activeFile, content, targetDir);
@@ -511,8 +514,8 @@ function formatTerminologyInstructions(terminology) {
 }
 
 function validateTerminology(source, candidate, targetLanguage, terminology) {
-  const sourceText = `${source.title}\n${source.body}`.toLocaleLowerCase();
-  const candidateText = `${candidate.title}\n${candidate.body}`;
+  const sourceText = `${source.title}\n${maskProtectedCodeBlocks(source.body).body}`.toLocaleLowerCase();
+  const candidateText = `${candidate.title}\n${maskProtectedCodeBlocks(candidate.body).body}`;
   for (const entry of terminology) {
     if (
       typeof entry.source !== "string" || !entry.source ||
@@ -1003,6 +1006,20 @@ async function writeCache(app, path, cache) {
   await upsertFile(app, path, `${JSON.stringify(cache, null, 2)}\n`);
 }
 
+async function resolvePublishDate(app, targetDir, fallback) {
+  for (const name of ["index.md", "index.zh.md"]) {
+    const file = app.vault.getAbstractFileByPath(`${targetDir}/${name}`);
+    if (!file || !("extension" in file)) continue;
+    try {
+      const existingDate = getFrontmatterScalar(await app.vault.read(file), "date");
+      if (existingDate && Number.isFinite(Date.parse(existingDate))) return existingDate;
+    } catch (error) {
+      console.warn(`Ignoring unreadable publication date in ${file.path}`, error);
+    }
+  }
+  return fallback;
+}
+
 function hashString(value) {
   let hash = 2166136261;
   for (let i = 0; i < value.length; i++) {
@@ -1253,6 +1270,7 @@ module.exports.__test = {
   restoreProtectedMarkdown,
   restoreWikilinkTargets,
   restoreLocalizedTitleAndHeadings,
+  resolvePublishDate,
   splitMarkdownForLocalization,
   pairMarkdownForLocalization,
   processChunks,

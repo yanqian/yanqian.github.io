@@ -42,14 +42,16 @@ Implemented behavior:
 - The Projects page now has a user-approved Simplified Chinese translation at `/zh/projects/`, paired directly with `/projects/`; it preserves all four project entries, seven external links, three Bot commands, project statuses, and safety boundaries.
 - The Resume page now has a user-approved Simplified Chinese translation at `/zh/resume/`, paired directly with `/resume/`; it preserves the 10+ years statement, professional themes, technology names, public contacts, and the source's privacy boundary.
 - All four repository-owned top-level pages—About, Now, Projects, and Resume—now have reviewed Chinese translations and direct bilingual switching.
+- Terminology validation now ignores protected non-`text` code fences while still enforcing preferred terms in prose and localizable `text` fences; the bilingual-pipeline article completes draft generation with its JSON terminology example unchanged.
+- Regenerating an existing Obsidian publication now preserves its original date, with English-first and Chinese-fallback lookup; the two publishing articles form the ordered bilingual `Obsidian Publishing Pipeline` series in the reviewed vault projection.
 
 ## Last Completed Feature
 
-`F021` - Localize and verify the Resume page.
+`F023` - Preserve publication dates during regeneration and create the ordered Obsidian publishing series.
 
 ## Next Feature
 
-Awaiting the next article-localization or site-development requirement.
+Awaiting human approval to synchronize the reviewed `Obsidian Publishing Pipeline` series projection.
 
 ## Known Issues
 
