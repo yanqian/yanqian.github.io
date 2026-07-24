@@ -4,6 +4,7 @@ draft = false
 title = '近况'
 description = 'Armstrong Yan 最近在关注的事：工程、写作、工具、运动，以及在新加坡的生活。'
 translationKey = 'now'
+song_reveal = true
 +++
 
 这页记录我此刻在关注的事情，包括工作，也包括工作之外的生活。
@@ -31,8 +32,10 @@ translationKey = 'now'
 
 有两首歌我总会反复听，因为它们带着一种我喜欢的生命力：
 
+{{< song-reveal title="藏着两首歌" hint="拉动边缘撕开" label="两首歌被一张可以撕开的贴纸盖住。拉动边缘或按 Enter 键揭开。" revealed="歌曲已揭开。" >}}
 - [浜崎あゆみ - MY ALL](https://www.youtube.com/watch?v=ntpxLWnf7h4&list=RDntpxLWnf7h4&start_radio=1)
 - [中島美嘉 - 僕が死のうと思ったのは](https://www.youtube.com/watch?v=lnLDHIDOT00&list=RDlnLDHIDOT00&start_radio=1)
+{{< /song-reveal >}}
 
 它们没有回避生活中艰难的部分：失败、衰老、疾病、失去，还有现实生活本身的重量。但它们依然有向前的力量。那种感觉对我很重要：看清现实，不假装一切都好，但今天仍然选择往前走。
 

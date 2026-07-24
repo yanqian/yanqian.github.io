@@ -42,6 +42,7 @@ python3 -m py_compile orchestrator.py
 | Selection quote comments | Tests assert post pages load the selection-comment script and the script scopes selection to article content, formats Markdown quotes, uses clipboard fallback, scrolls to giscus comments, and hides outside article selections. |
 | Multilingual site shell | Tests assert English root URLs remain stable, Chinese output is generated under `/zh/`, interface strings and menus are localized, language switches use paired translations or language-home fallbacks, and alternate-language metadata is rendered. |
 | Localized top-level pages | Per-page tests assert English facts and URLs remain intact, Chinese pages render under `/zh/`, paired language switches target the corresponding page, and page-specific shared template copy is localized. |
+| Now song reveal | Tests assert both Now pages preserve the two song links inside a progressively enhanced sticker reveal, load the dependency-free script only when flagged, support pointer/touch and keyboard reveal, keep a full reveal uncovered until refresh, avoid persistence APIs, respect reduced motion, and use theme tokens. |
 | Obsidian localization publisher | Node tests assert fenced code is excluded from heading parsing, technical headings remain valid, shared terminology rejects known literal variants in prose and `text` fences while ignoring protected non-`text` code, regeneration preserves an existing English publication date with Chinese fallback and a new-article fallback, long Markdown splits at section boundaries, protected code remains intact, completed chunks resume idempotently, live locks reject duplicate runs, AI calls time out, the launcher uses command IDs with startup proof, and local vault artifacts and manifest hashes match the canonical runtime, six prompts, and terminology file when available. |
 | Hugo rendering | `init.sh` runs a production-style Hugo build and requires `public/index.html`. |
 | Deployment parity | GitHub Actions runs unittest discovery before the Pages build. |
@@ -57,6 +58,7 @@ Manual verification is required for layout or navigation changes:
 4. Check at least one post page, one series page, and one topic/taxonomy page.
 5. Confirm no text overlap, broken navigation, missing CSS, or missing article assets.
 6. Switch between English and Chinese from the homepage, an untranslated article, and any paired fixture page; confirm paired pages are preferred and fallback links go to the other language homepage.
+7. On both Now pages, partially peel the song sticker and confirm it returns; peel right, left, down, and up past the threshold and confirm departure ends in the matching direction and stays gone; refresh and confirm it returns; use Enter or Space; and check desktop/mobile light/dark layouts.
 
 For workflow changes, also run:
 

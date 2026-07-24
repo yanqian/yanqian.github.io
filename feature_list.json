@@ -284,6 +284,23 @@
         "Both regenerated language pairs share the correct series metadata, preserve their dates, and retain reviewed article wording and protected Markdown.",
         "Publisher tests, installed runtime parity, doctor, and the Hugo production build pass before site synchronization."
       ]
+    },
+    {
+      "id": "F024",
+      "description": "Cover the two songs on the bilingual Now page with a peel-to-reveal sticker that stays removed until refresh.",
+      "passes": false,
+      "status": "in_progress",
+      "attempts": 1,
+      "last_error": "",
+      "priority": "P1",
+      "acceptance_criteria": [
+        "English and Chinese Now pages keep both existing song titles and YouTube URLs inside an accessible reveal component.",
+        "A theme-aware sticker covers only the song list after progressive enhancement and supports pointer or touch peeling from any edge.",
+        "A full peel departs in the reader's locked drag direction—right, left, down, or up—and leaves the songs visible for the rest of the page view; a partial peel returns to the covered state.",
+        "Enter or Space reveals the songs, focus moves to the first song link, and reduced-motion preferences are respected.",
+        "Reveal state is never persisted or automatically reset; refreshing the page recreates the sticker from initial markup.",
+        "The script loads only on flagged Now pages, while automated tests, the production Hugo build, and desktop and mobile visual checks pass."
+      ]
     }
   ]
 }

@@ -341,3 +341,58 @@ Allow source-metadata changes such as series assignment to regenerate an existin
 ### Decomposition
 
 This requirement is one feature, `F023`, because date preservation and the two-article series migration share one publishing-regeneration acceptance boundary.
+
+## 13. Peel-to-Reveal Songs on the Now Page
+
+### Goal
+
+Turn the two-song list on the bilingual Now page into a small, tactile discovery: a sticker initially covers the songs, and peeling it away reveals the list for the rest of the current page view.
+
+### Included Scope
+
+- Keep both existing song titles and YouTube URLs unchanged on the English and Chinese Now pages.
+- Cover only the two-song list with a theme-aware sticker; surrounding Listening copy remains visible.
+- Let pointer and touch users peel from any edge, showing the song list progressively beneath the sticker.
+- A sufficiently deep peel removes the sticker in the actual locked drag direction—right, left, down, or up—and leaves the songs visible.
+- Partial peels return to the covered state.
+- Enter or Space reveals the songs for keyboard users; reduced-motion users reveal them immediately.
+- Refreshing or revisiting the page restores the sticker because reveal state is not persisted.
+
+### Excluded Scope
+
+- Any homepage sticker or personal-brand wordmark treatment.
+- Audio playback, embedded YouTube players, autoplay, analytics, or changes to the song links.
+- Persisting reveal state in cookies, local storage, session storage, or a backend.
+- Automatically covering the songs again during the same page view.
+
+### Core Flow
+
+`Now page opens -> sticker covers the two-song list -> reader partially peels and releases, or peels past the threshold -> sticker departs -> songs remain visible until page refresh`.
+
+### Constraints And Assumptions
+
+- The effect is limited to repository-owned `content/now.md` and `content/now.zh.md`.
+- Without JavaScript, the song list remains visible and usable.
+- JavaScript adds the cover and temporarily removes the hidden links from keyboard and assistive-technology navigation.
+- The visual treatment uses existing site tokens and stays readable in light and dark modes.
+
+### Required Capabilities And Implementation Paths
+
+- A paired Hugo shortcode under `layouts/shortcodes/`.
+- Now-page-only script loading through a frontmatter flag and the Hugo asset pipeline.
+- Dependency-free pointer, keyboard, accessibility, and reduced-motion behavior in `assets/js/song-reveal.js`.
+- Theme-aware presentation in `assets/css/custom.css`.
+- Automated rendered-output and interaction-contract tests under `tests/`.
+
+### Verification Surface
+
+- English and Chinese Now pages render the same two links inside the reveal component.
+- The homepage and unrelated pages do not render the component or load its script.
+- A full peel or keyboard activation removes the sticker without scheduling a return.
+- A partial peel springs back, and refreshing restores the initial sticker.
+- No persistence API is used.
+- Desktop and mobile checks cover light/dark contrast, clipping, departure, link focus, and layout stability.
+
+### Decomposition
+
+This requirement is one feature, `F024`, because the paired content wrapper, shortcode, scoped asset loading, reveal behavior, accessibility, and verification form one cohesive Now-page interaction.

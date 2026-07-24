@@ -7,6 +7,10 @@
 {{ end }}
 
 {{ if .IsPage }}
+  {{ if .Params.song_reveal }}
+    {{ $songRevealScript := resources.Get "js/song-reveal.js" | minify | fingerprint }}
+    <script defer src="{{ $songRevealScript.RelPermalink }}" integrity="{{ $songRevealScript.Data.Integrity }}" crossorigin="anonymous"></script>
+  {{ end }}
   {{ $toc := default .Site.Params.Entry.toc .Params.toc }}
   {{ if and (eq .Section "posts") $toc }}
     {{ $tocScript := resources.Get "js/post-toc.js" | minify | fingerprint }}

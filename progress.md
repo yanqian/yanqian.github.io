@@ -52,10 +52,19 @@ Implemented behavior:
 
 ## Next Feature
 
-Awaiting the next article-localization or site-development requirement.
+`F024` - Cover the two songs on the bilingual Now page with a peel-to-reveal sticker that stays removed until refresh.
 
 ## Known Issues
 
 - `hugo --gc` can clean tracked files under `resources/_gen/`; restore them before committing if they are not part of the intended change.
 - The installed Codex CLI cannot currently run the configured `gpt-5.6-sol` evaluator model; `orchestrator.py --eval-only` requires a CLI upgrade or compatible durable provider configuration.
 - `F011` used the documented manual fallback because that provider gap prevents a separate orchestrated evaluator; its smoke-test evidence is recorded under `runs/`.
+
+## Active Work
+
+- The rejected homepage brand-sticker experiment has been fully removed; the homepage is restored to its prior heading and spacing.
+- `F024` is re-scoped to the bilingual Now page: a sticker covers only the existing two-song list, a full peel removes it for the current page view, and refresh restores it.
+- The implementation uses a paired shortcode, Now-page-only asset loading, no persistence API, and a no-JavaScript fallback that leaves both song links visible.
+- The sticker has dedicated light and dark palettes for its surface, border, text, sheen, paper texture, peel edge, and shadow instead of inheriting one generic treatment in both themes.
+- Browser verification passes: the exit animation follows the locked real drag direction in all four directions (right/left/down/up), a partial real drag returns to the covered state, a full real drag leaves the sticker hidden and the songs visible, refresh restores the covered state, Enter reveals and focuses the first song, and the 390px Chinese layout has no horizontal overflow in light or dark mode.
+- Local verification passes: 58 Python tests, 15 publisher tests, JavaScript syntax validation, `git diff --check`, and the production Hugo build.

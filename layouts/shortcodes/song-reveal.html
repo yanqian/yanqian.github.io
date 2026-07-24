@@ -1,0 +1,18 @@
+{{- $id := printf "song-reveal-%d" .Ordinal -}}
+<div class="song-reveal" data-song-reveal>
+  <div class="song-reveal__content" id="{{ $id }}">
+    {{ .Inner | markdownify }}
+  </div>
+  <button
+    class="song-reveal__sticker"
+    type="button"
+    aria-controls="{{ $id }}"
+    aria-expanded="false"
+    aria-label="{{ .Get "label" }}"
+    data-revealed-label="{{ .Get "revealed" }}"
+  >
+    <span class="song-reveal__sticker-title">{{ .Get "title" }}</span>
+    <span class="song-reveal__sticker-hint">{{ .Get "hint" }}</span>
+  </button>
+  <span class="song-reveal__status" data-song-reveal-status aria-live="polite"></span>
+</div>
