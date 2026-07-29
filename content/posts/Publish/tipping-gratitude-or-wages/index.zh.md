@@ -1,5 +1,5 @@
 ---
-title: "小费：我是在表达感谢，还是在发工资？"
+title: "小费：站在 POS 机前，我是在表达感谢，还是在替别人发工资？"
 date: "2026-07-29T16:41:40+08:00"
 draft: false
 translationKey: tipping-gratitude-or-wages

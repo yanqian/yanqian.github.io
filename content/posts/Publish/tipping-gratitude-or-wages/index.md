@@ -1,5 +1,5 @@
 ---
-title: "Tipping: Am I Saying Thank You, or Paying Someone’s Wages?"
+title: "Tipping: At the POS Screen, Am I Saying Thank You—or Paying Someone Else’s Wages?"
 date: "2026-07-29T16:41:40+08:00"
 draft: false
 translationKey: tipping-gratitude-or-wages
