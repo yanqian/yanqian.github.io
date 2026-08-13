@@ -166,15 +166,17 @@ Packaging checks once revealed that a release binary contained a local project b
 
 Reproducible builds are not about earning an attractive engineering label. They answer a practical question: Is the artifact I give someone else the same artifact I actually tested?
 
-## Without Signing, I Do Not Pretend It Is Ready for Public Release
+## Publicly Downloadable Is Not the Same as Ready for Public Distribution
 
 The v0.1.0 internal DMG accepted under F092 is about 45.4 MB and supports only Apple Silicon Macs running macOS 14 or later. Internal testing covers installation, launch, manual updates, rollback, and uninstallation. But the build has no Developer ID signature and has not undergone Apple notarization.
 
-I therefore label it explicitly as `INTERNAL-UNSIGNED`. It is intended only for me and for informed, trusted testers. It is not a public download for anonymous users, and I do not claim that it has passed the standard Gatekeeper distribution process.
+I now make it publicly available as the [v0.1.0-internal GitHub Release](https://github.com/yanqian/hey-jarvis/releases/tag/v0.1.0-internal), so informed testers can download and evaluate it. It remains explicitly labeled `INTERNAL-UNSIGNED`. Publicly downloadable does not mean it is a general consumer release, and it has not passed the standard Gatekeeper distribution process.
+
+The Release includes the DMG, its matching `.sha256` file, and installation guides in English and Chinese. Downloaders should verify the SHA-256 checksum first. If macOS blocks the initial launch, they should use **System Settings → Privacy & Security → Open Anyway** only after deciding that they trust the artifact—not disable Gatekeeper or remove quarantine metadata.
 
 That may look like a release note, but it is also part of the product boundary.
 
-“I can open it on my own Mac” and “I can safely distribute it to anyone” are two different conclusions. Honestly acknowledging that gap matters more than presenting an unsigned DMG as a finished product.
+“I can make it available for download” and “I can safely distribute it to any ordinary user” remain two different conclusions. Honestly acknowledging that gap matters more than presenting an unsigned DMG as a finished product.
 
 ## Product Complexity Hides in the Failure Paths
 

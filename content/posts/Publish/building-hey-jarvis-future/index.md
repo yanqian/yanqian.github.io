@@ -105,7 +105,7 @@ The next step for Hey Jarvis should not simply be to add more models or a few mo
 
 Dedicated hardware is a more distant goal. In the meantime, the Mac version still has several practical avenues for growth.
 
-The first step is proper distribution. The current internal DMG has neither Developer ID signing nor notarization, and it lacks an automatic update mechanism. If more people are going to try it, signing, notarization, a stable bundle identity, upgrades, and rollbacks must all become part of a formal release process.
+The first step is proper distribution. A publicly downloadable [v0.1.0-internal GitHub Release](https://github.com/yanqian/hey-jarvis/releases/tag/v0.1.0-internal) now exists, but it still lacks Developer ID signing, notarization, and automatic updates. Before it can be offered to general users, signing, notarization, a stable bundle identity, upgrades, and rollbacks must all become part of a formal release process.
 
 The second step is to reduce startup friction. Launch at login, a clear indication of background status, and reliable recovery after a system update or crash would make Hey Jarvis feel more like a persistent assistant and less like an app that must be opened manually from time to time.
 

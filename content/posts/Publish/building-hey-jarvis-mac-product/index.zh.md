@@ -166,15 +166,17 @@ Python sidecar 依赖唤醒模型、音频库和包含原生代码的机器学�
 
 可复现构建不是为了追求一个漂亮的工程标签，而是为了回答：我交给别人的，是否就是我测试过的那一份东西？
 
-## 没有签名，就不假装它已经可以公开发布
+## 公开可下载，不等于已经准备好公开分发
 
 F092 验收的 v0.1.0 内部 DMG 大约 45.4 MB，只支持 Apple Silicon 和 macOS 14 及以上版本。内部测试流程覆盖安装、运行、手动更新、回滚和卸载，但它没有 Developer ID 签名，也没有经过 Apple notarization。
 
-因此我把它明确标记为 `INTERNAL-UNSIGNED`，只用于我自己和知情的可信测试者。它不是面向匿名用户的公开下载版本，也不声称已经通过 Gatekeeper 的正常分发流程。
+我现在把它作为 [v0.1.0-internal GitHub Release](https://github.com/yanqian/hey-jarvis/releases/tag/v0.1.0-internal) 公开提供，方便知情的测试者下载和评估，但仍明确标记为 `INTERNAL-UNSIGNED`。公开可下载不等于面向普通消费者的正式版本，它也没有通过 Gatekeeper 的正常分发流程。
+
+Release 同时提供 DMG、对应的 `.sha256` 文件以及中英文安装说明。下载者应该先校验 SHA-256；如果 macOS 阻止首次启动，也只应在确认信任构建产物后，通过 **System Settings → Privacy & Security → Open Anyway** 放行，而不是关闭 Gatekeeper 或移除 quarantine 标记。
 
 这看起来像一句发布说明，实际上也是产品边界的一部分。
 
-“我能在自己的 Mac 上打开它”与“我有能力安全地把它分发给任何人”是两个不同的结论。诚实地保留这个差距，比把一个 unsigned DMG 包装成已经完成的产品更重要。
+“我可以让别人下载它”与“我有能力安全地把它分发给任何普通使用者”仍然是两个不同的结论。诚实地保留这个差距，比把一个 unsigned DMG 包装成已经完成的产品更重要。
 
 ## 产品的复杂度，藏在失败路径里
 

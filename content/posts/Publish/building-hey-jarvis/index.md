@@ -37,9 +37,15 @@ What I wanted was simple:
 
 So I started building Hey Jarvis.
 
-> A Chinese-language feature demo (3 minutes 33 seconds) will be linked here once it has been uploaded to YouTube. An English version is in progress.
+Feature demos:
 
-Source code: [yanqian/hey-jarvis](https://github.com/yanqian/hey-jarvis)
+- [English: Building a Local-First macOS Voice Assistant](https://www.youtube.com/watch?v=Cpv3dhFmS3M)
+- [Chinese: Connecting a Siri-Like Wake Word to ChatGPT](https://www.youtube.com/watch?v=PDHQiYzFAXQ&t=9s)
+
+Project and download:
+
+- [Source code: yanqian/hey-jarvis](https://github.com/yanqian/hey-jarvis)
+- [v0.1.0 INTERNAL-UNSIGNED evaluation build](https://github.com/yanqian/hey-jarvis/releases/tag/v0.1.0-internal)
 
 ## The First Version Worked Surprisingly Quickly
 
@@ -131,7 +137,7 @@ It can wait locally for “Hey Jarvis,” then, once activated, begin a continuo
 
 It also has very clear limits.
 
-The current DMG has neither a Developer ID signature nor notarization, so it is suitable only for my own use and for fully informed internal testers. Users must supply their own API Keys. There is no account system, automatic updating, or public download channel. It is not a SaaS product ready for commercialization, nor does implementing these features somehow give it an inherent moat.
+The DMG is now publicly available through a GitHub Release for informed testers to download and evaluate. It still has neither a Developer ID signature nor notarization, so it is not a general consumer release. Users must supply their own API Keys, and there is no account system or automatic updating. It is not a SaaS product ready for commercialization, nor does implementing these features somehow give it an inherent moat.
 
 For me, however, the value of this project was never limited to building yet another voice assistant.
 

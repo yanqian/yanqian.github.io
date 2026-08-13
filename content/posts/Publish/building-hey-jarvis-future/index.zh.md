@@ -105,7 +105,7 @@ Hey Jarvis 的下一步，不应该只是接入更多模型或者再增加几个
 
 独立硬件是更远的方向。在此之前，Mac 版本仍有一些很实际的演进空间。
 
-第一步是完成正常的分发能力。目前的内部 DMG 没有 Developer ID 签名和 notarization，也没有自动更新。未来如果要让更多人试用，签名、notarization、稳定的 bundle identity、升级和回滚都应该成为正式发布流程。
+第一步是完成正常的分发能力。现在已经有一个公开可下载的 [v0.1.0-internal GitHub Release](https://github.com/yanqian/hey-jarvis/releases/tag/v0.1.0-internal)，但它仍然没有 Developer ID 签名、notarization 和自动更新。未来如果要面向普通使用者，签名、notarization、稳定的 bundle identity、升级和回滚都应该成为正式发布流程。
 
 第二步是降低启动摩擦。Launch at login、明确的后台状态，以及系统更新或崩溃后的可靠恢复，都会让它更接近一个长期存在的助手，而不是一个偶尔手动打开的应用。
 

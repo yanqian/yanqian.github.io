@@ -37,9 +37,15 @@ topics:
 
 于是我开始做 Hey Jarvis。
 
-> 中文版功能演示（3 分 33 秒）将在上传 YouTube 后补上链接；英文版正在准备中。
+功能演示：
 
-项目源码：[yanqian/hey-jarvis](https://github.com/yanqian/hey-jarvis)
+- [中文版：让 Siri 级别的唤醒接上 ChatGPT](https://www.youtube.com/watch?v=PDHQiYzFAXQ&t=9s)
+- [English: Building a Local-First macOS Voice Assistant](https://www.youtube.com/watch?v=Cpv3dhFmS3M)
+
+项目与下载：
+
+- [源代码：yanqian/hey-jarvis](https://github.com/yanqian/hey-jarvis)
+- [v0.1.0 INTERNAL-UNSIGNED 内部评估版](https://github.com/yanqian/hey-jarvis/releases/tag/v0.1.0-internal)
 
 ## 第一个版本，其实很快就能工作
 
@@ -131,7 +137,7 @@ API Key 保存在 macOS Keychain；唤醒前的音频留在本地。应用退出
 
 它也有非常明确的边界。
 
-目前的 DMG 没有 Developer ID 签名和 notarization，只适合我自己和明确知情的内部测试者。它需要用户提供自己的 API Key，没有账号系统、自动更新和公开下载渠道。它不是一个已经准备商业化的 SaaS，也没有因为做出了这些功能就天然拥有护城河。
+目前的 DMG 已经通过 GitHub Release 公开提供，方便知情的测试者下载和评估，但它没有 Developer ID 签名和 notarization，仍然不是面向普通消费者的正式版本。它需要使用者提供自己的 API Key，没有账号系统和自动更新。它不是一个已经准备商业化的 SaaS，也没有因为做出了这些功能就天然拥有护城河。
 
 但对我来说，这个项目的价值本来就不只在于“再做一个语音助手”。
 
