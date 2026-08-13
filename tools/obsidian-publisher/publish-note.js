@@ -186,6 +186,7 @@ module.exports = async (params) => {
     topics: source.topics,
     selected: source.selected,
     excludeFromLatest: source.excludeFromLatest,
+    wikilinkSlugs: await resolveWikilinkSlugs(app, activeFile, source.body),
   };
   const documents = {
     [source.language]: { title: source.title, body: source.body },
@@ -229,10 +230,10 @@ function buildSourceDocument(activeFile, content) {
     .toLowerCase()
     .replace(/[^\p{L}\p{N}]+/gu, "-")
     .replace(/^-+|-+$/g, "");
-  const body = content
+  const body = stripObsidianComments(content
     .replace(/^---[\s\S]*?---\s*/, "")
     .replace(new RegExp(`^#\\s+(${escapeRegExp(title)}|${escapeRegExp(fileTitle)})\\s*\\n+`, "m"), "")
-    .replace(/^#public\s*$/gm, "")
+    .replace(/^#public\s*$/gm, ""))
     .trim();
 
   return {
@@ -820,19 +821,12 @@ function restoreWikilinkTargets(sourceBody, document) {
       `Localized article changed the number of Obsidian wikilinks (${sourceMatches.length} -> ${candidateMatches.length}).`,
     );
   }
-  const structureChanged = sourceMatches.some(
-    (sourceMatch, index) => sourceMatch.hasLabel !== candidateMatches[index].hasLabel,
-  );
-  if (structureChanged) {
-    throw new Error("Localized article changed Obsidian wikilink label structure.");
-  }
   let index = 0;
   const body = document.body.replace(pattern, () => {
     const sourceMatch = sourceMatches[index];
     const candidateMatch = candidateMatches[index++];
-    return sourceMatch.hasLabel
-      ? `[[${sourceMatch.target}|${candidateMatch.label}]]`
-      : `[[${sourceMatch.target}]]`;
+    const label = candidateMatch.hasLabel ? candidateMatch.label : null;
+    return label ? `[[${sourceMatch.target}|${label}]]` : `[[${sourceMatch.target}]]`;
   });
   return { ...document, body };
 }
@@ -1044,11 +1038,11 @@ ${formatOptionalYamlBoolean("selected", metadata.selected)}
 ${formatOptionalYamlBoolean("excludeFromLatest", metadata.excludeFromLatest)}
 ---
 
-${convertWikilinksToPublicLinks(document.body, language)}
+${convertWikilinksToPublicLinks(document.body, language, metadata.wikilinkSlugs)}
 `;
 }
 
-function convertWikilinksToPublicLinks(body, language) {
+function convertWikilinksToPublicLinks(body, language, wikilinkSlugs = {}) {
   const fencePattern = /(^|\n)(```|~~~)[^\n]*\n[\s\S]*?\n\2(?=\n|$)/g;
   const blocks = [];
   const masked = body.replace(fencePattern, (block, leadingNewline) => {
@@ -1063,13 +1057,52 @@ function convertWikilinksToPublicLinks(body, language) {
     const label = rawLabel || heading || noteName;
     const anchor = heading ? `#${slugifyPublicPath(heading)}` : "";
     if (!noteName) return `[${label}](${anchor})`;
-    return `[${label}](${prefix}${slugifyPublicPath(noteName)}/${anchor})`;
+    const targetSlug = wikilinkSlugs[rawNote.trim()] || wikilinkSlugs[noteName] || slugifyPublicPath(noteName);
+    return `[${label}](${prefix}${targetSlug}/${anchor})`;
   });
   blocks.forEach((block, index) => {
     const token = `PUBLIC_WIKILINK_CODE_BLOCK_${String(index + 1).padStart(4, "0")}`;
     converted = converted.replace(token, block);
   });
   return converted;
+}
+
+function stripObsidianComments(body) {
+  const fencePattern = /(^|\n)(```|~~~)[^\n]*\n[\s\S]*?\n\2(?=\n|$)/g;
+  const blocks = [];
+  const masked = body.replace(fencePattern, (block, leadingNewline) => {
+    blocks.push(block.replace(/^\n/, ""));
+    return `${leadingNewline}PUBLIC_OBSIDIAN_CODE_BLOCK_${String(blocks.length).padStart(4, "0")}`;
+  });
+  let stripped = masked
+    .replace(/%%[\s\S]*?%%/g, "")
+    .replace(/[ \t]+$/gm, "")
+    .replace(/\n{3,}/g, "\n\n");
+  blocks.forEach((block, index) => {
+    const token = `PUBLIC_OBSIDIAN_CODE_BLOCK_${String(index + 1).padStart(4, "0")}`;
+    stripped = stripped.replace(token, block);
+  });
+  return stripped;
+}
+
+async function resolveWikilinkSlugs(app, sourceFile, body) {
+  const slugs = {};
+  const pattern = /(?<!!)\[\[([^\]|]+)(?:\|[^\]]+)?]]/g;
+  let match;
+  while ((match = pattern.exec(body)) !== null) {
+    const rawNote = match[1].split("#")[0].trim();
+    if (!rawNote || Object.hasOwn(slugs, rawNote)) continue;
+    const target = app.metadataCache?.getFirstLinkpathDest?.(rawNote, sourceFile.path);
+    if (!target || target.extension !== "md") continue;
+    const targetContent = await app.vault.read(target);
+    const configuredSlug = getFrontmatterScalar(targetContent, "slug");
+    if (!configuredSlug) continue;
+    const publicSlug = slugifyPublicPath(configuredSlug);
+    const noteName = rawNote.split("/").pop().replace(/\.md$/i, "");
+    slugs[rawNote] = publicSlug;
+    slugs[noteName] = publicSlug;
+  }
+  return slugs;
 }
 
 function slugifyPublicPath(value) {
@@ -1271,6 +1304,8 @@ module.exports.__test = {
   restoreWikilinkTargets,
   restoreLocalizedTitleAndHeadings,
   resolvePublishDate,
+  resolveWikilinkSlugs,
+  stripObsidianComments,
   splitMarkdownForLocalization,
   pairMarkdownForLocalization,
   processChunks,

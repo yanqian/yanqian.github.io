@@ -17,6 +17,42 @@ test("fenced shell comments are not Markdown headings", () => {
   assert(!headings.includes("# On the Mac"));
 });
 
+test("Obsidian comments are removed without changing fenced code", () => {
+  const source = "Visible.\n\n%% private path: /Users/example/project %%\n\n```text\n%% literal code %%\n```";
+  assert.equal(
+    runtime.stripObsidianComments(source),
+    "Visible.\n\n```text\n%% literal code %%\n```",
+  );
+});
+
+test("public wikilinks honor the target note's configured slug", () => {
+  const body = "Read [[A Long Private Note Name|the previous article]].";
+  assert.equal(
+    runtime.convertWikilinksToPublicLinks(body, "en", { "A Long Private Note Name": "canonical-public-slug" }),
+    "Read [the previous article](/posts/publish/canonical-public-slug/).",
+  );
+});
+
+test("localization may add display labels while preserving wikilink targets", () => {
+  const restored = runtime.restoreWikilinkTargets(
+    "Read [[中文笔记]].",
+    { title: "Title", body: "Read [[Translated Target|the translated note]]." },
+  );
+  assert.equal(restored.body, "Read [[中文笔记|the translated note]].");
+});
+
+test("wikilink slugs resolve from target frontmatter", async () => {
+  const target = { path: "01-Note/Target.md", basename: "Target", extension: "md" };
+  const app = {
+    metadataCache: { getFirstLinkpathDest: () => target },
+    vault: { read: async () => "---\nslug: chosen-target\n---\n" },
+  };
+  assert.deepEqual(
+    await runtime.resolveWikilinkSlugs(app, { path: "01-Note/Source.md" }, "[[Target|read it]]"),
+    { Target: "chosen-target" },
+  );
+});
+
 test("single-token technical headings pass the Chinese quality gate", () => {
   assert.doesNotThrow(() => runtime.validateLocalizationQuality("zh", {
     title: "远程工作流",
