@@ -37,10 +37,7 @@ What I wanted was simple:
 
 So I started building Hey Jarvis.
 
-Feature demos:
-
-- [English: Building a Local-First macOS Voice Assistant](https://www.youtube.com/watch?v=Cpv3dhFmS3M)
-- [Chinese: Connecting a Siri-Like Wake Word to ChatGPT](https://www.youtube.com/watch?v=PDHQiYzFAXQ&t=9s)
+Feature demo: [**English: Building a Local-First macOS Voice Assistant**](https://www.youtube.com/watch?v=Cpv3dhFmS3M)
 
 Project and download:
 

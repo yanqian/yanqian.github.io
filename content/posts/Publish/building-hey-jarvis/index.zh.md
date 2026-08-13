@@ -37,10 +37,7 @@ topics:
 
 于是我开始做 Hey Jarvis。
 
-功能演示：
-
-- [中文版：让 Siri 级别的唤醒接上 ChatGPT](https://www.youtube.com/watch?v=PDHQiYzFAXQ&t=9s)
-- [English: Building a Local-First macOS Voice Assistant](https://www.youtube.com/watch?v=Cpv3dhFmS3M)
+功能演示：[**中文版：让 Siri 级别的唤醒接上 ChatGPT**](https://www.youtube.com/watch?v=PDHQiYzFAXQ&t=9s)
 
 项目与下载：
 
