@@ -396,3 +396,54 @@ Turn the two-song list on the bilingual Now page into a small, tactile discovery
 ### Decomposition
 
 This requirement is one feature, `F024`, because the paired content wrapper, shortcode, scoped asset loading, reveal behavior, accessibility, and verification form one cohesive Now-page interaction.
+
+## 14. Replace Home Guard TG with Hey Jarvis on Projects
+
+### Goal
+
+Keep the bilingual Projects page aligned with the current public portfolio by removing Home Guard TG and adding Hey Jarvis with accurate product, privacy, compatibility, and release-status context.
+
+### Included Scope
+
+- Replace the Home Guard TG entry in both English and Chinese, place Hey Jarvis first, and preserve the relative order of the other projects.
+- Describe Hey Jarvis as a local-first, BYOK macOS voice assistant with local wake-word detection, continuous bilingual conversation, deterministic or provider-backed tools, and native Mac lifecycle safeguards.
+- Link both languages to the public GitHub repository and `v0.1.0-internal` GitHub Release; link the English page only to the English demo and the Chinese page only to the Chinese demo.
+- State that the public evaluation build targets Apple Silicon on macOS 14 or later, is unsigned and not notarized, needs the user's OpenAI API key, and is not a general consumer release.
+- Update the Projects page summary and areas list so they describe voice interaction instead of trusted-host home automation.
+
+### Excluded Scope
+
+- Editing the generated Hey Jarvis article under `content/posts/Publish/`.
+- Linking the introductory article from the Projects entry.
+- Showing both language demos on the same Projects page.
+- Embedding YouTube players or release downloads in the Projects page.
+- Claiming Developer ID signing, notarization, automatic updates, general consumer readiness, or commercial maturity.
+- Changing the other project entries or their order.
+
+### Core Flow
+
+`reader opens Projects -> finds Hey Jarvis first -> understands its local-first voice workflow and evaluation-build limits -> chooses source, same-language demo, or release link`.
+
+### Constraints And Assumptions
+
+- English and Chinese carry the same product facts and release boundaries in natural language, while each page exposes only its matching-language demo.
+- Public repository, article, demo, and release pages are the factual references.
+- The exact Chinese demo URL keeps its supplied `t=9s` parameter.
+
+### Required Capabilities And Implementation Paths
+
+- Repository-owned bilingual pages at `content/projects.md` and `content/projects.zh.md`.
+- Existing Projects content tests under `tests/test_projects_page.py`.
+- Production Hugo rendering through `./init.sh`.
+
+### Verification Surface
+
+- Both source pages place Hey Jarvis first and contain GitHub, the matching-language demo, and the internal release link.
+- Neither page links the introductory article or the other language's demo.
+- Neither source page contains Home Guard TG or its repository URL.
+- Automated checks preserve the local-first/BYOK description and unsigned, unnotarized evaluation-build boundary in both languages.
+- The production Hugo build renders `/projects/` and `/zh/projects/` successfully.
+
+### Decomposition
+
+This requirement is one feature, `F025`, because the bilingual replacement, factual links, release boundary, and regression checks form one Projects-page content change with one rendered verification surface.

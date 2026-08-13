@@ -227,19 +227,20 @@ class MultilingualSiteTest(unittest.TestCase):
         english = self.read_output("projects/index.html")
         chinese = self.read_output("zh/projects/index.html")
         project_names = [
+            "Hey Jarvis",
             "VisaPilot",
             "Gentle Memories",
             "Remote Agent TG",
-            "Home Guard TG",
         ]
-        project_urls = [
+        shared_project_urls = [
             "https://visa-pilot.github.io/",
             "https://chromewebstore.google.com/detail/visapilot/bckkbhikcbpnmackbcakigkgjmlofhjd?authuser=0&hl=zh-CN",
             "https://microsoftedge.microsoft.com/addons/detail/visapilot/jihoainpnmdeficfplnebeebpmjjcpag",
             "https://github.com/yanqian/gentle-memories-obsidian",
             "https://community.obsidian.md/plugins/gentle-memories",
             "https://github.com/yanqian/agent-remote-tg",
-            "https://github.com/yanqian/home-guard-tg",
+            "https://github.com/yanqian/hey-jarvis",
+            "https://github.com/yanqian/hey-jarvis/releases/tag/v0.1.0-internal",
         ]
 
         self.assertIn("translationKey = 'projects'", EN_PROJECTS)
@@ -248,11 +249,18 @@ class MultilingualSiteTest(unittest.TestCase):
         self.assertEqual(positions, sorted(positions))
         for name in project_names:
             self.assertIn(f"### {name}", ZH_PROJECTS)
-        for url in project_urls:
+        for url in shared_project_urls:
             self.assertIn(url, EN_PROJECTS)
             self.assertIn(url, ZH_PROJECTS)
-        for command in ("/camera_clip", "/photo", "/sound_alarm"):
-            self.assertIn(f"`{command}`", ZH_PROJECTS)
+        self.assertIn("https://www.youtube.com/watch?v=Cpv3dhFmS3M", EN_PROJECTS)
+        self.assertNotIn("https://www.youtube.com/watch?v=Cpv3dhFmS3M", ZH_PROJECTS)
+        self.assertIn("https://www.youtube.com/watch?v=PDHQiYzFAXQ&t=9s", ZH_PROJECTS)
+        self.assertNotIn("https://www.youtube.com/watch?v=PDHQiYzFAXQ&t=9s", EN_PROJECTS)
+        for page in (EN_PROJECTS, ZH_PROJECTS):
+            self.assertNotIn("https://yanqian.github.io/posts/publish/building-hey-jarvis/", page)
+        self.assertIn("唤醒前的麦克风音频留在本地", ZH_PROJECTS)
+        self.assertIn("未经签名和公证", ZH_PROJECTS)
+        self.assertNotIn("Home Guard TG", ZH_PROJECTS)
         self.assertIn('class="language-switch" href="/zh/projects/"', english)
         self.assertIn('class="language-switch" href="/projects/"', chinese)
         self.assertIn('<html lang="zh">', chinese)

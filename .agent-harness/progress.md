@@ -54,7 +54,7 @@ Implemented behavior:
 
 ## Last Completed Feature
 
-`F023` - Preserve publication dates during regeneration and create the ordered Obsidian publishing series.
+`F025` - Replace Home Guard TG with Hey Jarvis on the bilingual Projects page.
 
 ## Next Feature
 
@@ -74,7 +74,7 @@ Implemented behavior:
 - The sticker has dedicated light and dark palettes for its surface, border, text, sheen, paper texture, peel edge, and shadow instead of inheriting one generic treatment in both themes.
 - Browser verification passes: the exit animation follows the locked real drag direction in all four directions (right/left/down/up), a partial real drag returns to the covered state, a full real drag leaves the sticker hidden and the songs visible, refresh restores the covered state, Enter reveals and focuses the first song, and the 390px Chinese layout has no horizontal overflow in light or dark mode.
 - Local verification passes: 58 Python tests, 15 publisher tests, JavaScript syntax validation, `git diff --check`, and the production Hugo build.
-- `F025` was implemented through the documented manual fallback before the provider repair and still requires an independent evaluator pass before completion.
+- `F025` was implemented through the documented manual fallback before the provider repair and passed the repaired provider's independent cold-start evaluator.
 - The English and Chinese Projects pages replace Home Guard TG with Hey Jarvis as the first selected project while preserving the relative order of the other projects.
 - Hey Jarvis exposes GitHub and `v0.1.0-internal` release links in both languages, plus only the matching-language demo; the article and cross-language demo links are intentionally omitted.
 

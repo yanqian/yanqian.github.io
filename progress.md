@@ -20,7 +20,7 @@ Implemented behavior:
 - Generated article content stays under `content/posts/Publish/`.
 - `selected` remains the homepage curation field.
 - Article code blocks now use class-based Chroma highlighting with GitHub light/dark colors, a lighter code panel, code typography tuned for readability, no visible `text` language label, and a unified code-block background that matches inline code.
-- The Projects page now includes `home-guard-tg` with a public GitHub link and README reference.
+- The bilingual Projects page now replaces Home Guard TG with Hey Jarvis, including its public repository, a language-matched demo, and unsigned internal release with explicit compatibility and trust boundaries.
 - The Projects page now marks `Gentle Memories` as community review approved and links to the public Obsidian review page.
 - The About and Resume pages now present a resume-informed public professional profile without private contact details, and the About terminal block uses the same background palette as code blocks.
 - GitHub Discussions is enabled for `yanqian/yanqian.github.io`, and article pages now render giscus-powered comment sections backed by the repository's `General` discussion category.
@@ -39,7 +39,7 @@ Implemented behavior:
 - Remote Agent Workflow Part 2 is published in English and Chinese at commit `d8317df`; the prior “awaiting approval” status was stale and has been cleared.
 - The About page now has a user-approved Simplified Chinese translation at `/zh/about/`, paired directly with `/about/`; its terminal copy and navigation entry use the existing Hugo i18n system.
 - The Now page now has a user-approved Simplified Chinese translation at `/zh/now/`, paired directly with `/now/`; it preserves the page's current-state framing, links, certification, driving-licence milestone, and update date.
-- The Projects page now has a user-approved Simplified Chinese translation at `/zh/projects/`, paired directly with `/projects/`; it preserves all four project entries, seven external links, three Bot commands, project statuses, and safety boundaries.
+- The Projects page has a user-approved Simplified Chinese translation at `/zh/projects/`, paired directly with `/projects/`; the current bilingual content preserves all four project entries, language-scoped external links, project statuses, and safety boundaries.
 - The Resume page now has a user-approved Simplified Chinese translation at `/zh/resume/`, paired directly with `/resume/`; it preserves the 10+ years statement, professional themes, technology names, public contacts, and the source's privacy boundary.
 - All four repository-owned top-level pages—About, Now, Projects, and Resume—now have reviewed Chinese translations and direct bilingual switching.
 - Terminology validation now ignores protected non-`text` code fences while still enforcing preferred terms in prose and localizable `text` fences; the bilingual-pipeline article completes draft generation with its JSON terminology example unchanged.
@@ -48,7 +48,7 @@ Implemented behavior:
 
 ## Last Completed Feature
 
-`F023` - Preserve publication dates during regeneration and create the ordered Obsidian publishing series.
+`F025` - Replace Home Guard TG with Hey Jarvis on the bilingual Projects page.
 
 ## Next Feature
 
@@ -57,8 +57,7 @@ Implemented behavior:
 ## Known Issues
 
 - `hugo --gc` can clean tracked files under `resources/_gen/`; restore them before committing if they are not part of the intended change.
-- The installed Codex CLI cannot currently run the configured `gpt-5.6-sol` evaluator model; `orchestrator.py --eval-only` requires a CLI upgrade or compatible durable provider configuration.
-- `F011` used the documented manual fallback because that provider gap prevents a separate orchestrated evaluator; its smoke-test evidence is recorded under `runs/`.
+- The hidden-layout harness and its `gpt-5.4` Codex provider configuration are canonical under `.agent-harness/`; these root workflow files remain compatibility copies.
 
 ## Active Work
 
@@ -68,3 +67,6 @@ Implemented behavior:
 - The sticker has dedicated light and dark palettes for its surface, border, text, sheen, paper texture, peel edge, and shadow instead of inheriting one generic treatment in both themes.
 - Browser verification passes: the exit animation follows the locked real drag direction in all four directions (right/left/down/up), a partial real drag returns to the covered state, a full real drag leaves the sticker hidden and the songs visible, refresh restores the covered state, Enter reveals and focuses the first song, and the 390px Chinese layout has no horizontal overflow in light or dark mode.
 - Local verification passes: 58 Python tests, 15 publisher tests, JavaScript syntax validation, `git diff --check`, and the production Hugo build.
+- `F025` was implemented through the documented manual fallback and passed the repaired provider's independent cold-start evaluator.
+- The English and Chinese Projects pages replace Home Guard TG with Hey Jarvis as the first selected project while preserving the relative order of the other projects.
+- Hey Jarvis exposes GitHub and `v0.1.0-internal` release links in both languages, plus only the matching-language demo; the article and cross-language demo links are intentionally omitted.

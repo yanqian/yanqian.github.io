@@ -7,7 +7,11 @@
       "status": "done",
       "attempts": 1,
       "last_error": "",
-      "priority": "P0"
+      "priority": "P0",
+      "title": "Establish the site development workflow contract, including the repository role boundary, workflow state files, and the verification entrypoint",
+      "acceptance": [
+        "Establish the site development workflow contract, including the repository role boundary, workflow state files, and the verification entrypoint."
+      ]
     },
     {
       "id": "F002",
@@ -16,7 +20,11 @@
       "status": "done",
       "attempts": 1,
       "last_error": "",
-      "priority": "P0"
+      "priority": "P0",
+      "title": "Add repository contract tests that protect the Obsidian-to-Hugo publishing boundary and the Selected summary CSS regression",
+      "acceptance": [
+        "Add repository contract tests that protect the Obsidian-to-Hugo publishing boundary and the Selected summary CSS regression."
+      ]
     },
     {
       "id": "F003",
@@ -25,7 +33,11 @@
       "status": "done",
       "attempts": 1,
       "last_error": "",
-      "priority": "P1"
+      "priority": "P1",
+      "title": "Document the workflow-driven requirement, planning, coding, and evaluation loop for future site changes",
+      "acceptance": [
+        "Document the workflow-driven requirement, planning, coding, and evaluation loop for future site changes."
+      ]
     },
     {
       "id": "F004",
@@ -34,7 +46,11 @@
       "status": "done",
       "attempts": 1,
       "last_error": "",
-      "priority": "P1"
+      "priority": "P1",
+      "title": "Update the Projects page Gentle Memories entry to show community review approval and link to the public Obsidian review page",
+      "acceptance": [
+        "Update the Projects page Gentle Memories entry to show community review approval and link to the public Obsidian review page."
+      ]
     },
     {
       "id": "F005",
@@ -43,7 +59,11 @@
       "status": "done",
       "attempts": 1,
       "last_error": "",
-      "priority": "P1"
+      "priority": "P1",
+      "title": "Refine article code block rendering with GitHub-style syntax highlighting, readable typography, hidden text labels, and inline-code-matched block backgrounds",
+      "acceptance": [
+        "Refine article code block rendering with GitHub-style syntax highlighting, readable typography, hidden text labels, and inline-code-matched block backgrounds."
+      ]
     },
     {
       "id": "F006",
@@ -52,7 +72,11 @@
       "status": "done",
       "attempts": 1,
       "last_error": "",
-      "priority": "P1"
+      "priority": "P1",
+      "title": "Refresh the public About and Resume pages with resume-informed professional copy, privacy-safe public profile content, and code-block-aligned terminal styling",
+      "acceptance": [
+        "Refresh the public About and Resume pages with resume-informed professional copy, privacy-safe public profile content, and code-block-aligned terminal styling."
+      ]
     },
     {
       "id": "F007",
@@ -61,7 +85,11 @@
       "status": "done",
       "attempts": 1,
       "last_error": "",
-      "priority": "P1"
+      "priority": "P1",
+      "title": "Add giscus-powered article comments backed by GitHub Discussions, with reactions enabled and post-page rendering covered by tests",
+      "acceptance": [
+        "Add giscus-powered article comments backed by GitHub Discussions, with reactions enabled and post-page rendering covered by tests."
+      ]
     },
     {
       "id": "F008",
@@ -70,7 +98,11 @@
       "status": "done",
       "attempts": 1,
       "last_error": "",
-      "priority": "P1"
+      "priority": "P1",
+      "title": "Add site-hosted custom giscus themes so the comment iframe background matches the site's light and dark palettes",
+      "acceptance": [
+        "Add site-hosted custom giscus themes so the comment iframe background matches the site's light and dark palettes."
+      ]
     },
     {
       "id": "F009",
@@ -79,7 +111,11 @@
       "status": "done",
       "attempts": 1,
       "last_error": "",
-      "priority": "P1"
+      "priority": "P1",
+      "title": "Add a lightweight selection-to-comment flow that copies selected article text as a Markdown quote and scrolls readers to giscus comments",
+      "acceptance": [
+        "Add a lightweight selection-to-comment flow that copies selected article text as a Markdown quote and scrolls readers to giscus comments."
+      ]
     },
     {
       "id": "F010",
@@ -90,6 +126,14 @@
       "last_error": "",
       "priority": "P0",
       "acceptance_criteria": [
+        "Existing English pages remain at their current root-relative URLs while the Chinese site is generated under /zh/.",
+        "Every rendered page exposes an English/Chinese language switch that targets the paired translation when available and the target-language homepage otherwise.",
+        "Homepage, lists, posts, taxonomies, series navigation, table of contents, comments, dates, counts, and empty states use localized interface strings.",
+        "Translated pages and language homepages emit correct alternate-language metadata without client-side redirects.",
+        "Automated tests and the production Hugo build verify both language outputs without modifying generated article content."
+      ],
+      "title": "Add an English and Simplified Chinese Hugo site shell with preserved English URLs, a translation-aware language switch, localized interface copy, and bilingual build coverage",
+      "acceptance": [
         "Existing English pages remain at their current root-relative URLs while the Chinese site is generated under /zh/.",
         "Every rendered page exposes an English/Chinese language switch that targets the paired translation when available and the target-language homepage otherwise.",
         "Homepage, lists, posts, taxonomies, series navigation, table of contents, comments, dates, counts, and empty states use localized interface strings.",
@@ -110,6 +154,13 @@
         "The supported launcher resolves and executes the QuickAdd choice by command ID, verifies that status changes, and never uses an obsidian://quickadd URL.",
         "A run records a single-run lock plus stage, chunk, total chunks, timestamps, script version, and source hash, and stale runs can be recovered safely.",
         "AI calls have explicit timeouts and completed edit/review chunks are cached for resume."
+      ],
+      "title": "Add a versioned Obsidian localization publisher runtime with a supported CLI launcher, installer, structured status, single-run locking, explicit timeouts, and resumable long-document chunks",
+      "acceptance": [
+        "The canonical publisher implementation is versioned under tools/obsidian-publisher and installs deterministically into the configured vault.",
+        "The supported launcher resolves and executes the QuickAdd choice by command ID, verifies that status changes, and never uses an obsidian://quickadd URL.",
+        "A run records a single-run lock plus stage, chunk, total chunks, timestamps, script version, and source hash, and stale runs can be recovered safely.",
+        "AI calls have explicit timeouts and completed edit/review chunks are cached for resume."
       ]
     },
     {
@@ -119,7 +170,11 @@
       "status": "done",
       "attempts": 1,
       "last_error": "",
-      "priority": "P1"
+      "priority": "P1",
+      "title": "Document the localization publishing runbook, the July 2026 incident, and mandatory agent entrypoints without duplicating operational truth",
+      "acceptance": [
+        "Document the localization publishing runbook, the July 2026 incident, and mandatory agent entrypoints without duplicating operational truth."
+      ]
     },
     {
       "id": "F013",
@@ -128,7 +183,11 @@
       "status": "done",
       "attempts": 1,
       "last_error": "",
-      "priority": "P0"
+      "priority": "P0",
+      "title": "Add automated publisher regression tests and fixtures for fenced code, technical headings, long-document chunking, locks, idempotency, and installed-artifact parity",
+      "acceptance": [
+        "Add automated publisher regression tests and fixtures for fenced code, technical headings, long-document chunking, locks, idempotency, and installed-artifact parity."
+      ]
     },
     {
       "id": "F014",
@@ -139,6 +198,12 @@
       "last_error": "",
       "priority": "P0",
       "acceptance_criteria": [
+        "A consistency-review heading correction remains in the final localized document.",
+        "Protected non-text fenced blocks are restored byte-for-byte after review.",
+        "The affected article can resume from the cached edited stage and regenerate only review output."
+      ],
+      "title": "Preserve factual-review title and heading corrections while restoring protected Markdown artifacts",
+      "acceptance": [
         "A consistency-review heading correction remains in the final localized document.",
         "Protected non-text fenced blocks are restored byte-for-byte after review.",
         "The affected article can resume from the cached edited stage and regenerate only review output."
@@ -153,6 +218,12 @@
       "last_error": "",
       "priority": "P0",
       "acceptance_criteria": [
+        "The vault GitHub Publisher configuration uses syncInterval 0.",
+        "Publisher doctor fails when periodic push is enabled.",
+        "The Runbook and AGENTS rules preserve explicit approval before GitHub synchronization."
+      ],
+      "title": "Disable periodic GitHub Publisher pushes and make publisher doctor reject configurations that bypass human draft approval",
+      "acceptance": [
         "The vault GitHub Publisher configuration uses syncInterval 0.",
         "Publisher doctor fails when periodic push is enabled.",
         "The Runbook and AGENTS rules preserve explicit approval before GitHub synchronization."
@@ -171,6 +242,13 @@
         "The pipeline rejects 控制平面 when the source uses control plane and requires 控制面.",
         "The repository and installed Obsidian terminology artifacts have matching hashes.",
         "The reviewed Part 2 Chinese draft and its resumable cache use 控制面 consistently without changing Markdown structure."
+      ],
+      "title": "Add a shared localization terminology contract and use 控制面 consistently for control plane",
+      "acceptance": [
+        "Rewrite, edit, and consistency-review stages receive the same versioned terminology constraints.",
+        "The pipeline rejects 控制平面 when the source uses control plane and requires 控制面.",
+        "The repository and installed Obsidian terminology artifacts have matching hashes.",
+        "The reviewed Part 2 Chinese draft and its resumable cache use 控制面 consistently without changing Markdown structure."
       ]
     },
     {
@@ -182,6 +260,14 @@
       "last_error": "",
       "priority": "P0",
       "acceptance_criteria": [
+        "All six active localization prompts are canonical files under tools/obsidian-publisher/prompts.",
+        "The installer copies every canonical prompt into the vault and records prompt hashes in its manifest.",
+        "Publisher doctor and automated tests fail when an installed prompt differs from its canonical source.",
+        "The Runbook and vault README describe repository prompts as canonical.",
+        "progress.md records that Remote Agent Workflow Part 2 is published and no longer awaits approval."
+      ],
+      "title": "Version all localization prompts, install them into Obsidian with parity checks, and repair stale workflow progress",
+      "acceptance": [
         "All six active localization prompts are canonical files under tools/obsidian-publisher/prompts.",
         "The installer copies every canonical prompt into the vault and records prompt hashes in its manifest.",
         "Publisher doctor and automated tests fail when an installed prompt differs from its canonical source.",
@@ -203,6 +289,14 @@
         "Chinese prose naturally preserves the English professional background, writing interests, personal interests, and public contact information without adding facts.",
         "The terminal block uses localized Chinese copy without changing its English rendering.",
         "Automated tests, a production build, and manual local-preview checks pass before user review."
+      ],
+      "title": "Localize the About page into natural Simplified Chinese with paired routing, localized terminal copy, source-fact fidelity, and rendered bilingual verification",
+      "acceptance": [
+        "The English About page keeps /about/ and the Chinese translation renders at /zh/about/.",
+        "Both About files share an explicit translationKey and language switching targets the paired page in both directions.",
+        "Chinese prose naturally preserves the English professional background, writing interests, personal interests, and public contact information without adding facts.",
+        "The terminal block uses localized Chinese copy without changing its English rendering.",
+        "Automated tests, a production build, and manual local-preview checks pass before user review."
       ]
     },
     {
@@ -214,6 +308,14 @@
       "last_error": "",
       "priority": "P1",
       "acceptance_criteria": [
+        "The English Now page keeps /now/ and the Chinese translation renders at /zh/now/.",
+        "Both Now files share an explicit translationKey and language switching targets the paired page in both directions.",
+        "Chinese prose preserves the page's present-tense framing, work focus, tools, activities, music links, driving-licence milestone, and 2026-06-09 update date without turning temporary state into a promise.",
+        "The Chinese navigation exposes the Now translation without creating multiple active menu items.",
+        "Automated tests, a production build, and manual local-preview checks pass before user review."
+      ],
+      "title": "Localize the Now page into natural Simplified Chinese while preserving its current-state framing, time information, paired routing, and source facts",
+      "acceptance": [
         "The English Now page keeps /now/ and the Chinese translation renders at /zh/now/.",
         "Both Now files share an explicit translationKey and language switching targets the paired page in both directions.",
         "Chinese prose preserves the page's present-tense framing, work focus, tools, activities, music links, driving-licence milestone, and 2026-06-09 update date without turning temporary state into a promise.",
@@ -235,6 +337,14 @@
         "Chinese copy preserves all four project names, order, groupings, links, statuses, commands, technologies, capabilities, and safety boundaries without overstating maturity or impact.",
         "The Chinese navigation exposes the Projects translation with exactly one current menu item.",
         "Automated tests, a production build, and manual local-preview checks pass before user review."
+      ],
+      "title": "Localize the Projects page into natural Simplified Chinese while preserving project names, links, statuses, facts, order, grouping, and paired routing",
+      "acceptance": [
+        "The English Projects page keeps /projects/ and the Chinese translation renders at /zh/projects/.",
+        "Both Projects files share an explicit translationKey and language switching targets the paired page in both directions.",
+        "Chinese copy preserves all four project names, order, groupings, links, statuses, commands, technologies, capabilities, and safety boundaries without overstating maturity or impact.",
+        "The Chinese navigation exposes the Projects translation with exactly one current menu item.",
+        "Automated tests, a production build, and manual local-preview checks pass before user review."
       ]
     },
     {
@@ -246,6 +356,14 @@
       "last_error": "",
       "priority": "P1",
       "acceptance_criteria": [
+        "The English Resume page keeps /resume/ and the Chinese translation renders at /zh/resume/.",
+        "Both Resume files share an explicit translationKey and language switching targets the paired page in both directions.",
+        "Chinese copy preserves the 10+ years statement, professional themes, technical names, experience bullets, public email, LinkedIn URL, and privacy boundary without inventing employers, titles, dates, achievements, or private details.",
+        "The Chinese navigation exposes the Resume translation with exactly one current menu item.",
+        "Automated tests, a production build, and manual local-preview checks pass before user review."
+      ],
+      "title": "Localize the Resume page into professional Simplified Chinese while preserving employment facts, dates, names, technologies, privacy boundaries, and paired routing",
+      "acceptance": [
         "The English Resume page keeps /resume/ and the Chinese translation renders at /zh/resume/.",
         "Both Resume files share an explicit translationKey and language switching targets the paired page in both directions.",
         "Chinese copy preserves the 10+ years statement, professional themes, technical names, experience bullets, public email, LinkedIn URL, and privacy boundary without inventing employers, titles, dates, achievements, or private details.",
@@ -267,6 +385,14 @@
         "The canonical runtime and installed Obsidian artifact have matching hashes after installation.",
         "The previously blocked bilingual article completes Publish Note and preserves its protected JSON terminology example byte for byte.",
         "Automated tests and a production Hugo build pass."
+      ],
+      "title": "Prevent protected non-text code examples from causing false terminology failures while preserving terminology enforcement for prose and localizable text fences",
+      "acceptance": [
+        "Terminology validation ignores source and candidate content inside protected non-text fenced code blocks.",
+        "Terminology validation continues to reject avoided terms in prose and localizable text fences.",
+        "The canonical runtime and installed Obsidian artifact have matching hashes after installation.",
+        "The previously blocked bilingual article completes Publish Note and preserves its protected JSON terminology example byte for byte.",
+        "Automated tests and a production Hugo build pass."
       ]
     },
     {
@@ -283,13 +409,21 @@
         "Both source notes use series Obsidian Publishing Pipeline with seriesOrder 1 and 2 respectively.",
         "Both regenerated language pairs share the correct series metadata, preserve their dates, and retain reviewed article wording and protected Markdown.",
         "Publisher tests, installed runtime parity, doctor, and the Hugo production build pass before site synchronization."
+      ],
+      "title": "Preserve an article's first publication date during regeneration and safely group the two Obsidian publishing articles into an ordered bilingual series",
+      "acceptance": [
+        "Regenerating an existing projection preserves its original publication date instead of using the current time.",
+        "A missing English projection can reuse the paired Chinese date, while a new article uses the current-time fallback.",
+        "Both source notes use series Obsidian Publishing Pipeline with seriesOrder 1 and 2 respectively.",
+        "Both regenerated language pairs share the correct series metadata, preserve their dates, and retain reviewed article wording and protected Markdown.",
+        "Publisher tests, installed runtime parity, doctor, and the Hugo production build pass before site synchronization."
       ]
     },
     {
       "id": "F024",
       "description": "Cover the two songs on the bilingual Now page with a peel-to-reveal sticker that stays removed until refresh.",
-      "passes": false,
-      "status": "in_progress",
+      "passes": true,
+      "status": "done",
       "attempts": 1,
       "last_error": "",
       "priority": "P1",
@@ -300,6 +434,39 @@
         "Enter or Space reveals the songs, focus moves to the first song link, and reduced-motion preferences are respected.",
         "Reveal state is never persisted or automatically reset; refreshing the page recreates the sticker from initial markup.",
         "The script loads only on flagged Now pages, while automated tests, the production Hugo build, and desktop and mobile visual checks pass."
+      ],
+      "title": "Cover the two songs on the bilingual Now page with a peel-to-reveal sticker that stays removed until refresh",
+      "acceptance": [
+        "English and Chinese Now pages keep both existing song titles and YouTube URLs inside an accessible reveal component.",
+        "A theme-aware sticker covers only the song list after progressive enhancement and supports pointer or touch peeling from any edge.",
+        "A full peel departs in the reader's locked drag direction—right, left, down, or up—and leaves the songs visible for the rest of the page view; a partial peel returns to the covered state.",
+        "Enter or Space reveals the songs, focus moves to the first song link, and reduced-motion preferences are respected.",
+        "Reveal state is never persisted or automatically reset; refreshing the page recreates the sticker from initial markup.",
+        "The script loads only on flagged Now pages, while automated tests, the production Hugo build, and desktop and mobile visual checks pass."
+      ]
+    },
+    {
+      "id": "F025",
+      "description": "Replace Home Guard TG with Hey Jarvis on the bilingual Projects page, including public source, language-matched demo, and internal-release links with accurate product and release boundaries.",
+      "passes": false,
+      "status": "in_progress",
+      "attempts": 1,
+      "last_error": "",
+      "priority": "P1",
+      "acceptance_criteria": [
+        "English and Chinese Projects pages replace Home Guard TG with Hey Jarvis as the first selected project without changing the other project entries or their relative order.",
+        "Both pages describe local wake-word privacy, continuous bilingual voice conversation, supported tools, and native macOS lifecycle safeguards without overstating maturity.",
+        "Both pages link to the Hey Jarvis repository and v0.1.0-internal GitHub Release; the English page links only the English demo and the Chinese page links only the Chinese demo, with no introductory-article link.",
+        "Both pages state that the Apple Silicon macOS 14+ evaluation build is unsigned, not notarized, BYOK, and not a general consumer release.",
+        "Automated Projects-page tests and the production Hugo build pass for both languages."
+      ],
+      "title": "Replace Home Guard TG with Hey Jarvis on the bilingual Projects page, including public source, language-matched demo, and internal-release links with accurate product and release boundaries",
+      "acceptance": [
+        "English and Chinese Projects pages replace Home Guard TG with Hey Jarvis as the first selected project without changing the other project entries or their relative order.",
+        "Both pages describe local wake-word privacy, continuous bilingual voice conversation, supported tools, and native macOS lifecycle safeguards without overstating maturity.",
+        "Both pages link to the Hey Jarvis repository and v0.1.0-internal GitHub Release; the English page links only the English demo and the Chinese page links only the Chinese demo, with no introductory-article link.",
+        "Both pages state that the Apple Silicon macOS 14+ evaluation build is unsigned, not notarized, BYOK, and not a general consumer release.",
+        "Automated Projects-page tests and the production Hugo build pass for both languages."
       ]
     }
   ]

@@ -2,13 +2,27 @@
 date = '2026-05-06T10:12:47+08:00'
 draft = false
 title = 'Projects'
-description = 'Selected products and tools around browser automation, local-first knowledge workflows, and AI-assisted productivity.'
+description = 'Selected products and tools around browser automation, local-first knowledge workflows, voice interfaces, and AI-assisted productivity.'
 translationKey = 'projects'
 +++
 
-Selected products and tools I built to solve real workflow problems, from visa form assistance to remote agent control planes and personal knowledge rediscovery.
+Selected products and tools I built to solve real workflow problems, from visa form assistance and remote agent control planes to personal knowledge rediscovery and hands-free voice interaction.
 
 ## Selected
+
+### Hey Jarvis
+
+**macOS app · Local-first voice assistant · BYOK · Apple Silicon**
+
+Hey Jarvis is a local-first, bring-your-own-key voice assistant for macOS. It waits locally for “Hey Jarvis,” then joins a Chinese or English voice conversation through OpenAI after activation.
+
+- Keeps pre-wake microphone audio local and hands over the microphone only after wake-word activation.
+- Supports continuous follow-up questions, natural interruption, and an explicit spoken end to a conversation.
+- Routes arithmetic and local time deterministically, with provider-backed weather, exchange-rate, and stock tools.
+- Uses macOS Keychain for credentials and includes microphone-permission recovery, sleep/wake recovery, and privacy-bounded diagnostics.
+- Offers a public `v0.1.0-internal` evaluation build for Apple Silicon Macs running macOS 14 or later. The build is unsigned and not notarized, requires the user's own OpenAI API key, and is not a general consumer release.
+
+[GitHub](https://github.com/yanqian/hey-jarvis) · [English Demo](https://www.youtube.com/watch?v=Cpv3dhFmS3M) · [v0.1.0 Internal Build](https://github.com/yanqian/hey-jarvis/releases/tag/v0.1.0-internal)
 
 ### VisaPilot
 
@@ -52,23 +66,11 @@ Gentle Memories is a local-first Obsidian plugin that gently resurfaces old jour
 
 [GitHub](https://github.com/yanqian/agent-remote-tg)
 
-### Home Guard TG
-
-**Trusted-host Telegram Bot · Home monitoring · Mac · ffmpeg**
-
-`home-guard-tg` is a small trusted-host Telegram Bot for checking on home from a Mac. It keeps the command surface intentionally narrow and runs only for authorized chats on the trusted home machine.
-
-- `/camera_clip` - capture a short camera clip for a quick home check.
-- `/photo` - capture a still image when a shorter update is enough.
-- `/sound_alarm` - play a local audible alert on the trusted Mac.
-
-[GitHub](https://github.com/yanqian/home-guard-tg)
-
 ## Areas
 
 - Browser extensions and workflow automation
 - Local-first knowledge tools
 - AI-assisted form understanding and personal productivity
 - Remote agent control planes and repository-backed workflow harnesses
-- Trusted-host Telegram bots for local device automation
+- Local-first voice interfaces and native macOS product engineering
 - Publishing workflows with Obsidian, Hugo, and GitHub Pages

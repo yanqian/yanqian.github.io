@@ -2,13 +2,27 @@
 date = '2026-05-06T10:12:47+08:00'
 draft = false
 title = '项目'
-description = '我围绕浏览器自动化、本地优先知识工作流和 AI 辅助效率工具做的一些产品与工具。'
+description = '我围绕浏览器自动化、本地优先知识工作流、语音交互和 AI 辅助效率工具做的一些产品与工具。'
 translationKey = 'projects'
 +++
 
-这里收录了我为解决实际工作流问题做的一些产品和工具，从签证表单辅助、远程智能体控制面，到重新发现个人知识。
+这里收录了我为解决实际工作流问题做的一些产品和工具，从签证表单辅助、远程智能体控制面，到重新发现个人知识和免手持语音交互。
 
 ## 精选项目
+
+### Hey Jarvis
+
+**macOS 应用 · 本地优先语音助手 · BYOK · Apple Silicon**
+
+Hey Jarvis 是一个本地优先、自带 API Key 的 macOS 语音助手。它会在本地等待“Hey Jarvis”唤醒词，激活后再通过 OpenAI 加入中文或英文语音对话。
+
+- 唤醒前的麦克风音频留在本地，检测到唤醒词后才交出麦克风。
+- 支持连续追问、自然打断，并可通过明确的口头告别结束对话。
+- 算术和本地时间由确定性工具处理，天气、汇率和股票数据来自明确的数据提供方。
+- 使用 macOS 钥匙串管理凭据，并提供麦克风权限恢复、睡眠与唤醒恢复以及隐私边界清晰的诊断信息。
+- 提供面向 macOS 14 或更高版本 Apple Silicon Mac 的公开 `v0.1.0-internal` 评估构建。该版本未经签名和公证，需要用户自己的 OpenAI API Key，并非面向普通消费者的正式版本。
+
+[GitHub](https://github.com/yanqian/hey-jarvis) · [中文演示](https://www.youtube.com/watch?v=PDHQiYzFAXQ&t=9s) · [v0.1.0 内部构建](https://github.com/yanqian/hey-jarvis/releases/tag/v0.1.0-internal)
 
 ### VisaPilot
 
@@ -52,23 +66,11 @@ Gentle Memories 是一个本地优先的 Obsidian 插件，会让当前 Obsidian
 
 [GitHub](https://github.com/yanqian/agent-remote-tg)
 
-### Home Guard TG
-
-**受信主机 Telegram Bot · 家庭监控 · Mac · ffmpeg**
-
-`home-guard-tg` 是一个运行在受信主机上的小型 Telegram Bot，可以通过 Mac 查看家中情况。它有意把命令范围控制得很窄，只在受信的家用 Mac 上运行，也只接受已授权聊天发来的命令。
-
-- `/camera_clip` - 拍摄一段简短视频，快速查看家中情况。
-- `/photo` - 拍一张照片，适合只需要简短更新的情况。
-- `/sound_alarm` - 在受信的 Mac 上播放本地警报声。
-
-[GitHub](https://github.com/yanqian/home-guard-tg)
-
 ## 关注方向
 
 - 浏览器扩展与工作流自动化
 - 本地优先的知识工具
 - AI 辅助的表单理解与个人效率工具
 - 远程智能体控制面与以仓库为基础的工作流验证框架
-- 用受信主机 Telegram Bot 实现本地设备自动化
+- 本地优先的语音交互与原生 macOS 产品工程
 - 使用 Obsidian、Hugo 和 GitHub Pages 的发布工作流
