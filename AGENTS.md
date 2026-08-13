@@ -2,6 +2,19 @@
 
 This repository is the public Hugo site for `yanqian.github.io`.
 
+This repository uses AI Agent Harness `0.3.8` in hidden layout. Agents must reconstruct context from repository files and git history, not chat history.
+
+## Required Startup Protocol
+
+Before planning, coding, evaluating, or resuming work:
+
+1. Read `.agent-harness/progress.md`.
+2. Read `.agent-harness/feature_list.json`.
+3. Run `git log --oneline -20`.
+4. Run `./init.sh`.
+
+Full harness rules live in `.agent-harness/AGENTS.md`. For orchestrator work, run `make -C .agent-harness work` from the project root. For interactive evaluator-gated work, use `make -C .agent-harness work-fast`.
+
 Use this repository for publishing, site structure, Hugo templates, styling, build fixes, and GitHub Pages deployment. Do not use this repository as the primary writing workspace.
 
 ## Repository Role
@@ -30,12 +43,14 @@ This repository also carries agent-workflow state for disciplined site developme
 
 Durable workflow files:
 
-- `SPEC.md`
-- `feature_list.json`
-- `progress.md`
-- `test_plan.md`
+- `.agent-harness/SPEC.md`
+- `.agent-harness/feature_list.json`
+- `.agent-harness/progress.md`
+- `.agent-harness/test_plan.md`
+- `.agent-harness/runs/`
+- `.agent-harness/agent-provider.json` (local, ignored configuration)
 - `init.sh`
-- `orchestrator.py`
+- `.agent-harness/orchestrator.py`
 
 The workflow state files describe how requirements are discussed, scoped, verified, and advanced. They are not article source material.
 
@@ -139,15 +154,15 @@ http://localhost:1313/
 For workflow-driven development rounds, use:
 
 ```sh
-python3 orchestrator.py --dry-run
-python3 orchestrator.py --max-rounds 1
-python3 orchestrator.py --eval-only all
+make -C .agent-harness dry-run
+make -C .agent-harness work
+cd .agent-harness && python3 orchestrator.py --eval-only all
 ```
 
 Every coding or evaluator agent round must reconstruct state from:
 
-1. `progress.md`
-2. `feature_list.json`
+1. `.agent-harness/progress.md`
+2. `.agent-harness/feature_list.json`
 3. `git log --oneline -20`
 4. `./init.sh`
 
@@ -165,9 +180,9 @@ That causes private source-note paths to appear under `content/posts/` and can d
 
 ## Workflow Rules
 
-- Planning changes belong in `docs/requirements/` for larger work.
-- `progress.md` records the current workflow status and next feature.
-- `feature_list.json` records runnable feature state and completion metadata.
-- `orchestrator.py` owns bounded unattended rounds and evaluator-only checks.
+- Planning changes belong in `.agent-harness/SPEC.md` and, for larger site requirements, `docs/requirements/`.
+- `.agent-harness/progress.md` records the current workflow status and next feature.
+- `.agent-harness/feature_list.json` records runnable feature state and completion metadata.
+- `.agent-harness/orchestrator.py` owns bounded unattended rounds and evaluator-only checks.
 - Coding agents may change only the current feature and must not treat chat history as durable state.
-- Evaluator agents must verify against `SPEC.md`, `test_plan.md`, and the current repository state.
+- Evaluator agents must verify against `.agent-harness/SPEC.md`, `.agent-harness/test_plan.md`, and the current repository state.
