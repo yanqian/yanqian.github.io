@@ -1,0 +1,533 @@
+:root {
+  color-scheme: light dark;
+  --hj-bg: #f5f7f6;
+  --hj-surface: #eef3f1;
+  --hj-surface-strong: #f5f7f6;
+  --hj-surface-dark: #263331;
+  --hj-ink: #252b29;
+  --hj-muted: #697371;
+  --hj-accent: #0f766e;
+  --hj-accent-ink: #fff;
+  --hj-accent-soft: rgba(15, 118, 110, 0.1);
+  --hj-accent-strong: #0b5f59;
+  --hj-border: #dce3e0;
+  --hj-shadow: 0 24px 60px rgba(15, 118, 110, 0.08);
+  --hj-present-ink: #e8eeee;
+  --hj-present-muted: #9fb0ad;
+  --hj-present-border: #34413f;
+  --hj-page-width: min(1120px, calc(100vw - 2.5rem));
+  --hj-radius: 28px;
+  --hj-radius-sm: 18px;
+  --hj-ring: 0 0 0 3px rgba(15, 118, 110, 0.18);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --hj-bg: #202827;
+    --hj-surface: #263331;
+    --hj-surface-strong: #2b3836;
+    --hj-surface-dark: #263331;
+    --hj-ink: #e8eeee;
+    --hj-muted: #9fb0ad;
+    --hj-accent: #5eead4;
+    --hj-accent-ink: #202827;
+    --hj-accent-soft: rgba(94, 234, 212, 0.1);
+    --hj-accent-strong: #9ff5e7;
+    --hj-border: #34413f;
+    --hj-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--hj-ink);
+  background: var(--hj-bg);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: color-mix(in srgb, var(--hj-accent) 65%, transparent);
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  text-decoration-color: currentColor;
+}
+
+a:focus-visible,
+button:focus-visible,
+section:focus-visible {
+  outline: none;
+  box-shadow: var(--hj-ring);
+}
+
+.hj-talk__skip-link {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 20;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  background: var(--hj-surface-strong);
+  color: var(--hj-ink);
+  transform: translateY(-200%);
+}
+
+.hj-talk__skip-link:focus {
+  transform: translateY(0);
+}
+
+.hj-talk {
+  width: var(--hj-page-width);
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
+
+.hj-talk__masthead,
+.hj-talk__scene-shell,
+.hj-talk__present-shell {
+  border: 1px solid var(--hj-border);
+  border-radius: var(--hj-radius);
+  background: var(--hj-surface);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--hj-shadow);
+}
+
+.hj-talk__masthead {
+  padding: 1.4rem;
+  margin-bottom: 1.75rem;
+}
+
+.hj-talk__kicker,
+.hj-talk__eyebrow,
+.hj-talk__scene-index,
+.hj-talk__present-label {
+  margin: 0;
+  font-family: "SFMono-Regular", "JetBrains Mono", "Cascadia Code", "Courier New", monospace;
+  font-size: 0.84rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.hj-talk__kicker,
+.hj-talk__scene-index,
+.hj-talk__present-label {
+  color: var(--hj-accent);
+}
+
+.hj-talk__eyebrow {
+  color: var(--hj-ink);
+}
+
+.hj-talk__masthead-grid {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+}
+
+.hj-talk__masthead-copy h1,
+.hj-talk__scene h2 {
+  margin: 0.35rem 0 0;
+  line-height: 1.08;
+  text-wrap: balance;
+  letter-spacing: -0.03em;
+}
+
+.hj-talk__masthead-copy h1 {
+  font-size: clamp(2.2rem, 5vw, 4.8rem);
+}
+
+.hj-talk__lede {
+  max-width: 38rem;
+  margin: 1.25rem 0 0;
+  font-size: clamp(1.08rem, 1.8vw, 1.34rem);
+  color: var(--hj-muted);
+}
+
+.hj-talk__hero {
+  margin: 0;
+  border-radius: calc(var(--hj-radius) - 8px);
+  overflow: clip;
+  border: 1px solid var(--hj-border);
+  background: color-mix(in srgb, var(--hj-surface-strong) 88%, var(--hj-bg));
+}
+
+.hj-talk__hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hj-talk__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.25rem;
+  padding: 1rem 1.1rem;
+  border-radius: calc(var(--hj-radius) - 10px);
+  background: var(--hj-surface-strong);
+}
+
+.hj-talk__mode-title {
+  margin: 0;
+  font-weight: 700;
+}
+
+.hj-talk__mode-text,
+.hj-talk__noscript,
+.hj-talk__present-help {
+  margin: 0.2rem 0 0;
+  color: var(--hj-muted);
+}
+
+.hj-talk__present-toggle,
+.hj-talk__present-actions button {
+  appearance: none;
+  border: 1px solid var(--hj-accent);
+  border-radius: 999px;
+  background: var(--hj-accent);
+  color: var(--hj-accent-ink);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  padding: 0.8rem 1.2rem;
+}
+
+.hj-talk__present-actions button {
+  padding: 0.65rem 1rem;
+}
+
+.hj-talk__present-actions button:last-child {
+  background: transparent;
+  color: var(--hj-ink);
+  border-color: var(--hj-border);
+}
+
+.hj-talk__present-toggle:hover,
+.hj-talk__present-actions button:hover {
+  filter: brightness(1.03);
+}
+
+.hj-talk__content {
+  position: relative;
+}
+
+.hj-talk__scene-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.hj-talk__scene-item {
+  margin: 0;
+}
+
+.hj-talk__scene-shell {
+  padding: clamp(1.4rem, 3vw, 2.25rem);
+}
+
+.hj-talk__scene {
+  position: relative;
+}
+
+.hj-talk__scene h2 {
+  font-size: clamp(1.7rem, 3vw, 3rem);
+}
+
+.hj-talk__scene p,
+.hj-talk__scene li {
+  font-size: clamp(1rem, 1.3vw, 1.12rem);
+}
+
+.hj-talk__scene--hero .hj-talk__scene-shell {
+  background:
+    linear-gradient(135deg, rgba(15, 118, 110, 0.08), rgba(15, 118, 110, 0.02)),
+    var(--hj-surface);
+}
+
+.hj-talk__lead,
+.hj-talk__boundary,
+.hj-talk__workflow-line,
+.hj-talk__key-line,
+.hj-talk__closing-question,
+.hj-talk__boundary-note {
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+}
+
+.hj-talk__boundary,
+.hj-talk__key-line,
+.hj-talk__closing-question {
+  padding-left: 1rem;
+  border-left: 3px solid var(--hj-accent);
+}
+
+.hj-talk__step-list,
+.hj-talk__resources ul {
+  margin: 1rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.hj-talk__step-list li + li,
+.hj-talk__resources li + li {
+  margin-top: 0.75rem;
+}
+
+.hj-talk__callout-grid,
+.hj-talk__failure-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.hj-talk__callout-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.hj-talk__callout-grid p,
+.hj-talk__failure-card {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--hj-border);
+  border-radius: var(--hj-radius-sm);
+  background: var(--hj-surface-strong);
+}
+
+.hj-talk__failure-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.hj-talk__failure-card h3,
+.hj-talk__resources h3 {
+  margin-top: 0;
+  margin-bottom: 0.55rem;
+}
+
+.hj-talk__summary-labels {
+  color: var(--hj-accent);
+  font-weight: 700;
+}
+
+.hj-talk__action-row {
+  margin-top: 1rem;
+}
+
+.hj-talk__action-row a,
+.hj-talk__resources a {
+  color: var(--hj-accent);
+  font-weight: 700;
+}
+
+.hj-talk__resources {
+  margin-top: 1.25rem;
+  padding: 1rem 1.1rem;
+  border-radius: var(--hj-radius-sm);
+  background: var(--hj-accent-soft);
+}
+
+.hj-talk--presenting {
+  overflow: hidden;
+}
+
+.hj-talk--presenting .hj-talk {
+  width: min(100vw, 100%);
+  height: 100vh;
+  min-height: 0;
+  padding: clamp(0.75rem, 2vw, 1.5rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 1rem;
+}
+
+.hj-talk--presenting .hj-talk__masthead {
+  display: none;
+}
+
+.hj-talk--presenting .hj-talk__content,
+.hj-talk--presenting .hj-talk__present-shell {
+  position: relative;
+  z-index: 2;
+}
+
+.hj-talk--presenting .hj-talk__content {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.hj-talk--presenting .hj-talk__present-shell {
+  display: block;
+  padding: 1rem 1.25rem 1.1rem;
+  margin: 0;
+  background: var(--hj-surface-dark);
+  color: var(--hj-present-ink);
+  border-color: var(--hj-present-border);
+}
+
+.hj-talk--presenting .hj-talk__present-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hj-talk--presenting .hj-talk__progress {
+  margin: 0;
+  font-weight: 700;
+  color: var(--hj-present-ink);
+}
+
+.hj-talk--presenting .hj-talk__present-help {
+  color: var(--hj-present-muted);
+}
+
+.hj-talk--presenting .hj-talk__present-actions button:last-child {
+  color: var(--hj-present-ink);
+  border-color: var(--hj-present-border);
+}
+
+.hj-talk--presenting .hj-talk__present-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.hj-talk--presenting .hj-talk__scene-list {
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hj-talk--presenting .hj-talk__scene-item {
+  display: none;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.hj-talk--presenting .hj-talk__scene-item.is-active {
+  display: block;
+  height: 100%;
+}
+
+.hj-talk--presenting .hj-talk__scene {
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.hj-talk--presenting .hj-talk__scene-shell {
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  overflow: auto;
+}
+
+.hj-talk--presenting .hj-talk__scene-shell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+  max-height: 100%;
+  overflow: auto;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hj-talk__present-toggle,
+  .hj-talk__present-actions button,
+  .hj-talk__skip-link {
+    transition: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .hj-talk {
+    width: min(100vw - 1.2rem, 100%);
+    padding-top: 0.6rem;
+  }
+
+  .hj-talk__masthead-grid,
+  .hj-talk__callout-grid,
+  .hj-talk__failure-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hj-talk__controls,
+  .hj-talk--presenting .hj-talk__present-bar {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .hj-talk__masthead,
+  .hj-talk__scene-shell,
+  .hj-talk__present-shell {
+    border-radius: 22px;
+  }
+
+  .hj-talk__scene-shell {
+    padding: 1.15rem;
+  }
+
+  .hj-talk__controls {
+    padding: 0.9rem;
+  }
+
+  .hj-talk--presenting .hj-talk {
+    padding: 0.75rem;
+  }
+
+  .hj-talk__present-toggle {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hj-talk--presenting .hj-talk__present-shell {
+    padding: 0.85rem 0.95rem 0.95rem;
+  }
+
+  .hj-talk--presenting .hj-talk__present-bar {
+    gap: 0.6rem;
+  }
+
+  .hj-talk--presenting .hj-talk__present-actions {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .hj-talk--presenting .hj-talk__present-actions button {
+    width: auto;
+    min-width: 0;
+    padding: 0.6rem 0.55rem;
+    font-size: 0.95rem;
+  }
+
+  .hj-talk--presenting .hj-talk__scene-shell {
+    padding: 1.15rem;
+  }
+}

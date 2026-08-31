@@ -447,3 +447,128 @@ Keep the bilingual Projects page aligned with the current public portfolio by re
 ### Decomposition
 
 This requirement is one feature, `F025`, because the bilingual replacement, factual links, release boundary, and regression checks form one Projects-page content change with one rendered verification surface.
+
+## 15. Standalone Hey Jarvis Meetup Talk
+
+### Goal
+
+Publish the Hey Jarvis meetup share as a repository-owned standalone HTML experience that is straightforward to edit at the DOM level, works as both a readable web page and a keyboard-driven presentation, and is discoverable from the bilingual Projects pages.
+
+### Included Scope
+
+- Add an English standalone page at `/talks/hey-jarvis/` with project-owned HTML, CSS, JavaScript, and authentic Hey Jarvis imagery under `static/talks/hey-jarvis/`.
+- Preserve the six-scene narrative: real hands-free problem, wake-to-return demo loop, one-microphone-owner architecture, three real-device failures, evaluator-gated AI workflow, and final human-judgment question.
+- Keep a normal scrolling Reading mode plus an explicit Present mode with fullscreen enhancement, scene progress, Arrow/Page/Home/End/Space navigation, and Escape exit.
+- Keep the document readable without JavaScript and on mobile, respect reduced motion, and support the site's light/dark visual language without depending on Hugo article markup.
+- Reuse the existing Hey Jarvis visual asset and link to the public repository, English demo, `v0.1.0-internal` release, and related public article series with the existing unsigned/BYOK boundaries.
+- Add language-appropriate links from both `/projects/` and `/zh/projects/` to the English talk page.
+
+### Excluded Scope
+
+- Reintroducing the rejected Hugo `talk` post layout, Talk shortcode, publisher `layout` metadata, or source-only localization behavior.
+- Treating the standalone talk as an Obsidian-generated article or requiring a Chinese translation of the presentation.
+- Changing ordinary post rendering, navigation, the existing Projects descriptions, or the other Hey Jarvis links.
+- Adding a JavaScript framework, analytics, autoplaying media, presenter-state persistence, or a repository-hosted copy of the full demo video.
+- Publishing, committing, or pushing before explicit user approval.
+
+### Core Flows
+
+`reader opens /talks/hey-jarvis/ -> scrolls six semantic scenes -> follows project or article links`.
+
+`presenter opens /talks/hey-jarvis/ -> activates Present -> navigates scenes by keyboard -> exits Present without losing content`.
+
+`visitor opens English or Chinese Projects -> selects the language-appropriate meetup link -> arrives at the standalone English talk`.
+
+### Constraints
+
+- The standalone page is the canonical public implementation and must not depend on Markdown-generated DOM, Hugo content layouts, or the Obsidian publisher.
+- No Hey Jarvis meetup webpage source, copied asset, or `Publish/hey-jarvis-beyond-the-demo` projection remains in the Obsidian vault; the blog repository is the sole source of truth for this page.
+- The page must use relative or root-relative assets and links that work under the existing GitHub Pages deployment.
+- The HTML remains semantic and accessible: one primary heading, labeled controls, ordered scene structure, visible focus, and progressive enhancement.
+- Existing site and Projects-page behavior must remain unchanged outside the new link.
+
+### Ambiguities And Assumptions
+
+- The talk remains English-only; the Chinese Projects label explicitly indicates that the linked share is in English.
+- The public route is `/talks/hey-jarvis/`, rather than a locale-prefixed or post URL, because the presentation is language-independent site media rather than a translated Hugo article.
+- The reviewed six-scene copy and authentic header artwork are migrated into the blog repository as the content baseline; layout can be refined in HTML/CSS without changing the factual story.
+- The repository-owned content brief at `.agent-harness/docs/hey-jarvis-meetup-talk.md` is the editorial baseline for F028; the implementation must not read or recreate a source note in the Obsidian vault.
+- The previously attempted `F026` and `F027` identifiers stay retired; replacement work starts at `F028` to preserve rejection history and avoid ambiguity.
+
+### Required Capabilities And Implementation Paths
+
+- Standalone source under `static/talks/hey-jarvis/index.html`, `talk.css`, `talk.js`, and `assets/`.
+- Editorial source under `.agent-harness/docs/hey-jarvis-meetup-talk.md`, with authentic artwork sourced from `/Users/armstrong/Project/hey-jarvis/artifacts/video/hey-jarvis-header-background.png` and copied only into the blog repository.
+- Repository-owned Projects content in `content/projects.md` and `content/projects.zh.md`.
+- Static-page and Projects-link regression coverage under `tests/`, with production verification through `./init.sh`.
+- Local Hugo preview and explicit desktop/mobile Reading and Present inspection before approval.
+
+### Verification Surface
+
+- Static contract tests parse the standalone HTML and assert six semantic scenes, authentic links and asset references, accessible controls, progressive enhancement, and the absence of external framework dependencies or persistence APIs.
+- Interaction-contract tests assert fullscreen handling, supported keyboard commands, Escape exit, reduced-motion behavior, and mobile Reading fallback.
+- Hugo build tests assert `/talks/hey-jarvis/index.html` is copied to production output and both rendered Projects pages link to it without losing existing Hey Jarvis links.
+- Desktop and mobile local previews verify Reading flow, Present scene sizing, first-scene balance, focus, contrast, and absence of clipping or horizontal overflow.
+
+### Decomposition
+
+- `F028` creates and independently verifies the standalone HTML talk and retires all dependency on the rejected Markdown renderer.
+- `F029` adds and verifies bilingual Projects discovery links after the destination exists. This is separate because Projects navigation can be accepted or reverted independently from the presentation implementation.
+
+## 16. Refine the Hey Jarvis Talk with the Real App UI
+
+### Goal
+
+Make the standalone talk feel visually continuous with `yanqian.github.io` and more credible as a product story by using the supplied real Hey Jarvis app screenshot and correcting the second failure example.
+
+### Included Scope
+
+- Replace the current abstract hero artwork with the user-supplied Hey Jarvis app screenshot, copied only into the standalone talk's repository-owned assets.
+- Update scene 4's second failure from the stale dual-media-owner example to the acknowledgement-readiness race: “I’m here” can play before Realtime is ready, so the acknowledgement becomes a verifiable promise guarded by a two-condition readiness barrier.
+- Align the standalone page's light and dark backgrounds, foregrounds, muted text, accent, borders, surfaces, typography, and overall restraint with the existing tokens in `assets/css/custom.css`.
+- Preserve the six-scene story, Reading and Present interactions, Projects links, and public product boundaries.
+
+### Excluded Scope
+
+- Rewriting the other five scenes, adding a Chinese talk, or changing Projects-page copy and links.
+- Importing the Hugo site shell or making the standalone route depend on generated article markup.
+- Adding a new theme switcher, framework, persistence, animation system, or generated illustration.
+- Committing, pushing, or publishing before explicit user approval.
+
+### Core Flows
+
+`reader opens the talk -> recognizes the real Hey Jarvis UI -> reads a visual treatment consistent with the main site -> reaches scene 4 and sees the corrected readiness-race failure`.
+
+`presenter enters Present mode -> all six scenes and controls retain their verified keyboard, viewport, contrast, and overflow behavior with the revised theme`.
+
+### Constraints
+
+- The screenshot remains a local static asset with an accurate alt description and no dependency on the temporary clipboard path at runtime.
+- Standalone light/dark tokens match the current site palette: `#f5f7f6`/`#252b29` in light mode and `#202827`/`#e8eeee` in dark mode, with corresponding site surface, muted, accent, and border colors.
+- The new second failure copy must describe a race between acknowledgement playback and Realtime initialization, and state that both conditions must be ready before “I’m here” is a valid promise.
+- Existing responsive and accessible behavior must not regress.
+
+### Ambiguities And Assumptions
+
+- “Match the site” means reuse the established palette and system sans-serif typography while retaining the talk's standalone composition and Present controls.
+- The supplied screenshot is approved for public use and replaces, rather than supplements, the current hero image.
+- The talk remains English, so the user-supplied Chinese concept is rendered as concise natural English copy.
+
+### Required Capabilities And Implementation Paths
+
+- The supplied PNG at `/var/folders/ww/wrxzkc9n7rs60hbt_g7mgcl40000gn/T/codex-clipboard-e96cb8f2-fb86-4a96-a03c-7a5cab636e95.png` as an input asset, copied to `static/talks/hey-jarvis/assets/`.
+- Standalone copy and asset references in `static/talks/hey-jarvis/index.html` and `.agent-harness/docs/hey-jarvis-meetup-talk.md`.
+- Theme and responsive refinements in `static/talks/hey-jarvis/talk.css`.
+- Regression contracts in `tests/test_hey_jarvis_talk.py` and production verification through `./init.sh`.
+- Real-browser desktop and 390px mobile inspection in Reading and Present modes.
+
+### Verification Surface
+
+- Static tests verify the new screenshot asset/reference/alt text, the readiness-barrier copy, and exact correspondence with the site's core palette.
+- The production Hugo build copies the revised standalone route and image.
+- Browser checks verify the hero crop, six-scene Present layout, readable light/dark contrast, focus, and absence of clipping or horizontal overflow on desktop and mobile.
+- Vault checks continue to find no Hey Jarvis meetup webpage source or copied presentation asset.
+
+### Decomposition
+
+This is one feature, `F030`, because the image, corrected failure copy, and palette refinement are one user-reviewed visual/content revision to the same standalone page and share the same static, build, and browser verification surface.

@@ -1,4 +1,6 @@
 from pathlib import Path
+import subprocess
+import tempfile
 import unittest
 
 
@@ -24,6 +26,7 @@ class ProjectsPageTest(unittest.TestCase):
         shared_links = (
             "https://github.com/yanqian/hey-jarvis",
             "https://github.com/yanqian/hey-jarvis/releases/tag/v0.1.0-internal",
+            "/talks/hey-jarvis/",
         )
         for page in (PROJECTS, ZH_PROJECTS):
             for link in shared_links:
@@ -32,8 +35,10 @@ class ProjectsPageTest(unittest.TestCase):
 
         self.assertIn("https://www.youtube.com/watch?v=Cpv3dhFmS3M", PROJECTS)
         self.assertNotIn("https://www.youtube.com/watch?v=PDHQiYzFAXQ&t=9s", PROJECTS)
+        self.assertIn("[Meetup Talk](/talks/hey-jarvis/)", PROJECTS)
         self.assertIn("https://www.youtube.com/watch?v=PDHQiYzFAXQ&t=9s", ZH_PROJECTS)
         self.assertNotIn("https://www.youtube.com/watch?v=Cpv3dhFmS3M", ZH_PROJECTS)
+        self.assertIn("[英文 Meetup 分享](/talks/hey-jarvis/)", ZH_PROJECTS)
 
     def test_hey_jarvis_copy_preserves_product_and_release_boundaries(self):
         self.assertIn("local-first, bring-your-own-key voice assistant for macOS", PROJECTS)
@@ -52,6 +57,45 @@ class ProjectsPageTest(unittest.TestCase):
         self.assertIn("AI 默认关闭", ZH_PROJECTS)
         self.assertIn("不会自动提交官方表单", ZH_PROJECTS)
         self.assertIn("写入 Git 之前会预览变更并要求批准", ZH_PROJECTS)
+
+
+class ProjectsPageBuildTest(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.temp_dir = tempfile.TemporaryDirectory()
+        cls.public_dir = Path(cls.temp_dir.name)
+        result = subprocess.run(
+            [
+                "hugo",
+                "--destination",
+                str(cls.public_dir),
+                "--baseURL",
+                "https://yanqian.github.io/",
+            ],
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+        )
+        if result.returncode != 0:
+            raise AssertionError(result.stdout + result.stderr)
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.temp_dir.cleanup()
+
+    def read_output(self, relative_path):
+        return (self.public_dir / relative_path).read_text()
+
+    def test_built_projects_pages_link_to_standalone_talk(self):
+        english = self.read_output("projects/index.html")
+        chinese = self.read_output("zh/projects/index.html")
+        talk = self.read_output("talks/hey-jarvis/index.html")
+
+        self.assertIn('href="/talks/hey-jarvis/"', english)
+        self.assertIn(">Meetup Talk</a>", english)
+        self.assertIn('href="/talks/hey-jarvis/"', chinese)
+        self.assertIn(">英文 Meetup 分享</a>", chinese)
+        self.assertIn('Beyond "It Works": How Hey Jarvis Became a Real Workflow', talk)
 
 
 if __name__ == "__main__":

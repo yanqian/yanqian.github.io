@@ -448,9 +448,9 @@
     {
       "id": "F025",
       "description": "Replace Home Guard TG with Hey Jarvis on the bilingual Projects page, including public source, language-matched demo, and internal-release links with accurate product and release boundaries.",
-      "passes": false,
-      "status": "in_progress",
-      "attempts": 1,
+      "passes": true,
+      "status": "done",
+      "attempts": 2,
       "last_error": "",
       "priority": "P1",
       "acceptance_criteria": [
@@ -467,6 +467,74 @@
         "Both pages link to the Hey Jarvis repository and v0.1.0-internal GitHub Release; the English page links only the English demo and the Chinese page links only the Chinese demo, with no introductory-article link.",
         "Both pages state that the Apple Silicon macOS 14+ evaluation build is unsigned, not notarized, BYOK, and not a general consumer release.",
         "Automated Projects-page tests and the production Hugo build pass for both languages."
+      ]
+    },
+    {
+      "id": "F028",
+      "title": "Create the standalone Hey Jarvis meetup talk",
+      "description": "Create a repository-owned standalone HTML, CSS, and JavaScript Hey Jarvis meetup talk at /talks/hey-jarvis/ with readable and presentation modes.",
+      "passes": true,
+      "status": "done",
+      "attempts": 9,
+      "last_error": "",
+      "priority": "P0",
+      "acceptance_criteria": [
+        "The canonical public implementation lives under static/talks/hey-jarvis with semantic standalone HTML, scoped CSS and dependency-free JavaScript, and renders at /talks/hey-jarvis/ without a Hugo Talk layout or Obsidian publisher dependency.",
+        "Six scenes preserve the reviewed Hey Jarvis story, authentic project artwork, public repository, English demo, related articles, and accurate unsigned BYOK internal-release boundaries.",
+        "Reading mode scrolls normally, while progressive Present mode supports fullscreen enhancement, scene progress, Arrow/Page/Home/End/Space navigation and Escape exit without persistence APIs.",
+        "The page remains readable without JavaScript and on mobile, respects reduced motion, exposes accessible labels and focus, and avoids clipping or horizontal overflow in verified desktop and mobile previews.",
+        "Automated static and interaction contracts plus the production Hugo build pass, and no Hey Jarvis meetup webpage source, copied asset or obsolete Publish projection remains in the Obsidian vault."
+      ],
+      "acceptance": [
+        "The canonical public implementation lives under static/talks/hey-jarvis with semantic standalone HTML, scoped CSS and dependency-free JavaScript, and renders at /talks/hey-jarvis/ without a Hugo Talk layout or Obsidian publisher dependency.",
+        "Six scenes preserve the reviewed Hey Jarvis story, authentic project artwork, public repository, English demo, related articles, and accurate unsigned BYOK internal-release boundaries.",
+        "Reading mode scrolls normally, while progressive Present mode supports fullscreen enhancement, scene progress, Arrow/Page/Home/End/Space navigation and Escape exit without persistence APIs.",
+        "The page remains readable without JavaScript and on mobile, respects reduced motion, exposes accessible labels and focus, and avoids clipping or horizontal overflow in verified desktop and mobile previews.",
+        "Automated static and interaction contracts plus the production Hugo build pass, and no Hey Jarvis meetup webpage source, copied asset or obsolete Publish projection remains in the Obsidian vault."
+      ]
+    },
+    {
+      "id": "F029",
+      "title": "Link the standalone Hey Jarvis talk from bilingual Projects pages",
+      "description": "Add language-appropriate discovery links from the English and Chinese Projects Hey Jarvis entry to the standalone English meetup talk.",
+      "passes": true,
+      "status": "done",
+      "attempts": 3,
+      "last_error": "",
+      "priority": "P1",
+      "acceptance_criteria": [
+        "The English Hey Jarvis entry links to /talks/hey-jarvis/ with the label Meetup Talk, and the Chinese entry links to the same route with a label that clearly indicates an English-language meetup share.",
+        "The existing repository, language-matched demo and v0.1.0-internal release links and all Projects descriptions remain unchanged.",
+        "Automated source and rendered-output checks plus the production Hugo build verify both Projects routes and the standalone destination."
+      ],
+      "acceptance": [
+        "The English Hey Jarvis entry links to /talks/hey-jarvis/ with the label Meetup Talk, and the Chinese entry links to the same route with a label that clearly indicates an English-language meetup share.",
+        "The existing repository, language-matched demo and v0.1.0-internal release links and all Projects descriptions remain unchanged.",
+        "Automated source and rendered-output checks plus the production Hugo build verify both Projects routes and the standalone destination."
+      ]
+    },
+    {
+      "id": "F030",
+      "title": "Refine the Hey Jarvis talk with the real app UI and site palette",
+      "description": "Replace the talk hero with the supplied real Hey Jarvis screenshot, correct the second failure to the acknowledgement-readiness race, and align the standalone theme with yanqian.github.io.",
+      "passes": true,
+      "status": "done",
+      "attempts": 2,
+      "last_error": "",
+      "priority": "P0",
+      "acceptance_criteria": [
+        "The standalone talk uses the supplied real Hey Jarvis app screenshot from a repository-owned asset with accurate alternative text, and the prior abstract hero asset is no longer referenced.",
+        "Scene 4's second failure explains that acknowledgement playback and Realtime initialization race, and that ‘I’m here’ is emitted only after a two-condition readiness barrier makes it a verifiable system promise.",
+        "The talk's light and dark background, foreground, muted, accent, surface, border, and system-sans typography align with the established site tokens without introducing a Hugo-shell dependency.",
+        "Automated contracts and the production Hugo build pass while the existing six-scene Reading/Present interactions, public links, and product boundaries remain intact.",
+        "Desktop and 390px mobile browser checks verify the hero crop, contrast, focus, six-scene Present sizing, and absence of clipping or horizontal overflow; the Vault still contains no talk webpage source or copied asset."
+      ],
+      "acceptance": [
+        "The standalone talk uses the supplied real Hey Jarvis app screenshot from a repository-owned asset with accurate alternative text, and the prior abstract hero asset is no longer referenced.",
+        "Scene 4's second failure explains that acknowledgement playback and Realtime initialization race, and that ‘I’m here’ is emitted only after a two-condition readiness barrier makes it a verifiable system promise.",
+        "The talk's light and dark background, foreground, muted, accent, surface, border, and system-sans typography align with the established site tokens without introducing a Hugo-shell dependency.",
+        "Automated contracts and the production Hugo build pass while the existing six-scene Reading/Present interactions, public links, and product boundaries remain intact.",
+        "Desktop and 390px mobile browser checks verify the hero crop, contrast, focus, six-scene Present sizing, and absence of clipping or horizontal overflow; the Vault still contains no talk webpage source or copied asset."
       ]
     }
   ]

@@ -22,7 +22,7 @@ Hey Jarvis is a local-first, bring-your-own-key voice assistant for macOS. It wa
 - Uses macOS Keychain for credentials and includes microphone-permission recovery, sleep/wake recovery, and privacy-bounded diagnostics.
 - Offers a public `v0.1.0-internal` evaluation build for Apple Silicon Macs running macOS 14 or later. The build is unsigned and not notarized, requires the user's own OpenAI API key, and is not a general consumer release.
 
-[GitHub](https://github.com/yanqian/hey-jarvis) · [English Demo](https://www.youtube.com/watch?v=Cpv3dhFmS3M) · [v0.1.0 Internal Build](https://github.com/yanqian/hey-jarvis/releases/tag/v0.1.0-internal)
+[GitHub](https://github.com/yanqian/hey-jarvis) · [English Demo](https://www.youtube.com/watch?v=Cpv3dhFmS3M) · [Meetup Talk](/talks/hey-jarvis/) · [v0.1.0 Internal Build](https://github.com/yanqian/hey-jarvis/releases/tag/v0.1.0-internal)
 
 ### VisaPilot
 

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" class="hj-talk-page">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Beyond "It Works": How Hey Jarvis Became a Real Workflow</title>
+    <meta
+      name="description"
+      content="A six-scene meetup talk about how Hey Jarvis became a real workflow through observable failures, bounded ownership, and evaluator-gated iteration."
+    />
+    <link rel="stylesheet" href="./talk.css" />
+    <script src="./talk.js" defer></script>
+  </head>
+  <body>
+    <a class="hj-talk__skip-link" href="#talk-content">Skip to talk</a>
+    <div class="hj-talk" data-talk-root>
+      <header class="hj-talk__masthead">
+        <p class="hj-talk__kicker">Meetup talk · 10 minutes · English</p>
+        <div class="hj-talk__masthead-grid">
+          <div class="hj-talk__masthead-copy">
+            <p class="hj-talk__eyebrow">Hey Jarvis</p>
+            <h1>Beyond "It Works": How Hey Jarvis Became a Real Workflow</h1>
+            <p class="hj-talk__lede">
+              A voice demo became useful only after microphones, speakers, lock
+              screen behavior, and AI-assisted recovery loops were treated as
+              product boundaries instead of demo polish.
+            </p>
+          </div>
+          <figure class="hj-talk__hero">
+            <img
+              src="./assets/hey-jarvis-app-ui.png"
+              alt="Hey Jarvis app welcome screen showing the Ready state, voice-assistant headline, and Enable voice assistant button"
+              width="1634"
+              height="1206"
+            />
+          </figure>
+        </div>
+        <div class="hj-talk__controls" aria-label="Presentation controls">
+          <div class="hj-talk__mode-copy">
+            <p class="hj-talk__mode-title">Reading mode</p>
+            <p class="hj-talk__mode-text">
+              Scroll all six scenes as a normal web page.
+            </p>
+          </div>
+          <button
+            class="hj-talk__present-toggle"
+            type="button"
+            data-talk-toggle
+            aria-controls="talk-content"
+            aria-pressed="false"
+            hidden
+          >
+            Enter Present mode
+          </button>
+          <p class="hj-talk__noscript">
+            Present mode is optional. Reading mode works without JavaScript.
+          </p>
+        </div>
+      </header>
+
+      <main id="talk-content" class="hj-talk__content">
+        <ol class="hj-talk__scene-list" data-scene-list>
+          <li class="hj-talk__scene-item">
+            <section
+              id="scene-1"
+              class="hj-talk__scene hj-talk__scene--hero"
+              data-scene
+              tabindex="-1"
+              aria-labelledby="scene-1-title"
+            >
+              <div class="hj-talk__scene-shell">
+                <p class="hj-talk__scene-index">01 / The problem</p>
+                <h2 id="scene-1-title">
+                  A voice demo became useful only after it failed in the real
+                  world.
+                </h2>
+                <p>
+                  I wanted a genuinely hands-free Mac assistant: say "Hey
+                  Jarvis," ask a question, follow up, interrupt a long answer,
+                  say goodbye, and trust that it has returned to local wake
+                  listening, even when the Mac is locked.
+                </p>
+                <p>
+                  The first demo worked quickly. The daily workflow emerged only
+                  after microphones, speakers, lock screen behavior, and
+                  long-running lifecycle failures became part of the design.
+                </p>
+              </div>
+            </section>
+          </li>
+
+          <li class="hj-talk__scene-item">
+            <section
+              id="scene-2"
+              class="hj-talk__scene"
+              data-scene
+              tabindex="-1"
+              aria-labelledby="scene-2-title"
+            >
+              <div class="hj-talk__scene-shell">
+                <p class="hj-talk__scene-index">02 / The useful unit</p>
+                <h2 id="scene-2-title">One wake becomes a complete conversation.</h2>
+                <p class="hj-talk__lead">
+                  The useful unit is not one answer. It is one closed loop.
+                </p>
+                <ol class="hj-talk__step-list">
+                  <li>
+                    <strong>Wake</strong> - "Hey Jarvis" is detected locally,
+                    then a cached acknowledgement tells me it heard me.
+                  </li>
+                  <li>
+                    <strong>Talk</strong> - One Realtime session supports
+                    questions, follow-ups, local bounded tools, and natural
+                    interruption.
+                  </li>
+                  <li>
+                    <strong>Return</strong> - "Goodbye" closes remote media,
+                    releases the microphone, and restores local wake listening.
+                  </li>
+                </ol>
+                <p class="hj-talk__boundary">
+                  Before wake: local only · After wake: OpenAI Realtime · After
+                  goodbye: local again
+                </p>
+                <p class="hj-talk__action-row">
+                  <a href="https://www.youtube.com/watch?v=Cpv3dhFmS3M"
+                    >Watch the recorded English demo</a
+                  >
+                </p>
+              </div>
+            </section>
+          </li>
+
+          <li class="hj-talk__scene-item">
+            <section
+              id="scene-3"
+              class="hj-talk__scene"
+              data-scene
+              tabindex="-1"
+              aria-labelledby="scene-3-title"
+            >
+              <div class="hj-talk__scene-shell">
+                <p class="hj-talk__scene-index">03 / The architecture</p>
+                <h2 id="scene-3-title">
+                  The architecture is really a microphone handoff.
+                </h2>
+                <ol class="hj-talk__step-list">
+                  <li>
+                    Local Python/TFLite wake detection owns the microphone while
+                    waiting.
+                  </li>
+                  <li>
+                    After wake, Python releases the microphone and WKWebView
+                    reuses its warm media permission.
+                  </li>
+                  <li>
+                    WebRTC and OpenAI Realtime own the live conversation, tools,
+                    and interruption.
+                  </li>
+                  <li>
+                    Goodbye tears down remote media before local wake listening
+                    resumes.
+                  </li>
+                </ol>
+                <div class="hj-talk__callout-grid">
+                  <p>
+                    <strong>Rule 1</strong><br />
+                    Nothing leaves the Mac before wake, protecting privacy and
+                    avoiding idle Realtime cost.
+                  </p>
+                  <p>
+                    <strong>Rule 2</strong><br />
+                    Python and WKWebView never own live microphone capture at
+                    the same time.
+                  </p>
+                </div>
+              </div>
+            </section>
+          </li>
+
+          <li class="hj-talk__scene-item">
+            <section
+              id="scene-4"
+              class="hj-talk__scene"
+              data-scene
+              tabindex="-1"
+              aria-labelledby="scene-4-title"
+            >
+              <div class="hj-talk__scene-shell">
+                <p class="hj-talk__scene-index">04 / What failed</p>
+                <h2 id="scene-4-title">
+                  The bugs were not edge cases. They defined the product.
+                </h2>
+                <div class="hj-talk__failure-grid">
+                  <article class="hj-talk__failure-card">
+                    <h3>The acknowledgement heard itself.</h3>
+                    <p>
+                      Draining speaker audio removed the user's first words, so
+                      playback frames are consumed without triggering capture, a
+                      bounded pre-roll is kept, and sustained speech gates the
+                      restored question opening.
+                    </p>
+                  </article>
+                  <article class="hj-talk__failure-card">
+                    <h3>"I'm here" could arrive before Jarvis was ready.</h3>
+                    <p>
+                      Acknowledgement playback and Realtime initialization can
+                      race, so "I'm here" is emitted only after a two-condition
+                      readiness barrier confirms the acknowledgement can play and
+                      the live session is actually ready. The greeting became a
+                      verifiable system promise instead of hopeful polish.
+                    </p>
+                  </article>
+                  <article class="hj-talk__failure-card">
+                    <h3>Lock screen was not sleep.</h3>
+                    <p>
+                      Wake listening now holds only the bounded idle-sleep
+                      assertion it needs, keeps a disabled warm microphone
+                      track, stops safely for manual sleep or lid close, and
+                      attempts one bounded recovery after resume.
+                    </p>
+                  </article>
+                </div>
+                <p class="hj-talk__summary-labels">
+                  Audio boundary · Readiness barrier · Operating-system behavior
+                </p>
+              </div>
+            </section>
+          </li>
+
+          <li class="hj-talk__scene-item">
+            <section
+              id="scene-5"
+              class="hj-talk__scene"
+              data-scene
+              tabindex="-1"
+              aria-labelledby="scene-5-title"
+            >
+              <div class="hj-talk__scene-shell">
+                <p class="hj-talk__scene-index">05 / The workflow</p>
+                <h2 id="scene-5-title">
+                  AI accelerated the loop; evidence decided whether a change
+                  survived.
+                </h2>
+                <p class="hj-talk__workflow-line">
+                  Real-device failure -> SPEC boundary -> one verifiable feature
+                  -> Coding Agent -> automated tests and fake smoke ->
+                  cold-start Evaluator -> human audio/device judgment -> durable
+                  repository evidence
+                </p>
+                <div class="hj-talk__callout-grid">
+                  <p>
+                    AI is useful for reading historical code, constructing
+                    synthetic-audio regressions, expanding state-machine tests,
+                    adding diagnostics, checking protocols and timeouts, and
+                    resuming from repository state.
+                  </p>
+                  <p>
+                    Humans still judge whether an acknowledgement sounds
+                    natural, whether interruption works in a real room, whether
+                    lock-screen behavior is genuinely usable, when failure
+                    should close conservatively, and whether added complexity
+                    earns its place.
+                  </p>
+                </div>
+                <p class="hj-talk__key-line">
+                  AI speeds up hypothesis -> implementation -> test. Real
+                  microphones, speakers, and human hearing remain the final
+                  oracle.
+                </p>
+              </div>
+            </section>
+          </li>
+
+          <li class="hj-talk__scene-item">
+            <section
+              id="scene-6"
+              class="hj-talk__scene"
+              data-scene
+              tabindex="-1"
+              aria-labelledby="scene-6-title"
+            >
+              <div class="hj-talk__scene-shell">
+                <p class="hj-talk__scene-index">06 / The takeaway</p>
+                <h2 id="scene-6-title">
+                  Do not scale the demo. First make failure observable.
+                </h2>
+                <p>
+                  Save each real failure as a regression and durable piece of
+                  evidence. AI's highest value is not the first generation; it
+                  is helping the team repeatedly correct a bounded system
+                  without losing context.
+                </p>
+                <p class="hj-talk__closing-question">
+                  In your AI workflow, which outcomes can be evaluated
+                  automatically, and which still require human judgment?
+                </p>
+                <section class="hj-talk__resources" aria-labelledby="resources-title">
+                  <h3 id="resources-title">Public links and product boundaries</h3>
+                  <ul>
+                    <li><a href="https://github.com/yanqian/hey-jarvis">Source repository</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=Cpv3dhFmS3M">Recorded English demo</a></li>
+                    <li>
+                      <a href="https://github.com/yanqian/hey-jarvis/releases/tag/v0.1.0-internal"
+                        >Internal evaluation build v0.1.0-internal</a
+                      >
+                    </li>
+                    <li><a href="/posts/publish/building-hey-jarvis/">Building Hey Jarvis</a></li>
+                    <li>
+                      <a href="/posts/publish/building-hey-jarvis-voice-interaction/"
+                        >Building Hey Jarvis Voice Interaction</a
+                      >
+                    </li>
+                    <li>
+                      <a href="/posts/publish/building-hey-jarvis-mac-product/"
+                        >Building Hey Jarvis as a Mac Product</a
+                      >
+                    </li>
+                    <li>
+                      <a href="/posts/publish/building-hey-jarvis-future/"
+                        >Building Hey Jarvis Future Work</a
+                      >
+                    </li>
+                  </ul>
+                  <p class="hj-talk__boundary-note">
+                    The public evaluation build is for Apple Silicon Macs on
+                    macOS 14 or later, is unsigned and not notarized, requires
+                    your own OpenAI API key, and is not a general consumer
+                    release.
+                  </p>
+                </section>
+              </div>
+            </section>
+          </li>
+        </ol>
+      </main>
+
+      <div
+        class="hj-talk__present-shell"
+        data-present-shell
+        hidden
+        aria-live="polite"
+      >
+        <div class="hj-talk__present-bar">
+          <p class="hj-talk__present-label">Present mode</p>
+          <p class="hj-talk__progress" data-talk-progress>Scene 1 of 6</p>
+          <div class="hj-talk__present-actions">
+            <button type="button" data-prev-scene aria-label="Previous scene">
+              Previous
+            </button>
+            <button type="button" data-next-scene aria-label="Next scene">
+              Next
+            </button>
+            <button type="button" data-exit-present aria-label="Exit present mode">
+              Exit
+            </button>
+          </div>
+        </div>
+        <p class="hj-talk__present-help">
+          Use Arrow keys, Page Up/Page Down, Home, End, or Space. Press Escape
+          to exit.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

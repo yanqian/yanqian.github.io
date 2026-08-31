@@ -22,7 +22,7 @@ Hey Jarvis 是一个本地优先、自带 API Key 的 macOS 语音助手。它�
 - 使用 macOS 钥匙串管理凭据，并提供麦克风权限恢复、睡眠与唤醒恢复以及隐私边界清晰的诊断信息。
 - 提供面向 macOS 14 或更高版本 Apple Silicon Mac 的公开 `v0.1.0-internal` 评估构建。该版本未经签名和公证，需要用户自己的 OpenAI API Key，并非面向普通消费者的正式版本。
 
-[GitHub](https://github.com/yanqian/hey-jarvis) · [中文演示](https://www.youtube.com/watch?v=PDHQiYzFAXQ&t=9s) · [v0.1.0 内部构建](https://github.com/yanqian/hey-jarvis/releases/tag/v0.1.0-internal)
+[GitHub](https://github.com/yanqian/hey-jarvis) · [中文演示](https://www.youtube.com/watch?v=PDHQiYzFAXQ&t=9s) · [英文 Meetup 分享](/talks/hey-jarvis/) · [v0.1.0 内部构建](https://github.com/yanqian/hey-jarvis/releases/tag/v0.1.0-internal)
 
 ### VisaPilot
 

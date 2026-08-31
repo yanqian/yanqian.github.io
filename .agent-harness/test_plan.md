@@ -43,6 +43,8 @@ python3 -m py_compile orchestrator.py
 | Multilingual site shell | Tests assert English root URLs remain stable, Chinese output is generated under `/zh/`, interface strings and menus are localized, language switches use paired translations or language-home fallbacks, and alternate-language metadata is rendered. |
 | Localized top-level pages | Per-page tests assert English facts and URLs remain intact, Chinese pages render under `/zh/`, paired language switches target the corresponding page, and page-specific shared template copy is localized. |
 | Now song reveal | Tests assert both Now pages preserve the two song links inside a progressively enhanced sticker reveal, load the dependency-free script only when flagged, support pointer/touch and keyboard reveal, keep a full reveal uncovered until refresh, avoid persistence APIs, respect reduced motion, and use theme tokens. |
+| Standalone Hey Jarvis talk | Tests assert the static HTML contains six semantic scenes and authentic links/assets, Reading mode is the no-JavaScript/mobile fallback, Present mode exposes fullscreen and keyboard controls without persistence, and Hugo copies the route to `/talks/hey-jarvis/`. |
+| Hey Jarvis talk discovery | Tests assert the English and Chinese Projects pages link to the standalone route with language-appropriate labels while preserving their existing project, demo, and internal-release links. |
 | Obsidian localization publisher | Node tests assert fenced code is excluded from heading parsing, technical headings remain valid, shared terminology rejects known literal variants in prose and `text` fences while ignoring protected non-`text` code, regeneration preserves an existing English publication date with Chinese fallback and a new-article fallback, long Markdown splits at section boundaries, protected code remains intact, completed chunks resume idempotently, live locks reject duplicate runs, AI calls time out, the launcher uses command IDs with startup proof, and local vault artifacts and manifest hashes match the canonical runtime, six prompts, and terminology file when available. |
 | Hugo rendering | `init.sh` runs a production-style Hugo build and requires `public/index.html`. |
 | Deployment parity | GitHub Actions runs unittest discovery before the Pages build. |
@@ -59,6 +61,7 @@ Manual verification is required for layout or navigation changes:
 5. Confirm no text overlap, broken navigation, missing CSS, or missing article assets.
 6. Switch between English and Chinese from the homepage, an untranslated article, and any paired fixture page; confirm paired pages are preferred and fallback links go to the other language homepage.
 7. On both Now pages, partially peel the song sticker and confirm it returns; peel right, left, down, and up past the threshold and confirm departure ends in the matching direction and stays gone; refresh and confirm it returns; use Enter or Space; and check desktop/mobile light/dark layouts.
+8. Open `/talks/hey-jarvis/` at desktop and mobile widths, scroll Reading mode, enter Present mode, navigate all six scenes with keyboard controls, exit with Escape, and confirm contrast, focus, scene sizing, no clipping, and no horizontal overflow; then follow the link from both Projects languages.
 
 For workflow changes, also run:
 

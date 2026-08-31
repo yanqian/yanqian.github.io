@@ -54,11 +54,11 @@ Implemented behavior:
 
 ## Last Completed Feature
 
-`F025` - Replace Home Guard TG with Hey Jarvis on the bilingual Projects page.
+`F030` - Refine the Hey Jarvis talk with the real app UI and site palette.
 
 ## Next Feature
 
-`F024` - Cover the two songs on the bilingual Now page with a peel-to-reveal sticker that stays removed until refresh.
+No additional planned feature remains.
 
 ## Known Issues
 
@@ -77,6 +77,37 @@ Implemented behavior:
 - `F025` was implemented through the documented manual fallback before the provider repair and passed the repaired provider's independent cold-start evaluator.
 - The English and Chinese Projects pages replace Home Guard TG with Hey Jarvis as the first selected project while preserving the relative order of the other projects.
 - Hey Jarvis exposes GitHub and `v0.1.0-internal` release links in both languages, plus only the matching-language demo; the article and cross-language demo links are intentionally omitted.
+- On 2026-08-31, a manual Coding Agent prompt targeted `F025` after the feature had already landed; no Projects-page content changed, and the canonical `feature_list.json` entry was repaired from stray `in_progress` drift back to `done` after verification.
+- The uncommitted Markdown-driven Hey Jarvis Talk plan and implementation (`F026`/`F027`) were rejected during human review and withdrawn before a replacement requirement was planned.
+- The replacement requirement keeps all Talk source and assets under `static/talks/hey-jarvis/`; the temporary Obsidian Talk note, copied asset, and Publish projection were removed so the vault retains no webpage content.
+- The first F028 orchestrator run was interrupted before it produced implementation files so this source-of-truth boundary could be corrected; F028 returned to `todo` with its attempt history preserved.
+- `F028` owns the standalone six-scene HTML/CSS/JavaScript presentation and its verification; dependent `F029` adds language-appropriate links from the bilingual Projects pages.
+- `F028` now has a repository-owned standalone talk bundle under `static/talks/hey-jarvis/` with six semantic scenes, authentic header artwork, normal Reading mode, and dependency-free Present mode controls with fullscreen enhancement and keyboard navigation.
+- `F028` Present mode now hides the Reading masthead, restores the reader's scroll position on exit, and constrains the active scene to a dedicated presentation viewport with internal overflow protection.
+- `F028` source and build verification pass after the Present-mode layout fix: 67 Python tests, 19 publisher tests, `git diff --check`, and the production Hugo build; the copied talk route and asset remain present in build output.
+- Post-fix browser evaluation confirms desktop Present mode now fits all six scenes at 1440×900 with no horizontal overflow; Home, ArrowRight, and Escape behave correctly. Mobile Reading mode at 390×844 also has no horizontal overflow.
+- On 2026-08-31, `F028` split the mobile Reading-mode and Present-mode button rules so the Present controls use a compact three-button row at `<=640px`; targeted talk tests, `git diff --check`, and `./init.sh` all pass after the fix.
+- `F028` still awaits final desktop/mobile browser reevaluation and independent evaluator pass because this session has no callable local browser driver (`node -p "require.resolve('playwright')"` failed) and no browser-control tool was available for localhost verification.
+- Root-agent browser reevaluation found that compact mobile buttons alone are insufficient: the Present DOM places content before controls, but the grid rows are declared `auto minmax(0, 1fr)`. The scene therefore consumes the auto row and compresses the control row; at 390×844 the buttons still sit around y=882…927. F028 must swap the rows to `minmax(0, 1fr) auto` before final verification.
+- On 2026-08-31, `F028` swapped the Present root grid rows to `minmax(0, 1fr) auto` so the content-first DOM order keeps the active scene flexible and the mobile control shell intrinsic. Targeted talk tests, `git diff --check`, and `./init.sh` all passed again after the fix.
+- `F028` remains in progress until a fresh desktop/mobile browser reevaluation confirms the repaired mobile Present layout and a separate evaluator records `EVAL_PASS: F028`.
+- Browser reevaluation after the grid-row swap confirms the control shell and all three buttons now fit inside 390×844, but dense scenes 4–6 still expand past the viewport because the Present root has only `min-height: 100vh`. F028 must use a definite `height: 100vh`/`min-height: 0` so the first grid row is bounded and long scene content scrolls internally.
+- On 2026-08-31, `F028` replaced the Present root's indefinite `min-height: 100vh` with a definite `height: 100vh` plus `min-height: 0`, so dense scenes 4–6 stay inside the presentation viewport and scroll within the active scene shell. Targeted talk tests, `git diff --check`, and `./init.sh` all passed again after the fix.
+- Root-agent browser verification shows the root height is now bounded but the nested content/list/item/scene chain still expands its minimum content size. Dense scenes 4–6 remain taller than the first grid row and do not scroll internally. F028 must apply `min-height: 0` and hidden overflow along the chain, then give the scene shell `height: 100%; min-height: 0; overflow: auto`.
+- On 2026-08-31, `F028` applied the nested Present overflow containment chain in `talk.css`: the content, scene list, scene item, and scene now clamp overflow while the active scene shell owns `height: 100%`, `min-height: 0`, and `overflow: auto`. Targeted talk tests, `git diff --check`, and `./init.sh` all passed again after the fix.
+- The scheduler selected lower-attempt F029 ahead of resumed F028; that run was interrupted before implementation. F029 is dependency-blocked until F028 passes, preventing Projects links from pointing at an unaccepted presentation.
+- The installed Harness `0.3.8` does not expose the newer documented `--render-prompt plan` option; planning followed the canonical local spec-normalization and feature-decomposition documents directly, and implementation remains orchestrator-first.
+- `F028` still awaits fresh desktop/mobile browser reevaluation of the nested-overflow fix and a separate evaluator pass; this coding session did not have a callable local browser driver or browser-control tool for localhost verification.
+- Root-agent browser verification now confirms the nested overflow fix: at 390×844 every scene stays at y=12…650, controls remain at y=666…832, document width equals viewport width, and dense scenes scroll internally. Desktop verification also keeps all scenes and controls inside the viewport. One final visual defect remains: progress, help, and Exit inherit dark text on the dark Present shell and need explicit high-contrast colors.
+- On 2026-08-31, `F028` assigned explicit Present-mode dark-shell contrast colors for progress, help, and Exit, and added a CSS contract test for those tokens. `python3 -m unittest tests.test_hey_jarvis_talk`, `git diff --check`, and `./init.sh` all pass after the fix.
+- The final post-contrast browser reevaluation in `.agent-harness/runs/20260831-F028-browser-eval.md` confirms desktop and mobile Reading/Present behavior, keyboard controls, dark-shell contrast, and no clipping or horizontal overflow across all six scenes.
+- On 2026-08-31, an independent Evaluator Agent accepted `F028` and recorded `EVAL_PASS: F028`; dependent `F029` is now unblocked as the next feature.
+- On 2026-08-31, a manual Coding Agent fallback implemented `F029` from the project root by adding `/talks/hey-jarvis/` discovery links to both Projects pages, extending Projects-page tests to cover source and rendered output, and rerunning `git diff --check` plus `./init.sh`; `F029` now awaits independent evaluator evidence before it can be marked done.
+- On 2026-08-31, an independent Evaluator Agent accepted `F029` after verifying the bilingual Projects links, preserved Hey Jarvis copy, rendered `/projects/` and `/zh/projects/` output, and the standalone `/talks/hey-jarvis/` destination; durable evidence is recorded in `.agent-harness/runs/20260831T153000Z-F029-eval-pass.md`.
+- On 2026-08-31, user review requested `F030`: replace the abstract hero with the supplied real app screenshot, correct scene 4's second failure to the acknowledgement/Realtime two-condition readiness barrier, and align the standalone light/dark palette and typography with the main site before another browser evaluation.
+- Root-agent browser verification for `F030` now passes: the screenshot preserves its natural ratio without crop or blank panel, the background is the site's flat surface, desktop/mobile Reading have no horizontal overflow, all six Present scenes and controls stay within their viewports, focus/Escape work, and durable evidence is recorded in `.agent-harness/runs/20260831-F030-browser-eval.md`.
+- On 2026-08-31, a manual Coding Agent fallback implemented the `F030` talk revision in repository-owned source: the standalone hero now references the supplied real app screenshot, scene 4's second failure now describes the acknowledgement/Realtime two-condition readiness barrier, and the standalone CSS now reuses the site's light/dark palette and system-sans typography. `python3 -m unittest tests.test_hey_jarvis_talk`, `git diff --check`, and `./init.sh` all pass.
+- On 2026-08-31, an independent Evaluator Agent accepted `F030` after verifying the normalized one-feature scope, repository-owned screenshot asset, corrected readiness-barrier copy, site-aligned palette/typography tokens, passing static/build tests, durable browser PASS evidence, and the continued absence of copied talk assets in the Vault; durable evidence is recorded in `.agent-harness/runs/20260831T160500Z-F030-eval-pass.md`.
 
 ## Recovery Notes
 
