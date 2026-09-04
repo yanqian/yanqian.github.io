@@ -22,7 +22,7 @@ tags:
 
 ![Neko Master 的规则流量分布与 Rule Chain Flow 页面](assets/openwrt-mihomo-vps-proxy-mental-model/01-neko-master-rule-chain.zh.png)
 
-*图 1：原作者分享的 Neko Master 规则流量与 Rule Chain Flow 页面。*
+*图 1：原作者分享的 Neko Master 规则流量与 Rule Chain Flow 页面。来源：[@abskoop 发布的网络结构 X 原帖](https://x.com/abskoop/status/2095694206903652783?s=20)。*
 
 图里有 Apple 服务、YouTube、GitHub，也有美国节点、日本节点、漏网之鱼，以及一排名字各异的代理服务器。乍一看，它像是一套复杂的家庭网络；但真正让我感兴趣的，不是作者买了哪台服务器，而是图里这些名词究竟是什么关系：
 
@@ -272,6 +272,7 @@ Neko Master 本身不提供海外线路，也不承担代理转发。它更像�
 
 ## 参考资料
 
+- [@abskoop：Neko Master 与网络结构截图（X 原帖）](https://x.com/abskoop/status/2095694206903652783?s=20)
 - [@abskoop：家庭网络结构与代理分流配置（X 原帖）](https://x.com/abskoop/status/2095711701609951477?s=20)
 - [OpenWrt 文档：Dnsmasq DHCP server](https://openwrt.org/docs/guide-user/base-system/dhcp.dnsmasq)
 - [OpenClash 官方项目](https://github.com/vernesong/OpenClash)
