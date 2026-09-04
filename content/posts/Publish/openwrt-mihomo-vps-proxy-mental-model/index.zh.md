@@ -20,7 +20,7 @@ tags:
 
 我最近在 X 上看到一张家庭网络拓扑图。
 
-![Neko Master 的规则流量分布与 Rule Chain Flow 页面](assets/openwrt-mihomo-vps-proxy-mental-model/01-neko-master-rule-chain.png)
+![Neko Master 的规则流量分布与 Rule Chain Flow 页面](assets/openwrt-mihomo-vps-proxy-mental-model/01-neko-master-rule-chain.zh.png)
 
 *图 1：原作者分享的 Neko Master 规则流量与 Rule Chain Flow 页面。*
 
@@ -38,7 +38,7 @@ tags:
 
 作者还发布了一张自己的家庭网络结构图，补充说明了这些组件在真实环境中的部署方式：
 
-![原作者使用 OpenWrt、Neko Master、OpenClash 与 Shadowrocket 的家庭网络结构](assets/openwrt-mihomo-vps-proxy-mental-model/02-author-home-network-topology.png)
+![原作者使用 OpenWrt、Neko Master、OpenClash 与 Shadowrocket 的家庭网络结构](assets/openwrt-mihomo-vps-proxy-mental-model/02-author-home-network-topology.zh.png)
 
 *图 2：原作者的家庭网络结构。iPhone 和 Mac 使用 Shadowrocket 分流，其他设备可由 OpenClash 统一处理。来源：[@abskoop 发布的 X 原帖](https://x.com/abskoop/status/2095711701609951477?s=20)。*
 
