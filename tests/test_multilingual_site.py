@@ -20,6 +20,7 @@ EN_PROJECTS = (ROOT / "content/projects.md").read_text()
 ZH_PROJECTS = (ROOT / "content/projects.zh.md").read_text()
 EN_RESUME = (ROOT / "content/resume.md").read_text()
 ZH_RESUME = (ROOT / "content/resume.zh.md").read_text()
+IMAGE_RENDER_HOOK = (ROOT / "layouts/_markup/render-image.html").read_text()
 
 
 class MultilingualSiteTest(unittest.TestCase):
@@ -133,6 +134,21 @@ class MultilingualSiteTest(unittest.TestCase):
         self.assertIn('href="/zh/posts/publish/', chinese)
         self.assertNotIn("暂无中文文章。", chinese)
         self.assertNotIn("deprecated", self.build_output.lower())
+
+    def test_chinese_only_article_publishes_local_page_resources(self):
+        article_dir = Path(
+            "zh/posts/publish/openwrt-mihomo-vps-proxy-mental-model"
+        )
+        html = self.read_output(article_dir / "index.html")
+        image_paths = [
+            "assets/openwrt-mihomo-vps-proxy-mental-model/01-neko-master-rule-chain.zh.png",
+            "assets/openwrt-mihomo-vps-proxy-mental-model/02-author-home-network-topology.zh.png",
+        ]
+
+        self.assertIn(".Page.Resources.GetMatch", IMAGE_RENDER_HOOK)
+        for image_path in image_paths:
+            self.assertTrue((self.public_dir / article_dir / image_path).is_file())
+            self.assertIn(f'src="/{article_dir}/{image_path}"', html)
 
     def test_language_switch_uses_fallback_and_paired_translation(self):
         english_home = self.read_output("index.html")
