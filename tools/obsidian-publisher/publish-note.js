@@ -27,6 +27,14 @@ module.exports = async (params) => {
     return;
   }
 
+  let publishLanguages;
+  try {
+    publishLanguages = resolvePublishLanguages(content);
+  } catch (error) {
+    new Notice(`Publish Note failed: ${errorMessage(error)}`);
+    return;
+  }
+
   if (!quickAddApi?.ai?.prompt) {
     new Notice("Publish Note failed: QuickAdd AI is unavailable.");
     return;
@@ -195,16 +203,19 @@ module.exports = async (params) => {
   try {
     await ensureFolder(app, targetDir);
     await copyReferencedAssets(app, activeFile, content, targetDir);
-    await upsertFile(
-      app,
-      `${targetDir}/index.md`,
-      buildPublishContent(documents.en, sharedMetadata, "en"),
-    );
-    await upsertFile(
-      app,
-      `${targetDir}/index.zh.md`,
-      buildPublishContent(documents.zh, sharedMetadata, "zh"),
-    );
+    const languageFiles = { en: "index.md", zh: "index.zh.md" };
+    for (const language of SUPPORTED_LANGUAGES) {
+      const outputPath = `${targetDir}/${languageFiles[language]}`;
+      if (publishLanguages.includes(language)) {
+        await upsertFile(
+          app,
+          outputPath,
+          buildPublishContent(documents[language], sharedMetadata, language),
+        );
+      } else {
+        await deleteFileIfExists(app, outputPath);
+      }
+    }
   } catch (error) {
     console.error("Publish Note write failed", error);
     const failed = { ...run, status: "failed", stage: "write", error: errorMessage(error), updatedAt: new Date().toISOString() };
@@ -219,7 +230,7 @@ module.exports = async (params) => {
   await writeRunStatus(app, statusPath, complete);
   await writeRunStatus(app, `${STATUS_DIR}/current.json`, complete);
   await releaseRunLock(app, lockPath, runId);
-  new Notice(`Published English and Chinese: ${targetDir}`);
+  new Notice(`Published ${publishLanguages.map(languageLabel).join(" and ")}: ${targetDir}`);
 };
 
 function buildSourceDocument(activeFile, content) {
@@ -1129,6 +1140,16 @@ function normalizeLanguage(value) {
   return SUPPORTED_LANGUAGES.has(normalized) ? normalized : null;
 }
 
+function resolvePublishLanguages(content) {
+  const configured = getFrontmatterList(content, "publishLanguages");
+  if (!configured.length) return [...SUPPORTED_LANGUAGES];
+  const normalized = configured.map(normalizeLanguage);
+  if (normalized.some((language) => !language)) {
+    throw new Error("publishLanguages supports only en and zh.");
+  }
+  return uniqueList(normalized);
+}
+
 function languageLabel(language) {
   return language === "zh" ? "Simplified Chinese" : "English";
 }
@@ -1141,6 +1162,11 @@ async function upsertFile(app, path, content) {
   const existing = app.vault.getAbstractFileByPath(path);
   if (existing) await app.vault.modify(existing, content);
   else await app.vault.create(path, content);
+}
+
+async function deleteFileIfExists(app, path) {
+  const existing = app.vault.getAbstractFileByPath(path);
+  if (existing && "extension" in existing) await app.vault.delete(existing);
 }
 
 function escapeRegExp(str) {
@@ -1304,6 +1330,7 @@ module.exports.__test = {
   restoreWikilinkTargets,
   restoreLocalizedTitleAndHeadings,
   resolvePublishDate,
+  resolvePublishLanguages,
   resolveWikilinkSlugs,
   stripObsidianComments,
   splitMarkdownForLocalization,

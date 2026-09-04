@@ -138,6 +138,15 @@ test("regeneration preserves an existing publication date with bilingual fallbac
   assert.equal(await runtime.resolvePublishDate(appFor({}), targetDir, fallback), fallback);
 });
 
+test("publish languages default to both and may be restricted per note", () => {
+  assert.deepEqual(runtime.resolvePublishLanguages("---\ntitle: Example\n---\n"), ["en", "zh"]);
+  assert.deepEqual(runtime.resolvePublishLanguages("---\npublishLanguages:\n  - zh\n---\n"), ["zh"]);
+  assert.throws(
+    () => runtime.resolvePublishLanguages("---\npublishLanguages: [fr]\n---\n"),
+    /supports only en and zh/,
+  );
+});
+
 test("long Markdown splits only at level-two section boundaries", () => {
   const fixture = fs.readFileSync(path.join(TOOL_DIR, "fixtures/long-technical-article.md"), "utf8");
   const longMarkdown = Array.from({ length: 30 }, (_, index) => fixture.replace(/^## /gm, `## ${index + 1} `)).join("\n\n");

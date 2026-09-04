@@ -19,3 +19,10 @@ Do not hand-edit the installed runtime, prompt files, or terminology file. Chang
 ```sh
 tools/obsidian-publisher/bin/publish-note install
 ```
+
+By default, `Publish Note` creates both English and Simplified Chinese pages. A source note can opt into a subset with frontmatter such as:
+
+```yaml
+publishLanguages:
+  - zh
+```
